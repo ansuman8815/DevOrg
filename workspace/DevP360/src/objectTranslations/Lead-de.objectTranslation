@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Care Coordinator Contact --></label>
+        <name>HealthCloudGA__AssignCareCoordinatorContact__c</name>
+        <relationshipLabel><!-- Leads --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Care Coordinator User --></label>
+        <name>HealthCloudGA__AssignCareCoordinatorUser__c</name>
+        <relationshipLabel><!-- Leads --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Birth Date --></label>
+        <name>HealthCloudGA__BirthDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created from Lead --></label>
+        <name>HealthCloudGA__CreatedFromLead__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsMarkedForPatientConversion --></label>
+        <name>HealthCloudGA__IsMarkedForPatientConversion__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical Record Number --></label>
+        <name>HealthCloudGA__MedicalRecordNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source System ID --></label>
+        <name>HealthCloudGA__SourceSystemId__c</name>
+    </fields>
+    <fields>
+        <help>Identifiziert das System, das die Akte erstellt hat und Aktualisierungsrechte dafür besitzt. Bei manuell erstellten Datensätzen lautet der Standardwert &quot;Health1&quot;.</help>
+        <label><!-- Source System --></label>
+        <name>HealthCloudGA__SourceSystem__c</name>
+    </fields>
+    <recordTypes>
+        <label><!-- Patient --></label>
+        <name>Patient</name>
+    </recordTypes>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Convert_Leads --></label>
+        <name>HealthCloudGA__Convert_Leads</name>
+    </webLinks>
+</CustomObjectTranslation>

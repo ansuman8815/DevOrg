@@ -1,0 +1,17 @@
+.THIS {
+}
+.THIS.Headercss{
+    font-family: Salesforce Sans Bold;
+    font-size: 16pt;
+    color: #2f3537;
+}
+.THIS.Paracss{
+    font-family: Salesforce Sans Regular;
+    font-size: 14pt;
+    color: #707f8a;
+}
+.THIS.linkcss{
+    font-family: Salesforce Sans Bold;
+    font-size: 14pt;
+    color: #3c91c7;
+}

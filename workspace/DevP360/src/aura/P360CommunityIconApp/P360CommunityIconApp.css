@@ -1,0 +1,11 @@
+.THIS {
+}
+.THIS .IconStyle{
+    height: 10px;
+    width: 10px;
+    fill: grey;
+}
+.THIS .button{
+    border:none;
+    background-color:transparent;
+}

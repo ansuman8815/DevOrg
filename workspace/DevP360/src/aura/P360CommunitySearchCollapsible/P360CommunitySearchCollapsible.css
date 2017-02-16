@@ -1,0 +1,198 @@
+.THIS {
+}
+.THIS div.divCss{
+    border-radius:3pt;
+    margin-bottom: 20px;    
+    margin-left:20px;
+    margin-right:20px;
+}
+.THIS .mt80{
+    margin-top:80px;
+}
+.THIS div.Labels{
+    color: #9aa6af;
+    width: 200px;
+    margin-left:20px;
+    margin-bottom: 20px; 
+    border-radius:3pt;
+    /*font-family:Salesforce Sans Regular;*/
+    font-weight: normal;
+    font-size:10pt;
+}
+.THIS .w350{
+    width:500px;
+}
+
+.THIS div.Labels2Column{
+    color: #9aa6af;
+    float:left;
+    /*background-color:white;*/
+    width: 160px;
+    /*margin-top:20px;
+    margin-left:20px;
+    position:relative;
+    top:20px;*/
+    margin-left:20px;
+    border-radius:3pt;
+    font-family:sans-serif;
+    font-size:10pt;
+}
+.THIS .Inputs{
+    border: none;
+    width: 310px;
+    padding:0 10px;
+    height: 40px;
+    border-radius:3pt;
+    color:#2f3537;
+    /*font-family:Salesforce Sans Regular;*/
+    font-weight: normal;
+    font-size:14pt;
+}
+
+.THIS .Inputs2Column{
+    border: none;
+    width: 145px;
+    padding:0 10px;
+    height:40px !important;
+    border-radius:3pt;
+    color:#2f3537;
+    font-family: sans-serif;
+    font-size:14pt;
+}
+.THIS .InputCIN{
+    height: 40px;
+    color:#2f3537;
+    font-family: sans-serif;
+    font-size:14pt;
+}
+.THIS .ButtonSearch{
+    width: 150px;
+    background-color:#3c91c7;  
+    border:none;
+    font-family:sans-serif;
+    font-size:16pt;
+    font-weight:bold;
+    color: #ffffff;
+    height: 30px;
+}
+.THIS .ButtonCancel{
+    width: 150px;
+    background-color:#d3dce2;
+    color:#707f8a;
+    font-family:sans-serif;
+    font-size:16pt;
+    font-weight:bold;
+    border:none;
+    height: 30px;
+}
+.THIS .ButtonSearchLabel{
+    color:white;
+    font-weight:bold;    
+}
+.THIS .ButtonCancelLabel{
+    color:black;
+    font-weight:bold;
+}
+.THIS input:focus, .THIS select:focus, .THIS textarea:focus, .THIS button:focus{
+    outline: none;
+}
+.THIS input.Inputs:focus::-webkit-input-placeholder{
+    margin-top:-10px;
+}
+
+.THIS input.Inputs:focus:-moz-placeholder{
+    margin-top:-10px;
+}
+
+.THIS input.Inputs:focus::-moz-placeholder{
+    margin-top:-10px;
+}
+
+.THIS input.Inputs:focus:-ms-input-placeholder{
+    margin-top:-10px;
+}
+.THIS input.Inputs::-webkit-input-placeholder {
+    color: #CCCCCC;
+    position:relative;
+    padding-left:0;
+    -webkit-transition: padding 0.5s;
+    /* For Safari 3.1 to 6.0 */
+    transition: padding 0.5s;
+}
+.THIS input.Inputs:-moz-placeholder {
+    /* Firefox 18- */
+    color: #CCCCCC;
+    position:relative;
+    padding-left:0;
+    -moz-transition: padding 0.5s;
+    /* For Safari 3.1 to 6.0 */
+    transition: padding 0.5s;
+}
+.THIS input.Inputs::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #CCCCCC;
+    position:relative;
+    padding-left:0;
+    -moz-transition: padding 0.5s;
+    /* For Safari 3.1 to 6.0 */
+    transition: padding 0.5s;
+}
+.THIS input.Inputs:-ms-input-placeholder {
+    color: #CCCCCC;
+    position:relative;
+    padding-left:0;
+    -ms-transition: padding 0.5s;
+    /* For Safari 3.1 to 6.0 */
+    transition: padding 0.5s;
+}
+.THIS .Labelcss{
+    color:#fff;
+    /*font-family: Salesforce Sans Bold;*/
+    font-weight: bold;
+    font-size: 20pt;
+    padding:10px 0 20px 20px;
+}
+.THIS.PatientSearch{
+    background-color:#004b7b; width:100%; height:355px; padding-bottom:50px; border-radius:5pt;
+}
+
+.THIS.PatientSearchCollapse{
+    background-color:#eff3f5; width:100%; height:30px; padding-bottom:20px; border-radius:5pt;
+}
+
+.THIS div.Message {
+    color: #FFFFFF;
+    font-weight : bold;
+    background-color: #000000;
+    width : 95% ;
+    padding : 25px;
+    margin : 10px auto 10px auto ;
+    border-radius: 5px;
+}
+
+.THIS div.container {
+    margin: 0px 20px 0px 40px;
+}
+
+.THIS div.expandCollapse{
+    cursor : pointer;
+    width:10%;
+    float:right ;
+}
+.THIS div.show{
+    display:block;
+    background-color:#004b7b;
+}
+.THIS div.hide{
+    display:none !important;
+}
+
+.THIS div.showcollapse{
+    background-color:#004b7b;
+    padding-top:20px;
+}
+
+.THIS div.hide1{
+    background-color:#004b7b;
+    display:none !important;
+ }

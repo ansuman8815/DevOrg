@@ -1,0 +1,150 @@
+<apex:page controller="clinicalSummaryController" title="title" sidebar="false" showHeader="false">
+    
+    <apex:includeScript value="/lightning/lightning.out.js" />
+    <apex:includeScript value="/support/console/38.0/integration.js"/>
+    
+    
+   <!-- <apex:form style="text-align:center; font-size:14px; margin-top:20px;font-weight: bold">
+      <apex:selectList size="1" value="{!selectedOption}" > 
+          <apex:actionSupport event="onchange" action="{!showContent}"/>
+          <apex:selectOptions value="{!dynamiclist}"></apex:selectOptions>
+          
+      </apex:selectList>
+  </apex:form>-->
+    
+    <div id="dropdownDiv"/>
+    
+    <!--<div id="allergyDiv" style="display:{!if(showAllergy,"block","none")};"/>
+    <div id="problemDiv" style="display:{!if(showProblem,"block","none")};"/>
+    <div id="medicalDiv" style="display:{!if(showMedical,"block","none")};"/>
+    <div id="medicationDiv" style="display:{!if(showMedication,"block","none")};"/>
+    <div id="immunizationDiv" style="display:{!if(showImmunization,"block","none")};"/>
+    <div id="surgDiv" style="display:{!if(showSurg,"block","none")};"/>-->
+    
+    <div id="allergyDiv" />
+    <!--<div id="problemDiv" />
+    <div id="medicalDiv" />
+    <div id="medicationDiv" />
+    <div id="immunizationDiv" />
+    <div id="surgDiv"/>-->
+
+    <script>
+        var patientId = "{!$CurrentPage.parameters.recId}";
+        console.log(patientId);
+        var recordLimit = "{!rLimit}";
+        var lstFieldLabel;
+    
+    //DropDown
+      $Lightning.use("c:EHRClinicalSummaryApp", function() {
+          $Lightning.createComponent(
+              "c:ClinicalSummaryMain",
+              {
+              },
+              "dropdownDiv"
+          );
+        });
+        
+        //Allergy
+        $Lightning.use("c:EHRClinicalSummaryApp", function() {
+          $Lightning.createComponent(
+              "c:dynamicRelatedList",
+              {"strQuery" : 'SELECT HealthCloudGA__Reaction255__c ,HealthCloudGA__StatusLabel__c,HealthCloudGA__CriticalityLabel__c, HealthCloudGA__SourceSystem__c, Source_System_MRN__c FROM HealthCloudGA__EhrAllergyIntolerance__c ',
+               "whereQuery" : ' WHERE HealthCloudGA__Account__c = :patientId ',
+               "lstFieldLabel" : ["Allergen" , "Status", "Criticality Label" , "Source System", "Source System MRN"],
+               "patientId" : patientId,
+               "recordLimit" : recordLimit,
+               "headerLabel" : 'Allergies',
+               "pageName" : 'Allergy',
+               "lstFielddatatype" : ["String" , "String", "String" , "String", "String"]
+              },
+              "allergyDiv"
+          );
+        });
+        
+     /*   //Problem List
+        $Lightning.use("c:EHRClinicalSummaryApp", function() {
+          $Lightning.createComponent(
+              "c:dynamicRelatedList",
+              {"strQuery" : 'SELECT HealthCloudGA__CodeLabel__c, HealthCloudGA__Code__c, HealthCloudGA__DateAsserted__c, HealthCloudGA__AbatementDetail255__c, HealthCloudGA__SourceSystem__c FROM HealthCloudGA__EhrCondition__c ',
+               "whereQuery" : ' WHERE HealthCloudGA__Account__c = :patientId AND Condition_Type__c = \'Patient Problem\' ',
+               "lstFieldLabel" : ["Name" , "Code", "Start Date" , "End Date", "Source"],
+               "patientId" : patientId,
+               "recordLimit" : recordLimit,
+               "headerLabel" : 'Patient Problem List',
+               "pageName" : 'Problem',
+               "lstFielddatatype" : ["String" , "String", "Date" , "Date", "String"]
+              },
+              "problemDiv"
+          );
+        });
+        
+        //Medical History
+        $Lightning.use("c:EHRClinicalSummaryApp", function() {
+          $Lightning.createComponent(
+              "c:dynamicRelatedList",
+              {"strQuery" : 'SELECT HealthCloudGA__CodeLabel__c, HealthCloudGA__Code__c, Condition_Date__c, HealthCloudGA__SourceSystem__c FROM HealthCloudGA__EhrCondition__c ',
+               "whereQuery" : ' WHERE HealthCloudGA__Account__c = :patientId AND Condition_Type__c = \'Medical History\' ',
+               "lstFieldLabel" : ["Description" , "Code", "Date" , "Source"],
+               "patientId" : patientId,
+               "recordLimit" : recordLimit,
+               "headerLabel" : 'Medical History',
+               "pageName" : 'MedicalHistory',
+               "lstFielddatatype" : ["String" , "String", "Date" , "String"]
+              },
+              "medicalDiv"
+          );
+        });
+        
+        //Medication
+        $Lightning.use("c:EHRClinicalSummaryApp", function() {
+          $Lightning.createComponent(
+              "c:dynamicRelatedList",
+              {"strQuery" : 'SELECT HealthCloudGA__MedicationName__c, SIG__c, Route__c, Medication_Start_Date__c, Medication_End_Date__c, HealthCloudGA__SourceSystem__c, HealthCloudGA__DispenseQuantityValue__c, HealthCloudGA__DispenseNumberOfRepeatAllowed__c FROM HealthCloudGA__EhrMedicationPrescription__c ',
+               "whereQuery" : ' WHERE HealthCloudGA__Account__c = :patientId ',
+               "lstFieldLabel" : ["Name" , "SIG", "Route" , "Start Date", "End Date", "Source", "Quantity", "Refill"],
+               "patientId" : patientId,
+               "recordLimit" : recordLimit,
+               "headerLabel" : 'Medication',
+               "pageName" : 'Medication',
+               "lstFielddatatype" : ["String" , "String", "String", "Date", "Date" , "String", "String", "String"]
+              },
+              "medicationDiv"
+          );
+        });
+        
+        //Immunization
+        $Lightning.use("c:EHRClinicalSummaryApp", function() {
+          $Lightning.createComponent(
+              "c:dynamicRelatedList",
+              {"strQuery" : 'SELECT HealthCloudGA__VaccineTypeLabel__c, HealthCloudGA__DateAdministered__c, HealthCloudGA__VaccineTypeCode__c, HealthCloudGA__DoseQuantityValue__c, HealthCloudGA__SiteLabel__c, HealthCloudGA__RouteLabel__c, HealthCloudGA__SourceSystem__c FROM HealthCloudGA__EhrImmunization__c  ',
+               "whereQuery" : ' WHERE HealthCloudGA__Account__c = :patientId ',
+               "lstFieldLabel" : ["Name", "Date" , "Type", "Dose", "Site", "Route", "Source"],
+               "patientId" : patientId,
+               "recordLimit" : recordLimit,
+               "headerLabel" : 'Immunization',
+               "pageName" : 'Immunization',
+               "lstFielddatatype" : ["String" , "Date", "String", "String", "String" , "String", "String"]
+              },
+              "immunizationDiv"
+          );
+        });
+        
+        //Surgical Histories
+        $Lightning.use("c:EHRClinicalSummaryApp", function() {
+          $Lightning.createComponent(
+              "c:dynamicRelatedList",
+              {"strQuery" : 'SELECT Code_Label__c, Code__c, Date_Performed__c, Source_System__c FROM EHR_Procedure__c ',
+               "whereQuery" : ' WHERE Patient__c = :patientId ',
+               "lstFieldLabel" : ["Description" , "Code", "Date", "Source"],
+               "patientId" : patientId,
+               "recordLimit" : recordLimit,
+               "headerLabel" : 'Surgical History',
+               "pageName" : 'SurgicalHistory',
+               "lstFielddatatype" : ["String" , "String", "Date", "String"]
+              },
+              "surgDiv"
+          );
+        });  */
+        
+    </script>
+</apex:page>

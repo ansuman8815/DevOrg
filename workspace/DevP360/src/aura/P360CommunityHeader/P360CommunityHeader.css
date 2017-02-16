@@ -1,0 +1,82 @@
+.THIS{
+    
+}
+.THIS .anchorCss{
+    color: #333;float:left;margin-top:3px;
+}
+.THIS .listCss{
+    float:left;
+    padding:5px 0;
+    border-bottom:thin solid #9aa6af;
+    width:140px;
+}
+.THIS .listCss:last-child{
+    border-bottom:none;
+    padding-bottom:0;
+}
+.THIS .listCss:first-child{
+    padding-top:0;
+}
+
+.THIS div.AppName{
+    border-left: 1px solid grey;
+    text-align:center;
+    /*font-family: Salesforce Sans Regular;*/
+    font-weight: normal;
+    font-size:16pt;
+    color:#004b7b;
+}
+.THIS div.Logo{
+    padding-right:5px;
+}
+.THIS div.IconContainers{
+    display: inline-block; *display: inline; zoom: 1; vertical-align: top; margin-top:10px;
+}
+.THIS div.ParentIconContainer{
+   float:left;
+    height: 45px;
+    border-right: 1px solid grey;
+}
+.THIS .IconStyle{
+    height: 20px;
+    width: 20px;
+    fill: #9aa6af;
+}
+.THIS .button{
+    border:none;
+    background-color:transparent;
+}
+.THIS .uiMenuList--default.uiMenuList{
+    min-width : 167px;
+}
+.THIS .slds-show {
+  display : block;    
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+.THIS.hide{
+    display:none;
+}
+
+.THIS .float-L{float:left;}
+.THIS .float-R{float:right;}
+.THIS .Logo img{height:37px;float:left;}
+.THIS.header{color: #ffffff;height: 80px;padding:20px;-webkit-box-shadow: 0px 4px 10px -2px rgba(0, 0, 0, 0.3);}
+.THIS .PageTitle{border-left: 1px solid grey;
+    text-align: center;
+    font-weight: normal;
+    font-size: 16pt;
+    color: #004b7b;
+    padding-left: 10px;
+    float: left;
+    margin-top: 5px;}
+
+.THIS a.Logo {
+    padding-right: 10px;
+    float: left;
+}
+.THIS .ProfileName{margin-left:20px;position:relative;}
+.THIS .ProfileName, .THIS .ProfileName div{float:left;}

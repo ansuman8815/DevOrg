@@ -1,0 +1,12 @@
+.THIS {
+}
+
+.THIS div.labeltext{
+    border: none;
+    text-align:right;
+    /*font-family: Salesforce Sans Regular;*/
+    font-weight: normal;
+    font-size:12pt;
+    color:#9aa6af;
+    vertical-align: bottom;
+}

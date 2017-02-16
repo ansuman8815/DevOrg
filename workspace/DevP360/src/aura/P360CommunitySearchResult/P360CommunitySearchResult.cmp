@@ -1,0 +1,41 @@
+<aura:component controller="AccountController" implements="forceCommunity:availableForAllPageTypes" access="global">
+
+    <ltng:require scripts="/resource/jquery"/> 
+    <ltng:require scripts="/resource/jqueryDataTables"/>
+    
+    <aura:attribute name="res" type="Account[]" />
+    
+    <center>
+	<article class="slds-card">    
+    <div class="slds-card__header slds-grid">
+         <div class="slds-media__body">
+                <h1 class="slds-text-heading--small" title="Patient Search Result"><b>Search Result</b></h1>
+        </div>
+    </div>        
+    <div class="slds"> 
+        <table class="slds-table slds-table--bordered slds-table--striped" id="searchResult" style="Height:100%;width:700px;align-center">
+            <thead>
+                <tr>
+                    <th scope="col"><span class="slds-truncate"><b>Patient Name</b></span></th>
+                    <th scope="col"><span class="slds-truncate"><b>Date Of Birth</b></span></th>
+                    <th scope="col"><span class="slds-truncate"><b>Gender</b></span></th>
+                    <th scope="col"><span class="slds-truncate"><b>CIN</b></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.res}" var="obj">
+                    <tr>
+                        <td>{!obj.Name}</td>
+                        <td>{!obj.Date_of_Birth__c}</td>
+                        <td>{!obj.GenderLabel__c}</td>
+                        <td>{!obj.Medicaid_CIN__c}</td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+        
+    </article>
+    </center>
+        
+</aura:component>

@@ -1,0 +1,5 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+	<div>
+    Details goes here
+    </div>
+</aura:component>

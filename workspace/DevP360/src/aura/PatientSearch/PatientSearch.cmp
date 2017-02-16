@@ -1,0 +1,89 @@
+<aura:component controller="PatientSearchController">
+    <ltng:require styles="{! $Resource.SLDS090 + '/assets/styles/salesforce-lightning-design-system.css'}"/>
+    <ltng:require styles="{! $Resource.SLDS090 + '/assets/icons/utility'}"/>
+
+    <aura:attribute name="PatientList" type="Account[]"/>
+    <aura:attribute name="firstName" type="String" />
+    <aura:attribute name="lastName" type="String" />
+    <aura:attribute name="dob" type="Date"/>
+    <aura:attribute name="gender" type="String[]" default=",Male,Female"/>
+    <aura:attribute name="cin" type="String"/>
+    <aura:attribute name="errorMessage" type="String"/>
+    
+    <div class="slds-page-header">
+        <div class="slds-grid">
+            <div class="slds-grid slds-no-space">
+                <lightning:icon iconName="utility:search" size="medium" alternativeText="Search"/>
+                <h1 class="slds-text-heading--medium slds-truncate" title="	Patient Search"><b>Patient Search</b></h1>
+            </div>
+        </div>
+    </div>
+     
+    <div style="background-image: url(/resource/1484871676000/PatientSearchBg3);height:100%;">
+    <div style="width:35%;margin-left:30%;margin-right:30%;background-color:white;">
+    <div style="width:70%;margin-left:15%;margin-right:15%;"> 
+    <div style="color:#c23934"><ui:outputText value="{!v.errorMessage}"/></div>
+    <table style="width:70%;margin-left:15%;margin-right:15%;"><br/>
+         <tr>
+             <td style = "width:20%;">
+                 <label class="slds-form-element__label" for="textfirstname" style="padding-left: 10%;"><b>First Name</b></label>
+             </td>
+             <td style = "width:20%;">
+                 <ui:inputText aura:id="afirstName" value="{!v.firstName}"  class="input sfdc_usernameinput sfdc" label="{!v.firstName}" labelClass="assistiveText"/>
+             </td>
+             
+         </tr><br/>
+         <tr>
+             <td style = "width:20%;">
+                 <label class="slds-form-element__label" for="textlastname" style="padding-left: 10%;"><b>Last Name</b></label>
+             </td>
+             <td style = "width:20%;">
+                 <ui:inputText aura:id="alastName" value="{!v.lastName}"  class="input sfdc_usernameinput sfdc" label="{!v.lastName}" labelClass="assistiveText"/>
+             </td>
+             
+         </tr><br/>
+         <tr>
+             <td style = "width:20%;">
+                 <label class="slds-form-element__label" for="text-input-01" style="padding-left: 10%;"><b>Date of Birth</b></label>
+             </td >
+             <td style = "width:20%;">
+                 <ui:inputDate aura:id="adateofbirth"  displayDatePicker="true"  value="{!v.dob}"  />
+             </td>
+             
+         </tr><br/>
+         <tr>
+             <td style = "width:20%;">
+                 <label class="slds-form-element__label" for="text-input-01" style="padding-left: 10%;"><b>Gender</b></label>
+             </td>
+             <td style = "width:20%;">
+                 <ui:inputSelect aura:id="agender" change="{!c.getGenderVal}">
+                     <aura:iteration items="{!v.gender}" var="pgen">
+                         <ui:inputSelectOption text="{!pgen}" label="{!pgen}"/>
+                     </aura:iteration>
+                 </ui:inputSelect>
+             </td>
+             
+         </tr><br/>
+         <tr>
+             <td style = "width:20%;">
+                 <label class="slds-form-element__label" for="textCIN" style="padding-left: 10%;"><b>CIN</b></label>
+             </td>
+             <td style = "width:20%;">
+                 <ui:inputText aura:id="acin" value="{!v.cin}"  class="input sfdc_usernameinput sfdc"  labelClass="assistiveText"/>
+             </td>
+             
+         </tr><br/>
+         <tr>
+             <td style = "width:20%;"/>
+             <td style = "width:20%;align:right;">
+                 <ui:button aura:id="btnClear" buttonTitle="Clear search data" class="slds-button slds-button--neutral" label="Clear" press="{!c.clearOnClick}"  />
+                 <ui:button aura:id="btnSearch" buttonTitle="Search the Patient details" class="slds-button slds-button--brand" label="Search" press="{!c.searchClick}" />
+             </td>
+             
+         </tr><br/>
+	</table>
+    
+    </div>
+    </div>
+    </div>
+</aura:component>

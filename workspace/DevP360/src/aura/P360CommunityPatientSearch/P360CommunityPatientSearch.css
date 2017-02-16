@@ -1,0 +1,155 @@
+.THIS {
+}
+.THIS div.divCss{
+    border-radius:3pt;
+    margin-bottom: 20px;    
+    margin-left:20px;
+    margin-right:20px;
+}
+.THIS .mt80{
+    margin-top:80px;
+}
+.THIS div.Labels{
+    color: #9aa6af;
+    margin-bottom: 20px; 
+    border-radius:3pt;
+    /*font-family:Salesforce Sans Regular;*/
+    font-weight: normal;
+    font-size:10pt;
+}
+.THIS .w350{
+    width:350px;
+}
+.THIS div.Labels2Column{
+    color: #9aa6af;
+    float:left;
+    border-radius:3pt;
+    font-family:sans-serif;
+    font-size:10pt;
+    margin-right:20px;
+}
+.THIS .Inputs{
+    border: none;
+    width: 100%;
+    padding:0 10px;
+    height: 40px;
+    border-radius:3pt;
+    color:#2f3537;
+    /*font-family:Salesforce Sans Regular;*/
+    font-weight: normal;
+    font-size:14pt;
+}
+
+.THIS .Inputs2Column{
+    border: none;
+    width: 153px;
+    padding:0 10px;
+    height:40px !important;
+    border-radius:3pt;
+    color:#2f3537;
+    font-family: sans-serif;
+    font-size:14pt;
+}
+.THIS .InputCIN{
+    height: 40px;
+    color:#2f3537;
+    font-family: sans-serif;
+    font-size:14pt;
+}
+.THIS .ButtonSearch{
+    padding:10px 40px;
+    background-color:#3c91c7;  
+    border:none;
+    font-family:sans-serif;
+    font-size:16pt;
+    font-weight:bold;
+    color: #fff;
+    height: 40px;
+    text-shadow:none;
+    margin-right:20px;
+}
+.THIS .ButtonCancel{
+    padding:10px 40px;
+    background-color:#d3dce2;
+    color:#707f8a;
+    font-family:sans-serif;
+    font-size:16pt;
+    font-weight:bold;
+    border:none;
+    height: 40px;
+    text-shadow:none;
+    width:148px;
+}
+.THIS .ButtonSearchLabel{
+    color:white;
+    font-weight:bold;
+    line-height:1;
+}
+.THIS .ButtonCancelLabel{
+    color:#707f8a;
+    font-weight:bold;
+    line-height:1;
+}
+.THIS input:focus, .THIS select:focus, .THIS textarea:focus, .THIS button:focus{
+    outline: none;
+}
+.THIS input.Inputs:focus::-webkit-input-placeholder{
+    margin-top:-10px;
+}
+
+.THIS input.Inputs:focus:-moz-placeholder{
+    margin-top:-10px;
+}
+
+.THIS input.Inputs:focus::-moz-placeholder{
+    margin-top:-10px;
+}
+
+.THIS input.Inputs:focus:-ms-input-placeholder{
+    margin-top:-10px;
+}
+.THIS input.Inputs::-webkit-input-placeholder {
+    color: #CCCCCC;
+    position:relative;
+    padding-left:0;
+    -webkit-transition: padding 0.5s;
+    /* For Safari 3.1 to 6.0 */
+    transition: padding 0.5s;
+}
+.THIS input.Inputs:-moz-placeholder {
+    /* Firefox 18- */
+    color: #CCCCCC;
+    position:relative;
+    padding-left:0;
+    -moz-transition: padding 0.5s;
+    /* For Safari 3.1 to 6.0 */
+    transition: padding 0.5s;
+}
+.THIS input.Inputs::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #CCCCCC;
+    position:relative;
+    padding-left:0;
+    -moz-transition: padding 0.5s;
+    /* For Safari 3.1 to 6.0 */
+    transition: padding 0.5s;
+}
+.THIS input.Inputs:-ms-input-placeholder {
+    color: #CCCCCC;
+    position:relative;
+    padding-left:0;
+    -ms-transition: padding 0.5s;
+    /* For Safari 3.1 to 6.0 */
+    transition: padding 0.5s;
+}
+.THIS .Labelcss{
+    color:#fff;
+    /*font-family: Salesforce Sans Bold;*/
+    font-weight: bold;
+    font-size: 20pt;
+    padding: 0px 0 15px 0;
+    line-height: 1;
+}
+.THIS.PatientSearch{
+    background-color:#004b7b; width:100%; border-radius:5pt;
+}

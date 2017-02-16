@@ -1,0 +1,34 @@
+<aura:component >
+    <ltng:require styles="{! $Resource.P360CommunityIcons}"/>
+	<fieldset class="slds-form--compound">
+        <ul class="RegistryList">
+            <li>
+                <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/25-ProblemList.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent"/>
+                <p>Patient Registries</p>
+            </li>
+            <li>
+                <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/25-ProblemList.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent"/>
+                <p>Function Two</p>
+            </li>
+            <li>
+                <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/25-ProblemList.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent"/>
+                <p>Function Three</p>
+            </li>
+            <li class="mt120">
+                <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/25-ProblemList.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent"/>
+                <p>Function Four</p>
+            </li>
+            <li class="mt120">
+                <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/25-ProblemList.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent"/>
+                <p>Function Five</p>
+            </li>
+            <li class="mt120">
+                <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/25-ProblemList.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent"/>
+                <p>Function Six</p>
+            </li>
+            
+        </ul>
+        
+        
+    </fieldset>
+</aura:component>

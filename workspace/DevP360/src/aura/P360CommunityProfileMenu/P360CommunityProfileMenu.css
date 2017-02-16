@@ -1,0 +1,33 @@
+.THIS .ProfileLabel{
+    font-family: sans-serif;
+    font-size: 16pt;
+    color: #3c91c7;
+    text-align: right;
+    width: 280px;
+    float: right;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-right: 10px;
+    text-overflow: ellipsis;
+}
+.THIS.ProfileMenu{
+    font-family:Salesforce Sans Regular;
+    font-size:12pt;
+    color:#707f8a;float:left;clear:both;width:250px;margin-left:30px;
+}
+.THIS .ProfileMenu{}
+
+
+.THIS .ProfileOption{
+   /* background-image: url({!$Resource.P30Header_icons, '02-UserProfile.svg'});*/
+        background-image:'resource/P30Header_icons/02-UserProfile.svg';
+}
+.THIS div.actionMenu{
+    left: 62%;
+}
+.THIS .uiMenuList--default.uiMenuList{
+    min-width : 125px;
+}
+.THIS .slds-hide{
+   
+}

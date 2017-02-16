@@ -1,0 +1,41 @@
+<aura:component controller="AccountController">
+	<ltng:require scripts="/resource/jquery"/> 
+    <ltng:require scripts="/resource/jqueryDataTables"/> 
+    <ltng:require styles="{! $Resource.jquery}"/>
+    <ltng:require styles="{! $Resource.jqueryDataTables}"/>
+    <ltng:require styles="{! $Resource.jqueryDataTableMinCss}"/>
+   
+    
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}"/>
+    
+    <aura:attribute name="res" type="Account[]" />
+     
+    <center>
+	<article class="slds-card">    
+    <div class="slds-card__header slds-grid">
+         <div class="slds-media__body">
+                <h1 class="slds-text-heading--small" title="Patient Search Result"><b>Search Result</b></h1>
+        </div>
+    </div>        
+    <div class="slds"> 
+        <table class="slds-table slds-table--bordered slds-table--striped" id="searchResult" style="Height:100%;width:700px;align-center">
+            <thead>
+                <tr>
+                   <!-- <th scope="col"><span class="slds-truncate"><b>Patient Name</b></span></th>
+                    
+                    <th scope="col"><span class="slds-truncate"><b>Gender</b></span></th>-->
+                     <th>Id</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+               
+            </tbody>
+        </table>
+    </div>
+        
+    </article>
+    </center>
+    
+    
+</aura:component>

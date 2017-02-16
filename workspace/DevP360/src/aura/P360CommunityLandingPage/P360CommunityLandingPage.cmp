@@ -1,0 +1,22 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+  <aura:attribute name="search_clicked" type="Boolean" />
+  <aura:attribute name="res" type="Account[]" />
+  <aura:handler event="c:SearchResult" action="{!c.handleApplicationEvent}"/>  
+  
+    <aura:if isTrue="{!v.search_clicked}">
+       <div>{!v.body}</div>
+        
+       <aura:set attribute="else">            
+    		<div class="container">
+                <h2>Patient <span>360</span></h2>
+                <div class="ContentBox">
+                    <div class="PatientSearchBox"><c:P360CommunityPatientSearch /></div>
+                    <div class="PatientRegistry"><c:P360CommunitySearchNavigation /></div>
+                    </div>
+                <br/><br/>
+                
+                <div class="CommunityAnnouncements"><c:P360CommunityAnnouncement /></div>
+    		</div>  
+       </aura:set>
+    </aura:if>
+</aura:component>

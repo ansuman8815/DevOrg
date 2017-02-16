@@ -1,0 +1,43 @@
+<aura:component controller="PatientSearchController">
+    <aura:attribute name="FName" type="string"/>
+    <aura:attribute name="LName" type="string"/>
+    <aura:attribute name="DOB" type="Date"/>
+    <aura:attribute name="Gender" type="String[]" default="Male,Female"/>
+    <aura:attribute name="CIN" type="String"/>
+    <aura:attribute name="errorMessage" type="String"/>
+	<aura:registerEvent name="appEvent" type="c:SearchResult"/>
+    
+    <div class="PatientSearch">
+        <span id="errorSpan" style="color:#c23934"><ui:outputText value="{!v.errorMessage}"/></span>
+        <div class="Labelcss">Patient Search</div>
+    	<div class="Labels">
+        	<ui:inputText aura:id="afirstName" value="{!v.FName}" class="Inputs" placeholder="First Name"  />
+        </div>
+        
+        <div class="Labels">
+            <ui:inputText aura:id="alastName" value="{!v.LName}" class="Inputs" placeholder="Last Name" />
+        </div>
+        
+        <div class="w350">
+        	<div class="Labels2Column">
+                <ui:inputDate aura:id="adateofbirth" value="{!v.DOB}" displayDatePicker="true" class="Inputs2Column" />
+            </div>
+			<div class="Labels2Column" style="margin-left:0;">
+                <ui:inputSelect aura:id="agender" class="slds-select Inputs2Column">
+                    <aura:iteration items="{!v.Gender}" var="Gender">
+                        <ui:inputSelectOption text="{!Gender}" label="{!Gender}"/>
+                    </aura:iteration>
+                </ui:inputSelect>
+            </div>
+        </div>
+        
+        <div class="Labels" style="clear:both;">
+            <div class="mt80"><ui:inputText aura:id="acin" value="{!v.CIN}" class="Inputs InputCIN" placeholder="CIN" /></div>
+        </div>
+        
+        <div>
+            <ui:button label="Search" class="ButtonSearch" labelClass="ButtonSearchLabel"  press="{!c.searchClick}"/>
+            <ui:button label="Clear" class="ButtonCancel" labelClass="ButtonCancelLabel" press="{!c.clearOnClick}"/>
+        </div>
+    </div>
+</aura:component>

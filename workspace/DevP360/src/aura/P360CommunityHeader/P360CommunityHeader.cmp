@@ -1,0 +1,60 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <ltng:require styles="/resource/SLDS090/assets/styles/salesforce-lightning-design-system.css"/>
+    <ltng:require styles="{! $Resource.SLDS090 + '/assets/icons/utility'}"/>
+    
+    <aura:attribute name="quickLinksIcon" type="String"/>
+    
+	<div class="header">
+		<div class="float-L"><a class="Logo"><img src='https://p360-mountsinai--c.na35.content.force.com/servlet/servlet.ImageServer?id=01541000001eqfz&amp;oid=00D41000000fHxA&amp;lastMod=1485214711000'/></a><span class="PageTitle">Patient 360</span></div>
+		<div class="float-R">
+			<div class="ParentIconContainer">
+            	<div class="IconContainers" style="height:20px;width:33%;color:#9aa6af">
+                    <c:P360CommunityIcon svgPath="{! $Resource.P360Header_icons + '/P360Header_icons/07-Search.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; outline:none; background-color:transparent" press="{!c.searchClick}"/>                    
+                </div>
+            	<div class="IconContainers" style="height:20px;width:33%;color:#9aa6af">
+                    <c:P360CommunityIcon svgPath="{! $Resource.P360Header_icons + '/P360Header_icons/06-QuickLink.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent" press="{!c.quickLinkClick}"/>
+                </div>
+            	<div class="IconContainers" style="height:20px;width:34%;color:#9aa6af">
+            		<c:P360CommunityIcon svgPath="{! $Resource.P360Header_icons + '/P360Header_icons/01-QuestionMark.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent" press="{!c.helpClick}"/>
+                </div> 
+           	</div>
+            <div class="ProfileName"><c:P360CommunityProfileMenu /></div>
+		</div>
+        
+		</div>
+    <div id="quickLinkDiv" class="slds-hide" style="z-index: 1;position:absolute;padding:10px;background: rgb(255, 255, 255);box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16);border: 1px solid #d4d4d4;border-style: solid;margin-right: 370px;border-radius: .25rem;margin-left: 820px;float: right;margin-top: -24px;right:25px;">
+        <ul>
+          <li class="listCss">
+              <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/25-ProblemList.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent;float:left;padding-right:10px" press="{!c.helpClick}"/>
+              <a class="anchorCss" href="#registries">Patient Registries</a>
+          </li>
+          <li class="listCss">
+              <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/12-CloseButton.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent;float:left;padding-right:10px" press="{!c.helpClick}"/>
+              <a class="anchorCss" href="#registries">Function Two</a>
+          </li>
+          <li class="listCss">
+              <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/12-CloseButton.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent;float:left;padding-right:10px" press="{!c.helpClick}"/>
+              <a class="anchorCss" href="#registries">Function Three</a>
+          </li>
+          <li class="listCss">
+              <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/12-CloseButton.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent;float:left;padding-right:10px" press="{!c.helpClick}"/>
+              <a class="anchorCss" href="#registries">Function Four</a>
+          </li>
+          <li class="listCss">
+              <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/12-CloseButton.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent;float:left;padding-right:10px" press="{!c.helpClick}"/>
+              <a class="anchorCss" href="#registries">Function Five</a>
+          </li>
+          <li class="listCss">
+              <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/12-CloseButton.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent;float:left;padding-right:10px" press="{!c.helpClick}"/>
+              <a class="anchorCss" href="#registries">Function Six</a>
+          </li>
+        </ul>
+    </div>
+     
+    <div id="searchLinkDiv" role="dialog" class="slds-modal slds-modal--large slds-fade-in-open" style="display:none;margin-left: 850px;margin-top: 50px;">
+        <c:P360CommunityPatientSearch />
+    </div>
+    <div id="help">
+    	{!v.body}
+    </div>
+</aura:component>

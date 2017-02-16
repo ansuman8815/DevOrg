@@ -1,0 +1,34 @@
+<aura:component access="global">
+
+    <div class="SideBarDiv">
+    <table>
+       <tr>
+        <td width="25%">
+            
+    <lightning:card >
+       <aura:set attribute="title">
+           
+        </aura:set>
+        <aura:set attribute="footer">
+            
+        </aura:set>
+
+        <aura:set attribute="actions">
+            <ui:inputText />
+            <br/><br/>
+            <lightning:button iconName="utility:down" label="Clinical Summary"/>
+            <br/><br/>
+            <lightning:button label="Encounter Summary"/>
+        </aura:set>
+       <p class="slds-p-horizontal--small">
+           
+        </p>
+
+       
+    </lightning:card>
+           </td></tr>
+        
+    </table>    
+        </div>
+    
+</aura:component>

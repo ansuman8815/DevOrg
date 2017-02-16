@@ -1,0 +1,39 @@
+.THIS {
+}
+
+.THIS .SideBarDiv{
+    height:90%;
+    Background-color:white;
+    width : 240px;
+    color : Black;
+    margin-top : 5%;
+    
+    text-align :center;
+    
+}
+
+.THIS .LightningCard{
+    height:90%;
+    Background-color:#16325c;
+    width : 240px;
+    color : white;
+    margin-top : 5%;
+    text-align :center;
+}
+
+.THIS .ButtonClass{
+    width:200px;
+    height:30px;
+    text-align :left;
+    Background-color:#16325c;
+    border: none;
+    color: white;
+}
+.THIS :hover.ButtonClass{
+    width:200px;
+    height:30px;
+    text-align :left;
+    Background-color:#42b0f4;
+    border: none;
+    color: white;
+}

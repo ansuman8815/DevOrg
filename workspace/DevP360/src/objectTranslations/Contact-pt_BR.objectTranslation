@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- CIN --></label>
+        <name>CIN__c</name>
+    </fields>
+    <fields>
+        <label><!-- County --></label>
+        <name>County__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Birth --></label>
+        <name>Date_of_Birth__c</name>
+    </fields>
+    <fields>
+        <label><!-- EMPI --></label>
+        <name>EMPI__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ethnicity --></label>
+        <name>EthnicityLabel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ethnicity --></label>
+        <name>Ethnicity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gender --></label>
+        <name>Gender__c</name>
+    </fields>
+    <fields>
+        <label><!-- Age --></label>
+        <name>HealthCloudGA__Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- Birth Date --></label>
+        <name>HealthCloudGA__BirthDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country Of Birth --></label>
+        <name>HealthCloudGA__CountryOfBirth__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created from Lead --></label>
+        <name>HealthCloudGA__CreatedFromLead__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gender --></label>
+        <name>HealthCloudGA__Gender__c</name>
+        <picklistValues>
+            <masterLabel>Decline to Specify</masterLabel>
+            <translation>Recusa para especificar</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Female</masterLabel>
+            <translation>Feminino</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Male</masterLabel>
+            <translation>Masculino</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>Outro</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Individual ID --></label>
+        <name>HealthCloudGA__IndividualId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Individual Type --></label>
+        <name>HealthCloudGA__IndividualType__c</name>
+        <picklistValues>
+            <masterLabel>Individual</masterLabel>
+            <translation>Individual</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Medical Record Number --></label>
+        <name>HealthCloudGA__MedicalRecordNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Name --></label>
+        <name>HealthCloudGA__PreferredName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Language --></label>
+        <name>HealthCloudGA__PrimaryLanguage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Language --></label>
+        <name>HealthCloudGA__SecondaryLanguage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source System ID --></label>
+        <name>HealthCloudGA__SourceSystemId__c</name>
+    </fields>
+    <fields>
+        <help>Identifica o sistema que criou o registro e que detém os direitos de atualização dele. O padrão é Saúde1 para registros criados manualmente.</help>
+        <label><!-- Source System --></label>
+        <name>HealthCloudGA__SourceSystem__c</name>
+    </fields>
+    <fields>
+        <label><!-- Attributed --></label>
+        <name>IsAttributed__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsVisibleOnPatientCard --></label>
+        <name>IsVisibleOnPatientCard__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP --></label>
+        <name>PCP1__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP --></label>
+        <name>PCP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone --></label>
+        <name>Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Language --></label>
+        <name>Primary_Language1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Language --></label>
+        <name>Primary_Language__c</name>
+    </fields>
+    <fields>
+        <label><!-- Race --></label>
+        <name>RaceLabel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Race --></label>
+        <name>Race__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Language --></label>
+        <name>Secondary_Language1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Language --></label>
+        <name>Secondary_Language__c</name>
+    </fields>
+    <recordTypes>
+        <label><!-- Business --></label>
+        <name>IndustriesBusiness</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Individual --></label>
+        <name>IndustriesIndividual</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- The Individual record type can&apos;t be changed --></errorMessage>
+        <name>HealthCloudGA__NotAllowingConversionFromIndividual</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The record type can&apos;t be changed to Individual. --></errorMessage>
+        <name>HealthCloudGA__NotAllowingConversionToIndividual</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- AddRelation --></label>
+        <name>HealthCloudGA__AddRelation</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,20 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+	 <ltng:require styles="/resource/SLDS090/assets/styles/salesforce-lightning-design-system.css"/>
+     <ltng:require styles="{! $Resource.SLDS090 + '/assets/icons/utility'}"/>
+     <aura:attribute type="String" name="CurrentYear"></aura:attribute>
+      <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <table style="margin-top:40px;color: #ffffff;height: 20px;border-top: 1px solid #9aa6af;">
+        <tr>
+            <td width='58%'/>
+            <td style="padding-right:20px;color:#9aa6af;font-size:12pt;">
+                    Terms and Conditions
+            </td> 
+             <td style="padding-right:20px;color:#9aa6af;font-size:12pt;">
+                    Privacy Policy
+              </td> 
+             <td style="padding-right:20px;color:#9aa6af;font-size:12pt;float:right">
+                    &copy; {!$Label.c.Year_Label} Mount Sinai PPS, LLC
+            </td>
+        </tr>
+    </table>
+</aura:component>

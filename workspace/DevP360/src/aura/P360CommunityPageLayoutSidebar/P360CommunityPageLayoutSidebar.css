@@ -1,0 +1,23 @@
+.THIS {
+}
+.THIS .contentPanel:before,
+.THIS .contentPanel:after {
+    content: " ";
+    display: table;
+}
+.THIS .contentPanel:after {
+    clear: both;
+}
+.THIS .left {
+    float: left;
+    width: 100%;
+}
+.THIS div.Sidebar{
+    float: left;
+    width: 20%;
+}
+.THIS div.right
+{
+   float: right; 
+    width: 80%;
+}

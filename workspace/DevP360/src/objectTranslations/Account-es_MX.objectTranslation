@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- County --></label>
+        <name>County__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Birth --></label>
+        <name>Date_of_Birth__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Death --></label>
+        <name>Date_of_Death__c</name>
+    </fields>
+    <fields>
+        <label><!-- EMPI --></label>
+        <name>EMPI__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ethnicity Label --></label>
+        <name>Ethnicity_Label__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Name --></label>
+        <name>First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- GenderLabel --></label>
+        <name>GenderLabel__c</name>
+    </fields>
+    <fields>
+        <help>Seguro médico para este paciente</help>
+        <label><!-- Care Plan --></label>
+        <name>HealthCloudGA__CarePlan__c</name>
+        <relationshipLabel><!-- PatientAccounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Disabled --></label>
+        <name>HealthCloudGA__Disabled__c</name>
+    </fields>
+    <fields>
+        <label><!-- Enrollment Type --></label>
+        <name>HealthCloudGA__EnrollmentType__c</name>
+        <picklistValues>
+            <masterLabel>Dual</masterLabel>
+            <translation>Dual</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ESRD</masterLabel>
+            <translation>ESRD</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FBDual</masterLabel>
+            <translation>FBDual</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NonDual</masterLabel>
+            <translation>NonDual</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PBDual</masterLabel>
+            <translation>PBDual</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Individual ID --></label>
+        <name>HealthCloudGA__IndividualId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Individual Type --></label>
+        <name>HealthCloudGA__IndividualType__c</name>
+        <picklistValues>
+            <masterLabel>Group</masterLabel>
+            <translation>Grupo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Individual</masterLabel>
+            <translation>Individuo</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Indica si un paciente está en una institución.</help>
+        <label><!-- Institution --></label>
+        <name>HealthCloudGA__Institution__c</name>
+    </fields>
+    <fields>
+        <help>Indica si un paciente se incluye en las directrices de bajos ingresos.</help>
+        <label><!-- Low Income --></label>
+        <name>HealthCloudGA__LowIncome__c</name>
+    </fields>
+    <fields>
+        <help>Indica si un paciente es es apto para Medicaid.</help>
+        <label><!-- Medicaid Eligibility Status --></label>
+        <name>HealthCloudGA__MedicaidEligibilityStatus__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical Record Number --></label>
+        <name>HealthCloudGA__MedicalRecordNumber__c</name>
+    </fields>
+    <fields>
+        <help>Nuevo miembro o continuado del año anterior.</help>
+        <label><!-- Medicare Enrollee --></label>
+        <name>HealthCloudGA__MedicareEnrollee__c</name>
+        <picklistValues>
+            <masterLabel>Continued</masterLabel>
+            <translation>Continuado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Enrollee</masterLabel>
+            <translation>Nuevo afiliado</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- OREC --></label>
+        <name>HealthCloudGA__OREC__c</name>
+        <picklistValues>
+            <masterLabel>Age</masterLabel>
+            <translation>Edad</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disabled</masterLabel>
+            <translation>Desactivado</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Primary Contact --></label>
+        <name>HealthCloudGA__PrimaryContact__c</name>
+        <relationshipLabel><!-- Accounts (Primary Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Source System ID --></label>
+        <name>HealthCloudGA__SourceSystemId__c</name>
+    </fields>
+    <fields>
+        <help>Identifica el sistema que creó el registro y que es propietario de los derechos de actualización sobre él. Toma Health1 como valor predeterminado para registros creados manualmente.</help>
+        <label><!-- Source System --></label>
+        <name>HealthCloudGA__SourceSystem__c</name>
+    </fields>
+    <fields>
+        <label><!-- Attributed --></label>
+        <name>IsAttributed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Name --></label>
+        <name>Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medicaid CIN --></label>
+        <name>Medicaid_CIN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobile Phone --></label>
+        <name>Mobile_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCP --></label>
+        <name>PCP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Language --></label>
+        <name>Primary_Language__c</name>
+    </fields>
+    <fields>
+        <label><!-- Race Label --></label>
+        <name>Race_Label__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Language --></label>
+        <name>Secondary_Language__c</name>
+    </fields>
+    <fields>
+        <label><!-- Work Phone --></label>
+        <name>Work_Phone__c</name>
+    </fields>
+    <layouts>
+        <layout>Account Layout</layout>
+        <sections>
+            <label><!-- Account Summary --></label>
+            <section>Account Summary</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>KC Acct Layout</layout>
+        <sections>
+            <label><!-- Account Summary --></label>
+            <section>Account Summary</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Child Account --></label>
+        <name>Child_Account</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Business --></label>
+        <name>IndustriesBusiness</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Household --></label>
+        <name>IndustriesHousehold</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Individual --></label>
+        <name>IndustriesIndividual</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- The Individual record type can&apos;t be changed --></errorMessage>
+        <name>HealthCloudGA__NotAllowingConversionFromIndividual</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The record type can&apos;t be changed to Individual. --></errorMessage>
+        <name>HealthCloudGA__NotAllowingConversionToIndividual</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+</CustomObjectTranslation>

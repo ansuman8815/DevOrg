@@ -1,0 +1,93 @@
+<apex:page title="title" sidebar="false" showHeader="false">
+    
+    <apex:includeScript value="/lightning/lightning.out.js" />
+    <apex:includeScript value="/support/console/38.0/integration.js"/>
+    
+    <div id="viewAllDiv" />
+
+    <script>
+        var patientId = "{!$CurrentPage.parameters.patientId}";
+        var pageName = "{!$CurrentPage.parameters.page}";
+        var recordLimit = "25";
+        var strQuery;
+        var whereQuery;
+        var lstFieldLabel;
+        var headerLabel;
+        
+        if(pageName == 'Allergy'){
+            strQuery = 'SELECT HealthCloudGA__Substance255__c ,HealthCloudGA__StatusLabel__c,HealthCloudGA__CriticalityLabel__c, HealthCloudGA__SourceSystem__c, Source_System_MRN__c FROM HealthCloudGA__EhrAllergyIntolerance__c ';
+            whereQuery = ' WHERE HealthCloudGA__Account__c = :patientId ';
+            lstFieldLabel = ["Allergen" , "Status", "Severity" , "Source System", "Source System MRN"];
+            headerLabel = 'Allergies'; 
+            lstFielddatatype = ["String" , "String", "String" , "String", "String"];
+        }
+        else if(pageName == 'Problem'){
+            strQuery = 'SELECT HealthCloudGA__CodeLabel__c, HealthCloudGA__Code__c, HealthCloudGA__DateAsserted__c, HealthCloudGA__AbatementDetail255__c, HealthCloudGA__SourceSystem__c FROM HealthCloudGA__EhrCondition__c ';
+            whereQuery = ' WHERE HealthCloudGA__Account__c = :patientId AND Condition_Type__c = \'Patient Problem\' ';
+            lstFieldLabel = ["Name" , "Code", "Start Date" , "End Date", "Source"];
+            headerLabel = 'Patient Problem List'; 
+             lstFielddatatype = ["String" , "String", "Date" , "Date", "String"];
+        }
+        else if(pageName == 'MedicalHistory'){
+            strQuery = 'SELECT HealthCloudGA__CodeLabel__c, HealthCloudGA__Code__c, Condition_Date__c, HealthCloudGA__SourceSystem__c FROM HealthCloudGA__EhrCondition__c  ';
+            whereQuery = '  WHERE HealthCloudGA__Account__c = :patientId AND Condition_Type__c = \'Medical History\' ';
+            lstFieldLabel = ["Description" , "Code", "Date" , "Source"];
+            headerLabel = 'Medical History'; 
+            lstFielddatatype : ["String" , "String", "Date" , "String"];
+            
+        }
+        else if(pageName == 'Medication'){
+            strQuery = 'SELECT HealthCloudGA__MedicationName__c, SIG__c, Route__c, Medication_Start_Date__c, Medication_End_Date__c, HealthCloudGA__SourceSystem__c, Dispense_Quantity_Label__c, Refills__c FROM HealthCloudGA__EhrMedicationPrescription__c  ';
+            whereQuery = ' WHERE HealthCloudGA__Account__c = :patientId ';
+            lstFieldLabel = ["Name" , "SIG", "Route" , "Start Date", "End Date", "Source", "Quantity", "Refill"];
+            headerLabel = 'Medication'; 
+            lstFielddatatype = ["String" , "String", "String", "Date", "Date" , "String", "String", "String"];
+        }
+        else if(pageName == 'Immunization'){
+            strQuery = 'SELECT HealthCloudGA__VaccineTypeLabel__c, HealthCloudGA__DateAdministered__c, HealthCloudGA__VaccineTypeCode__c, HealthCloudGA__DoseQuantityValue__c, HealthCloudGA__SiteLabel__c, HealthCloudGA__RouteLabel__c, HealthCloudGA__SourceSystem__c FROM HealthCloudGA__EhrImmunization__c  ';
+            whereQuery = ' WHERE HealthCloudGA__Account__c = :patientId ';
+            lstFieldLabel = ["Name", "Date" , "Type", "Dose", "Site", "Route", "Source"];
+            headerLabel = 'Immunization'; 
+            lstFielddatatype = ["String" , "Date", "String", "String", "String" , "String", "String"];
+        }
+        else if(pageName == 'SurgicalHistory'){
+            strQuery = 'SELECT Code_Label__c, Code__c, Date_Performed__c, Source_System__c FROM EHR_Procedure__c ';
+            whereQuery = ' WHERE Patient__c = :patientId ';
+            lstFieldLabel = ["Description" , "Code", "Date", "Source"];
+            headerLabel = 'Surgical Histories'; 
+            lstFielddatatype =  ["String" , "String", "Date", "String"];
+        }
+        else if(pageName == 'ClinicalNote'){
+            strQuery = 'SELECT Note_Categorhy__c, Note_Purpose__c,Note_Date_Time__c,Note_Text__c,Source_System__c FROM Ehr_Clinical_Note__c ';
+            whereQuery = ' WHERE Account__c = :patientId ';
+            lstFieldLabel = ["Type" , "Signature Status","Date","Note","Source"];
+            headerLabel = 'Clinical Notes'; 
+            lstFielddatatype =  ["String" , "String", "Date", "String", "String"];
+        }
+        
+        else if(pageName == 'LabResult'){
+            strQuery = 'SELECT HealthCloudGA__NameLabel__c, HealthCloudGA__NameCode__c, HealthCloudGA__ValuePeriodStartDate__c, HealthCloudGA__ValueQuantity__c,HealthCloudGA__ValueQuantityUnit__c, HealthCloudGA__ReferenceRangeHighValue__c,HealthCloudGA__ReferenceRangeLowValue__c,HealthCloudGA__SourceSystem__c FROM HealthCloudGA__EhrObservation__c ';
+            whereQuery = ' WHERE HealthCloudGA__Account__c = :patientId and HealthCloudGA__ValuePeriodStartDate__c = LAST_90_DAYS order by HealthCloudGA__ValuePeriodStartDate__c desc ';
+            lstFieldLabel = ["Lab Name" , "Test Code", "Result Date & Time", "Value", "Units", "Upper Normal Limit", "Lower Normal Limit", "Source"];
+            headerLabel = 'Lab Results(Last 90 days)'; 
+            lstFielddatatype =  ["String" , "String", "Date", "String", "String", "String", "String", "String"];
+        }          
+
+        $Lightning.use("c:EHRClinicalSummaryApp", function() {
+          $Lightning.createComponent(
+              "c:dynamicRelatedList",
+              {"strQuery" : strQuery,
+               "whereQuery" : whereQuery,
+               "lstFieldLabel" : lstFieldLabel,
+               "patientId" : patientId,
+               "recordLimit" : recordLimit,
+               "headerLabel" : headerLabel,
+               "pageName" : pageName,
+               "lstFielddatatype" : lstFielddatatype
+              },
+              "viewAllDiv"
+          );
+        });
+        
+    </script>
+</apex:page>

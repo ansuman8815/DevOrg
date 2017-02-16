@@ -1,0 +1,21 @@
+<apex:page title="Patient Search" sidebar="false" showHeader="false">
+    
+    <apex:includeScript value="/lightning/lightning.out.js" />
+
+    <div id="myDataDiv" />
+    <div id="myResultDiv" />
+    <script>
+        $Lightning.use("c:PatientSearchApp", function() {
+          $Lightning.createComponent(
+              "c:PatientSearch",
+              {},
+              "myDataDiv"
+          );
+          $Lightning.createComponent(
+              "c:PatientSearchEvent",
+              {},
+              "myResultDiv"
+          );
+        });
+    </script>
+</apex:page>

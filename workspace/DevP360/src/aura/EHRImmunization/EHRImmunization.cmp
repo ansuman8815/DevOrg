@@ -1,0 +1,47 @@
+<aura:component controller="clinicalSummaryController">
+	<ltng:require styles="{! $Resource.SLDS090 + '/assets/styles/salesforce-lightning-design-system.css'}"/>
+    
+    <aura:attribute name="EHRImmunization" type="HealthCloudGA__EhrImmunization__c[]"/>
+    <aura:attribute name="patientId" type="String" />
+    <aura:attribute name="recordLimit" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <br/>
+	<article class="slds-card">
+    <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media--center slds-has-flexi-truncate">
+            <div class="slds-media__body">
+                <h1 class="slds-text-heading--small" title="		Immunization"><b>Immunization</b></h1>
+            </div>
+        </header>
+    </div>
+    <div class="slds-card__body"> 
+        <table class="slds-table slds-table--bordered slds-no-row-hover slds-table--cell-buffer">
+            <thead>
+                <tr class="slds-text-title--caps">
+                    <th scope="col"><span class="slds-truncate"><b>Source Partner Name</b></span></th>
+                    <th scope="col"><span class="slds-truncate"><b>Name</b></span></th>
+                    <th scope="col"><span class="slds-truncate"><b>Date</b></span></th>
+                    <th scope="col"><span class="slds-truncate"><b>Type</b></span></th>
+                    <th scope="col"><span class="slds-truncate"><b>Route</b></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.EHRImmunization}" var="EHRAllergy">
+                    <tr class="slds-hint-parent">
+                        <td>{!EHRAllergy.HealthCloudGA__SourceSystem__c}</td>
+                        <td>{!EHRAllergy.HealthCloudGA__VaccineTypeLabel__c}</td>
+                        <td>{!EHRAllergy.HealthCloudGA__DateAdministered__c}</td>
+                        <td>{!EHRAllergy.HealthCloudGA__VaccineTypeCode__c}</td>
+                        <td>{!EHRAllergy.HealthCloudGA__RouteLabel__c}</td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+        <!--
+    <aura:if isTrue="{!v.recordLimit != '0'}">
+    	<div class="slds-card__footer"><a aura:id="viewLinkId" href="#" onclick="{!c.viewAll}">View All <span class="slds-assistive-text">entity type</span></a></div>
+    </aura:if>
+-->
+    </article>
+</aura:component>

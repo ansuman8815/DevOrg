@@ -1,0 +1,7 @@
+<aura:component >
+	
+    <c:clinicalSummaryDropDownComponent />
+    <br/><br/>
+    <c:clinicalSummaryRelatedList />
+    
+</aura:component>

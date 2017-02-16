@@ -1,0 +1,37 @@
+.THIS {
+}
+/*
+@font-face {
+    font-family: lightFont;
+    src: url("{!URLFOR($Resource.SalesforceSanFonts, '\webfonts\SalesforceSans-Light.woff')}");
+}
+@font-face {
+    font-family: boldFont;
+    src: url({!$Resource.SalesforceSanFonts+'/SalesforceSans-Bold.ttf'})
+}
+*/
+.THIS .patientHeadercss{
+   /* font-family: myFont;*/
+    font-weight: 300;
+    font-size:48pt;
+    color:#707f8a;
+}
+.THIS .p360Headercss{
+   /* font-family: boldFont;*/
+    font-weight: bold;
+    font-size:48pt;
+    color:#3c91c7;
+}
+
+
+
+
+.THIS.container{width:1048px;margin:80px auto 0;}
+.THIS.container .ContentBox{margin-bottom:20px;float:left;}
+.THIS.container h2{font-size:48pt;color:#707f8a;margin-bottom:30px;}
+.THIS.container h2 span{color:#3c91c7;}
+.THIS .PatientSearchBox{width:366px;padding:20px;background:#004b7b;float:left;border-radius:20px;}
+
+/**Registry**/
+.THIS .PatientRegistry{width:620px;float:left;margin-left:20px;background:#eff3f5;}
+.THIS .CommunityAnnouncements{float:left;}

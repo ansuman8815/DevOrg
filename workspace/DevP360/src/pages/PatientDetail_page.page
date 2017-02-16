@@ -1,0 +1,24 @@
+<apex:page controller="patientProfilePageController" action="{!redirect}"  sidebar="false" showHeader="false">
+    <apex:includeScript value="/support/console/38.0/integration.js"/>
+    <script>
+    var patientId = "{!accId}";
+    console.log(patientId);
+            
+    openPrimaryTab();
+    function openPrimaryTab() {
+            sforce.console.openPrimaryTab(undefined, 
+               '/{!accId}', true, 'Patient', openSuccess, 'Patient Detail');
+    }
+    
+    var openSuccess = function openSuccess(result) {
+        console.log(result);
+            //Report whether opening the new tab was successful
+            if (result.success == true) {
+                console.log('Primary tab successfully opened');
+            } else {
+                console.log('Primary tab cannot be opened');
+            }
+        };
+    
+    </script>
+</apex:page>

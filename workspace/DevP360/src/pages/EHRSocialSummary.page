@@ -1,0 +1,17 @@
+<apex:page title="title" sidebar="false" showHeader="false">
+    
+    <apex:includeScript value="/lightning/lightning.out.js" />
+
+    <div id="mySSDiv" />
+
+    <script>
+        var patientId = "{!$CurrentPage.parameters.recId}";
+        $Lightning.use("c:EHRSocialHistoryApp", function() {
+          $Lightning.createComponent(
+              "c:EHRSocialHistory",
+              {"patientId" : patientId},
+              "mySSDiv"
+          );
+        });
+    </script>
+</apex:page>

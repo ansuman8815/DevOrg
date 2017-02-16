@@ -1,0 +1,12 @@
+<aura:event type="APPLICATION" description="Event template" >
+    
+    <aura:attribute name="strQuery" type="String" />
+    <aura:attribute name="whereQuery" type="String" />
+    <aura:attribute name="lstFieldLabel" type="String" />
+    <aura:attribute name="headerLabel" type="String" />
+    <aura:attribute name="pageName" type="String" />
+    <aura:attribute name="patientId" type="String" />
+   
+    
+    
+</aura:event>

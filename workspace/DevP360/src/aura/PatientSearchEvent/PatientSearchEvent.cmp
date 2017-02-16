@@ -1,0 +1,38 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="res" type="Account[]" /> 
+    <aura:attribute name="onLoad" type="string" default="false" />
+    <aura:handler event="c:SearchResult" action="{!c.handleApplicationEvent}"/>
+    
+	<article class="slds-card">
+    <aura:if isTrue="{!v.onLoad == 'true'}">
+    	{!v.res.length} record(s) found
+    </aura:if>        
+    <div class="slds-card__header slds-grid">
+         <div class="slds-media__body">
+                <h1 class="slds-text-heading--small" title="		Patient Search Result"><b>Patient Search Result</b></h1>
+        </div>
+    </div>
+    <div class="slds"> 
+        <table class="slds-table slds-table--bordered slds-table--striped">
+            <thead>
+                <tr>
+                    <th scope="col"><span class="slds-truncate"><b>Patient Name</b></span></th>
+                    <th scope="col"><span class="slds-truncate"><b>Date Of Birth</b></span></th>
+                    <th scope="col"><span class="slds-truncate"><b>Gender</b></span></th>
+                    <th scope="col"><span class="slds-truncate"><b>CIN</b></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.res}" var="obj">
+                    <tr>
+                        <td><a href="{!'PatientDetail_page?id='+obj.Id}">{!obj.Name}</a></td>
+                        <td>{!obj.Date_of_Birth__c}</td>
+                        <td>{!obj.GenderLabel__c}</td>
+                        <td>{!obj.Medicaid_CIN__c}</td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+    </article>
+</aura:component>

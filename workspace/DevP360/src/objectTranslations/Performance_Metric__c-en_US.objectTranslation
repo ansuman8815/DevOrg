@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Performance Metric</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Performance Metrics</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Performance Metrics --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Assignment Reason --></label>
+        <name>Assignment_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Measure Name --></label>
+        <name>Measure_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Measure Priority --></label>
+        <name>Measure_Priority__c</name>
+    </fields>
+    <fields>
+        <label><!-- Performance Category --></label>
+        <name>Performance_Category__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

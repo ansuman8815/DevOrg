@@ -1,0 +1,4 @@
+<aura:component >
+    <aura:attribute name="res" type="Account[]"/>
+    <c:P360CommunitySearchResult res="{!v.res}"/>
+</aura:component>

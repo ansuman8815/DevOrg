@@ -1,0 +1,29 @@
+<apex:page controller="clinicalSummaryController" title="title" sidebar="false" showHeader="false">
+    
+    <apex:includeScript value="/lightning/lightning.out.js" />
+    <apex:includeScript value="/support/console/38.0/integration.js"/>
+    
+    <div id="clinicalDiv" />
+
+    <script>
+        var patientId = "{!$CurrentPage.parameters.recId}";
+        var recordLimit = "{!rLimit}";
+        var lstFieldLabel;
+        
+        //Allergy
+        $Lightning.use("c:EHRClinicalSummaryApp", function() {
+          $Lightning.createComponent(
+              "c:dynamicRelatedList",
+              {"strQuery" : 'SELECT  Note_Categorhy__c, Note_Purpose__c, Note_Date_time__c,Note_Text__c,Source_System__c FROM Ehr_Clinical_Note__c ',
+               "whereQuery" : ' WHERE Account__c = :patientId ',
+               "lstFieldLabel" : ["Type" , "Signature Status", "Date", "Note","Source"],
+               "patientId" : patientId,
+               "recordLimit" : recordLimit,
+               "headerLabel" : 'Clinical Notes',
+               "pageName" : 'ClinicalNote'
+              },
+              "clinicalDiv"
+          );
+        });
+    </script>
+</apex:page>

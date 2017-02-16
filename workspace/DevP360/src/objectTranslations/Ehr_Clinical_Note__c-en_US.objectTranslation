@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>EHR Clinical Note</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Clinical Notes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Clinical Notes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Encounter ID Label --></label>
+        <name>Encounter_ID_Label__c</name>
+    </fields>
+    <fields>
+        <label><!-- EHR Encounter --></label>
+        <name>Encounter_ID__c</name>
+        <relationshipLabel><!-- Clinical Notes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Note Categorhy --></label>
+        <name>Note_Categorhy__c</name>
+    </fields>
+    <fields>
+        <label><!-- Note Date Time --></label>
+        <name>Note_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Note Line Number --></label>
+        <name>Note_Line_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Note Purpose --></label>
+        <name>Note_Purpose__c</name>
+    </fields>
+    <fields>
+        <label><!-- Note SubCategory --></label>
+        <name>Note_SubCategory__c</name>
+    </fields>
+    <fields>
+        <label><!-- Note Text --></label>
+        <name>Note_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source System Id --></label>
+        <name>Source_System_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source System MRN --></label>
+        <name>Source_System_MRN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source System --></label>
+        <name>Source_System__c</name>
+    </fields>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>
