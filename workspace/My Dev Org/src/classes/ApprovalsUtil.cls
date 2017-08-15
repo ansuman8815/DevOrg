@@ -19,7 +19,7 @@ public class ApprovalsUtil
             return 'iPhone-Safari';
         if (userAgent.contains('Salesforce'))
             return 'Salesforce';
-        if (userAgent.contains('BlackBerry1'))
+        if (userAgent.contains('BlackBerry'))
             return 'BlackBerry';
         return 'other';
     }
