@@ -1,0 +1,32 @@
+<apex:page standardController="PMCS__Request__c"
+	extensions="PMCS.RequestEditController">
+	<apex:sectionHeader subtitle="{!PMCS__Request__c.Name}" title="Request Edit"	help="/help/doc/user_ed.jsp?loc=help" />
+
+	<style type="text/css">
+		span.bold {
+			font-weight: bold
+		}
+	</style>
+	<apex:form >
+		<apex:pageBlock >
+			<apex:pageMessages />
+			<apex:pageBlockButtons >
+				<apex:commandButton value="Save" action="{!SaveData}" />
+				<apex:commandButton value="Cancel" action="{!cancel}" />
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection title="Information" collapsible="false">
+				<apex:outputField value="{!PMCS__Request__c.PMCS__Request_Title__c}" id="ReqTitle" />
+				<apex:outputField value="{!PMCS__Request__c.PMCS__Account_Name__c}" id="ReqAccName" />
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Module_Name__c}" required="true" id="ReqModName" />
+				<apex:outputField value="{!PMCS__Request__c.PMCS__Priority__c}" id="ReqPri" />
+				<apex:outputField value="{!PMCS__Request__c.PMCS__Severity__c}" id="ReqSev" />
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Status__c}" required="true" id="InputStatus">
+					<script>document.getElementById('{!$Component.InputStatus}').disabled = true; </script>
+				</apex:inputField>
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Possible_Actions__c}" />
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Request_Description__c}" style="width:300px;height:100px" id="ReqDescrip" />
+			</apex:pageBlockSection>
+			
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

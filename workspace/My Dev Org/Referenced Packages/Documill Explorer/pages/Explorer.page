@@ -1,0 +1,10 @@
+<apex:page sidebar="false" controller="sfexplorer.explorerController">
+  
+  <apex:includeScript value="{!$Resource.sfexplorer__explorer_embed_js}"/>
+  
+
+  <iframe width="100%" scrolling="no" frameborder="0"
+    src="https://sfexplorer.documill.com:443/service/sfExplorerLogin?serverURL={!$Api.Partner_Server_URL_240}&sessionID={!$Api.Session_ID}&ui=next"
+    allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"/>
+
+</apex:page>

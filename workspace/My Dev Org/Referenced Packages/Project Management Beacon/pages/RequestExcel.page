@@ -1,0 +1,37 @@
+<apex:page controller="PMCS.RequestExcelController"
+	contentType="application/vnd.msexcel-download#RequestDetails.sxc" cache="true" action="{!Finding}">
+	<apex:sectionHeader title="Request Details" />
+	<br />
+	<center>
+		<font color="Blue" size="3px"> <apex:outputText value="{!SearchingCriteria}"></apex:outputText> </font>
+	</center>
+	<apex:dataTable value="{!Requests}" var="Req">
+		<apex:column headerValue="Account Name">
+			<apex:outputField value="{!Req.PMCS__Account_Name__c}" />
+		</apex:column>
+
+		<apex:column headerValue="Request ID">
+			<apex:outputField value="{!Req.Name }" />
+		</apex:column>
+
+		<apex:column headerValue="Request Title">
+			<apex:outputField value="{!Req.PMCS__Request_Title__c}" />
+		</apex:column>
+
+		<apex:column headerValue="Severity">
+			<apex:outputField value="{!Req.PMCS__Severity__c}" />
+		</apex:column>
+
+		<apex:column headerValue="Priority">
+			<apex:outputField value="{!Req.PMCS__Priority__c}" />
+		</apex:column>
+
+		<apex:column headerValue="Status">
+			<apex:outputField value="{!Req.PMCS__Status__c}" />
+		</apex:column>
+
+		<apex:column headerValue="Module">
+			<apex:outputField value="{!Req.PMCS__Module_Name__c}" />
+		</apex:column>
+	</apex:dataTable>
+</apex:page>

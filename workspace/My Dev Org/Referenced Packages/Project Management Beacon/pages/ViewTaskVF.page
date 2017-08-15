@@ -1,0 +1,66 @@
+<apex:page standardController="PMCS__Task__c" 
+    extensions="PMCS.ViewTaskController">
+
+    <apex:detail subject="{!T.ID}" relatedList="true" />
+     <script type="text/javascript" src="/js/functions.js"></script> 
+    <script src="/soap/ajax/23.0/connection.js"></script>
+    
+    <script type="text/javascript">
+        //var TACount = '{!JSENCODE(TACount)}';
+        var TACount = '{!TACount}';
+        var TaskStatus = '{!T.PMCS__Status__c}';    
+        //alert('{!TACount}');   
+        window.onload = new function()
+        {               
+            if(TACount == 0 && TaskStatus == 'Created'){
+                disableButton("pmcs__approve");
+            }
+            else if(TACount != 0 && TaskStatus == 'Created'){
+                EnableButton("pmcs__approve");
+            }
+            
+            if(TaskStatus == 'Approved' || TaskStatus == 'WIP' || TaskStatus == 'Testing In Progress')
+            {               
+                disableButton("pmcs__approve");
+            }   
+        }
+        function disableButton(approve) {
+            try{
+                var buttons = parent.document.getElementsByName(approve);                
+                buttons[0].className="btnDisabled";
+                buttons[0].disabled=true;
+                
+                for (var i=0; i < buttons.length; i++) {
+                    buttons[i].className='btnDisabled';
+                    buttons[i].disabled=true;
+                    
+                }
+            }catch(e) {
+                
+            }
+        }
+        function EnableButton(approve) {
+            try{
+                var buttons = parent.document.getElementsByName(approve);
+               // buttons[0].className="btnDisabled";
+                buttons[0].disabled=false;
+                for (var i=0; i < buttons.length; i++) {
+                   // buttons[i].className="btnDisabled ";
+                    buttons[i].disabled=false;
+                }
+            }catch(e) {
+            }
+        }
+        function hideButton(approve) {
+            try{
+                var buttons = parent.document.getElementsByName(approve);
+                for (var i=0; i < buttons.length; i++) {
+                    buttons[i].className="btnDisabled ";
+                    buttons[i].disabled=true;
+                    buttons[i].type='hidden';
+                }
+            }catch(e) {
+            }
+        }
+    </script>
+</apex:page>

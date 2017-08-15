@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>IndustryCodeLookup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Industry Code Lookup</label>
+        <referenceTo>IndustryCode__c</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SIC_Text__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IndustryCodeLookup__r.Description__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SIC Text</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <webLinks>
+        <fullName>Lookup_Industry</fullName>
+        <availability>online</availability>
+        <description>Use IndustryComplete to lookup the industry.</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Lookup Industry</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&apos;/soap/ajax/34.0/connection.js&apos;)}; 
+{!REQUIRESCRIPT(&apos;/soap/ajax/34.0/apex.js&apos;)}; 
+{!REQUIRESCRIPT(&apos;/resource/1337179725000/pw_ic__IndustryComplete/javascript/IndustryComplete.js&apos;)}; 
+if(ProvenWorks.IndustryComplete.isInitialized)
+  ProvenWorks.IndustryComplete.open();</url>
+    </webLinks>
+</CustomObject>

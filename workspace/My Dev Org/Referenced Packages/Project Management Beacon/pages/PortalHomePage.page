@@ -1,0 +1,31 @@
+<apex:page controller="PMCS.PortalHomePageController" sidebar="false" showHeader="false">
+    <apex:form >
+        <apex:pageBlock title="Requests you have to view">
+            <apex:pageBlockTable value="{!Requests}" var="Req">
+                <apex:column headerValue="Request Name">
+                	<apex:outputLink value="https://c.na12.visual.force.com/{!Req.ID}">
+		            	<apex:outputField value="{!Req.Name }" />
+					</apex:outputLink>
+                </apex:column>
+                
+                <apex:column headerValue="Request Title">
+                    <apex:outputField value="{!Req.PMCS__Request_Title__c}" />
+                </apex:column>
+
+                <apex:column headerValue="Severity">
+                    <apex:outputField value="{!Req.PMCS__Severity__c}" />
+                </apex:column>
+
+                <apex:column headerValue="Priority">
+                    <center>
+                        <apex:image url="{!Req.PMCS__Priority_Image__c}" width="20" height="20"/>
+                    </center>
+                </apex:column>
+                
+                <apex:column headerValue="Status">
+                    <apex:outputField value="{!Req.PMCS__Status__c}" />
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

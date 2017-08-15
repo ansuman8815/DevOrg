@@ -1,0 +1,376 @@
+<apex:page sidebar="false" showHeader="false" controller="TIMBASURVEYS.SF1AnalizeController" >
+    <c:SF1LoadingBox />
+
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, '/css/common.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, '/css/extended.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, '/css/list.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, '/css/tabsDisplay.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, '/css/SurveyAnalyze.css')}"/>
+
+
+    <script type="text/javascript" src="{!URLFOR($Resource.TIMBASURVEYS__jqTransform, 'required/jquery-1.4.2.min.js')}" ></script>
+
+    
+    <style> 
+        body {
+            background-color: #fff; 
+            margin: 0;
+            padding: 1px;       
+        }
+
+        .pageContainer{ 
+            min-height: 300px;
+        }
+        body {
+            font-size: 75%;
+            font-family: Arial,Helvetica,sans-serif;
+        }
+        .linkTr{
+            cursor: pointer;
+        }
+        .overview{
+            font-family: arial;
+            font-size: 14px;
+            color: #bbbbbb;
+            width: 100%;
+            min-height: 200px;
+
+            background-color: #ffffff;
+            margin: 0 auto;
+
+            -webkit-border-bottom-left-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            -moz-border-radius-bottomright: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .overview .cols{
+            text-align: left;
+        }
+
+        .overview .col1{
+            width: 40% ;
+            float: left;
+            padding: 5px;
+            padding-top: 7px;
+        }
+
+        .overview .col2{
+            width:50%;
+            height: auto;
+            overflow: hidden;
+            float: left;
+        }
+        
+       .overview .form_field {
+            overflow: hidden;
+            clear: both;
+            margin: 4px 0;
+        }
+        .disabletabElem{
+            font-weight: normal !Important;
+            background-color: #eaeaea !Important;
+            border: 1px solid #C0C0C0 !Important;
+            border-bottom: none !Important;
+        }
+        .tableResponse{
+            padding: 10px;
+        }
+        .responsesList{
+            border-collapse: collapse;
+            clear: both;
+            color: #8a8a8a;
+            margin: 5px auto;
+            width: 100%;
+        } .responsesList td{
+            padding: 8px;
+            border-bottom: 1px solid #F0F9FB;
+        } .responsesList th{
+            background-color: #E6E6E6;
+            padding: 5px;
+        }
+        
+        .controlsDiv{
+            border-top: solid 1px #C0C0C0 !important;
+            padding: 10px;
+            padding-top: 20px;
+            
+        }
+        .controls{
+            border: solid 1px #C0C0C0 !important;
+            padding: 5px !important;
+            padding-left: 15px !important;;
+            padding-right: 15px !important;
+            cursor: pointer;
+        }
+        
+        .totalQuestionsWrapper{
+            padding-top: 10px;
+            padding-bottom: 2px;
+            background-color: #fff;
+        }
+        .linkTr{
+            cursor: pointer;
+        }
+        
+        .questionDetailNumber {
+            background-image: url({!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, '/img/analyze/bullet_big.png')});
+            background-repeat: no-repeat;
+            width: 23px;
+            height: 23px;
+            text-align: center;
+            display: block;
+            color: #ffffff;
+            font-size: 18px;
+        }
+        .displayData{
+            padding: 15px;
+        }
+
+        
+    </style>
+    
+    
+    
+    
+    <body>
+    <div id="surveyToolbar"> 
+        <div class="leftContainer">
+            <apex:image url="{!URLFOR($Resource.TIMBASURVEYS__sf1_logo)}" width="280" height="44"/>
+        </div>
+        <!--div class="rightContainer"><a onclick="#" id="help" href="javascript:;">&nbsp;</a></div-->
+        <div class="clear"> </div>
+    </div>
+    
+    <div id="breadCrumb">
+        <ul>
+            <li class="step first">
+            <a class="first" href="javascript:;" OnClick="sforce.one.navigateToURL('/apex/TIMBASURVEYS__SF1SurveyList');" >Survey List</a>    
+            </li>
+    <li class="acctual">
+                <span class="acctual">{!LEFT(survey.Name,21)}<apex:outputLabel rendered = "{!IF(len(survey.Name)>20,true,false)}" value="..." /></span>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="pageContainer">
+        <div class="leftContainer"></div>
+        <div class="rightContainer"></div>
+        <div class="clear"> </div>
+        <div class="listContainer">
+            <div  class="pageContainer">
+                <div class="tabSet">
+                    <a class="tabElem" href="javascript:;" OnClick="sforce.one.navigateToURL('/apex/TIMBASURVEYS__SF1SurveyOverview?id={!surveyId}');">Overview </a>
+                    <a class="tabElem" href="javascript:;" OnClick="sforce.one.navigateToURL('/apex/TIMBASURVEYS__SF1SurveyCollect?id={!surveyId}');">Collect</a>
+                    <a class="tabElem imIn" href="javascript:;" OnClick="sforce.one.navigateToURL('/apex/TIMBASURVEYS__SF1SurveyAnalize?id={!surveyId}');" >Analyze</a>
+                    <div class="marginInf"></div>
+                </div>
+                <div id="view">
+                    <div class="overview">
+                            <div class="totalQuestionsWrapper">
+                                <span class="totalQuestionsText">Collected Responses:</span>
+                                <span class="totalQuestionsText">{!ROUND(survey.CollectedResponses__c,0)}</span>
+                            </div>
+ 
+                            <apex:variable value="{!1}" var="rowNum"/>
+                            <apex:outputPanel layout="block" styleClass="tableResponse" rendered="{!questionId}" >
+                                <table class="responsesList" >
+                                    <apex:repeat value="{!questions}" var="ques">
+                                <apex:outputPanel rendered="{!IF(ques.TIMBASURVEYS__QuestionTypeCode__c =='QT_DT',false,true)}">
+                                        <tr onClick="sforce.one.navigateToURL('/apex/TIMBASURVEYS__SF1SurveyAnalize?id={!survey.Id}&q={!ques.Id}&cont={!FLOOR(rowNum)}');" class="linkTr">
+                                        
+                                            <td align="right" width="15%"><span class="questionDetailNumber"><apex:outputText value="{!FLOOR(rowNum)}"/></span></td>                
+                                            <td width="85%">{!ques.TIMBASURVEYS__Question2__c}</td>
+                                             
+                                        </tr>
+                                </apex:outputPanel>                         
+                                        <apex:variable var="rowNum" value="{!rowNum + 1}"/>                                        
+                                    </apex:repeat>
+                                </table>
+                            </apex:outputPanel>
+                            
+                            
+                            <!-- List Responses -->
+                            <apex:outputPanel layout="block" rendered="{!selectResponse!=null}" >
+                            
+                                <!-- question title -->
+                                <table class="responsesList" >
+                                    <tr> 
+                                        <td align="right"><span class="questionDetailNumber"><apex:outputText value="{!counter}"/></span></td>
+                                        <td>{!questionTitle}</td>
+                                    </tr>
+                                </table>
+                            
+                            <!-- QT_ST/standar field text and QT_DAOT/date or time and QT_CB/Comment:Essay Box -->
+                            <apex:outputPanel layout="block" rendered="{!questionCode=='QT_ST' || questionCode=='QT_DAOT' || questionCode=='QT_CB'}" >
+                                <table class="responsesList" >
+                                    <tr> 
+                                        <th align="right" width="25%">Recipient</th>
+                                        <th align="left" width="75%">Response</th>
+                                    </tr>
+                                    <apex:repeat value="{!selectResponse}" var="resp" >
+                                        <tr> 
+                                            <td align="left" width="25%">                                              
+                                                <apex:outputText value="{!IF(resp.Recipient__r.TIMBASURVEYS__isAnonymous__c, 'Anonymous', resp.TIMBASURVEYS__Recipient__r.TIMBASURVEYS__EmailAddress__c)}" />                                                                                           
+                                            </td>
+                                            <td align="left" width="75%"> 
+                                                <apex:outputPanel rendered="{!((questionCode=='QT_ST' || questionCode=='QT_CB') && resp.TIMBASURVEYS__StringResponse__c =='')}" >
+                                                    <apex:outputText value="Not Answered" />
+                                                </apex:outputPanel>
+                                                <apex:outputPanel rendered="{!((questionCode=='QT_ST' || questionCode=='QT_CB') && resp.TIMBASURVEYS__StringResponse__c !='')}" >
+                                                    <apex:outputText value="{!resp.TIMBASURVEYS__StringResponse__c}" />
+                                                </apex:outputPanel>
+                                                
+                                                <apex:outputPanel rendered="{!questionCode=='QT_DAOT'}" >
+                                                    <apex:outputText value="{!LEFT(resp.TIMBASURVEYS__StringResponse__c, 10)}" />
+                                                </apex:outputPanel>
+                                            </td>
+                                        </tr>
+                                    </apex:repeat>
+                                </table>
+                            </apex:outputPanel>
+                                
+                            <!-- QT_PL/picklist and QT_MCSA/Multiple Choice Single Answer -->
+                            <apex:outputPanel layout="block" rendered="{!questionCode=='QT_PL' || questionCode=='QT_MCSA' || questionCode=='QT_MCMA'}" >           
+                                
+                                <table class="responsesList" >
+                                    <tr> 
+                                        <th align="right" width="15%"></th>
+                                        <th align="left" width="85%">Options and responses</th>
+                                    </tr>
+                                    
+                
+                                    <apex:repeat value="{!optionsPage}" var="key" >
+                                          <apex:repeat value="{!optionsPage[key]}" var="keyvalue" >
+                                            <tr> 
+                                                <td align="right" width="15%">-</td>
+                                                <td align="left" width="85%">{!keyvalue}</td> 
+                                            </tr>
+                                        </apex:repeat>
+                                    </apex:repeat>             
+                                    <apex:outputPanel layout="block" rendered="{!(questionCode=='QT_MCMA' || questionCode=='QT_MCSA') && notAnsweredOption!=''}" > 
+                                            <tr> 
+                                                <td align="right" width="15%">-</td>
+                                                <td align="left" width="85%">{!notAnsweredOption}</td> 
+                                            </tr>
+                                     </apex:outputPanel>                          
+                                    <tr>
+                                        <td colspan="2">
+                                            <div style=" height: 200px; width: 100%;">
+                                                <apex:chart height="100%" width="100%" resizable="true" data="{!pieData}">        
+                                                <apex:pieSeries dataField="data" labelField="name"/>                                        
+                                                <apex:legend position="right"/>                                        
+                                                </apex:chart>                                           
+                                            </div>
+                                            
+                                        </td>
+                                    </tr> 
+                                    <apex:outputPanel layout="block" rendered="{!questionCode=='QT_MCSA' && ponderationString!=''}" > 
+                                            <tr> 
+                                                <td align="right" width="15%">-</td>
+                                                <td align="left" width="85%">{!ponderationString}</td> 
+                                            </tr>
+                                     </apex:outputPanel>                     
+                                </table>
+                            </apex:outputPanel>
+                                
+                            
+                            <!-- QT_RS/Rating Scale  -->
+                            <apex:outputPanel layout="block" rendered="{!questionCode=='QT_RS' || questionCode=='QT_MCOOAP' }" >   
+                                <table class="responsesList" >
+                                    <tr> 
+                                        <th align="right" width="10%"></th>
+                                        <th align="left" width="90%">Question, Options and responses</th>
+                                    </tr>
+                                </table>  
+                                <apex:variable value="{!1}" var="rowNum"/>  
+                                    <apex:repeat value="{!questionList}" var="ques">
+                                    <table class="responsesList" >
+                                        <tr>
+                                            <td align="right" width="10%" ></td>
+                                            <td style="font-weight: bolder;">{!questionMap[FLOOR(rowNum)]}</td>
+                                        </tr>
+                                        <apex:repeat value="{!ques}" var="key" >
+                                            <apex:repeat value="{!ques[key]}" var="keyvalue" > 
+                                                <tr> 
+                                                    <td align="right" width="10%" ></td>
+                                                    <td align="left" width="90%">- {!key} - {!keyvalue}</td>
+                                                </tr>
+                                            </apex:repeat>  
+                                        </apex:repeat>
+                                        
+                                        <tr>
+                                            <td colspan="2">
+                                                <span id='chart{!FLOOR(rowNum)}'>&nbsp;</span>
+                                                <apex:chart renderto="chart{!FLOOR(rowNum)}" height="100%" width="100%" data="{!pieListData[FLOOR(rowNum)]}">           
+                                                    <apex:pieSeries dataField="data" labelField="name"/>                                            
+                                                    <apex:legend position="right"/>                                         
+                                                </apex:chart>  
+                                            </td>
+                                        </tr> 
+                                      </table>  
+                                      <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                                    </apex:repeat>
+                                    
+                                        
+                                
+                            </apex:outputPanel>
+                            
+                           <!-- QT_RS/Rating Scale  -->
+                            <apex:outputPanel layout="block" rendered="{!questionCode=='QT_MCMAPP'}" >   
+                                <table class="responsesList" >
+                                    <tr> 
+                                        <th align="right" width="10%"></th>
+                                        <th align="left" width="90%">Question, Options and responses</th>
+                                    </tr>
+                                </table>  
+                                <apex:variable value="{!1}" var="rowNum"/>  
+                                    <apex:repeat value="{!questionList}" var="ques">
+                                    <table class="responsesList" >
+                                        <tr>
+                                            <td align="right" width="10%" ></td>
+                                            <td style="font-weight: bolder;">{!questionMap[FLOOR(rowNum)]}</td>
+                                        </tr>
+                                        <apex:repeat value="{!ques}" var="key" >
+                                            <apex:repeat value="{!ques[key]}" var="keyvalue" > 
+                                                <tr> 
+                                                    <td align="right" width="10%" ></td>
+                                                    <td align="left" width="90%">- {!key} - {!keyvalue}</td>
+                                                </tr>
+                                            </apex:repeat>                                          
+                                        </apex:repeat>
+                                      </table>  
+                                      <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                                    </apex:repeat>
+                                    
+                                        
+                                
+                            </apex:outputPanel> 
+                           
+                            
+                                
+                                        
+                            <!--Button back --> 
+                                <apex:outputPanel layout="block" styleClass="controlsDiv" >
+                                    <div style="text-align:center;">
+                                    <apex:form >
+                                        <!--apex:commandButton value="Back" onClick="sforce.one.navigateToURL('/apex/TIMBASURVEYS__SF1SurveyAnalize?id={!surveyId}');" styleClass="controls" /-->                                       
+                                        <input type="button" class="controls" value="Back" onClick="sforce.one.navigateToURL('/apex/TIMBASURVEYS__SF1SurveyAnalize?id={!surveyId}');"/>
+                                    </apex:form>
+                                    </div>
+                                </apex:outputPanel>
+                    
+                            </apex:outputPanel>
+                            
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="clear"> </div>
+    </div>
+    </body>
+
+</apex:page>

@@ -1,0 +1,63 @@
+<apex:page standardController="PMCS__Task__c" extensions="PMCS.NewTaskController">
+	<apex:sectionHeader subtitle="New Task" title="Task Edit"
+		help="/help/doc/user_ed.jsp?loc=help" />
+
+	<apex:form >
+		<apex:pageBlock >
+			<apex:pageMessages id="errors" />
+			<apex:pageBlockButtons >
+				<apex:commandButton value="Save" action="{!SaveData}" />
+				<apex:commandButton value="Cancel" action="{!cancel}" />
+			</apex:pageBlockButtons>
+			<b>Task From :</b>
+			<apex:selectRadio value="{!TaskOption}">
+				<apex:selectOptions value="{!items}" />
+				<apex:actionSupport event="onchange" action="{!GetVisibilty}"
+					rerender="taskdisp" />
+			</apex:selectRadio>
+
+
+			<apex:pageBlockSection title="Information" collapsible="false"
+				id="taskdisp">
+
+				<apex:inputField value="{!PMCS__Task__c.PMCS__Task_Title__c}" required="false"
+					rendered="{!TaskTitleVisibility}" />
+				<apex:inputField value="{!PMCS__Task__c.PMCS__Request_ID__c}"
+					rendered="{!RequestVisible}">
+					<apex:actionSupport event="onchange" action="{!Projects}"
+						rerender="ProjectID" />
+				</apex:inputField>
+				<apex:inputField value="{!PMCS__Task__c.PMCS__Project_ID__c}" required="false"
+					styleClass="bold" rendered="{!ProjectVisible}" />
+				<apex:panelGrid columns="2" style="padding-left : 90px;"
+					cellspacing="12" rendered="{!ProjectVisibleReq}">
+					<apex:outputLabel value="Project Name" for="ProjectID" />
+					<apex:selectList id="ProjectID" size="1" value="{!SelectedProject}">
+						<apex:selectOptions value="{!ProjectRecords}"></apex:selectOptions>
+					</apex:selectList>
+				</apex:panelGrid>
+				<apex:inputField value="{!PMCS__Task__c.PMCS__Task_Start_Date__c}"
+					required="false" />
+				<apex:inputField value="{!PMCS__Task__c.PMCS__Task_End_Date__c}"
+					required="false" />
+
+				<apex:inputField value="{!PMCS__Task__c.PMCS__Is_this_Task_Milestone__c}"
+					required="false" />
+				<apex:inputField value="{!PMCS__Task__c.PMCS__Project_Phase__c}" />
+
+				<apex:inputField value="{!PMCS__Task__c.PMCS__Task_Assigned_Time__c}"
+					required="false" />
+				<apex:inputField value="{!PMCS__Task__c.PMCS__Task_Type__c}" />
+
+				<apex:inputField value="{!PMCS__Task__c.PMCS__Status__c}" id="InputStatus" />
+				<script>document.getElementById('{!$Component.InputStatus}').disabled = {!disableInputStatus}; </script>
+				<apex:inputField value="{!PMCS__Task__c.PMCS__UOM__c}" />
+
+				<apex:inputField value="{!PMCS__Task__c.PMCS__Description__c}" />
+
+
+
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

@@ -1,0 +1,100 @@
+<apex:page standardController="PMCS__Time_Sheet__c" standardStylesheets="true" extensions="PMCS.Edit_Time_Sheet_Controller">
+
+	<apex:sectionHeader subtitle="{!PMCS__Time_Sheet__c.Name}" title="Time Sheet Edit"
+		help="/help/doc/user_ed.jsp?loc=help" />
+	
+	<style>
+		.styleallthin {border-bottom:solid 2px #4BACC6;border-left:solid 2px #4BACC6;border-top:solid 2px #4BACC6;border-right:solid 2px #4BACC6;font-size: 15px; font-family: Arial;} 
+		.styleFontFamilySize {font-size: 15px; font-family: Arial;} .stylerightalone{border-right:solid 2px #4BACC6;font-size: 15px; font-family: Arial;}
+		.stylebottomthin {border-bottom:solid 2px #4BACC6;font-size: 15px; font-family: Arial;} 
+		.stylefontsize8px{font-size: 8px; font-family: Verdana, "Verdana CE", Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;} 
+		.stylefontsize9px{font-size: 9px; font-family: Verdana, "Verdana CE", Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;} 
+		.stylebottomrightthin {border-bottom:solid 2px #4BACC6;border-right:solid 2px #4BACC6;font-size: 15px; font-family: Arial;} .styleLineSpacing {line-height:1.6; font-size: 15px; font-family: Arial;}
+	</style>
+	<apex:form >
+		
+		<apex:pageBlock title="Time Sheet Edit" mode="edit" id="Timesheetnew">
+		 <apex:pageMessages id="errors" />
+			<table bgcolor="#FFFFFF" cellpadding="8" cellspacing="0" align="center" border="0" height="100%" width="600" class="styleFontFamilySize">
+				<tr align="left">
+					<td colspan="2">
+						<table cellpadding="4" cellspacing="0" align="center" border="0" height="210" width="80%" class="styleallthin">
+							<tr>
+								<td bgcolor="#4BACC6" class="stylebottomthin" colspan="2">
+									<apex:panelGrid columns="2" rendered="{!visible}">
+										<apex:outputLabel value="User Name :" for="UI"></apex:outputLabel>
+										<apex:outputText value="{!UInfo}" id="UI" />
+									</apex:panelGrid>
+								</td>
+							</tr> 
+							<tr>
+								<td align="center" width="50%" class="stylebottomrightthin">
+									<b>Date</b>
+								</td>
+								<td width="50%" class="stylebottomthin">
+									<apex:inputField value="{!PMCS__Time_Sheet__c.PMCS__Date__c}">
+										<apex:actionSupport event="onchange" action="{!AllTaskDetails}" rerender="Timesheetnew" immediate="false" />
+									</apex:inputField>
+								</td>
+							</tr> 
+							<tr>
+								<td align="center" width="50%" class="stylebottomrightthin">
+									<b>Task</b>
+								</td>
+								<td width="50%" class="stylebottomthin">
+									<apex:selectList id="Taskdet" size="1" value="{!TaskSelect}" >
+										<apex:selectOptions value="{!getTaskDetails1}"></apex:selectOptions>
+										<apex:actionSupport event="onchange" action="{!GetTaskName}" rerender="taskisp" />
+									</apex:selectList> &nbsp;&nbsp;
+									<apex:outputpanel id="taskisp">
+									<apex:outputText value="{!TaskName}" id="tname" /></apex:outputpanel>
+								</td> 
+							</tr>
+	
+							<tr>
+								<td align="center" width="50%" class="stylebottomrightthin"> 
+									<b>Duration in Hours</b>
+								</td> 
+								<td width="50%" class="stylebottomthin">
+									<apex:inputField value="{!PMCS__Time_Sheet__c.PMCS__Duration_in_Hrs__c}" required="false" />
+								</td> 
+							</tr>  
+							<tr>
+                                <td align="center" width="50%" class="stylebottomrightthin"> 
+                                    <b>Completed Percentage</b>
+                                </td> 
+                                <td width="50%" class="stylebottomthin">
+                                    <apex:inputField value="{!PMCS__Time_Sheet__c.PMCS__Completed_Percentage__c}" required="false" />
+                                </td> 
+                            </tr>
+							<tr>
+								<td align="center" width="50%" class="stylebottomrightthin"> 
+									<b>Comments</b> 
+								</td> 
+								<td width="50%" class="stylebottomthin">
+									<apex:inputField value="{!PMCS__Time_Sheet__c.PMCS__Comments__c}"  required="false"/>
+								</td> 
+							</tr>
+							 
+							<tr> 
+								<td align="center" width="50%" class="stylebottomrightthin">
+								<b>Status</b> 
+								</td> 
+								<td width="50%" class="stylebottomthin">
+									<apex:inputText value="{!StatusValue}" id="theTextInput" disabled="true"/>
+								</td> 
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			
+			<apex:pageBlockButtons >
+				<apex:commandButton value="Save" action="{!SaveData}" />
+				<apex:commandButton value="Cancel" action="{!CancelData}" immediate="true" />
+			</apex:pageBlockButtons>
+		</apex:pageBlock>
+
+	</apex:form>
+
+</apex:page>

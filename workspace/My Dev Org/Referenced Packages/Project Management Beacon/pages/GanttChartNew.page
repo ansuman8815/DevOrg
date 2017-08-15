@@ -1,0 +1,48 @@
+<apex:page standardController="PMCS__Project__c"
+	extensions="PMCS.GanttChartNewController" sidebar="false" showheader="false">
+	<apex:form >
+		<apex:pageMessages id="errors" />
+		<apex:pageBlock rendered="true">
+			<center>
+				<apex:panelGrid columns="2">
+					<apex:outputLabel value="Project Name  :" for="UI"
+						rendered="{!PNameDis}" />
+					<apex:selectList id="Consult" size="1" value="{!ProjectName}"
+						rendered="{!PNameDis}">
+						<apex:selectOptions value="{!ProjectNameOptions}">
+						</apex:selectOptions>
+					</apex:selectList>
+				</apex:panelGrid>
+
+				<apex:panelGrid columns="4" cellpadding="10px" cellspacing="10px">
+
+					<apex:outputText value="Planned Start Date  :" />
+					<apex:inputField value="{!OppStart.CloseDate}" required="false" />
+
+					<apex:outputText value="Planned End Date  :" />
+					<apex:inputField value="{!OppEnd.CloseDate}" required="false" />
+				</apex:panelGrid>
+			</center>
+			<center>
+				<apex:commandbutton value="Submit" action="{!submit}" />
+			</center>
+		</apex:pageBlock>
+
+		<apex:pageBlock rendered="{!Visibility}">
+			<c:GanttChart target="{!myId}" StartDate="{!mystartDate}"
+				EndDate="{!myEndDate}" readonly="true"></c:GanttChart>
+			<br />
+			<apex:image url="{!$Resource.PMCS__Green_Image}" width="15" height="15"
+				id="Green" />&nbsp;
+            <apex:outputText value="Planned"></apex:outputText>&nbsp; &nbsp;
+            <apex:image url="{!$Resource.PMCS__Yellow_Image}" width="15"
+				height="15" /> &nbsp;
+            <apex:outputText value="Actual"></apex:outputText>&nbsp; &nbsp;
+            <apex:image url="{!$Resource.PMCS__Blue_Image}" width="15"
+				height="15" id="Blue" />&nbsp;
+            <apex:outputText value="Resource Not Assigned  ">
+			</apex:outputText>
+		</apex:pageBlock>
+
+	</apex:form>
+</apex:page>

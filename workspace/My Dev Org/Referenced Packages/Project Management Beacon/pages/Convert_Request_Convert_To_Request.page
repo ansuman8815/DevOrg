@@ -1,0 +1,132 @@
+<apex:page controller="PMCS.Convert_Request" sidebar="false" tabstyle="PMCS__Request__c">
+	
+	<style type="text/css">
+        .custPopup{
+            background-color: white;
+            border-width: 2px;
+            border-style: solid;
+            z-index: 9999;
+            left: 40%;
+            padding:10px;
+            position: absolute;
+            width: 60%;
+            margin-left: -250px;
+            top:100px;
+        }
+        .popupBackground{
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 20);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+        }
+        .headStyle{
+        	border-collapse:separate;
+	        border-color:gray;
+	        border-spacing:0px;
+	        border-width:1px;
+	        border-style:outset;
+	        background-color: white;
+	        font-size:1em;
+        	padding:3px;
+	        border-style:inset;
+	        border-left: 3px solid #FFFFFF;
+	        -moz-border-radius:3px;
+	        text-align:left;
+	        background-color:#F7921E;
+		}
+		
+		.columnStyle {
+        	border-left: 10px solid #FFFFFF;
+        	background-color:#FFFFFF;
+        	color: black;
+		}
+		.tRowOdd{
+			background-color:#F0F8DC;
+		}
+		.tRowEven{
+			background-color:#FFF8DC;
+		}
+
+    </style>
+	
+	<apex:form >
+        <apex:pageBlock title="Case convertion - Step3">
+            <apex:pageBlockButtons >
+            	<apex:commandButton value="Previous" action="{!Previous_Covert_Request}" />
+            	<apex:commandButton value="Convert" action="{!Next_Finalize}" />
+            	<apex:commandButton value="Cancel" action="{!Cancel}" />
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection columns="2">
+            	<apex:pageblockSectionItem >
+	            	<apex:outputLabel value="Request Title" for="reqTitle" />
+	                <apex:outputText value="{!requestTitle}" id="reqTitle" />
+                </apex:pageblockSectionItem>
+                
+                <apex:pageblockSectionItem >
+	                <apex:outputLabel value="Account Name" for="reqAccount" />
+	                <apex:outputText value="{!requestAccount}" />
+                </apex:pageblockSectionItem>
+                
+                <apex:pageblockSectionItem >
+	                <apex:outputLabel value="Priority" for="reqPriority" />
+	                <apex:outputText value="{!requestPriority}" id="reqPriority" />
+                </apex:pageblockSectionItem>
+                
+                <apex:pageblockSectionItem >
+	                <apex:outputLabel value="Status" for="reqStatus" />
+	                <apex:outputText value="{!requestStatus}" id="reqStatus" />
+                </apex:pageblockSectionItem>
+                
+	            <apex:inputField id="module" value="{!request.PMCS__Module_Name__c}" required="true"/>
+                
+	            <apex:inputField id="seveirty" value="{!request.PMCS__Severity__c}" required="true"/>
+                
+                <apex:inputField id="Description" value="{!request.PMCS__Request_Description__c}" required="true"/>
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Case Comments" columns="1">
+			    <apex:pageBlockTable value="{!SelectedComments}" var="comment">
+				    <apex:column headerValue="Public" value="{!comment.cComment.IsPublished}" />
+				    <apex:column headerValue="Comments">
+				    	<apex:outputText value="Created By: "/>
+				    	<apex:outputLink value="/{!comment.CreatedByID}">
+				    		<apex:outputText value="{!comment.CreatedByName}"/>
+				    	</apex:outputLink>
+				    	
+				    	<apex:outputText value="( {!comment.CreatedDate} ) | Last Modified By:" />
+				    	<apex:outputLink value="/{!comment.LastModifiedByID}">
+				    		<apex:outputText value="{!comment.LastModifiedByName}"/>
+				    	</apex:outputLink>
+				    	
+				    	<apex:outputText value=" ( {!comment.LastModifiedDate} )"/>
+				    	
+				    	<br/>
+				    	
+				    	<apex:outputText value="{!comment.CommentBody}" />
+			    	</apex:column>
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Case Attachments" columns="1">
+            	<apex:pageblockTable value="{!SelectedAttachments}" var="attach" >
+					
+					<apex:column headerValue="File Name" >
+						<apex:outputLink value="https://c.na12.content.force.com/servlet/servlet.FileDownload?file={!attach.cAttachments.Id}" id="theLink">{!attach.cAttachments.Name}</apex:outputLink>
+					</apex:column>
+					<apex:column headerValue="Size (in bytes)" value="{!attach.cAttachments.BodyLength}" />
+					<apex:column headerValue="Last Modified" value="{!attach.cAttachments.LastModifiedDate}" />
+					<apex:column headerValue="Created By" value="{!attach.cAttachments.CreatedBy.Name}" />
+					
+				</apex:pageblockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+    </apex:form>
+</apex:page>

@@ -1,0 +1,179 @@
+<apex:page controller="PMCS.ViewTimeSheetController" tabStyle="PMCS__Time_Sheet__c">
+	<apex:form >
+		<apex:pageBlock title="Waiting for Approval TimeSheets" mode="edit"	id="results" rendered="{!TSNotAppView}">
+			<apex:pageMessages id="errors" />
+			<apex:pageBlockButtons location="Top">
+				<apex:commandButton value="Approve" id="cmdApp" action="{!StatusApproved}" />
+				<apex:commandButton value="Reject" id="cmdRej" action="{!StatusRejected}" />
+			</apex:pageBlockButtons>
+			<b> Resource Name </b> &nbsp;&nbsp;
+            <apex:selectList id="ResId" size="1" value="{!ResourceSelect}">
+				<apex:selectOptions value="{!ResourceDetails}">
+				</apex:selectOptions>
+			</apex:selectList>
+			<apex:selectList id="DateId" size="1" value="{!DateSelects}">
+				<apex:selectOption itemValue="--All--" itemLabel="--All--" />
+				<apex:selectOption itemValue="Current Month" itemLabel="Current Month" />
+				<apex:selectOption itemValue="Previous Month" itemLabel="Previous Month" />
+			</apex:selectList>
+			<apex:commandLink action="{!NotApprovedTimeSheet}" value="View" id="theCommandLink" rerender="theTable" status="Status1" />
+			<font color="Red" size="3px"> <apex:actionStatus startText=" Please Wait... " stopText="" id="Status1" /> </font>
+			<apex:pageBlockTable value="{!timesheetss}" var="TS" id="theTable">
+				<apex:column >
+					<apex:facet name="header">
+						<apex:commandLink value="TimeSheet ID" action="{!doSortNotApp}"	rerender="theTable" status="Status1">
+							<apex:param name="sortField1" value="Name" assignTo="{!sortField1}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:commandLink action="{!ViewTimesheet}">
+						<apex:outputtext value="{!TS.cTimesheet.Name}" />
+						<apex:param name="cid" value="{!TS.cTimesheet.id}"	assignto="{!TimesheetId}" />
+					</apex:commandLink>
+				</apex:column>
+				
+				<apex:column >
+					<apex:facet name="header">
+						<apex:commandLink value="Task Title" action="{!doSortNotApp}"	rerender="theTable" status="Status1">
+							<apex:param name="sortField1" value="Task_title__c"	assignTo="{!sortField1}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!TS.cTimesheet.PMCS__Task_title__c}" />
+				</apex:column>
+
+				<apex:column >
+					<apex:facet name="header">
+						<apex:commandLink value="Resource Name" action="{!doSortNotApp}" rerender="theTable" status="Status1">
+							<apex:param name="sortField1" value="Resource_Name__c"	assignTo="{!sortField1}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!TS.cTimesheet.PMCS__Resource_Name__c}" />
+				</apex:column>
+
+				<apex:column >
+					<apex:facet name="header">
+						<apex:commandLink value="Date" action="{!doSortNotApp}"	rerender="theTable" status="Status1">
+							<apex:param name="sortField1" value="Date__c"	assignTo="{!sortField1}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!TS.cTimesheet.PMCS__Date__c}" />
+				</apex:column>
+
+				<apex:column >
+					<apex:facet name="header">
+						<apex:commandLink value="Duration" action="{!doSortNotApp}"	rerender="theTable" status="Status1">
+							<apex:param name="sortField1" value="Duration_in_Hrs__c" assignTo="{!sortField1}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!TS.cTimesheet.PMCS__Duration_in_Hrs__c}" />
+				</apex:column>
+
+				<apex:column >
+					<apex:facet name="header">
+						<apex:commandLink value="Completed Percentage"	action="{!doSortNotApp}" rerender="theTable" status="Status1">
+							<apex:param name="sortField1" value="Completed_Percentage__c" assignTo="{!sortField1}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!TS.cTimesheet.PMCS__Completed_Percentage__c}" />
+				</apex:column>
+
+				<apex:column headerValue="Approved/Rejected">
+					<apex:inputCheckbox id="chkAcc" value="{!TS.isSelected}" />
+				</apex:column>
+
+			</apex:pageBlockTable>
+		</apex:pageBlock>
+
+		<apex:pageBlock title="Approved/Rejected TimeSheets" mode="edit" id="results1" rendered="{!TSAppView}">
+
+			<apex:pageBlockButtons location="Top">
+				<apex:commandButton value="New" action="{!NewTimeSheet}" rendered="{!ButtonView}" />
+			</apex:pageBlockButtons>
+			<b> Resource Name </b> &nbsp;&nbsp;
+            <apex:selectList id="ResId1" size="1"	value="{!ResourceSelect1}">
+				<apex:selectOptions value="{!ResourceDetails1}">
+				</apex:selectOptions>
+			</apex:selectList>
+
+			<apex:selectList id="DateId1" size="1" value="{!DateSelects1}">
+				<apex:selectOption itemValue="--All--" itemLabel="--All--" />
+				<apex:selectOption itemValue="Current Month"	itemLabel="Current Month" />
+				<apex:selectOption itemValue="Previous Month"	itemLabel="Previous Month" />
+			</apex:selectList>
+			<apex:selectList id="StatusId1" size="1" value="{!StatusSelect}">
+				<apex:selectOption itemValue="--All--" itemLabel="--All--" />
+				<apex:selectOption itemValue="Approved" itemLabel="Approved" />
+				<apex:selectOption itemValue="Rejected" itemLabel="Rejected" />
+			</apex:selectList>
+			<apex:commandLink action="{!ApprovedTimeSheet}" value="View" id="theCommandLink" rerender="theTable1" status="Status" />
+			<font color="Red" size="3px"> <apex:actionStatus startText=" Please Wait... " stopText="" id="Status" /> </font>
+			<apex:pageBlockTable value="{!myListTS3}" var="TS" id="theTable1">
+				<apex:column >
+					<apex:facet name="header">
+						<apex:commandLink value="TimeSheet ID" action="{!doSort}"	rerender="theTable1" status="Status">
+							<apex:param name="sortField" value="Name" assignTo="{!sortField}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:commandLink action="{!ViewTimesheet}">
+						<apex:outputtext value="{!TS.Name }" />
+						<apex:param name="cid" value="{!TS.id}" assignto="{!TimesheetId}" />
+					</apex:commandLink>
+				</apex:column>
+
+				<apex:column >
+
+					<apex:facet name="header">
+						<apex:commandLink value="Task Title" action="{!doSort}"	rerender="theTable1" status="Status">
+							<apex:param name="sortField" value="Task_title__c"	assignTo="{!sortField}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!TS.PMCS__Task_title__c}" />
+				</apex:column>
+
+				<apex:column >
+					<apex:facet name="header">
+						<apex:commandLink value="Resource Name" action="{!doSort}"	rerender="theTable1" status="Status">
+							<apex:param name="sortField" value="Resource_Name__c"	assignTo="{!sortField}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!TS.PMCS__Resource_Name__c}" />
+				</apex:column>
+
+				<apex:column >
+					<apex:facet name="header">
+						<apex:commandLink value="Date" action="{!doSort}"	rerender="theTable1" status="Status">
+							<apex:param name="sortField" value="Date__c"	assignTo="{!sortField}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!TS.PMCS__Date__c}" />
+				</apex:column>
+
+				<apex:column >
+					<apex:facet name="header">
+						<apex:commandLink value="Duration" action="{!doSort}"	rerender="theTable1" status="Status">
+							<apex:param name="sortField" value="Duration_in_Hrs__c"	assignTo="{!sortField}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!TS.PMCS__Duration_in_Hrs__c}" />
+				</apex:column>
+
+				<apex:column >
+					<apex:facet name="header">
+						<apex:commandLink value="Completed Percentage" action="{!doSort}"	rerender="theTable1" status="Status">
+							<apex:param name="sortField" value="Completed_Percentage__c"	assignTo="{!sortField}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!TS.PMCS__Completed_Percentage__c}" />
+				</apex:column>
+
+				<apex:column >
+					<apex:facet name="header">
+						<apex:commandLink value="Approved Status" action="{!doSort}" rerender="theTable1" status="Status">
+							<apex:param name="sortField" value="TimeSheet_Status__c" assignTo="{!sortField}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!TS.PMCS__TimeSheet_Status__c}" />
+				</apex:column>
+			</apex:pageBlockTable>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

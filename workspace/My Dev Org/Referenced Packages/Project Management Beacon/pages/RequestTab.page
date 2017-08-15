@@ -1,0 +1,181 @@
+<apex:page controller="PMCS.RequestSearchController" tabStyle="PMCS__Request__c">
+	<apex:sectionHeader subtitle="Home" title="Requests" help="/help/doc/user_ed.jsp?loc=help" />
+	<apex:form >
+		<apex:pageMessages id="errors" />
+		<apex:pageBlock title="Search Requests" mode="edit" id="criteria">
+			<script type="text/javascript">
+              function doSearch() {
+                searchServer(
+                document.getElementById("AccName").value,
+                document.getElementById("ReqTitle").value,
+                document.getElementById("Severity").options[document.getElementById("Severity").selectedIndex].value,
+                document.getElementById("Priority").options[document.getElementById("Priority").selectedIndex].value,
+                document.getElementById("StatusReq").options[document.getElementById("StatusReq").selectedIndex].value
+                );
+             }
+      
+              function doSearchPort() {        
+                searchServer1(
+                  document.getElementById("ReqTitle").value,
+                  document.getElementById("Severity").options[document.getElementById("Severity").selectedIndex].value,
+                  document.getElementById("Priority").options[document.getElementById("Priority").selectedIndex].value,
+                  document.getElementById("StatusReq").options[document.getElementById("StatusReq").selectedIndex].value
+                  );
+              }
+      </script>
+			<apex:actionFunction name="searchServer" action="{!Finding}" reRender="results,errors" status="Astatus">
+				<apex:param name="AccName" value="" assignTo="{!itAcc}" />
+				<apex:param name="ReqTitle" value="" assignTo="{!itReq}" />
+				<apex:param name="Severity" value="" assignTo="{!itSeverity}" />
+				<apex:param name="Priority" value="" assignTo="{!itPriority}" />
+				<apex:param name="StatusReq" value="" assignTo="{!itStatusReq}" />
+			</apex:actionFunction>
+			<apex:actionFunction name="searchServer1" action="{!Finding}" reRender="results,errors" status="Astatus">
+				<apex:param name="ReqTitle" value="" assignTo="{!itReq}" />
+				<apex:param name="Severity" value="" assignTo="{!itSeverity}" />
+				<apex:param name="Priority" value="" assignTo="{!itPriority}" />
+				<apex:param name="StatusReq" value="" assignTo="{!itStatusReq}" />
+			</apex:actionFunction>
+			<table cellpadding="10" cellspacing="15">
+				<tr>
+					<apex:outputPanel rendered="{!ACView}">
+						<td style="font-weight: bold;" WIDTH="200">Account Name <br />
+							<input type="text" id="AccName" />
+						</td>
+					</apex:outputPanel>
+					<td style="font-weight: bold;" WIDTH="200">Request Title<br />
+						<input type="text" id="ReqTitle" />
+					</td>
+					<td style="font-weight: bold;" WIDTH="200">Severity <br /> <select id="Severity">
+							<option value="" />
+							<apex:repeat value="{!Severity}" var="state">
+								<option value="{!state}">{!state}</option>
+							</apex:repeat>
+					</select>
+					</td>
+					<td style="font-weight: bold;" WIDTH="200">Priority<br /> <select id="Priority">
+							<option value="" />
+							<apex:repeat value="{!Priority}" var="pri">
+								<option value="{!pri}">{!pri}</option>
+							</apex:repeat>
+					</select>
+					</td>
+					<td style="font-weight: bold;" WIDTH="200">Status<br /> <select
+						id="StatusReq">
+							<option value="" />
+							<apex:repeat value="{!StatusReq}" var="sri">
+								<option value="{!sri}">{!sri}</option>
+							</apex:repeat>
+					</select>
+					</td>
+				</tr>
+			</table>
+			<hr />
+			<table>
+				<tr>
+					<td WIDTH="850"></td>
+					<td WIDTH="1500"><apex:commandButton value="Search"
+							onclick="return doSearch()" reRender="results"
+							rendered="{!ACView}" /> <apex:commandButton value="Search"
+							onclick="return doSearchPort()" reRender="results"
+							rendered="{!!ACView}" /> <apex:commandLink action="{!Excel}">
+							<apex:image url="{!$Resource.PMCS__Excel_Logo}" height="30" width="30"></apex:image>
+						</apex:commandLink> <apex:commandLink action="{!PDF}">
+							<apex:image url="{!$Resource.PMCS__PDF_Logo}" height="30" width="30">
+							</apex:image>
+						</apex:commandLink>
+					</td>
+				</tr>
+			</table>
+		</apex:pageBlock>
+		
+		<apex:pageBlock title="All Requests" mode="edit" id="results">
+			<apex:pageBlockButtons location="Top">
+				<apex:commandButton value="New" action="{!NewRequest}" />
+				<apex:commandButton value="Case Conversion" action="{!convertCase}" />
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection columns="1" rendered="{!PGView}">
+				<center>
+					<font color="Blue" size="3px"> {!SearchingCriteria} </font>
+				</center>
+			</apex:pageBlockSection>
+			<font color="Red" size="3px"> <apex:actionStatus id="Astatus" startText="Fetching Records... Please Wait" /> </font>
+			<apex:pageBlockTable value="{!Requests}" var="Req" id="theTable">
+				<apex:column >
+					<apex:facet name="header">
+						<apex:commandLink value="Request ID" action="{!doSort}"
+							rerender="theTable" status="AStatus">
+							<apex:param name="sortField" value="Name" assignTo="{!sortField}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:commandLink action="{!ViewRequest}">
+						<apex:outputField value="{!Req.Name }"/ >
+							<apex:param name="cid" value="{!Req.id}" assignto="{!RequestId}" />
+					</apex:commandLink>
+				</apex:column>
+				
+				<apex:column headerValue="Account Name" rendered="{!TableAcc}">
+					<apex:facet name="header">
+						<apex:commandLink value="Account Name" action="{!doSort}"
+							rerender="theTable" status="AStatus">
+							<apex:param name="sortField" value="Account_Name__c"
+								assignTo="{!sortField}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!Req.PMCS__Account_Name__c}" />
+				</apex:column>				
+				
+				<apex:column rendered="{!TableReqTitle}">
+					<apex:facet name="header">
+						<apex:commandLink value="Request Title" action="{!doSort}"
+							rerender="theTable" status="AStatus">
+							<apex:param name="sortField" value="Request_Title__c"
+								assignTo="{!sortField}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!Req.PMCS__Request_Title__c}" />
+				</apex:column>
+				
+				<apex:column headerValue="Module Name" rendered="{!TableModule}">
+					<apex:facet name="header">
+						<apex:commandLink value="Module Name" action="{!doSort}"
+							rerender="theTable" status="AStatus">
+							<apex:param name="sortField" value="Module_Name__c"
+								assignTo="{!sortField}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!Req.PMCS__Module_Name__c}" />
+				</apex:column>
+
+				<apex:column rendered="{!TableSeverity}">
+					<apex:facet name="header">
+						<apex:commandLink value="Severity" action="{!doSort}"
+							rerender="theTable" status="AStatus">
+							<apex:param name="sortField" value="Severity__c"
+								assignTo="{!sortField}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!Req.PMCS__Severity__c}" />
+				</apex:column>
+
+				<apex:column headerValue="Priority" rendered="{!TablePriority}">
+					<center>
+						<apex:image url="{!Req.PMCS__Priority_Image__c}" width="20" height="20"
+							title="{!Req.PMCS__Priority__c}" />
+					</center>
+				</apex:column>
+
+				<apex:column rendered="{!TableStatusReq}">
+					<apex:facet name="header">
+						<apex:commandLink value="Status" action="{!doSort}"
+							rerender="theTable" status="AStatus">
+							<apex:param name="sortField" value="Status__c"
+								assignTo="{!sortField}" />
+						</apex:commandLink>
+					</apex:facet>
+					<apex:outputField value="{!Req.PMCS__Status__c}" />
+				</apex:column>
+			</apex:pageBlockTable>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

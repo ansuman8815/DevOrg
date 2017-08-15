@@ -1,0 +1,304 @@
+<apex:page controller="PMCS.PortalSearchGraphController" sidebar="false"
+	id="myPage">
+	<apex:sectionHeader subtitle="Portal Search Graph"
+		title="Project Management" />
+
+	
+	<script>
+		function switchMenu(obj, obj1, obj2) {
+
+			var el = document.getElementById(obj);
+
+			if (el.style.display != 'none') {
+				el.style.display = 'none';
+			} else {
+				el.style.display = '';
+			}
+			var e2 = document.getElementById(obj1);
+			if (e2.style.display != 'none') {
+				e2.style.display = 'none';
+			} else {
+				e2.style.display = '';
+			}
+			var e3 = document.getElementById(obj2);
+
+			if (e3.style.display != 'none') {
+				e3.style.display = 'none';
+			} else {
+				e3.style.display = '';
+			}
+
+		}
+	</script>
+	<style>
+.left {
+	text-align: left;
+	vertical-align: top;
+}
+
+.right {
+	text-align: right;
+	vertical-align: top;
+}
+
+.center {
+	text-align: center;
+	vertical-align: top
+}
+</style>
+	<apex:form id="myForm">
+		<apex:pageMessages id="errors" />
+
+		<apex:pageBlock title="Portal Search" mode="edit" id="mypageBlock">
+			<table width="100%">
+				<tr>
+					<!-- 
+        			<td>
+        				 <table cellpadding="10" cellspacing="15">
+			                <tr>
+			                    <td style="font-weight: bold;" WIDTH="200">Account Name <br />
+			                        <apex:selectList value="{!fromAccountID}" size="1" required="false" id="fromAccountID">
+			                            <apex:actionSupport event="onchange" action="{!BudgetRecords}"/>
+			                            <apex:selectOptions value="{!FromAccounts}"/>
+			                        </apex:selectList>
+			                    </td>
+			                </tr>			
+			            </table>
+			        </td>
+			        -->
+					<td style="font-weight: bold;" WIDTH="200">Account Name <br />
+						<apex:selectList value="{!fromAccountID}" size="1"
+							required="false" id="fromAccountID">
+							<apex:actionSupport event="onchange" action="{!BudgetRecords}" />
+							<apex:selectOptions value="{!FromAccounts}" />
+						</apex:selectList>
+						<hr />
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<table width="100%">
+							<tr>
+								<td><apex:panelGrid id="list" columns="3"
+										rendered="{!ShowPanel}"
+										style="margin-top:10px;width:100%;position:static;">
+
+
+										<apex:panelGrid columns="1" styleClass="left"
+											style="width:350px;position:static;">
+
+											<apex:outputpanel id="plusimage">
+												<apex:image width="20" height="20"
+													url="{!$Resource.PMCS__Plus_Image}"
+													onclick="switchMenu('{!$Component.inlinetablesec}','{!$Component.minusimage}','{!$Component.plusimage}')"
+													title="Expand - Budgets" />
+												<apex:outputText value="Budgets"></apex:outputText>
+											</apex:outputpanel>
+											<apex:outputpanel id="minusimage" style="display:none;">
+												<apex:image width="20" height="20"
+													url="{!$Resource.PMCS__Minus_Image}"
+													onclick="switchMenu('{!$Component.inlinetablesec}','{!$Component.plusimage}','{!$Component.minusimage}')"
+													title="Collapse - Budgets" />
+												<apex:outputText value="Budgets"></apex:outputText>
+											</apex:outputpanel>
+											
+											<apex:dataTable id="inlinetablesec" value="{!Budgetss}"
+												var="b" style="display:none;">
+												<apex:column >
+													<dd>
+														<apex:inputCheckbox id="chkBud" value="{!b.isSelected}">
+															<apex:actionSupport action="{!BudgetProcessing}" event="onchange" reRender="ReqCountTable" status="AStatus" />
+														</apex:inputCheckbox>
+														<apex:outputText value="{!b.cBudget.PMCS__Budget_Title__c}" />
+													</dd>
+												</apex:column>
+											</apex:dataTable>
+
+											<apex:outputpanel id="plusimage1">
+												<apex:image width="20" height="20"
+													url="{!$Resource.PMCS__Plus_Image}"
+													onclick="switchMenu('{!$Component.inlinetablesec1}','{!$Component.minusimage1}','{!$Component.plusimage1}')"
+													title="Expand - Projects" />
+												<apex:outputText value="Projects"></apex:outputText>
+											</apex:outputpanel>
+											<apex:outputpanel id="minusimage1" style="display:none;">
+												<apex:image width="20" height="20"
+													url="{!$Resource.PMCS__Minus_Image}"
+													onclick="switchMenu('{!$Component.inlinetablesec1}','{!$Component.plusimage1}','{!$Component.minusimage1}')"
+													title="Collapse - Projects" />
+												<apex:outputText value="Projects"></apex:outputText>
+											</apex:outputpanel>
+											
+											<apex:dataTable id="inlinetablesec1" value="{!Projectss}"
+												var="p" style="display:none;">
+												<apex:column >
+													<dd>
+														<apex:inputCheckbox id="chkProj" value="{!p.isSelected}">
+															<apex:actionSupport action="{!ProjectProcessing}" event="onchange" reRender="ReqCountTable" status="AStatus" />
+														</apex:inputCheckbox>
+														<apex:outputText value="{!p.cProject.PMCS__Project_Title__c}" />
+													</dd>
+												</apex:column>
+											</apex:dataTable>
+
+											<apex:outputpanel id="minusimage3">
+												<apex:image width="20" height="20"
+													url="{!$Resource.PMCS__Plus_Image}"
+													onclick="switchMenu('{!$Component.inlinetablesec3}','{!$Component.minusimage3}','{!$Component.plusimage3}')"
+													title="Expand - Modules" />
+												<apex:outputText value="Modules"></apex:outputText>
+											</apex:outputpanel>
+											<apex:outputpanel id="plusimage3" style="display:none;">
+												<apex:image width="20" height="20"
+													url="{!$Resource.PMCS__Minus_Image}"
+													onclick="switchMenu('{!$Component.inlinetablesec3}','{!$Component.plusimage3}','{!$Component.minusimage3}')"
+													title="Collapse - Modules" />
+												<apex:outputText value="Modules"></apex:outputText>
+											</apex:outputpanel>
+											<apex:dataTable id="inlinetablesec3" value="{!Moduless}"
+												var="m" style="display:none;">
+												<apex:column >
+													<dd>
+														<apex:inputCheckbox id="chkMod" value="{!m.isSelected}">
+															<apex:actionSupport action="{!ModuleProcessing}" event="onchange" status="AStatus" />
+														</apex:inputCheckbox>
+														<apex:outputText value="{!m.cModule.PMCS__Module_Name__c}" />
+													</dd>
+												</apex:column>
+											</apex:dataTable>
+
+											<apex:outputpanel id="minusimage2">
+												<apex:image width="20" height="20"
+													url="{!$Resource.PMCS__Plus_Image}"
+													onclick="switchMenu('{!$Component.inlinetablesec2}','{!$Component.minusimage2}','{!$Component.plusimage2}')"
+													title="Expand - Date" />
+												<apex:outputText value="Date"></apex:outputText>
+											</apex:outputpanel>
+											<apex:outputpanel id="plusimage2" style="display:none;">
+												<apex:image width="20" height="20"
+													url="{!$Resource.PMCS__Minus_Image}"
+													onclick="switchMenu('{!$Component.inlinetablesec2}','{!$Component.plusimage2}','{!$Component.minusimage2}')"
+													title="Collapse - Date" />
+												<apex:outputText value="Date"></apex:outputText>
+											</apex:outputpanel>
+											<apex:panelGrid columns="2" id="inlinetablesec2"
+												style="display:none;" cellspacing="5" cellpadding="5">
+
+												<apex:outputText value="As On Date" />
+												<apex:inputField value="{!AsOnDate.CloseDate}"
+													required="false">
+													<apex:actionSupport action="{!DateWiseProcess}"
+														event="onchange" reRender="ReqCountTable" status="AStatus"/>
+												</apex:inputField>
+											</apex:panelGrid>
+
+										</apex:panelGrid>
+
+										<apex:panelGrid columns="3" cellspacing="10" cellpadding="10" rendered="{!NoRequests}" id="ReqCountTable" styleClass="center" style="height:300px;width:250px;position:static;"	title="Request Record Counts">
+
+											<apex:pageBlockTable value="{!Reqs}" var="req" style="width:300px;">
+												<apex:column headerValue="S.No">
+													<apex:outputText value="{!req.SNo}"></apex:outputText>
+												</apex:column>
+
+												<apex:column headerValue="Status">
+													<apex:outputText value="{!req.Status}" />
+												</apex:column>
+
+												<apex:column headerValue="Count">
+													<apex:outputText value="{!req.Counts}"></apex:outputText>
+												</apex:column>
+
+
+												<apex:actionSupport event="onRowClick"
+													action="{!StatuswiseGroup}" reRender="ReqTable"
+													status="AStatus">
+													<apex:param name="clickParam" value="{!req.Status}" />
+												</apex:actionSupport>
+											</apex:pageBlockTable>
+
+										</apex:panelGrid>
+										
+										
+										<apex:panelGrid id="PieChartTEST" styleClass="right" columns="1"
+											cellspacing="10"
+											style="height:300px;width:350px;position:static;"
+											cellpadding="10">
+
+											<apex:outputText value="No Records in there..."
+												rendered="{!DrawPieChart}" />
+
+											<apex:chart height="250" width="350"
+												data="{!Reqs}">
+												<apex:pieSeries dataField="Counts" labelField="Status" />
+												<apex:legend position="right" />
+											</apex:chart>
+										</apex:panelGrid>
+										
+
+										<apex:panelGrid rendered="{!!NoRequests}"
+											style="width:50px;position:static;">
+											<apex:outputText value="No Records in there..." />
+										</apex:panelGrid>
+
+									</apex:panelGrid>
+								</td>
+							</tr>
+							<tr>
+								<td><apex:outputPanel id="ReqTable">
+										<apex:pageblockTable value="{!SelectedRequest}"
+											var="SelectedReq" style="width:77%;" align="right"
+											rendered="{!ReqTableRender}">
+											<apex:column headerValue="Request Title">
+												<apex:outputText value="{!SelectedReq.PMCS__Request_Title__c}"></apex:outputText>
+											</apex:column>
+
+											<apex:column headerValue="Status">
+												<apex:outputText value="{!SelectedReq.PMCS__Status__c}"></apex:outputText>
+											</apex:column>
+
+											<apex:column headerValue="Priority">
+												<apex:outputText value="{!SelectedReq.PMCS__Priority__c}"></apex:outputText>
+											</apex:column>
+
+											<apex:column headerValue="Severity">
+												<apex:outputText value="{!SelectedReq.PMCS__Severity__c}"></apex:outputText>
+											</apex:column>
+
+											<apex:column headerValue="Module Name">
+												<apex:outputText value="{!SelectedReq.Module_Name__r.PMCS__Module_Name__c}" />
+											</apex:column>
+
+										</apex:pageblockTable>
+									</apex:outputPanel>
+								</td>
+
+							</tr>
+						</table>
+					</td>
+
+				</tr>
+
+			</table>
+			<center>
+				<apex:actionStatus id="AStatus" startText="Please Wait..."
+					stopText="" startStyle="color:Red;font-weight:bold;" />
+			</center>
+		</apex:pageBlock>
+	</apex:form>
+	<script type="text/javascript" language="javascript">
+		var e1 = document.getElementById(obj);
+		
+		var myElement = document
+				.getElementById("{!$Component.myPage:myForm:mypageBlock:chkBud}");
+		if (el.style.display != 'none') {
+			if (myElement.checked == true) {
+				el.style.display = '';
+			} else {
+				el.style.display = '';
+			}
+		}
+
+	</script>
+</apex:page>

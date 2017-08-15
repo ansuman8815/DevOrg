@@ -1,0 +1,47 @@
+<apex:page standardController="PMCS__Request__c"
+	extensions="PMCS.RequestNewController">
+	<apex:sectionHeader subtitle="Home" title="Requests" help="/help/doc/user_ed.jsp?loc=help" />
+
+	<style type="text/css">
+		span.bold {
+			font-weight: bold
+		}
+	</style>
+	<apex:form >
+		<apex:pageBlock >
+			<apex:pageBlockButtons >
+				<apex:commandButton value="Save" action="{!SaveData}" />
+				<apex:commandButton value="Cancel" action="{!cancel}" />
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection title="Information" collapsible="false"	rendered="{!!Rendering}">
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Request_Title__c}"	required="true" />
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Account_Name__c}"	required="true" rendered="{!visible}" />
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Module_Name__c}" required="true" rendered="{!visible}" />
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Priority__c}" required="true" />
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Severity__c}" required="true" />
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Status__c}" id="Status">
+					<script>document.getElementById('{!$Component.Status}').disabled = true; </script>
+				</apex:inputField>
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Case_ID__c}" />
+				<apex:panelGrid columns="2" rendered="{!!visible}">
+					<span style="padding-left: 110px; font-weight: bold;">Account Name </span>
+					<apex:outputText value="{!AccName}" id="Acc" />
+				</apex:panelGrid>
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Request_Description__c}"	required="true" style="width:300px;height:100px" />
+			</apex:pageBlockSection>
+
+			<apex:pageBlockSection title="Information" rendered="{!Rendering}">
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Request_Title__c}" required="true" />
+				<apex:outputField value="{!PMCS__Request__c.PMCS__Account_Name__c}"	rendered="{!visible}" id="account" />
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Module_Name__c}" required="true" rendered="{!visible}" />
+				<apex:outputField value="{!PMCS__Request__c.PMCS__Priority__c}" id="priority" />
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Severity__c}" required="true" />
+				<apex:inputField value="{!PMCS__Request__c.PMCS__Status__c}" id="Status">
+					<script>document.getElementById('{!$Component.Status}').disabled = true; </script>
+				</apex:inputField>
+				<apex:outputField value="{!PMCS__Request__c.PMCS__Case_ID__c}" id="case" />
+				<apex:outputField value="{!PMCS__Request__c.PMCS__Request_Description__c}"	style="width:300px;height:100px" id="description" />
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

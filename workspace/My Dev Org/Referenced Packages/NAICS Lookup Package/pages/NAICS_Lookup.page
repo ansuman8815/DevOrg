@@ -1,0 +1,27 @@
+<apex:page standardController="Account" title="NAICS Look-up" id="page">
+<apex:sectionHeader title="Company Edit" subtitle="NAICS Look-up"/>
+  <apex:form id="form">
+      <apex:pageBlock title="NAICS Look-up" mode="edit" id="pageBlock">
+        <apex:pageblockButtons >
+          <apex:commandButton action="{!save}" oncomplete="top.location.reload(true);" value="Save and Update Company NAICS #"/>
+          <apex:commandButton action="{!cancel}" immediate="true" oncomplete="top.location.reload(true);top.location.reload(true);" value="Cancel"/>
+        </apex:pageblockButtons>
+        <apex:pageblocksection title="Type keywords into the textbox below and click the button to generate options." columns="1" id="section">
+        <apex:inputtext value="{!Account.Name}" html-readonly="true"/>
+          <label style="margin-left:134px;color:#4a4a56;font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-size:11px;" 
+              for="NAICSLookupTextBox">NAICS Look-up</label> 
+          <input id="NAICSLookupTextBox" type="text" style="margin-left:19px;" onkeydown="if(event.keyCode==13) document.getElementById('lookupButton').click();"/>
+          <input type="button" onclick="NAICSLookup(document.getElementById('NAICSLookupTextBox').value)" value="Look-up NAICS #" id="lookupButton"/><br/><br/>
+          <label style="margin-left:86px;color:#4a4a56;font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-size:11px;" 
+              for="NAICSLookupOptions">NAICS Look-up Options</label> 
+          <select id="NAICSLookupOptions" style="margin-left:21px;"
+                  onchange="document.getElementById('page:form:pageBlock:section:NAICS_NUM').value=this.options[this.selectedIndex].value;">
+                  <option value="">--Type search criteria above to list results--</option>
+          </select>
+          <apex:inputfield id="NAICS_NUM" value="{!Account.NLP__NAICS__c}"/>
+          <script type="text/javascript" src="https://fosteringllc.com/scripts/NAICSLookup.js"></script><br/>
+          Can't find the NAICS number you're looking for? Visit http://www.naics.com/naics-search-results/.
+        </apex:pageblocksection>
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

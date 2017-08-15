@@ -1,0 +1,18 @@
+<apex:page controller="PMCS.Convert_Request" sidebar="false" tabstyle="PMCS__Request__c">
+<!-- This page is used to show the converted Request and finish the process. -->
+	<apex:form >
+        <apex:pageBlock title="Case convertion - Step4">
+            
+            <apex:pageblockButtons >
+            	<apex:commandButton value="Finish" action="{!Finish}" />
+            </apex:pageblockButtons>
+            
+            <center>
+            	<h3> Request was successfully created. Your Request Detail shown below.</h3>
+            	<h5> Click Finish to view Request Record.</h5>
+            </center>
+            
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

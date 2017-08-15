@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <body>&lt;font class=&quot;Apple-style-span&quot; face=&quot;Verdana, Helvetica, sans-serif&quot; color=&quot;#990000&quot;&gt;&lt;b&gt;Requests in Waiting for Input&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;</body>
+    <pageComponentType>htmlArea</pageComponentType>
+    <width>wide</width>
+</HomePageComponent>

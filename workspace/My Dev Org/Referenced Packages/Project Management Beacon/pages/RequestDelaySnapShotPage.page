@@ -1,0 +1,259 @@
+<apex:page controller="PMCS.RequestDelaySnapShot" sidebar="false" TabStyle="PMCS__Request__c">
+    <apex:sectionHeader title="Project Management" subtitle="Request Delay Snapshot" description="This Shows the Delayed Requests."/>
+    
+    <style type="text/css">
+        .margin
+        {
+            margin-top: 10px;
+            float: top;
+        }
+    </style>
+    
+    <apex:form >
+        <apex:pageBlock title="Request Delayed Records" >
+            <apex:pageBlockSection ></apex:pageBlockSection>
+            <table align="left">
+                <tr>
+                    <th> <apex:pageBlockSection collapsible="false" title="Open To Approve" columns="1" /> </th>
+                    <th> <apex:pageBlockSection title="Waiting For Input To ReOpened" columns="1" collapsible="false" /> </th>
+                </tr>
+                <tr>
+                    <td width="50%" valign="top">
+                        <apex:pageBlockTable value="{!Open_To_Approve}" style="align:top" var="OP" title="Open To Approved" width="100%" rendered="{!NOT(ISNULL(Open_To_Approve))}">
+                            <apex:column headerValue="S.No">
+                                <apex:outputText value="{!OP.SNo}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Account Name">
+                                <apex:outputLink value="/{!OP.AccountID}" target="_blank">{!OP.AccountName}</apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Request Name">
+                                <apex:outputLink value="/{!OP.RequestID}" target="_blank"> {!OP.RequestName} </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column headerValue="From Date">
+                                <apex:outputText value="{!OP.FromDate}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="To Date">
+                                <apex:outputText value="{!OP.ToDate}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Total Waited Hours">
+                                <apex:outputText value="{!OP.WaitingHours}"></apex:outputText>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                        
+                        <apex:panelGrid columns="1" rendered="{!!NOT(ISNULL(Open_To_Approve))}" >
+                            <center>
+                                <apex:outputText value=" There are No-Records to display." />
+                            </center>
+                        </apex:panelGrid>
+                    </td>
+                    
+                    <td width="50%" valign="top">
+                        <apex:pageBlockTable value="{!Waiting_To_ReOpened}" var="WR" title="Waiting for Input To ReOpened" width="100%" rendered="{!NOT(ISNULL(Waiting_To_ReOpened))}">
+                            <apex:column headerValue="S.No">
+                                <apex:outputText value="{!WR.SNo}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Account Name">
+                                <apex:outputLink value="/{!WR.AccountID}" target="_blank"> {!WR.AccountName} </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Request Title">
+                                <apex:outputLink value="/{!WR.RequestID}" target="_blank"> {!WR.RequestName} </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column headerValue="From Date">
+                                <apex:outputText value="{!WR.FromDate}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="To Date">
+                                <apex:outputText value="{!WR.ToDate}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Total Waited Hours">
+                                <apex:outputText value="{!WR.WaitingHours}"></apex:outputText>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                        
+                        <apex:panelGrid columns="1" rendered="{!!NOT(ISNULL(Waiting_To_ReOpened))}" >
+                            <center>
+                                <apex:outputText value=" There are No-Records to display." />
+                            </center>
+                        </apex:panelGrid>
+                    </td>
+                </tr>
+            </table>
+                
+                
+           <table align="left">
+                <tr>
+                    <th> <apex:pageBlockSection title="Opened To Waiting For Input" columns="1" collapsible="false" /> </th>
+                    <th> <apex:pageBlockSection title="To be Tested To Testing Success" columns="1" collapsible="false" /> </th>
+                </tr>
+                
+                <tr>
+                    <td width="50%" valign="top">
+                        <apex:pageBlockTable value="{!Open_To_Waiting}" var="OW" title="Open To Waiting for Input" width="50%" rendered="{!NOT(ISNULL(Open_To_Waiting))}"> 
+                            <apex:column headerValue="S.No">
+                                <apex:outputText value="{!OW.SNo}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Account Name">
+                                <apex:outputLink value="/{!OW.AccountID}" target="_blank"> {!OW.AccountName} </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Request Title">
+                                <apex:outputLink value="/{!OW.RequestID}" target="_blank"> {!OW.RequestName} </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column headerValue="From Date">
+                                <apex:outputText value="{!OW.FromDate}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="To Date">
+                                <apex:outputText value="{!OW.ToDate}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Total Waited Hours">
+                                <apex:outputText value="{!OW.WaitingHours}"></apex:outputText>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                        
+                        <apex:panelGrid columns="1" rendered="{!!NOT(ISNULL(Open_To_Waiting))}" >
+                            <center>
+                                <apex:outputText value=" There are No-Records to display." />
+                            </center>
+                        </apex:panelGrid>
+                    </td>
+                    
+                    <td width="50%" valign="top">
+                        <apex:pageBlockTable value="{!ToBeTested_To_TestingSuccess}" var="TS" title="TobeTested To TestingSuccess" width="50%" rendered="{!NOT(ISNULL(ToBeTested_To_TestingSuccess))}"> 
+                            <apex:column headerValue="S.No">
+                                <apex:outputText value="{!TS.SNo}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Account Name">
+                                <apex:outputLink value="/{!TS.AccountID}" target="_blank"> {!TS.AccountName} </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Project Title">
+                                <apex:outputLink value="/{!TS.ProjectID}" target="_blank"> {!TS.ProjectName} </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Request Title">
+                                <apex:outputLink value="/{!TS.RequestID}" target="_blank"> {!TS.RequestName} </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column headerValue="From Date">
+                                <apex:outputText value="{!TS.FromDate}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="To Date">
+                                <apex:outputText value="{!TS.ToDate}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Total Waited Hours">
+                                <apex:outputText value="{!TS.WaitingHours}"></apex:outputText>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                        
+                        <apex:panelGrid columns="1" rendered="{!!NOT(ISNULL(ToBeTested_To_TestingSuccess))}" >
+                            <center>
+                                <apex:outputText value=" There are No-Records to display." />
+                            </center>
+                        </apex:panelGrid>
+                    </td>
+                </tr>
+           </table>
+           
+           
+           <table align="left">
+                <tr>
+                    <th> <apex:pageBlockSection title="To be Tested To Testing Failed" columns="1" collapsible="false" /> </th>
+                    <th> <apex:pageBlockSection title="Testing Failed To ToBeTested" columns="1" collapsible="false" /> </th>
+                </tr>
+                <tr>
+                    <td width="50%" valign="top">
+                        <apex:pageBlockTable value="{!ToBeTested_To_TestingFailed}" var="TF" title="TobeTested To TestingFailed" width="50%" rendered="{!NOT(ISNULL(ToBeTested_To_TestingFailed))}">
+                            <apex:column headerValue="S.No">
+                                <apex:outputText value="{!TF.SNo}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Account Name">
+                                <apex:outputLink value="/{!TF.AccountID}" target="_blank"> {!TF.AccountName} </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Project Title">
+                                <apex:outputLink value="/{!TF.ProjectID}" target="_blank"> {!TF.ProjectName} </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Request Title">
+                                <apex:outputLink value="/{!TF.RequestID}" target="_blank"> {!TF.RequestName} </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column headerValue="From Date">
+                                <apex:outputText value="{!TF.FromDate}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="To Date">
+                                <apex:outputText value="{!TF.ToDate}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Total Waited Hours">
+                                <apex:outputText value="{!TF.WaitingHours}"></apex:outputText>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                        
+                        <apex:panelGrid columns="1" rendered="{!!NOT(ISNULL(ToBeTested_To_TestingFailed))}" >
+                            <center>
+                                <apex:outputText value=" There are No-Records to display." />
+                            </center>
+                        </apex:panelGrid>
+                    </td>
+                    
+                    <td width="50%" valign="top">
+                        <apex:pageBlockTable value="{!TestingFailed_To_ToBeTested}" var="TFT" title="TestingFailed To TobeTested" width="50%" rendered="{!NOT(ISNULL(TestingFailed_To_ToBeTested))}">
+                            <apex:column headerValue="S.No">
+                                <apex:outputText value="{!TFT.SNo}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Account Name">
+                                <apex:outputLink value="/{!TFT.AccountID}" target="_blank"> {!TFT.AccountName} </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Project Title">
+                                <apex:outputLink value="/{!TFT.ProjectID}" target="_blank"> {!TFT.ProjectName} </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Request Title">
+                                <apex:outputLink value="/{!TFT.RequestID}" target="_blank"> {!TFT.RequestName} </apex:outputLink>
+                            </apex:column>
+                            
+                            <apex:column headerValue="From Date">
+                                <apex:outputText value="{!TFT.FromDate}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="To Date">
+                                <apex:outputText value="{!TFT.ToDate}"></apex:outputText>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Total Waited Hours">
+                                <apex:outputText value="{!TFT.WaitingHours}"></apex:outputText>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                        
+                        <apex:panelGrid columns="1" rendered="{!!NOT(ISNULL(TestingFailed_To_ToBeTested))}" >
+                            <center>
+                                <apex:outputText value=" There are No-Records to display." />
+                            </center>
+                        </apex:panelGrid>
+                    </td>
+                </tr>
+            </table>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

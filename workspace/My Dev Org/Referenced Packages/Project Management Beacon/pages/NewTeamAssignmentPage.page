@@ -1,0 +1,28 @@
+<apex:page standardController="PMCS__Team_Assignment__c"
+	extensions="PMCS.NewTeamAssignmentController">
+	<apex:sectionHeader subtitle="New Team Assignment"
+		title="Team Assignment Edit" help="/help/doc/user_ed.jsp?loc=help" />
+	<apex:form >
+		<apex:pageBlock >
+			<apex:pageBlockButtons >
+				<apex:commandButton value="Save" action="{!SaveData}" />
+				<apex:commandButton value="Cancel" action="{!cancel}" />
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection title="Information" collapsible="false">
+
+				<apex:inputField value="{!PMCS__Team_Assignment__c.PMCS__Resource_ID__c}" />
+				<apex:inputField value="{!PMCS__Team_Assignment__c.PMCS__Task_ID__c}" />
+
+				<apex:inputField value="{!PMCS__Team_Assignment__c.PMCS__Start_Date__c}" />
+				<apex:inputField value="{!PMCS__Team_Assignment__c.PMCS__End_Date__c}" />
+
+				<apex:inputField value="{!PMCS__Team_Assignment__c.PMCS__Assigned_Time__c}" />
+				<apex:inputField value="{!PMCS__Team_Assignment__c.PMCS__UOM__c}" />
+
+				<apex:inputField value="{!PMCS__Team_Assignment__c.PMCS__Consumed_over_Allotted_Time__c}" />
+				<apex:inputField value="{!PMCS__Team_Assignment__c.PMCS__Tolerance__c}" />
+
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

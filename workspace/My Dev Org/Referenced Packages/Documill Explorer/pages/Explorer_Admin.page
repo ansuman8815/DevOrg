@@ -1,0 +1,4 @@
+<apex:page sidebar="false" controller="sfexplorer.explorerController">
+  <apex:includeScript value="{!$Resource.sfexplorer__explorer_embed_js}"/>
+  <apex:iframe width="100%"    src="https://sfexplorer.documill.com:443/service/organization?serverURL={!$Api.Partner_Server_URL_240}&sessionID={!$Api.Session_ID}"/>
+</apex:page>

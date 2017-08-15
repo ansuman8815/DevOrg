@@ -1,0 +1,209 @@
+<apex:page sidebar="false" showHeader="false" controller="TIMBASURVEYS.SurveyOverviewController">
+
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, '/css/common.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, '/css/extended.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, '/css/list.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, '/css/tabsDisplay.css')}"/>
+    <style>
+        body {
+            font-size: 75%;
+            font-family: Arial,Helvetica,sans-serif;
+            background-color: #fff; 
+            margin: 0;
+            padding: 1px;       
+        }
+        .pageContainer{
+            min-height: 300px;
+        }
+
+        .linkTr{
+            cursor: pointer;
+        }
+        .overview{
+            font-family: arial;
+            font-size: 14px;
+            color: #bbbbbb;
+            width: 100%;
+            min-height: 200px;
+
+            background-color: #ffffff;
+            margin: 0 auto;
+
+            -webkit-border-bottom-left-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            -moz-border-radius-bottomright: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .overview .cols{
+            text-align: left;
+        }
+
+        .overview .col1{
+            width: 30% ;
+            float: left;
+            padding: 5px;
+            padding-top: 7px;
+        }
+
+        .overview .col2{
+            width:50%;
+            height: auto;
+            overflow: hidden;
+            float: left;
+            margin-top: 7px;
+            
+        }
+        
+       .overview .form_field {
+            overflow: hidden;
+            clear: both;
+            margin: 4px 0;
+        }
+        .disabletabElem{
+            font-weight: normal !Important;
+            background-color: #eaeaea !Important;
+            border: 1px solid #C0C0C0 !Important;
+            border-bottom: none !Important;
+        }
+    </style>
+    <body>
+    <div id="surveyToolbar"> 
+        <div class="leftContainer">
+            <apex:image url="{!URLFOR($Resource.TIMBASURVEYS__sf1_logo)}" width="280" height="44"/>
+        </div>
+        <!-- div class="rightContainer"><a onclick="#" id="help" href="javascript:;">&nbsp;</a></div-->
+        <div class="clear"> </div>
+    </div>
+
+    <div id="breadCrumb">
+        <ul>
+            <li class="step first">
+                <a class="first" href="javascript:;" OnClick="sforce.one.navigateToURL('/apex/TIMBASURVEYS__SF1SurveyList');" >Survey List</a>
+            </li>
+            <li class="acctual">
+                <span class="acctual">{!LEFT(survey.Name,21)}<apex:outputLabel rendered = "{!IF(len(survey.Name)>20,true,false)}" value="..." /></span>
+                
+            </li>
+        </ul>
+    </div>
+
+        
+    <div class="pageContainer">
+        <div class="leftContainer"></div>
+        <div class="rightContainer"></div>
+        <div class="clear"> </div>
+        <div class="listContainer">
+            <div  class="pageContainer">
+                <div class="tabSet">
+                    <a class="tabElem imIn" href="javascript:;" OnClick="sforce.one.navigateToURL('/apex/TIMBASURVEYS__SF1SurveyOverview?id={!surveyId}');">Overview </a>
+                    <a class="tabElem" href="javascript:;" OnClick="sforce.one.navigateToURL('/apex/TIMBASURVEYS__SF1SurveyCollect?id={!surveyId}');">Collect</a>
+                    <a class="tabElem" href="javascript:;" OnClick="sforce.one.navigateToURL('/apex/TIMBASURVEYS__SF1SurveyAnalize?id={!surveyId}');"
+                            style="display:{!IF(survey.TIMBASURVEYS__CollectedResponses__c!=0,'', 'none')}" >Analyze</a>
+                    <span class="tabElem disabletabElem" style="display:{!IF(survey.TIMBASURVEYS__CollectedResponses__c!=0,'none', '')}">Analyze</span>
+                    
+                    
+                    <div class="marginInf"></div>
+                </div>
+                <div id="view">
+                    <div class="overview">
+                        <!-- Form field -->
+                        <div class="form_field">
+                            <div class="cols">
+                                <div class="col1">
+                                    <label class="labels" for="nameF">Survey Title:</label>
+                                </div>
+                                <div class="col2">
+                                    <span style="color:#717171;" id="nameS"><apex:outputText value="{!survey.Name}" /></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form_field">
+                            <div class="col1">
+                                <label class="labels">Created On:</label>
+                            </div>
+                            <div class="col2">
+                                <apex:outputText style="color:#717171" value="{!MONTH(DATEVALUE(survey.CreatedDate))}/{!DAY(DATEVALUE(survey.CreatedDate))}/{!YEAR(DATEVALUE(survey.CreatedDate))}" />
+                            </div>
+                        </div>
+
+                        <div class="form_field">
+                            <div class="col1">
+                                <label class="labels">Survey Description:</label>
+                            </div>
+                            <div class="col2">
+                            <apex:outputText style="color:#717171" id="descriptionS" value="{!survey.TIMBASURVEYS__Description2__c}" escape="false" />
+                            </div>
+                        </div>
+
+                        <div class="form_field">
+                          <div class="col1">
+                              <label class="labels">Number of pages:</label>
+                          </div>
+                          <div class="col2">
+                              <apex:outputText style="color:#717171;" value="{!ROUND(survey.TIMBASURVEYS__NumberOfPages__c,0)}" />
+                          </div>
+                        </div>
+
+
+                        <div class="form_field">
+                          <div class="col1">
+                              <label class="labels">Number of questions:</label>
+                          </div>
+                          <div class="col2">
+                              <apex:outputText style="color:#717171;" value="{!ROUND(survey.TIMBASURVEYS__NumberOfQuestions__c,0)}" />
+                          </div>
+                        </div>
+
+                        <div class="form_field">
+                          <div class="col1">
+                              <label class="labels">Collected Responses:</label>
+                          </div>
+                          <div class="col2">
+                              <apex:outputText style="color:#717171;" value="{!ROUND(survey.TIMBASURVEYS__CollectedResponses__c,0)}" />
+                          </div>
+                        </div>
+
+                        <div class="form_field">
+                            <div class="col1">
+                                <label class="labels">Status:</label>
+                            </div>
+                            <div class="col2">
+                                <span style="color:#717171; float: left;">
+                                    <span class="status {!IF(survey.TIMBASURVEYS__CollectingData__c, 'on','off')}"  ></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form_field">
+                            <div class="col1">
+                                <label class="labels">Author:</label>
+                            </div>
+                            <div class="col2">
+                                <apex:outputText id="authorNameTxt" style="color:#717171;" value="{!authorName}" />
+                            </div>
+                        </div>
+
+                        <div class="form_field">
+                            <div class="col1">
+                                <label class="labels">Last Modified Date:</label>
+                            </div>
+                            <div class="col2">
+                                <apex:outputText id="lastModificationDate" style="color:#717171;" value="{!MONTH(DATEVALUE(survey.LastModifiedDate))}/{!DAY(DATEVALUE(survey.LastModifiedDate))}/{!YEAR(DATEVALUE(survey.LastModifiedDate))}" />
+                            </div>
+                        </div>
+
+
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="clear"> </div>
+    </div>
+    </body>
+
+</apex:page>

@@ -1,0 +1,334 @@
+<apex:page controller="pw_ic.IndustryCompleteHomeController">
+    <apex:includeScript value="{!URLFOR($Resource.pw_ic__BaseScripts, '/BaseScripts/jQuery.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.pw_ic__BaseScripts, '/BaseScripts/jQuery.blockUI.js')}"/>
+    <style type="text/css">
+    	.contentClass{margin:0;padding:0 0 0 1px;font-size:12px;border:0 solid white;background-color:white;}
+    	.headerClass{border:0 solid white;}
+    	.activeTab{color:white;background-image:none;background-color:#009966;}
+    	.inactiveTab{color:black;background-image:none;background-color:{!IF($User.UIThemeDisplayed = 'Theme3','#F8F8F8','#F3F3EC')};}
+		.dr-tbpnl-tb-sel{border-color:#009966;}
+    </style>
+    <apex:form >
+    	<script type="text/javascript">
+	        var pw_ic_bs_jQuery = jQuery.noConflict(true);
+	        
+	        var _currentStep = 0;
+	        var _totalSteps = 0;
+	        
+	        function showElement(id) {
+	            document.getElementById(id).style.display = 'block';        
+	        }
+	        
+	        function hideElement(id) {
+	            document.getElementById(id).style.display = 'none';
+	        }
+	        
+	        function beginSetup(standardName) {	            
+	            {!Confirm}
+    			_currentStep = 0;
+    			updateProgress(0, 1);
+    			hideElement('resultDiv');
+    			hideElement('clearingDiv');
+    			showElement('installingDiv');
+    			showElement('progressDiv');
+    			blockUI('dlgProgress');
+				
+				startInstall(standardName);
+    			_currentStep++;  
+	        }
+	        
+	        function finishedProcess() {
+	            updateProgress(1, 1);
+	            hideElement('installingDiv');
+	            hideElement('clearingDiv');
+   				hideElement('progressDiv');
+   				showElement('resultDiv');
+   				setOptionsStatus();
+	        }
+	        
+	        function insertCurrentIndustry() {            
+	            var errorMessage = document.getElementById('hdnError').value;
+    			if (errorMessage == 'true') {
+    				hideElement('resultDiv');
+    				hideElement('installingDiv');
+    				hideElement('clearingDiv');
+    				hideElement('progressDiv');
+    				unblockUI();
+    				return;
+    			}
+    			_totalSteps = parseInt(document.getElementById('countStepsHiddenField').value);
+	            if (_totalSteps > 0 && _currentStep < _totalSteps) {
+	                updateProgress(_currentStep, _totalSteps - 1);
+	                insertIndustries(_currentStep++);                
+	            } else {
+					finishedProcess();
+	            }
+	        }
+	        
+	        function beginClear() {
+	            {!Confirm}
+    			_currentStep = 0;
+    			updateProgress(0, 1);
+    			hideElement('resultDiv');
+    			hideElement('installingDiv');
+    			showElement('clearingDiv');
+    			showElement('progressDiv');
+    			blockUI('dlgProgress');
+    			
+                clearIndustries();
+	        }
+	                       
+	        function updateProgress(currentStep, totalSteps) {
+	            var width = currentStep * (350 / totalSteps);
+	            document.getElementById('progressBar').style.width = width + 'px';
+	        }
+	        
+	        function disableButton(btn, disable) {
+				if (btn == null)
+					return;
+				if (disable) {
+					btn.setAttribute('disabled', 'true');
+					btn.className = 'btnDisabled';
+				} else {
+					btn.removeAttribute('disabled');
+					btn.className = 'btn';
+				}
+			}
+	        
+	        function getSupportedCodes(sid, url) {
+	        	disableButton(document.getElementById('btnInstall'), true);
+	        	getIndustryStandards();
+	        }
+	        
+	        function blockUI(id) {
+	            var dlg = pw_ic_bs_jQuery('#' + id);
+ 	            pw_ic_bs_jQuery.blockUI({
+	                message: dlg,
+	                fadeIn: 0,
+	                fadeOut: 0,
+	                css: {
+	                    borderWidth: 2,
+	                    borderColor: '#009966',
+	                    backgroundColor: '#F3F3EC',
+	                    cursor: 'default',
+	                    padding: '9px',
+	                    width: '354px'
+	                }		                
+	            });
+        	}
+        	
+        	function unblockUI() {
+        		pw_ic_bs_jQuery.unblockUI({
+        			fadeIn: 0,
+	                fadeOut: 0
+	            });
+        	}
+			
+	        function initTabs() {			
+			}
+			
+			
+			
+			function setOptionsStatus() {
+				var isCheck = document.getElementById('{!$Component.pbStValSettings.triggerEnabled}').checked;
+				
+				var checkbox1 = document.getElementById('{!$Component.pbStValSettings.populateLookupEnabled}');
+				var label1 = document.getElementById('{!$Component.pbStValSettings.populateLookupEnabledLabel}');
+				var labelAlt1 = document.getElementById('populateLookupEnabledLabelAlt');
+				
+				var checkbox2 = document.getElementById('{!$Component.pbStValSettings.populateIndustryEnabled}');
+				var label2 = document.getElementById('{!$Component.pbStValSettings.populateIndustryEnabledLabel}');
+				var labelAlt2 = document.getElementById('populateIndustryEnabledLabelAlt');
+							
+				if (isCheck) {
+					checkbox1.removeAttribute('disabled');
+					label1.removeAttribute('disabled');
+					
+					label2.removeAttribute('disabled');
+					checkbox2.removeAttribute('disabled');
+					
+					if (navigator.appName == 'Microsoft Internet Explorer') {
+						label1.style.display = 'inline';
+						labelAlt1.style.display = 'none';
+						
+						label2.style.display = 'inline';
+						labelAlt2.style.display = 'none';
+					}
+				} else {
+					checkbox1.checked = false;
+					checkbox1.setAttribute('disabled', 'true');
+					label1.setAttribute('disabled', 'true');
+					
+					checkbox2.checked = false;
+					checkbox2.setAttribute('disabled', 'true');
+					label2.setAttribute('disabled', 'true');					
+					
+					if (navigator.appName == 'Microsoft Internet Explorer') {
+						label1.style.display = 'none';
+						labelAlt1.style.display = 'inline';
+
+						label2.style.display = 'none';
+						labelAlt2.style.display = 'inline';						
+					}
+				}
+			}
+    	</script>          
+        <apex:outputPanel id="install_out">
+            <input type="hidden" id="countStepsHiddenField" value="{!CountInstallSteps}" />
+            <input type="hidden" id="hdnError" value="{!IsError}" />
+            <apex:pageMessages rendered="{!IsError}" />
+        </apex:outputPanel>
+        
+        <div id="dlgProgress" style="text-align:center;display:none;">
+		    <div id="progressDiv" style="border:solid 1px #000000;padding:1px;width:350px;background-color:#F3F3EC;text-align:left;">
+		        <span id="progressBar" style="background-color:#009966;width:0px;height:50px;overflow:hidden;display:inline-block;"></span>
+		    </div>
+			<div id="installingDiv" style="width:350px;">Installing, please wait...</div>
+		    <div id="clearingDiv" style="width:350px;">Clearing, please wait...</div>
+		    <div id="resultDiv" style="width:350px;">
+		    	<div>Operation is completed</div>
+		    	<div>
+		    		<input id="btnOk" type="button" class="btn" value="OK" onclick="unblockUI();" />
+		    	</div>
+		    </div>
+		</div>
+		
+        <apex:actionFunction name="startInstall" action="{!StartInstall}" oncomplete="insertCurrentIndustry();" rerender="install_out">
+            <apex:param name="codingStandard" assignTo="{!CodingStandard}" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="clearIndustries" action="{!RemoveIndustries}" oncomplete="finishedProcess();" rerender="install_out" />
+        <apex:actionFunction name="insertIndustries" action="{!InsertCurrentBatchOfIndustries}" oncomplete="insertCurrentIndustry();" rerender="install_out">
+            <apex:param name="step" assignTo="{!CurrentInstallStep}" value="1" />
+        </apex:actionFunction>
+        <apex:actionFunction name="getIndustryStandards" action="{!GoToInstallPage}" />
+        
+        <apex:sectionHeader title="ProvenWorks IndustryComplete" />
+        	
+        <apex:tabPanel switchType="client" contentClass="contentClass" headerClass="headerClass" activeTabClass="activeTab" inactiveTabClass="inactiveTab">
+        	<apex:tab label="Installation" ontabenter="initTabs();">
+		        <apex:pageBlock title="Industries Installation" rendered="{!CanEditSettings && IsInstallMode}">
+		            <apex:panelGroup >                             
+		                <div id="buttonDiv">                
+		                    <apex:dataTable value="{!SupportedStandards}" var="result" id="theList">
+		                        <apex:column >                      
+		                            <h3 style="padding:0 0 1em 0;display:block;"><apex:outputText value="{!result.Title}" rendered="true" /></h3>
+		                            <apex:outputText value="{!result.Description}" rendered="true" />
+		                            <br />
+		                            For more information visit <a href="{!result.Url}" title="{!result.Url}">{!result.Url}</a> 
+		                            <br />
+		                            <input type="button" class="btn" value="Install {!result.StandardName}" onclick="beginSetup('{!result.StandardName}');" />
+		                            <br /><br />
+		                        </apex:column>
+		                    </apex:dataTable>            
+		                    <h3 style="padding:0 0 1em 0;display:block;">Clear Industries</h3>
+		                    <div>
+		                        To clear all industry codes (SICs) from your Salesforce org please click the Clear button below.
+		                        <br />
+		                        <input id="beginClearButton" type="button" class="btn" value="Clear Industries" onclick="beginClear();" />              
+		                    </div>  
+		                    <div> 
+		                        <br />
+		                        Please contact <a href="mailto:sales@provenworks.com" title="sales@provenworks.com">sales@provenworks.com</a> if you require support for another classification standard not listed above
+		                    </div>		                    
+			                <div>
+			                    <br />
+			                    To return to the setup page&nbsp;<apex:commandLink action="{!GoToSetupPage}" value="click here" />
+			                </div>    
+		                </div>                            
+		            </apex:panelGroup>
+		        </apex:pageBlock>			
+		        <apex:pageBlock title="Industries Installation" rendered="{!CanEditSettings && !IsInstallMode}">             
+	                <div>
+	                    To retrieve the predefined IndustryCodes from ProvenWorks' servers, click the button below. 
+	                    <br />
+	                    <input id="btnInstall" type="button" class="btn" value="Install Standard Industries" onclick="getSupportedCodes('{!$Api.Session_ID}', '{!$Api.Partner_Server_URL_170}');" />         
+	                </div>
+	            </apex:pageBlock>
+	            <apex:pageBlock title="Industries Installation" rendered="{!CanEditSettings == false}">
+		            <apex:panelGroup >
+		                <div>
+		                    The IndustryComplete settings are only available to users with the ModifyAllData permission.
+		                    If this is incorrect for your circumstances please contact <a href="mailto:support@provenworks.com" title="Support">support@provenworks.com</a>.
+		                </div>
+		            </apex:panelGroup>
+		        </apex:pageBlock>
+	            <apex:pageBlock title="Sidebar Installation" rendered="{!IsInstallMode == false}">
+	                <ol style="padding:0;">
+	                    <li>Add IndustryComplete to a Home Page Layout by going to the Setup section and expand Customize->Home->Home Page Layouts. Edit the Home Page Layout and check IndustryComplete in the narrow section. Then click Next, then Save on the following screen.</li>
+	                    <li>You must enable IndustryComplete on all pages so it will appear on the Account page. Navigate to Setup then go to Customize->User Interface, check "Show Custom Sidebar Components on All Pages" under the Sidebar section.</li>
+	                    <li>You will now see the IndustryComplete Component on editable Account pages.</li>
+	                    <li>If you have any problems please contact <a href="mailto:support@provenworks.com" title="Support">support@provenworks.com</a>.</li>
+	                </ol>
+	            </apex:pageBlock>
+	            <apex:pageBlock title="Lookup Industry Custom Button" rendered="{!IsInstallMode == false}">
+	                <ol style="padding:0;">
+	                    <li>Although you can launch IndustryComplete from the sidebar, this can sometimes not be particularly obvious to end users. You can also provide a custom button at the top of the account page to launch IndustryComplete.</li>
+	                    <li>From the Setup section navigate through Customize->Accounts->Page Layouts.</li>
+	                    <li>Pick a layout you would like to add the button to from the list and click Edit.</li>
+	                    <li>In the layout editor open the buttons and drag the 'Lookup Industry' button onto the 'Custom Buttons' region of the layout. Save your changes.</li>
+	                </ol>
+	            </apex:pageBlock>
+	            <apex:pageBlock title="Account SIC Description Field" rendered="{!IsInstallMode == false}">
+		                <ol style="padding:0;">
+		                    <li>The account layout by default will display the SIC code. IndustryComplete also provides a custom field which can be placed on the account page to display the description of that SIC code.</li>
+		                    <li>From the Setup section navigate through Customize->Accounts->Page Layouts.</li>
+		                    <li>Pick a layout you would like to add the button to from the list and click Edit.</li>
+		                    <li>In the layout editor open the available Visualforce Pages. From here drag the 'SIC Description' field onto the account layout, we suggest just under the 'SIC Code' field.</li>
+		                    <li>We suggest that you edit the options of this newly placed field by hovering over it and clicking the properties button. Set the height to 16px and enable 'Show label'. This will make it appear similar to the other Account fields.</li>
+		                </ol>
+		        </apex:pageBlock>
+			</apex:tab>
+			<apex:tab label="Settings" rendered="{!CanEditSettings}" ontabenter="initTabs();">
+		       	<apex:pageBlock id="pbStValSettings" title="Settings">
+					<apex:pageBlockButtons location="top">
+			            <apex:commandButton value="Save" action="{!SaveSettings}" />
+			        </apex:pageBlockButtons>		
+					<apex:panelGroup >             
+						<apex:outputPanel >
+							<div>
+								<apex:inputCheckbox id="triggerEnabled" value="{!EnableTriggerSetting}" onclick="setOptionsStatus();" />
+								<apex:outputLabel for="triggerEnabled" value="Enable IndustryComplete trigger" />
+				            </div>
+				            <div>
+								<apex:inputCheckbox id="populateLookupEnabled" value="{!PopulateIndustryCodeLookupSetting}" />
+								<apex:outputLabel id="populateLookupEnabledLabel" for="populateLookupEnabled" value="Automatically populate the Industry Code Lookup field with the value entered in to the SIC field when Industry Code Lookup is otherwise unchanged" />
+				            	<label id="populateLookupEnabledLabelAlt" style="display:none;" disabled="true">Automatically populate the Industry Code Lookup field with the value entered in to the SIC field when Industry Code Lookup is otherwise unchanged</label>
+				            </div> 
+				 			<div>
+								<apex:inputCheckbox id="populateIndustryEnabled" value="{!PopulateIndustryBySICSetting}" />
+								<apex:outputLabel id="populateIndustryEnabledLabel"  for="populateIndustryEnabled" value="Automatically populate the standard Industry field according to the value entered in to the SIC field when Industry is otherwise unchanged (useful for bulk-loaded data)" />
+				            	<label id="populateIndustryEnabledLabelAlt" style="display:none;" disabled="true">Automatically populate the standard Industry field according to the value entered in to the SIC field when Industry is otherwise unchanged (useful for bulk-loaded data)</label>
+				            </div>          
+			            </apex:outputPanel>
+			            <script type="text/javascript">
+			            	setOptionsStatus();			            
+						</script>
+			     	</apex:panelGroup>
+		        </apex:pageBlock>
+			</apex:tab>
+			<apex:tab label="Help" ontabenter="initTabs();">
+		        <apex:pageBlock title="Frequently Asked Questions">
+                    <ul style="padding:0;">
+                        <li style="margin-bottom:10pt;">
+                            Why do the supplied SIC codes use a prefix of ISICr40?<br/>
+                            <i>
+                                There are a number of different SIC standards which use the same number format, we use this prefix to denote that it's a <a href="http://unstats.un.org/unsd/cr/registry/isic-4.asp" title="ISICr40">ISIC Revision 4.0</a> code.
+                                You can use your own prefixes for other SIC standards or simply strip them if you do not care for them. 
+                                IndustryComplete will work regardless.
+                            </i>
+                        </li>
+                        <li style="margin-bottom:10pt;">
+                            We don’t use the standard Salesforce Industries, how can we map the SICs to our Industries?<br/>
+                            <i>
+                                There is a Industry Picklist on the IndustryCode object which should be identical to the Picklist on the Account object.
+                                This can be edited by going to Setup -> Create -> Objects -> Clicking the "Industry Code" link -> Clicking the "Industry" link in the Custom Fields section -> Editing can be done in the Picklist Values section.
+                                To map SICs to Industries visit the Industry Codes tab from the All Tabs menu. Edit the SIC code you're interested in and update the Industry field. 
+                            </i>
+                        </li>
+                    </ul>
+                    <div style="margin-top:1em">For support enquires please contact <a href="mailto:support@provenworks.com" title="support@provenworks.com">support@provenworks.com</a>.</div>
+		        </apex:pageBlock>
+		     </apex:tab>
+		</apex:tabPanel>
+    </apex:form>
+</apex:page>

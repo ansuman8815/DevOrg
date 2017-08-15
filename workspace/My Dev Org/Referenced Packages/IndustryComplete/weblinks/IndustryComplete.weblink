@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPageWebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <availability>online</availability>
+    <displayType>link</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Look up industry</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&apos;/soap/ajax/34.0/connection.js&apos;)}; 
+{!REQUIRESCRIPT(&apos;/soap/ajax/34.0/apex.js&apos;)}; 
+{!REQUIRESCRIPT(&apos;/resource/1337179725000/pw_ic__IndustryComplete/javascript/IndustryComplete.js&apos;)}; 
+if(ProvenWorks.IndustryComplete.isInitialized) 
+  ProvenWorks.IndustryComplete.open();</url>
+</CustomPageWebLink>

@@ -1,0 +1,4 @@
+<apex:page standardController="Account" extensions="pw_ic.AccountControllerIndustryExtension">	
+	<apex:stylesheet value="{!URLFOR($Resource.pw_ic__IndustryComplete, 'css/IndustryComplete.css')}" />
+	<div>{!SicDescription}</div>
+</apex:page>

@@ -1,0 +1,159 @@
+<apex:page controller="PMCS.Convert_Request" sidebar="false" tabstyle="PMCS__Request__c">
+    
+    <style type="text/css">
+        .custPopup{
+            background-color: white;
+            border-width: 2px;
+            border-style: solid;
+            z-index: 9999;
+            left: 40%;
+            padding:10px;
+            position: absolute;
+            width: 60%;
+            margin-left: -250px;
+            top:100px;
+        }
+        .popupBackground{
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 20);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+        }
+        .headStyle{
+            border-collapse:separate;
+            border-color:gray;
+            border-spacing:0px;
+            border-width:1px;
+            border-style:outset;
+            background-color: white;
+            font-size:1em;
+            padding:3px;
+            border-style:inset;
+            border-left: 3px solid #FFFFFF;
+            -moz-border-radius:3px;
+            text-align:left;
+            background-color:#F7921E;
+        }
+        
+        .columnStyle {
+            border-left: 3px solid #FFFFFF;
+            background-color:#FFFFFF;
+            color: black;
+        }
+        .tRowOdd{
+            background-color:#F0F8DC;
+        }
+        .tRowEven{
+            background-color:#FFF8DC;
+        }
+
+    </style>
+    
+    <script type="text/javascript"> 
+        function openLookup(baseURL, width, modified, searchParam){
+            var originalbaseURL = baseURL;
+            var originalwidth = width;
+            var originalmodified = modified;
+            var originalsearchParam = searchParam;
+                 
+            var lookupType = baseURL.substr(baseURL.length-3, 3);
+            
+            if (modified == '1') baseURL = baseURL + searchParam;
+            
+            var isCustomLookup = false;
+            
+            if(lookupType == "001"){
+                
+                var urlArr = baseURL.split("&");
+                var txtId = '';
+                if(urlArr.length > 2) {
+                    urlArr = urlArr[1].split('=');
+                    txtId = urlArr[1];
+                }
+                     
+                baseURL = "/apex/CustomCaseLookupPage?txt=" + txtId;
+                
+                baseURL = baseURL + "&frm=" + escapeUTF("{!$Component.myForm}");
+                
+                if (modified == '1') {
+                    baseURL = baseURL + "&lksearch=" + searchParam;
+                }
+                
+                if(txtId.indexOf('Case') > -1 ){
+                    
+                    isCustomLookup = true;
+                }
+            }
+            
+            if(isCustomLookup == true){
+                openPopup(baseURL, "lookup", 350, 480, "width="+width+",height=480,toolbar=no,status=no,directories=no,menubar=no,resizable=yes,scrollable=no", true);
+            }
+            else {
+            if (modified == '1') originalbaseURL = originalbaseURL + originalsearchParam;
+                openPopup(originalbaseURL, "lookup", 350, 480, "width="+originalwidth+",height=480,toolbar=no,status=no,directories=no,menubar=no,resizable=yes,scrollable=no", true);
+            }
+        }
+    </script>
+    
+    <apex:form >
+        <apex:pageBlock title="Case convertion - Step1">
+            <apex:pageblockButtons >
+                <apex:commandButton value="Next" action="{!Next}" />
+                <apex:commandButton value="Cancel" action="{!Cancel}" />
+            </apex:pageblockButtons>
+            
+            <apex:pageBlockSection columns="1">
+                <apex:inputField id="Case" value="{!request.PMCS__Case_ID__c}" label="Select Case :" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:outputPanel id="tstpopup">
+        <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}"/>
+            <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}">
+                <center>
+                    <apex:outputText value="{!cases}" />
+                    
+                    <apex:dataTable value="{!cases}" var="case" id="theTable" rowClasses="tRowOdd, tRowEven" headerClass="headStyle">
+                        <apex:column >
+	                        <apex:facet name="header">Case Number</apex:facet>
+	                        <apex:commandLink action="{!Select_Case_From_Table}" rerender="tstpopup,Case">
+	                            <apex:outputText value="{!case.CaseNumber}"/>
+	                            <apex:param name="forCaseNumber" value="{!case.CaseNumber}" />
+	                            <apex:param name="forCaseID" value="{!case.ID}" />
+	                        </apex:commandLink>
+                        </apex:column>
+                        
+                        <apex:column >
+	                        <apex:facet name="header">Status</apex:facet>
+	                        <apex:outputText value="{!case.Status}"/>
+                        </apex:column>
+                        
+                        <apex:column >
+	                        <apex:facet name="header">Account Name</apex:facet>
+	                        <apex:outputText value="{!case.AccountId}"/>
+                        </apex:column>
+                        
+                        <apex:column >
+	                        <apex:facet name="header">Subject</apex:facet>
+	                        <apex:outputText value="{!case.Subject}"/>
+                        </apex:column>
+                        
+                        <apex:column >
+	                        <apex:facet name="header">Description</apex:facet>
+	                        <apex:outputText value="{!case.Description}"/>
+                        </apex:column>
+                    </apex:dataTable>
+                    
+                    <apex:commandLink value="Close" action="{!closePopup}" rerender="tstpopup"/>
+                </center>
+            </apex:outputPanel>
+        </apex:outputPanel>
+        
+    </apex:form>
+    
+</apex:page>

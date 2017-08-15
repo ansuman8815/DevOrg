@@ -1,0 +1,11 @@
+<apex:page sidebar="false" tabStyle="CWB_Tool__tab" showheader="true">
+    <link rel="stylesheet" href="{!URLFOR($Resource.cwb,'/cwb/css/bootstrap2.css')}"/> 
+   
+   <a class="Btn Btn-info btn-add1" href="{!$Page.CompareProfile}?org=multi"  style="margin-left:0%!important;text-decoration:none;">
+      <span class="glyphicon glyphicon-step-backward"></span>
+      Back
+   </a>
+   
+  <c:actionstatusNew />
+  <c:ConnectionComp />
+</apex:page>

@@ -1,0 +1,85 @@
+<apex:page standardController="PMCS__Module_Members__c"
+    extensions="PMCS.ModuleMemberEditcontroller">
+    <apex:sectionHeader subtitle="Module Member" title="Home"
+        help="/help/doc/user_ed.jsp?loc=help" />
+
+    <style type="text/css">
+span.bold {
+    font-weight: bold
+}
+</style>
+
+    <apex:form >
+        <apex:pageMessages id="errors">
+        </apex:pageMessages>
+        <apex:pageBlock title="Module Member Edit" mode="edit" id="Timesheetnew">
+            <div style="padding-left: 50px; padding-top: 10px;">
+                <table cellpadding="10" cellspacing="5" border="0">
+
+                    <tr>
+                        <td>Module ID</td>
+                        <td><apex:inputField value="{!PMCS__Module_Members__c.PMCS__Module__c}"
+                                required="false">
+                                <apex:actionSupport event="onchange" action="{!ModuleName}" 
+						rerender="Moddisp" />
+							</apex:inputField>
+						</td>
+						<td>Module Name :                    		
+                    	</td>
+                    	<td>
+                    		<apex:outputText value="{!ModName}" id="Moddisp" />
+                    	</td>
+                       
+                    </tr>
+                    <tr>
+                    	 <td>Resource ID</td>
+                        <td><apex:inputField value="{!PMCS__Module_Members__c.PMCS__Resource__c}"
+                                required="false">
+                                <apex:actionSupport event="onchange" action="{!GetRole}" rerender="Resdisp,Roledisp"/>
+                                </apex:inputField>
+                   
+                         </td>
+                    	<td>Resource Name :                    		
+                    	</td>
+                    	<td>
+                    		<apex:outputText value="{!ResName}" id="Resdisp" />
+                    	</td>
+                    </tr>
+                    <tr>
+	                    <td>Role of Resource :
+	                    </td>
+	                    <td>
+	                    	 <apex:outputText value="{!URole}" id="Roledisp" />
+	                    </td>
+                        <td colspan="2"></td>
+
+                    </tr>
+                    <tr>
+                    	<td>Start Date :                    		
+                    	</td>
+                    	<td>
+                    		<apex:inputField value="{!PMCS__Module_Members__c.PMCS__Start_Date__c}"
+                                required="false">                              
+							</apex:inputField>
+                    	</td>
+                    	<td>End Date :                    		
+                    	</td>
+                    	<td>
+                    		<apex:inputField value="{!PMCS__Module_Members__c.PMCS__End_Date__c}" 
+                                required="false">                              
+							</apex:inputField>
+                    	</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="center"><apex:pageBlockButtons >
+                                <apex:commandButton value="Save" action="{!SaveData}" />
+                                <apex:commandButton value="Cancel" action="{!cancel}" />
+                            </apex:pageBlockButtons></td>
+                    </tr>
+                </table>
+
+            </div>
+        </apex:pageBlock>
+
+    </apex:form>
+</apex:page>

@@ -1,0 +1,727 @@
+<apex:page sidebar="false" showHeader="false" controller="TIMBASURVEYS.SurveyCollectController" >
+
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources, 'inc/css/SurveyCollect.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, 'css/collector.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, 'css/analyzer_questions_section.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, 'css/navigation_survey_analyzer.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, 'css/tabsDisplay.css')}" />
+    
+    <!-- Add Date Picker Resources -->
+    <apex:includeScript value="{!URLFOR($Resource.TIMBASURVEYS__jqTransform, 'required/jquery-1.4.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.TIMBASURVEYS__Datepicker, 'jquery.datePicker.min-2.1.2.js')}" />
+    <script type="text/javascript" src="{!URLFOR($Resource.jqTransform, 'jqtransformplugin/jquery.jqtransform.js')}" ></script>
+    <script type="text/javascript" src="{!URLFOR($Resource.Datepicker, 'date.js')}" ></script>
+
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__Datepicker, 'datePicker.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__jqTransform, 'jqtransformplugin/jqtransform.css')}" />
+    
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, '/css/common.css')}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, '/css/list.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, '/css/tabsDisplay.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.TIMBASURVEYS__SurveyResources2, '/css/collector.css')}"/>
+ 
+    
+    <apex:include pageName="TIMBASURVEYS__TimbaSurveyStyles" />
+    
+    <style>
+        body {
+            background-color: #fff; 
+            margin: 0;
+            padding: 1px;       
+        }
+
+        .pageContainer{
+            min-height: 300px;
+        }
+        body {
+            font-size: 75%;
+            font-family: Arial,Helvetica,sans-serif;
+        }
+        .linkTr{
+            cursor: pointer;
+        }
+        .overview{
+            font-family: arial;
+            font-size: 14px;
+            color: #bbbbbb;
+            width: 100%;
+            min-height: 200px;
+
+            background-color: #ffffff;
+            margin: 0 auto;
+
+            -webkit-border-bottom-left-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            -moz-border-radius-bottomright: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .overview .cols{
+            text-align: left;
+        }
+
+        .overview .col1{
+            width: 40% ;
+            float: left;
+            padding: 5px;
+            padding-top: 7px;
+        }
+
+        .overview .col2{
+            width:50%;
+            height: auto;
+            overflow: hidden;
+            float: left;
+        }
+        
+       .overview .form_field {
+            overflow: hidden;
+            clear: both;
+            margin: 4px 0;
+           
+        }
+        .disabletabElem{
+            font-weight: normal !Important;
+            background-color: #eaeaea !Important;
+            border: 1px solid #C0C0C0 !Important;
+            border-bottom: none !Important;
+        }
+        
+        .transparentSwitch{
+            zoom: 1;
+            filter: alpha(opacity=50);
+            opacity: 0.5;
+        }
+        #email_notifications_div{
+            width: 100% !Important;
+            padding-left: 0px !Important;
+            padding-right: 0px !Important;            
+        }
+        
+        #email_notifications{
+         font-size: larger;
+         height: 26px;
+        }
+        
+        .dateortime a.dp-choose-date{
+            background: url('{!URLFOR($Resource.SurveyPublicResources, '/img/calendar.png')}') right no-repeat;
+            background-repeat:no-repeat;
+            position:absolute;
+            top:0px;
+            left:110px;
+            width:24px;
+            height:24px;
+            overflow:visible;
+            margin-left:3px;
+            text-indent:-9999px;
+            display:block;
+        }
+        
+        .clear{
+            clear:both;
+        }
+        
+        #expirationDate_error {
+            color: red;
+            font-size: 10px;
+            margin-top: 6px;
+            margin-left: 3px;
+        }
+        
+        #required_lead_data{
+          font-size: x-large;
+          transform: scale(1.5);
+        }
+        
+        .datepicker{
+          font-size: larger !Important;
+        }
+        
+        #expirationDateInput{         
+           height: 26px;
+           margin-top: 13px;
+           margin-left: 1px;
+        }
+        
+        .dateSelectorMaincontainer{
+          background-color: #EFF5FB;
+          padding-left: 0px !Important;
+          height: 100% !Important;
+        }
+        
+        .Create_Leads{
+          background-color: #EFF5FB;
+          height: 70px;
+          width: 100% !Important;         
+          padding-left: 0px !Important;
+          padding-right: 0px !Important;          
+        }
+        
+        .switch{
+          margin-top: 3px;
+        }
+        
+        .surveyButton{
+          float: left;
+          margin-top: 3px;        
+          height: 26px;
+        }
+        
+        #mail_error{
+          margin-left: 3px;
+        }
+        
+    </style>
+    
+    <script type="text/javascript">
+    
+       /* function setCollection(switchDiv){
+            var container = '#'+switchDiv.id;
+            if( $(container).hasClass( 'switch on' )  ){
+                collectionOp('{!SurveyId}', 'off');
+            }else{
+                collectionOp('{!SurveyId}', 'on');
+            }
+        }*/
+    
+    </script>
+   
+   <script type="text/javascript" src="{!URLFOR($Resource.timbasurveys_dojo_build, 'dojo/dojo.js')}" djConfig="parseOnLoad:true, isDebug:false"></script> 
+    <script type="text/javascript">
+        // Load libraries for Dojo 1.7.2
+        dojo.require("dojox.widget.Standby");
+        dojo.require("dijit.Dialog");
+        
+        var globalConfigurations_backupOptions = {};
+        var parse = function() {
+            dojo.query('body').addClass('timbaSurveys');
+        }
+
+        dojo.addOnLoad(parse);
+        function isUrl(s) {
+            var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+            return regexp.test(s);
+        }
+
+        function setSitesUrl(isConf, sitesUrl){
+            var logOn = document.getElementById('logEnabled').checked;
+            if(!isConf){
+                var urlAll = document.URL ;
+                var end = urlAll.indexOf('/apex/');
+                var url = urlAll.substring(0,end);
+
+                var sitesUrl = url + '/apex'; //dojo.byId('sitesUrl').value;
+                //console.info(sitesUrl);
+            } else {
+                var sitesUrl = dojo.byId('sitesURLOverlay').value;
+            }
+            if(sitesUrl.length > 0 && isUrl(sitesUrl)){
+                sitesUrl = dojo.trim(sitesUrl);
+                // check the final bar
+                if(sitesUrl.substring(sitesUrl.length - 1, sitesUrl.length) == '/'){
+                    sitesUrl = sitesUrl.substring(0, sitesUrl.length - 1);
+                }
+                configurationDialog.hide();
+                try {
+                    listOverlay.show();
+                } catch (exception) {
+                }
+                setupSitesOperation(sitesUrl, isConf, logOn);
+            }else {
+                //alert('{!$Label.timbasurveys_template_the_site_url}.');
+                if(!isConf){
+                    return false;
+                }
+            }
+        }
+
+        function setupSitesCompleted(success){
+            if(success == 'true'){
+                window.location.reload();
+            }else{
+                //alert('{!$Label.timbasurvey_surveylist_Error_foun_try_again}');
+                try {
+                    listOverlay.hide();
+                }catch (exception){
+                }
+            }
+        }
+
+        String.prototype.trim = function() {
+            return this.replace(/^\s+|\s+$/g,"");
+        }
+
+        function globalConfiguration_openDialog(){
+            dijit.byId('configurationDialog').show();
+            globalConfigurations_backupOptions['hasSites'] = dojo.byId('hasSites').checked;
+            globalConfigurations_backupOptions['sitesURLOverlay'] = dojo.byId('sitesURLOverlay').value;
+        }
+
+        function globalConfiguration_cancelDialog(){
+            if(globalConfigurations_backupOptions['hasSites'] == false || globalConfigurations_backupOptions['hasSites'] == 'false' ){
+                dojo.removeClass(dojo.byId('siteUrlWrapper'),'displayBlock');
+            }
+            if(globalConfigurations_backupOptions['hasSites'] == true || globalConfigurations_backupOptions['hasSites'] == 'true' ){
+                dojo.addClass(dojo.byId('siteUrlWrapper'),'displayBlock');
+            }
+            dojo.byId('hasSites').checked = globalConfigurations_backupOptions['hasSites'];
+            dojo.byId('sitesURLOverlay').value = globalConfigurations_backupOptions['sitesURLOverlay'];
+            configurationDialog.hide();
+        }
+
+        function showHelp(){
+            var currentPage = window.location['href'];
+            currentPage = currentPage.toLowerCase();
+            var windowW = 1000;
+            var windowH = 640;
+            switch(true){
+                case (currentPage.indexOf('/surveylist') > -1):
+                    window.open('http://survey.timbasoftware.com/survey-list','','scrollbars=yes,menubar=no,height=' + windowH + ',width=' + windowW + ',resizable=yes,toolbar=no,location=no,status=no');
+                    break;
+                case (currentPage.indexOf('/surveycollect') > -1):
+                    window.open('http://survey.timbasoftware.com/modules/survey-collect','','scrollbars=yes,menubar=no,height=' + windowH + ',width=' + windowW + ',resizable=yes,toolbar=no,location=no,status=no');
+                    break;
+
+            case ( currentPage.indexOf('/surveypreview') > -1 || currentPage.indexOf('/designsurvey') > -1 ):
+                window.open('http://survey.timbasoftware.com/modules/drag-drop-designer','','scrollbars=yes,menubar=no,height=' + windowH + ',width=' + windowW + ',resizable=yes,toolbar=no,location=no,status=no');
+                break;
+
+            case ( currentPage.indexOf('/surveyanalyze') > -1 || currentPage.indexOf('/surveybrowser') > -1 || currentPage.indexOf('/surveysummary') > -1 ):
+                window.open('http://survey.timbasoftware.com/modules/survey-analyzer','','scrollbars=yes,menubar=no,height=' + windowH + ',width=' + windowW + ',resizable=yes,toolbar=no,location=no,status=no');
+                break;
+
+            default:
+                window.open('http://survey.timbasoftware.com/','','scrollbars=yes,menubar=no,height='+windowH+',width=' + windowW + ',resizable=yes,toolbar=no,location=no,status=no');
+                break;
+        }
+
+    }
+
+        function replaceAllCustom(str, replaceS, withS) {
+            var str2 = str + '';
+            var intIndexOfMatch = str2.indexOf(replaceS);
+
+            // Loop over the string value replacing out each matching
+            // substring.
+            while (intIndexOfMatch != -1){
+            // Relace out the current instance.
+                str2 = str2.replace(replaceS, withS);
+
+                // Get the index of any next matching substring.
+                intIndexOfMatch = str2.indexOf(replaceS);
+            }
+            return str2;
+        }
+
+        /**
+        *
+        *  URL encode / decode
+        *  http://www.webtoolkit.info/
+        *
+        **/
+
+        var UrlUtil = {
+
+            // public method for url encoding
+            encode : function (string) {
+                return escape(this._utf8_encode(string));
+            },
+
+            // public method for url decoding
+            decode : function (string) {
+                return this._utf8_decode(unescape(replaceAllCustom(string, '+', ' ')));
+            },
+
+            // private method for UTF-8 encoding
+            _utf8_encode : function (string) {
+                string = string.replace(/\r\n/g,"\n");
+                var utftext = "";
+
+                for (var n = 0; n < string.length; n++) {
+
+                    var c = string.charCodeAt(n);
+
+                    if (c < 128) {
+                        utftext += String.fromCharCode(c);
+                    }
+                    else if((c > 127) && (c < 2048)) {
+                        utftext += String.fromCharCode((c >> 6) | 192);
+                        utftext += String.fromCharCode((c & 63) | 128);
+                    }
+                    else {
+                        utftext += String.fromCharCode((c >> 12) | 224);
+                        utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+                        utftext += String.fromCharCode((c & 63) | 128);
+                    }
+
+                }
+                return utftext;
+            },
+
+            // private method for UTF-8 decoding
+            _utf8_decode : function (utftext) {
+                var string = "";
+                var i = 0;
+                var c = c1 = c2 = 0;
+
+                while ( i < utftext.length ) {
+
+                    c = utftext.charCodeAt(i);
+
+                    if (c < 128) {
+                        string += String.fromCharCode(c);
+                        i++;
+                    }
+                    else if((c > 191) && (c < 224)) {
+                        c2 = utftext.charCodeAt(i+1);
+                        string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+                        i += 2;
+                    }
+                    else {
+                        c2 = utftext.charCodeAt(i+1);
+                        c3 = utftext.charCodeAt(i+2);
+                        string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+                        i += 3;
+                    }
+
+                }
+
+                return string;
+            }
+
+        }
+        
+       var previousDate = "";
+        jQuery(function () {
+                   
+            // when input value changes, submit information to controller
+            previousDate = jQuery('#expirationDateInput').val();
+            jQuery('#expirationDateInput').change(function() {
+                dojo.byId('expirationDate_error').innerHTML = '';
+                var d = jQuery('#expirationDateInput').val();
+                var eDate = new Date();
+                var split = d.split("-",3);
+                var year = parseInt(split[0]);
+                //months in Date object go from 0 to 11
+                var month = split[1] - 1;
+                var day = parseInt(split[2]);
+                eDate.setFullYear(year, month, day);
+
+                if ( wrongDate( eDate ) ){                   
+                    dojo.byId('expirationDate_error').innerHTML = '{!$Label.timbasurvey_surveyBrowser_Expiration_Date_Lower_Today}';
+                    jQuery('#expirationDateInput').val(previousDate);
+                }else{
+                   
+                    dataContainerOverlay.show();
+                   
+                    surveyExpirationDate(true, d);
+                    previousDate = d;
+                }
+            });
+        if ({!CurrentSurvey.Expiration_Date_Enabled__c}){
+            jQuery('.dateSelectorMaincontainer').show();
+            var tmpDate = new Date();
+            var currentYear = tmpDate.getFullYear();
+            var currentMonth = tmpDate.getMonth() + 1;
+            var currentDay = tmpDate.getDate();
+            var startDate = currentYear + '-' + currentMonth + '-' + currentDay;
+                
+                Date.format = 'yyyy-mm-dd';
+                /*jQuery('.datepicker').datePicker({
+                    clickInput:true,
+                    startDate: startDate
+                })
+                .dpSetOffset(25, -5);
+                */
+            defaultDate();
+                }
+                
+            });
+
+    </script>
+   
+    <apex:define name="customJs">
+        <apex:include pageName="TIMBASURVEYS__SurveyCollectDataJs" />
+        <apex:include pageName="TIMBASURVEYS__SurveyCollectEmailsJs" />
+    </apex:define>
+    
+    <apex:form >
+        <!--  apex:actionFunction name="collectionOp" action="" >
+            <apex:param name="SurveyId" value="aaa"/>
+            <apex:param name="surveyStatus" value="bb"/>
+        </apex:actionFunction -->
+    </apex:form>
+    
+    
+    <body>
+    <div id="surveyToolbar"> 
+        <div class="leftContainer">
+            <apex:image url="{!URLFOR($Resource.TIMBASURVEYS__sf1_logo)}" width="280" height="44"/>
+        </div>
+        <!--div class="rightContainer"><a onclick="#" id="help" href="javascript:;">&nbsp;</a></div-->
+        <div class="clear"> </div>
+    </div>
+    
+    <div id="breadCrumb">
+        <ul>
+            <li class="step first">
+                <a class="first" href="javascript:;" OnClick="sforce.one.navigateToURL('/apex/TIMBASURVEYS__SF1SurveyList');" >Survey List</a>
+            </li>
+            <li class="acctual">
+                <span class="acctual">{!LEFT(currentSurvey.Name,21)}<apex:outputLabel rendered = "{!IF(len(currentSurvey.Name)>20,true,false)}" value="..." /></span>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="pageContainer" id="dataContainerMaster">
+        <div class="leftContainer"></div>
+        <div class="rightContainer"></div>
+        <div class="clear"> </div>
+        <div class="listContainer">
+            <div  class="pageContainer">
+                <div class="tabSet">
+                    <a class="tabElem" href="javascript:;" OnClick="sforce.one.navigateToURL('/apex/TIMBASURVEYS__SF1SurveyOverview?id={!SurveyId}');">Overview </a>
+                    <a class="tabElem imIn" href="javascript:;" OnClick="sforce.one.navigateToURL('/apex/TIMBASURVEYS__SF1SurveyCollect?id={!SurveyId}');">Collect</a>
+                    <a class="tabElem" href="javascript:;" OnClick="sforce.one.navigateToURL('/apex/TIMBASURVEYS__SF1SurveyAnalize?id={!SurveyId}');"
+                            style="display:{!IF(CurrentSurvey.TIMBASURVEYS__CollectedResponses__c!=0,'', 'none')}" >Analyze</a>
+                    <span class="tabElem disabletabElem" style="display:{!IF(CurrentSurvey.TIMBASURVEYS__CollectedResponses__c!=0,'none', '')}">Analyze</span>
+                    <div class="marginInf"></div>
+                </div>
+                <div id="view">
+                    <div class="overview">                
+                        <!-- Form field -->
+                        <div class="form_field">
+                            <div class="cols">
+                                <div class="col1">
+                                    <label class="labels" for="nameF">Collection:</label>
+                                </div>
+                                 <div class="col2">
+                                    <a style="float: left;" id="collectionSwitch" title="Collection {!if(CurrentSurvey.TIMBASURVEYS__CollectingData__c,'on', 'off')}" class="switch {!IF(CurrentSurvey.TIMBASURVEYS__CollectingData__c,'on','')}" href="javascript:;" onclick="setCollection(this);return false;">
+                                        <apex:outputText value="Collection {!if(CurrentSurvey.TIMBASURVEYS__CollectingData__c,'on','off')}" />
+                                    </a>      
+                                </div>
+                            </div>
+                        </div>
+   
+
+                        <!-- Form field -->
+                        <div class="form_field">
+                            <div class="cols">
+                                <div class="col1">
+                                    <label class="labels" for="nameF">Anonymous Collection:</label>
+                                </div>
+                                <div class="col2">
+                                 <apex:outputPanel layout="block" id="anonymousPanel">
+                                    <apex:outputPanel layout="none" rendered="{!NOT(CurrentSurvey.TIMBASURVEYS__CollectingData__c)}">
+                                        <a id="anonymousSwitch" class="switch {!IF(CurrentSurvey.AllowAnonymousRecipients__c,'on','')}" href="javascript:;" onclick="dataContainerOverlay.show(); setAnonymous(this);" title="{!$Label.timbasurveys__timbasurveys_surveycollect_Anonymous_Collection} {!IF(CurrentSurvey.TIMBASURVEYS__AllowAnonymousRecipients__c,$Label.timbasurveys__timbasurveys_on,$Label.timbasurveys__timbasurveys_off)}">
+                                            <apex:outputText value="{!$Label.timbasurveys__timbasurveys_surveycollect_Anonymous_Collection} {!IF(CurrentSurvey.TIMBASURVEYS__AllowAnonymousRecipients__c,$Label.timbasurveys__timbasurveys_on,$Label.timbasurveys__timbasurveys_off)}" />
+                                        </a>
+                                    </apex:outputPanel>
+                                    <apex:outputPanel layout="none" rendered="{!CurrentSurvey.TIMBASURVEYS__CollectingData__c}">
+                                        <div id="anonymousSwitch" class="switch {!IF(CurrentSurvey.TIMBASURVEYS__AllowAnonymousRecipients__c,'on','')} transparentSwitch" title="Collection {!IF(CurrentSurvey.TIMBASURVEYS__AllowAnonymousRecipients__c,'on','off')}">
+                                            <apex:outputText value="Collection {!IF(CurrentSurvey.TIMBASURVEYS__AllowAnonymousRecipients__c,'on','off')}" />
+                                        </div>
+                                    </apex:outputPanel>
+                                   </apex:outputPanel>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form field -->
+                        <div class="form_field">
+                            <div class="cols">
+                                <div class="col1">
+                                    <label class="labels" for="nameF">Multiple Responses per Recipients:</label>
+                                </div>
+                                <div class="col2">
+                                    <a id="multiFillSwitch" class="switch {!IF(CurrentSurvey.AllowMultiFill__c,'on','')}" href="javascript:;" onclick="dataContainerOverlay.show(); setMulfiFill(this);" title="{!$Label.timbasurveys_surveycollect_Allow_multiples} {!if(CurrentSurvey.AllowMultiFill__c,$Label.timbasurveys_on,$Label.timbasurveys_off)}">
+                                        <apex:outputText value="Multiple Responses per Recipients: {!if(CurrentSurvey.TIMBASURVEYS__AllowMultiFill__c,'on','off')}" />
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <!-- Form field -->
+                        <div class="form_field">
+                            <div class="cols">
+                                <div class="col1">
+                                    <label class="labels" for="nameF">Enable Notifications:</label>
+                                </div>
+                                <div class="col2">
+                                    <a id="emailNotificationSwitch" class="switch {!IF(CurrentSurvey.NotifyResponses__c,'on','')}" href="javascript:;" onclick="showEmailNotifications(this);" title="{!$Label.timbasurveys_surveycollect_Enable_Notifications} {!IF(CurrentSurvey.NotifyResponses__c,$Label.timbasurveys_on,$Label.timbasurveys_off)}">
+                                        <apex:outputText value="Enable Notifications: {!IF(CurrentSurvey.TIMBASURVEYS__NotifyResponses__c,'on','off')}" />
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        </div>  
+                        
+                         <div class="form_field" id="email_notifications_div" style="{!IF(CurrentSurvey.NotifyResponses__c,'','display:none;')}">
+                            <div class="cols">
+                                <div class="col1">
+                                    <div  class="content">
+                                        <apex:outputPanel id="sendNotificationcontainer" layout="block">
+                                            <apex:outputText value="{!$Label.timbasurveys__timbasurveys_Collector_Send_email_notification}:" />
+                                        </apex:outputPanel>
+                                        <input value="{!CurrentSurvey.NotificationEmail__c}" type="text" id="email_notifications" onblur="validateMail(this);"/>
+                                        <div id='mail_error'></div>
+                                    </div>                                
+                                </div>
+                                <div class="col2">
+                               
+                                </div>
+                                
+                            </div>
+                         </div>                       
+                        
+                        
+                        <!-- Form field -->
+                        <div class="form_field">
+                            <div class="cols">
+                                <div class="col1">
+                                    <label class="labels" for="nameF">Expiration Date:</label>
+                                </div>
+                                <div class="col2">
+                                    <apex:outputLink id="outPutexpired" styleClass="switch {!if(CurrentSurvey.TIMBASURVEYS__Expiration_Date_Enabled__c,'on','')}" value="javascript:;" onClick="dataContainerOverlay.show();onOfExpirationDate(this);" >
+                                        <span class="noDisplay" id="enableExpirationDateLnkTxt">
+                                            <apex:outputText value="{!$Label.timbasurveys__timbasurveys_surveycollect_Switch_expiration_date} {!if(CurrentSurvey.TIMBASURVEYS__Expiration_Date_Enabled__c,$Label.timbasurveys__timbasurveys_off,$Label.timbasurveys__timbasurveys_on)}" />
+                                        </span>
+                                    </apex:outputLink>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="form_field dateSelectorMaincontainer" id="dateSelectorMaincontainer"  style="display:{!IF(CurrentSurvey.Expiration_Date_Enabled__c,'block','none')}">
+                             <div class="cols">
+                                <div  class="col1">
+                                <div class="content">
+                                <apex:outputpanel rendered="{!not(isnull(CurrentSurvey.TIMBASURVEYS__Expiration_Date__c))}" layout="none" > 
+                                    <input type="date" id="expirationDateInput" value="{!YEAR(CurrentSurvey.Expiration_Date__c)}-{!if(MONTH(CurrentSurvey.Expiration_Date__c) > 9, '', '0')}{!MONTH(CurrentSurvey.Expiration_Date__c)}-{!if(Day(CurrentSurvey.Expiration_Date__c) > 9, '', '0')}{!DAY(CurrentSurvey.Expiration_Date__c)}" />
+                                 
+                                 </apex:outputpanel> 
+                                 
+                                 <apex:outputpanel rendered="{!isnull(CurrentSurvey.TIMBASURVEYS__Expiration_Date__c)}" layout="none" > 
+                                 <input type="date" id="expirationDateInput" value="{!YEAR(TODAY())}-{!if(MONTH(TODAY()) > 9, '', '0')}{!MONTH(TODAY())}-{!if(Day(TODAY()) > 9, '', '0')}{!DAY(TODAY())}" />
+                                 </apex:outputpanel>        
+                                 <div id='expirationDate_error'></div> 
+                                 <!-- div class="dateSelectorMaincontainer">
+                                     <apex:outputPanel styleClass="dateSelectorWrapper" layout="block">
+                                        <apex:outputPanel styleClass="dateortime" layout="block" style="width: 160px; position: relative; display: block;">
+                                            <apex:outputPanel styleClass="jqTransformInputWrapper" layout="block">
+                                                <apex:outputPanel styleClass="jqTransformInputInner" layout="block">
+                                                     
+                                                    < input class="datepicker" id="expirationDateInput" type="text" maxlength="70" value="{!YEAR(CurrentSurvey.Expiration_Date__c)}-{!if(MONTH(CurrentSurvey.Expiration_Date__c) > 9, '', '0')}{!MONTH(CurrentSurvey.Expiration_Date__c)}-{!DAY(CurrentSurvey.Expiration_Date__c)}" />
+                                                    <div id='expirationDate_error'></div>  
+                                                </apex:outputPanel>
+                                            </apex:outputPanel>
+                                        </apex:outputPanel>
+                                    </apex:outputPanel>
+                                </div--> 
+                                </div>
+                             </div>
+                             </div>
+                             <div class="col2">
+                             </div>
+                       </div>
+                                   
+                        
+                        <!-- Form field -->
+                        <div class="form_field">
+                            <div class="cols">
+                                <div class="col1">
+                                    <label class="labels" for="nameF">Create Leads from Recipients:</label>
+                                </div>
+                                <div class="col2">
+                                     <a class="switch {!IF(CurrentSurvey.CreateLeads__c,'on','')}" href="javascript:;" onclick="dataContainerOverlay.show(); saveLeadCatching(this);">switch_create_recipients</a>
+                               
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form_field Create_Leads" id="Create_Leads" style="{!IF(CurrentSurvey.CreateLeads__c,'','display:none;')}">
+                           <div class="cols">
+                               <div class="col1">                       
+                                <div  class="content" style="width: 170px;">
+                                    <div ><apex:outputText value="{!$Label.timbasurveys__timbasurveys_surveycollect_Create_Leads}" /></div>
+                                    
+                                    <apex:outputPanel layout="none" rendered="{!CurrentSurvey.TIMBASURVEYS__RequireLeads__c}">
+                                        <input type="checkbox" onclick= "CreateLavels();" id="required_lead_data" checked="checked"/> {!$Label.timbasurveys_surveycollect_the_info}
+                                    </apex:outputPanel>
+                                    <apex:outputPanel layout="none" rendered="{!NOT(CurrentSurvey.TIMBASURVEYS__RequireLeads__c)}">
+                                        <input type="checkbox" onclick= "CreateLavels();" id="required_lead_data" /> {!$Label.timbasurveys_surveycollect_the_info}
+                                    </apex:outputPanel>
+                                </div>
+                               </div>  
+                               <div class="col2">
+                                </div>  
+                             </div>
+                         </div>
+                        <br/>
+                        
+                          <div class="form_field">
+                            <div class="cols">
+                                <div class="col1">
+                                    <button id="doneButton" class="leftContainer surveyButton " onClick="verifySelectedOptionSF1();" >
+                                        <img alt="{!$Label.timbasurvey_surveyCollect_Send}" src="{!URLFOR($Resource.SurveyResources2,'img/collector/mail_send.png')}"/>
+                                        {!$Label.timbasurvey_surveyCollect_Send}
+                                    </button>          
+                                </div>
+                                <div class="col2"></div>
+                            </div>
+                           </div>
+
+                        <div class="form_field">
+                            <div class="content">&nbsp;&nbsp;<apex:outputText value="{!$Label.timbasurveys__timbasurveys_surveycollect_Created_On}:" id="contentTitle" />
+                                <span>
+                                &nbsp;<apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                    <apex:param value="{!CurrentSurvey.CreatedDate}" /> 
+                                </apex:outputText>
+                                </span>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="fieldTitle">&nbsp;&nbsp;
+                            <apex:outputText styleClass="content" value="{!$Label.timbasurveys__timbasurveys_surveycollect_Responses}:" />
+                            <span id="responsed" class="content">
+                                &nbsp;<apex:outputPanel id="responsesCount" layout="inline" >
+                                    <apex:outputText value="{!ROUND(CurrentSurvey.TIMBASURVEYS__CollectedResponses__c,0)}" />
+                                </apex:outputPanel>
+                            </span>
+                        </div>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="clear"> </div>
+    </div>
+    <div data-dojo-id="dataContainerOverlay" data-dojo-type="dojox.widget.Standby" data-dojo-props="target:'dataContainerMaster', color:'white'"></div>
+   
+   <form id='textAreaIdSend' style="display:none;">
+       <textarea id='pE' name='pE' cols="300"></textarea>
+       <textarea id='cIds' name='cIds' cols="300"></textarea>
+       <textarea id='LIds' name='LIds' cols="300"></textarea>
+       <textarea id='uIds' name='uIds' cols="300"></textarea>
+       <input id='isAnonymous' name='isAnonymous' type="text" />
+       <input id='send_to_all' name='send_to_all' type="text" value='new'/>
+       <input id='toc' name='toc' type="text"/>
+   </form>
+   
+   <div data-dojo-id="progresSendEmailsDijit" id="progresSendEmails" data-dojo-type="dijit.Dialog"  color="white" title="{!$Label.timbasurvey_Collect_Sending_Email}" style="height: 180px; width:247px;" >
+       <div id='titleSend'><apex:outputText value="{!$Label.timbasurveys__timbasurveys_surveycollect_Sending}..."/></div>
+       <div id='progresBar'>
+           <img alt="{!$Label.timbasurveys_surveycollect_Sending}" src="{!URLFOR($Resource.SurveyResources2,'img/collector/sendEmailProgres.gif')}"/>
+           <div id='bar'></div>
+       </div>
+       <div id='dataProgres'>
+           <apex:outputText value="{!$Label.timbasurveys__timbasurveys_surveycollect_Loading}" />
+       </div>
+   </div>
+   </body>
+     
+</apex:page>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>EnableTrigger__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Enable IndustryComplete trigger</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PopulateIndustryBySIC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Automatically populate the standard Industry field according to the value entered in to the SIC field when Industry is otherwise unchanged (useful for bulk-loaded data)</description>
+        <externalId>false</externalId>
+        <label>Automatically populate Industry by SIC</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PopulateIndustryLookupCode__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Automatically populate the Industry Code Lookup field with the value entered in to the SIC field when Industry Code Lookup is otherwise unchanged</description>
+        <externalId>false</externalId>
+        <label>Populate Industry Lookup Code</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>IndustryComplete Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

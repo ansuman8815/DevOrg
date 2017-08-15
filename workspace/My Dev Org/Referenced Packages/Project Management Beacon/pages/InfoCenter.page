@@ -1,0 +1,99 @@
+<apex:page sidebar="false">
+    <apex:form >
+        <script type="text/javascript">
+            
+            function displayDiv(id) {
+                var el = document.getElementById(id);
+    
+                if (el.style.display != 'none') {
+                    el.style.display = 'none';
+                } else {
+                    el.style.display = '';
+                }
+            }
+        </script>
+        <apex:pageblock >
+            <apex:sectionHeader title="Information Center" />
+            <br/>
+            <apex:pageBlockSection ></apex:pageBlockSection>
+            <div>
+                <table width="100%" height="100px">
+                    <tr>
+                        <td width="30%">
+                            <div style="position: absolute; top: 63px; left: 50px;">
+                                <table>
+                                    <tr>
+                                        <td><apex:outputLink value="/apex/GanttChartNew?differentiate=simple"
+                                                onmouseover="displayDiv('simplediv')" onmouseout="displayDiv('simplediv')">
+                                                Project Progress - Simple
+                                            </apex:outputLink></td>
+                                    </tr>
+                                    <tr>
+                                        <td><apex:outputLink value="/apex/GanttChartNew?differentiate=complex"
+                                                onmouseover="displayDiv('complexdiv')" onmouseout="displayDiv('complexdiv')">
+                                                Project Progress with Resource - Complex
+                                            </apex:outputLink></td>
+                                    </tr>
+                                    <tr>
+                                        <td><apex:outputLink value="/apex/PortalSearchGraph"
+                                                onmouseover="displayDiv('portaldiv')" onmouseout="displayDiv('portaldiv')">
+                                                Portal Search Graph
+                                            </apex:outputLink>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><apex:outputLink value="/apex/RequestDelaySnapShotPage"
+                                                onmouseover="displayDiv('Delaydiv')" onmouseout="displayDiv('Delaydiv')">
+                                                Request Delay Snapshot
+                                            </apex:outputLink>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><apex:outputLink value="/apex/PieChartUsingScript"
+                                                onmouseover="displayDiv('Portaleyediv')" onmouseout="displayDiv('Portaleyediv')">
+                                                Portal Bird's EyeView
+                                            </apex:outputLink>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div></td>
+                        <td width="70%"><div>
+                                <div id="simplediv" style="display: none">
+                                    <apex:panelGrid border="2" id="thePanel1">
+                                        <apex:image url="{!$Resource.PMCS__Gantt_Simple}" id="simple1"
+                                            width="700" height="300" />
+                                    </apex:panelGrid>
+                                </div>
+                                <div id="complexdiv" style="display: none">
+                                    <apex:panelGrid border="2" id="thePanel2">
+                                        <apex:image url="{!$Resource.PMCS__Gantt_Complex}" id="complex"
+                                            width="700" height="300" />
+                                    </apex:panelGrid>
+                                </div>
+                                <div id="portaldiv" style="display: none">
+                                    <apex:panelGrid border="2" id="thePanel3">
+                                        <apex:image url="{!$Resource.PMCS__Portal}" id="portal"
+                                            width="700" height="300" />
+                                    </apex:panelGrid>
+                                </div>
+                                <div id="Delaydiv" style="display: none">
+                                    <apex:panelGrid border="2" id="thePanel4">
+                                        <apex:image url="{!$Resource.PMCS__DelaySnapShot}" id="Delay"
+                                            width="700" height="300" />
+                                    </apex:panelGrid>
+                                </div>
+                                 <div id="Portaleyediv" style="display: none">
+                                    <apex:panelGrid border="2" id="thePanel5">
+                                        <apex:image url="{!$Resource.PMCS__Portaleyebirdview}" id="Portaleyebird"
+                                            width="700" height="300" />
+                                    </apex:panelGrid>
+                                </div>
+                            </div></td>
+                    </tr>
+                </table>
+            </div>
+        </apex:pageblock>
+    </apex:form>
+
+
+</apex:page>
