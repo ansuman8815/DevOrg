@@ -16,7 +16,7 @@ public class TriggerDispatcher
         if (Trigger.IsBefore )
         {
             if (Trigger.IsInsert)
-                handler.BeforeInsert(trigger.newMap);
+                handler.BeforeInsert(trigger.new);
  
             if (Trigger.IsUpdate)
                 handler.BeforeUpdate(trigger.newMap, trigger.oldMap);
