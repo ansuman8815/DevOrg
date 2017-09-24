@@ -1,0 +1,19 @@
+.THIS {
+	font: 500 100%/1.5 "Salesforce Sans", Arial, sans-serif;
+}
+
+.THIS h1, .THIS h2, .THIS h3, .THIS h4,.THIS h5, .THIS h6, .THIS button, .THIS input, .THIS td{
+	font-family: "Salesforce Sans", Arial, sans-serif;
+
+}
+
+.THIS button{
+	font-weight: 500;
+}
+
+/* IE10 hack for more robust modal flexbox behaviour */
+.THIS .slds-modal__content {
+  -ms-flex-positive: 0;
+  -ms-flex-negative: 1;
+  -ms-flex-preferred-size: auto;
+}

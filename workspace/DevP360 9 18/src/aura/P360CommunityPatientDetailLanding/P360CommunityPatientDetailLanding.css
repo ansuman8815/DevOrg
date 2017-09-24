@@ -1,0 +1,270 @@
+.THIS {
+    width: 100%;
+    float: left;
+    position: relative;
+}
+.THIS .bodyScroll {
+    overflow-y: hidden !important;
+}
+.THIS .mr0 {
+    margin-right: 0px;
+}
+.THIS p.palletTitle{font-size:16px;color:#004b7b;font-weight:bold;}
+.THIS p.palletTitle {
+    font-size: 15px;
+    color: #004b7b;
+    font-weight: bold;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width:100%;
+}
+.THIS .floatL {
+    float: left;
+}
+.THIS .floatR {
+    float: right;
+}
+.THIS.PalletView {
+    overflow-y: inherit;
+}
+.THIS .palletDetail {
+    width: 48%;
+    border: 1px solid #ccc;
+    position: relative;
+    margin-bottom: 20px;
+    min-height: 180px;
+    max-height: 180px;
+    padding: 20px 0px 0px 20px;
+    margin-right: 2%;
+    box-shadow: #d4d4d4 2px 1px;
+    background: #fff;
+}
+.THIS .palletDetail.green {
+    border-left: 5px solid #00c277;
+}
+.THIS .palletDetail.green svg {
+    fill: #00c277;
+}
+.THIS .palletDetail.pink {
+    border-left: 5px solid #d2406d;
+}
+.THIS .palletDetail.pink svg {
+    fill: #d2406d;
+}
+.THIS .palletDetail.golden {
+    border-left: 5px solid #dca329;
+}
+.THIS .palletDetail.golden svg {
+    fill: #dca329;
+}
+.THIS .palletDetail.violet {
+    border-left: 5px solid #7452ac;
+}
+.THIS .palletDetail.violet svg {
+    fill: #7452ac;
+}
+.THIS .palletDetail.blue {
+    border-left: 5px solid #6591d4;
+}
+.THIS .palletDetail.blue svg {
+    fill: #6591d4;
+}
+.THIS .palletDetail svg {
+    margin-top: 20px;
+    width: 60px;
+    height: 103px;
+    border-right: 1px solid #ccc;
+    padding-right: 10px;
+    position: absolute;
+    top: 20px;
+    left: 16px;
+}
+/*.THIS .palletHeading {
+    width: 11%;
+    margin-right: 2%;
+    /*border-right:1px solid #ccc;
+
+    cursor: pointer;
+    height: 150px;
+    /*padding-bottom: 50px;
+}
+.THIS .palletTable {
+    width: 95%;
+    border-right: 0;
+    margin-left: 2%;
+}
+.THIS .disclaimer {
+    font-size: 12px;
+    color: #707f8a;
+}*/
+.THIS .palletDetail svg{/*margin-top:20px;width:60px;height:60px;*/
+margin-top: 36px;
+    width: 60px;
+    height: 86px;}
+.THIS .palletHeading{width:11%;margin-right:2%;/*border-right:1px solid #ccc;*/cursor:pointer;height: 150px;/*padding-bottom: 50px;*/}
+.THIS .palletTable{width:95%;border-right:0;margin-left:2%;}
+.THIS .disclaimer{font-size:12px;color: #707f8a;}
+
+.THIS .PatientSearch .uiSpinner.spinner {
+    position: absolute !important;
+    right: 50%;
+    top: 53%;
+    z-index: 400;
+}
+.THIS .PatientSearch .uiSpinner.spinner .loading .spinner-img {
+    height: 40px;
+    width: 40px;
+}
+/*.THIS .searchContent{width:98%;margin-bottom:20px;}*/
+
+.THIS .searchContent .slds-table th,
+.THIS .searchContent .slds-table td {
+    white-space: inherit;
+    font-size: 14px;
+}
+.THIS .searchContent .slds-table th span,
+.THIS .searchContent .slds-table td span {
+    white-space: nowrap;
+}
+/*.THIS .searchContent .dataTables_wrapper{margin-bottom:20px;}*/
+
+.THIS .searchContent article.slds-card {
+    border: none;
+    clear: both;
+}
+.THIS .searchContent article.slds-card h3 {
+    /*border: 1px solid #ccc;margin-bottom: 10px;*/
+    
+    padding: 5px 0 5px 5px;
+}
+.THIS .palletTitleMargin {
+    margin: -9px -14px 0px -29px;
+
+    border-bottom: 1px solid #ccc;
+   
+}
+.THIS .alertImg
+{
+float: right;
+    margin-right: 20px;
+}
+@media only screen and (max-width: 1024px) {
+    .THIS .bodyScroll {
+        overflow-y: initial !important;
+    }
+    .THIS.PalletView {
+        overflow-y: initial;
+        max-height: initial !important;
+    }
+    .THIS .palletDetail {
+        width: 98%;
+    }
+    .THIS .palletHeading {
+        width: 8%;
+        padding-bottom: 0px;
+    }
+    .THIS .palletTable {
+        width: 98%;
+    }
+    .THIS .palletDetail svg {
+        height: 116px;
+    }
+    .THIS.PalletView{overflow-y:initial;max-height:initial !important;}
+    .THIS .palletDetail{width:98%;}
+    .THIS .palletHeading{width:23%;padding-bottom: 0px;}
+    .THIS .palletTable{width:98%;}
+    .THIS .palletHeading {
+    width: 5%;
+    padding-bottom: 0;
+}
+    .THIS .palletDetail svg {
+    height: 102px;
+}
+    .THIS .palletTitleMargin {
+   margin: -9px -1px 0 -35px;
+} 
+}
+@media only screen and (max-width: 768px) {
+    .THIS .palletDetail {
+        width: 98%;
+    }
+   
+    .THIS .palletTable {
+        width: 100%;
+    }
+    
+    .THIS .palletHeading{width:7%;}
+ .THIS .palletTitleMargin {
+    margin: -9px 9px 0 -33px;
+}   
+}
+
+@media only screen and (max-width: 736px) {
+    .THIS {
+        width: 98%;
+    }
+}
+@media only screen and (max-width: 667px) {
+    .THIS {
+        width: 97%;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .THIS {
+        width: 100%;
+    }
+    .THIS .palletDetail {
+        min-height: 200px;
+        max-height: 250px;
+    }
+    .THIS .palletHeading {
+        width: 100%;
+        margin: 0 0 5px 0;
+        border-right: 0;
+        position: relative;
+        height: auto;
+    }
+    .THIS .palletHeading p:last-child {
+        position: absolute;
+        top: 0;
+    }
+    .THIS .palletHeading p.disclaimer {
+        top: 30px;
+    }
+    .THIS .palletDetail svg {
+        width: 30px;
+        height: 30px;
+        top: -17px;
+        left: 16px;
+        border-right: none;
+    }
+    .THIS .palletTitle {
+        margin-left: 30px;
+    }
+    .THIS .palletTable {
+        width: 100%;
+        margin: 0;
+    }
+    .THIS .palletHeading.desktop {
+        display: none;
+    }
+   /* .THIS{width:100%;}
+    .THIS .palletDetail{min-height:200px;max-height:250px;}
+    .THIS .palletHeading{width:100%;margin:0 0 5px 0;border-right:0;position:relative;height: auto;}
+    .THIS .palletHeading p:last-child{position:absolute;top:0;}
+    .THIS .palletHeading p.disclaimer {top: 30px;}
+    .THIS .palletDetail svg{width:25px;height:25px;margin-top:0 !important;}
+    .THIS .palletTitle{margin-left:30px;}
+    .THIS .palletTable{width:100%;margin:0;}*/
+}
+@media only screen and (max-width: 320px) {
+    .THIS .palletDetail {
+        padding: 10px 0 10px 10px;
+    }
+}
+.THIS ul.PageList li.active,
+.THIS ul.PageList li:hover {
+    border-left: 5px solid #3c91c7;
+    background: #004b7b;
+}

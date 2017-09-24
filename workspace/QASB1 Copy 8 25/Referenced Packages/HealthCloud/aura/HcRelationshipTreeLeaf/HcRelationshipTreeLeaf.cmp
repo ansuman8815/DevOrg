@@ -1,0 +1,26 @@
+<!--
+ * Copyright © 2017 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description concrete component for the leaf of the relationships visualization tree.
+ * @since 210
+-->
+<aura:component description="HcRelationshipTreeLeaf" extends="HealthCloudGA:abstractRelationshipTreeLeaf">
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <aura:set attribute="leafActionButtons">
+        <HealthCloudGA:HcRelationshipMapActionButton entity="{#v.entity}"
+            parentEntity="{#v.parentEntity}"
+        />
+    </aura:set>
+
+    <aura:set attribute="treeLeafHeader">
+        <HealthCloudGA:HcRelationshipTreeLeafHeader aura:id="leaf-header" entity="{#v.entity}"/>
+    </aura:set>
+
+    <div>
+        <aura:iteration items="{!v.entity.elements}" var="element">
+            <HealthCloudGA:HcRelationshipEntityBlock entity="{!element}" actionTypes="{!v.actionTypes}"/>
+        </aura:iteration>
+    </div>
+</aura:component>

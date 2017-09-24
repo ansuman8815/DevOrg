@@ -1,0 +1,68 @@
+<aura:component controller="ApiDynListController">
+    <ltng:require scripts="{! $Resource.svg4everybody + '/svg4everybody-master/dist/svg4everybody.js'}"  afterScriptsLoaded="{!c.myAction}"/>
+    <ltng:require styles="{! $Resource.P360JqueryResources + '/jquery.dataTables.min.css'}"/>
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}"/>
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jQueryDataTableJs.js'}"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="aura:waiting" action="{!c.waiting}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.doneWaiting}"/>
+    <aura:registerEvent name="cmpEvent" type="c:ClinicalNoteClickEvent"/>
+    <aura:handler name="cmpEvent" event="c:ClinicalNoteClickEvent" action="{!c.getNextData}"/>
+    
+    <aura:attribute name="selectId" type="String" default=""/>
+    <aura:attribute name="patientid" type="String"/>
+    <aura:attribute name="resourceName" type="String" default=""/>
+    <aura:attribute name="empi" type="String"/>
+    <aura:attribute name="tableName" type="String"/>
+    <aura:attribute name="whereclause" type="String"/>
+    <aura:attribute name="listName" type="String"/>
+    <aura:attribute name="count" type="String" default=""/>
+    <aura:attribute name="filteredCount" type="String"/>
+    <aura:attribute name="result" type="String"/>
+    <aura:attribute name="toDate" type="String"/>
+    <aura:attribute name="fromDate" type="String"/>
+    <aura:attribute name="disabled" type="boolean" default="true" /> 
+    <aura:attribute name="isPallet" type="string" default="" />
+    
+    <div class="dynamicList">
+        <center style="clear:both;">
+            <article class="slds-card">
+                <div id="tableHeading" class="slds-card__header slds-grid socialDeter">
+                    <div id="encounterSumHead" class="encSumHead" aura:id="listTitle" title="{!v.listName}">{!v.listName}</div>
+                    <div class="slds-media__body">
+                        <h1 class="slds-text-heading--small">
+                            <span class="count">|
+                                <span class="countVal">({!v.count} record (s))</span>
+                                <span class="filtercountVal">({!v.filteredCount} out of {!v.totalCount} record (s))</span>
+                            </span>
+                        </h1>
+                    </div>
+                    <aura:if isTrue="{!v.count != ''}">
+                        <div class="disclaimer">
+                            Currently showing lab results from {!v.fromDate} to {!v.toDate}.
+                            <a onclick="{!c.refresh}">Click here</a> to check for more 
+                            recent lab results.
+                        </div>
+                    </aura:if>
+                </div>
+                <div class="filterCount">
+                    <lightning:button variant="brand" label="Get previous 1 months" onclick="{!c.getNextData}" name="btnFetchNxt" disabled="{!v.disabled}"/>
+                </div>
+                <div id="errorpopUp" style="display:none;"/> 
+                <div class="slds"> 
+                    <div id="Loadingspinner" style="display:none">Loading...<ui:spinner /></div>
+                    <div class="TableSample" id="parTable">
+                        <table class="slds-table slds-table--bordered slds-table--striped slds-max-medium-table--stacked-horizontal" aura:id="searchDiv" id="{!v.tableName}" style="height:100%;width:100% !important;">
+                            <thead/>
+                            <tbody/>
+                        </table>
+                    </div> 
+                    <div class="filterCount">
+                        <lightning:button variant="brand" label="Get previous 1 months" onclick="{!c.getNextData}" name="btnFetchNxt" disabled="{!v.disabled}"/>
+                    </div>
+                </div>
+            </article>
+        </center>
+    </div> 
+</aura:component>

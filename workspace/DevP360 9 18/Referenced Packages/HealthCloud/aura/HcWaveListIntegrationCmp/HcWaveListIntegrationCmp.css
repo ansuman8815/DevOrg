@@ -1,0 +1,17 @@
+.THIS .pageTitle{
+    background: white;
+    border-bottom: 2px solid rgb(216, 221, 230);
+}
+
+.THIS .slds-radio .slds-form-element__label{
+    font-size: 0.875rem;
+}
+
+.THIS  .hc-block__footer {
+    position: relative;
+    width: 100%;
+  	bottom: 0px;
+  	padding: 1rem;
+ 	background-color: #efefef;
+
+}

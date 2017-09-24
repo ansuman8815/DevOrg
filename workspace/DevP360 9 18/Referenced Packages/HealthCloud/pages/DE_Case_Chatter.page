@@ -1,0 +1,13 @@
+<apex:page controller="HealthCloudGA.DE_HcCareTeamController" standardStylesheets="true" showHeader="false">
+    <c:HcCommonIncludes />
+
+    <div id="lightning" style="float:right;padding-right:20px"/>
+    <div style="padding: 10px;">
+      <chatter:feed entityId="{!carePlanId}" showPublisher="true"/>
+    </div>
+    <script>
+      $Lightning.use("HealthCloudGA:HcHelpTrayApp", function() {
+           $Lightning.createComponent("HealthCloudGA:HcHelpTrayDropDown",{helpType: 'TimelineView'},"lightning");
+      });
+    </script>
+</apex:page>

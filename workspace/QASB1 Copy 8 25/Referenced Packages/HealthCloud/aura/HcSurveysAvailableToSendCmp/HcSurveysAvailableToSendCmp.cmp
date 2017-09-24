@@ -1,0 +1,45 @@
+<!-- * Copyright © 2017 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description Surveys Available to send to patient
+ * @since 210.
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcSurveyController">
+    <aura:attribute name="surveyCardHeader" type="String" default=""/>
+    <aura:attribute name="patientId" type="String"/>
+    <aura:attribute name="searchText" type="String" default=""/>
+    <aura:handler event="HealthCloudGA:HcComponentStatusEvent" action="{!c.handleApplicationEvent}"/>
+    <aura:handler name="surveyActionEvent" event="HealthCloudGA:HcSimpleTableEvent"
+                  action="{!c.handleSurveyInvitationCreationActionEvent}"/>
+
+    <lightning:input class="hc-surveyavailable-search" aura:id="surveysearch-input" name="surveysearch-input" label=" "
+                     type="search" onchange="{!c.onTypeInSearch}" placeholder="{!$Label.healthcloudga.Text_Search_Assessments}"/>
+    <div class="slds-card">
+        <div class="slds-card__header slds-grid survey_header">
+            <header class="slds-media slds-media--center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <lightning:icon iconName="standard:orders" size="small"/>
+                </div>
+                <div class="slds-col slds-has-flexi-truncate slds-align-middle">
+                    <div class="slds-media__body">
+                        <h3 class="slds-text-heading--small slds-m-right--small slds-truncate">
+                            <ui:outputText value="{!$Label.healthcloudga.Title_Assessments}"/>
+                        </h3>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="slds-card__body">
+            <HealthCloudGA:HcSurveyAndVersionTable tableClass='hc-surveyTable slds-table--bordered slds-table--fixed-layout'
+                                       searchText="{!v.searchText}" rowClass='hc-surveyTable_row'
+                                       cellClass='hc-surveyTable_cell'
+                                       aura:id="availableSurveysTable" id="availableSurveysTable">
+                <aura:set attribute="dataProvider">
+                    <HealthCloudGA:HcSurveyAndVersionDataProvider aura:id="SurveysAvailabletoSendTableDataProvider"
+                                                      searchText="{!v.searchText}" autoInit='true' pageSize="50"
+                                                      patientId="{!v.patientId}"/>
+                </aura:set>
+            </HealthCloudGA:HcSurveyAndVersionTable>
+        </div>
+    </div>
+</aura:component>

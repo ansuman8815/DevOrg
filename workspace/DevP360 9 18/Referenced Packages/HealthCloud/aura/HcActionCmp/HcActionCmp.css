@@ -1,0 +1,30 @@
+.THIS .slds-icon_container {
+    float: none;
+}
+
+.THIS .uiMenuList>div {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.THIS .action-menu-container{
+    text-transform: none;
+}
+
+.THIS .dropdownItem {
+    color: #16325c;
+    font-size: 0.8125rem;
+}
+
+.THIS .icon-position {
+    padding-left: 0.05rem;
+    padding-top: 0.05rem;
+}
+
+.THIS .health1-actioncmp-dropdown-hide {
+    display: none;
+}
+
+.THIS .health1-actioncmp-dropdown-show {
+    display: block;
+}

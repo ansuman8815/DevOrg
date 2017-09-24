@@ -1,0 +1,11 @@
+.THIS .hc-text-decoration-subject{
+    text-decoration: line-through;
+}
+.THIS .uiInput--checkbox input{
+    display:inline-block;
+    margin-right: 0.5rem;
+}
+
+.THIS .hc-labelClass {
+	padding-left: 10px;
+}

@@ -1,0 +1,11 @@
+<aura:component controller="clinicalSummaryController">
+    
+    <aura:attribute name="SelectedOption" type="String" />
+    <!--{!v.SelectedOption}-->
+    
+    
+    
+     <aura:handler event="c:clinicalSummaryDropDownEvent" action="{!c.handleEvent}"/>
+    
+    <!--<c:dynamicRelatedList />-->
+</aura:component>

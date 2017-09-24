@@ -1,0 +1,290 @@
+.THIS {} 
+.THIS a.mobileMenu,
+.THIS a.mobileMenuOpen {
+    position: fixed;
+    z-index: 2;
+    color: #000;
+    display: none;
+}
+.THIS a.mobileMenu:focus,
+.THIS a.mobileMenuOpen:focus {
+    color: #000;
+}
+.THIS .contentPanel:before,
+.THIS .contentPanel:after {
+    content: " ";
+    display: table;
+}
+.THIS .contentPanel:after {
+    clear: both;
+}
+.THIS #column2Div {
+    z-index: 1;
+}
+.THIS .left {
+    float: left;
+    width: 100%;
+}
+.THIS html,
+.THIS body {
+    height: 100% !important;
+    width: 100% !important;
+    background-color: #EFF3F6 !important;
+}
+.THIS .rightContent:after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    content: "";
+    background-color: #eef3f6;
+}
+.THIS .fullContent {
+    height: 100%;
+    width: 100%;
+    background-color: #EFF3F6;
+    display: table;
+    margin-top: 80px;
+}
+.THIS .row {
+    display: table-row;
+}
+.THIS .Sidebar,
+.THIS .rightContent {
+    display: table-cell;
+}
+.THIS .Sidebar {
+    display: block;
+    width: 20%;
+    background-color: #005d98;
+    position: fixed;
+}
+.THIS div.right {
+    float: left;
+    width: 80%;
+    margin-left: 20%;
+    padding-left: 20px;
+    margin-bottom: 40px;
+}
+.THIS .rightContent,
+.THIS .Sidebar {
+    box-sizing: border-box;
+    float: left;
+}
+.THIS .slds-modal .modalViewIcons {
+    display: none;
+}
+.THIS .expandModal {
+    width: 95%;
+    margin: 50px auto;
+    box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 5px;
+    overflow-y:scroll;
+    background-color: white;
+    
+}
+.THIS .Sidebar:after,
+.THIS .rightContent:after {
+    background: shade(#EFF3F6, 3%);
+    content: "";
+    display: block;
+    height: 5000px;
+    position: fixed;
+    top: 0px;
+}
+.THIS .rightContent {
+    width: 100%;
+}
+.THIS .Sidebar,
+.THIS .Sidebar:after {
+    box-sizing: border-box;
+    width: 20%;
+    z-index: 0;
+    background-color: #005d98;
+}
+.THIS .Sidebar:after {
+    left: 0;
+}
+.THIS #maskMobile {
+    display: none;
+}
+.THIS #OpenIcon p.slds-icon_container {
+    background: #004b7b;
+    width: 30px;
+    text-align: center;
+    padding: 1px 0;
+}
+.THIS #closeIcon p.slds-icon_container {
+    background: #004b7b;
+    width: 30px;
+    height: 26px;
+    text-align: center;
+}
+.THIS #OpenIcon svg {
+    width: 20px;
+    height: 30px;
+}
+.THIS #closeIcon svg {
+    width: 15px;
+    height: 20px;
+    fill: #fff;
+}
+.THIS .slds-backdrop {
+    background-color: transparent;
+}
+.THIS #column4Div.slds-backdrop.slds-backdrop--open,
+.THIS #column2Div.slds-backdrop.slds-backdrop--open {
+    background-color: #e4e8ea !important;
+    opacity: 0.75 !important;
+}
+@media only screen and (max-width: 1024px) {
+    .THIS .Sidebar,
+    .THIS .Sidebar:after {
+        z-index: 2;
+    }
+    .THIS .expandModal {
+        overflow-y: auto;
+    }
+}
+@media only screen and (max-width: 850px) {
+    .THIS .Sidebar,
+    .THIS .Sidebar:after {
+        width: 22%;
+    }
+    .THIS div.right {
+        width: 77%;
+        margin-left: 22%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .THIS .Sidebar,
+    .THIS .Sidebar:after {
+        width: 11%;
+        z-index: 2;
+    }
+    .THIS div.right.rightContent {
+        width: 89%;
+        margin-left: 11%;
+    }
+    .THIS .extendwidth .search-input {
+        width: 145px;
+        margin-left: 10px;
+    }
+    .THIS .extendwidth .clearSearch{
+        width:auto;
+    }
+}
+@media all and (max-width: 768px) and (min-width: 568px) {
+    .THIS .IPadOnly {
+        display: none;
+    }
+    .THIS .extendwidth .IPadOnly {
+        display: block;
+    }
+    .THIS .extendwidth,
+    .THIS .extendwidth.Sidebar:after {
+        width: 40%;
+    }
+    .THIS .extendwidth .slds-icon_container .slds-assistive-text {
+        display: block;
+    }
+    .THIS .mobileMenu.hideEl#closeIcon.visibleTrue {
+        display: block;
+        left: 40%;
+        margin-top: 10px;
+    }
+    .THIS .Sidebar.hide {
+        display: none;
+    }
+}
+@media only screen and (width: 768px) {
+    .THIS .IPadOnly {
+        display: none;
+    }
+    .THIS .extendwidth .IPadOnly {
+        display: block;
+    }
+    .THIS .extendwidth,
+    .THIS .extendwidth.Sidebar:after {
+        width: 32%;
+    }
+    .THIS .extendwidth .slds-icon_container .slds-assistive-text {
+        display: block;
+    }
+    .THIS .mobileMenu.hideEl#closeIcon.visibleTrue {
+        display: block;
+        left: 32%;
+        margin-top: 10px;
+    }
+    .THIS .Sidebar.hide {
+        display: none;
+    }
+}
+@media only screen and (max-width: 736px) {
+    .THIS .Sidebar {
+        position: absolute;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .THIS .Sidebar,
+    .THIS .Sidebar:after {
+        width: 68%;
+        z-index: 2;
+    }
+    .THIS .Sidebar {
+        position: fixed;
+    }
+    .THIS div.right.rightContent {
+        width: 100%;
+        margin-left: 0%;
+        padding: 0 5px;
+    }
+    .THIS a.mobileMenu,
+    .THIS a.mobileMenuOpen {
+        display: block;
+    }
+    .THIS a.mobileMenu,
+    .THIS a.mobileMenuOpen {
+        display: block;
+    }
+    .THIS #maskMobile {
+        display: block;
+        z-index: 2;
+    }
+    .THIS #maskMobile.active {
+        display: none;
+    }
+    .THIS a.mobileMenu.hideEl {
+        display: none;
+    }
+    .THIS a.mobileMenuOpen.hideEl {
+        display: none;
+    }
+    .THIS a.mobileMenu {
+        left: 67.6%;
+        margin-top: 10px;
+    }
+    .THIS .Sidebar.active {
+        display: none;
+    }
+    .THIS .fullContent,
+    .THIS .row {
+        display: block;
+    }
+    .THIS .Sidebar .search-input {
+        width: 150px;
+    }
+    .THIS .Sidebar .clearSearch{
+        width:auto;
+    }
+}
+@media only screen and (max-width: 320px) {
+    .THIS .Sidebar .search-input {
+        width: 165px;
+    }
+    .THIS .Sidebar .clearSearch{
+        width:auto;
+    }
+}

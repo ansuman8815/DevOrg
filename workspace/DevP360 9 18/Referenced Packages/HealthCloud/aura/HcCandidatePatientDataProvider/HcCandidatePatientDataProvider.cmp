@@ -1,0 +1,18 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCandidatePatientDataProvider component: provides sort and filtering functionality 
+ * for the HcCandidatePatientListView component.
+ * @since 198
+-->
+<aura:component extends="ui:dataProvider">
+    <aura:attribute name="rowMeta" type="Object" />
+    <aura:attribute name="rowItems" type="List" />
+    <aura:attribute name="rawItems" type="List" />
+    <aura:attribute name="sortBy" type="String" />
+    <aura:handler name="change" value="{!v.rowMeta}" action="{!c.provide}" />
+    <aura:handler name="change" value="{!v.searchTerm}" action="{!c.init}" />
+    <aura:handler name="provide" action="{!c.provide}" />
+    <aura:set attribute="searchTerm" value="" />
+</aura:component>

@@ -1,0 +1,542 @@
+.THIS {} 
+.THIS .InputDOB {} .THIS div:empty:before {
+    content: attr(data-placeholder);
+    color: gray;
+}
+.THIS input[type=date]::-webkit-datetime-edit-year-field:not([aria-valuenow]),
+.THIS input[type=date]::-webkit-datetime-edit-month-field:not([aria-valuenow]),
+.THIS input[type=date]::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
+    color: transparent;
+}
+.THIS #DOBId::-ms-clear {
+    display: none;
+}
+.THIS .close {
+    display: none;
+}
+.THIS input[type=date]:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+.THIS input[type=date]:focus::-webkit-datetime-edit {
+    color: black !important;
+}
+.THIS div.divCss {
+    border-radius: 3pt;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.THIS .mt80 {
+    margin-top: 80px;
+}
+.THIS div.Labels {
+    color: #9aa6af;
+    margin-bottom: 20px;
+    border-radius: 3pt;
+    font-weight: normal;
+    font-size: 10pt;
+}
+.THIS div.Labels2Column {
+    color: #9aa6af;
+    float: left;
+    border-radius: 3pt;
+    font-family: sans-serif;
+    font-size: 10pt;
+    margin-right: 20px;
+}
+.THIS div.Labels2Column .uiInput--datetime .datePicker-openIcon:before {
+    font-size: 20px;
+}
+.THIS div.Labels2Column.mr0 {
+    margin-right: 0px;
+}
+.THIS .Inputs {
+    border: none;
+    width: 100%;
+    padding: 0 10px;
+    height: 40px;
+    border-radius: 3pt;
+    color: #2f3537;
+    font-weight: normal;
+    font-size: 14pt;
+}
+.THIS select option {
+    color: black !important;
+    font-size: 12pt !important;
+}
+.THIS select option:first-child {
+    color: #ccc !important;
+}
+.THIS select.placeholder {
+    color: #ccc !important;
+    font-size: 13px;
+}
+.THIS .datefield {
+    position: relative;
+}
+.THIS .Inputs2Column {
+    border: none;
+    width: 173px;
+    padding: 0 10px;
+    height: 40px !important;
+    border-radius: 3pt;
+    color: #2f3537;
+    font-family: sans-serif;
+    font-size: 14pt;
+}
+.THIS .InputCIN {
+    height: 40px;
+    color: #2f3537;
+    font-family: sans-serif;
+    font-size: 14pt;
+}
+.THIS .ButtonSearch {
+    padding: 10px 40px;
+    background-color: #3c91c7;
+    border: none;
+    font-family: sans-serif;
+    font-size: 16pt;
+    font-weight: bold;
+    width: 170px;
+    color: #fff;
+    height: 40px;
+    text-shadow: none;
+    margin-right: 20px;
+}
+.THIS .ButtonCancel {
+    padding: 10px 40px;
+    background-color: #d3dce2;
+    color: #707f8a;
+    font-family: sans-serif;
+    font-size: 16pt;
+    font-weight: bold;
+    border: none;
+    height: 40px;
+    text-shadow: none;
+    width: 170px;
+}
+.THIS .ButtonSearchLabel {
+    color: white;
+    font-weight: bold;
+    line-height: 1;
+}
+.THIS .ButtonCancelLabel {
+    color: #707f8a;
+    font-weight: bold;
+    line-height: 1;
+}
+.THIS [contentEditable=true]:empty:not(:focus):before {
+    content: attr(data-placeholder)
+}
+.THIS input:focus,
+.THIS select:focus,
+.THIS textarea:focus,
+.THIS button:focus {
+    outline: none;
+}
+.THIS input.Inputs:focus::-webkit-input-placeholder {
+    margin-top: -10px;
+}
+.THIS input.Inputs:focus:-moz-placeholder {
+    margin-top: -10px;
+}
+.THIS input.Inputs:focus::-moz-placeholder {
+    margin-top: -10px;
+}
+.THIS input.Inputs:focus:-ms-input-placeholder {
+    margin-top: -10px;
+}
+.THIS input.Inputs::-webkit-input-placeholder {
+    color: #ccc;
+    position: relative;
+    padding-left: 0;
+    -webkit-transition: padding 0.5s;
+    transition: padding 0.5s;
+    font-size: 14px;
+}
+.THIS input.Inputs:-moz-placeholder {
+    color: #ccc;
+    position: relative;
+    padding-left: 0;
+    -moz-transition: padding 0.5s;
+    transition: padding 0.5s;
+    font-size: 14px;
+}
+.THIS input.Inputs::-moz-placeholder {
+    color: #ccc;
+    position: relative;
+    padding-left: 0;
+    -moz-transition: padding 0.5s;
+    transition: padding 0.5s;
+    font-size: 14px;
+}
+.THIS input.Inputs:-ms-input-placeholder {
+    color: #ccc;
+    position: relative;
+    padding-left: 10px;
+    -ms-transition: padding 0.5s;
+    transition: padding 0.5s;
+    font-size: 14px;
+}
+.THIS .Labelcss {
+    color: #fff;
+    font-weight: bold;
+    font-size: 20pt;
+    padding: 0px 0 15px 0;
+    line-height: 1;
+}
+.THIS.PatientSearch {
+    background-color: #004b7b;
+    width: 100%;
+    border-radius: 5pt;
+}
+.THIS .Labels {
+    /* Can change */
+    
+    height: 46px;
+    margin: 12px auto;
+    /* change 0 to auto for center alignment */
+    /* Don't change */
+    
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* initial label state */
+
+.THIS .fl_label {
+    /* Can change */
+    /*top: 12px;
+  	left: 8px;*/
+    
+    color: #ccc;
+    font-size: 14px;
+    height: 40px;
+    width: 80%;
+    border-radius: 25px;
+    border: none;
+    /* Don't change */
+    
+    position: absolute;
+    z-index: 3;
+    /* This can be removed but then the labels must be placed after the inputs in the HTML */
+    
+    -webkit-transition: all .05s linear;
+    -moz-transition: all .05s linear;
+    -transition: all .05s linear;
+}
+.THIS .fl_input {
+    /* Can change */
+    
+    font-size: 16px;
+    line-height: 22px;
+    padding: 20px 0 0 5px;
+    /* Don't change */
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+    /* This can be removed but then the labels must be placed after the inputs in the HTML */
+    
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* Focus & populated label styling */
+
+.THIS .Labels.focused .fl_label,
+.THIS .Labels.populated .fl_label{
+    /* Can change */
+    top: 0;
+    font-size: 12px;
+    color: #555;
+}
+.THIS .Labels.focused .fl_label {
+    color: #00A34D;
+}
+.THIS .PatientSearchFields {
+    float: left;
+    width: 100%;
+}
+.THIS .PatientSearchFields .w350 .Labels {
+    width: auto;
+}
+.THIS .uiInput--select.has-error.select {
+    border: none;
+    box-shadow: none;
+}
+.THIS .cinfield {
+    clear: both;
+}
+.THIS .Labels2Column.datefield {
+    margin-top: 0px;
+}
+.THIS .clear {
+    float: none;
+    clear: both;
+}
+.THIS #DOBId::-webkit-input-placeholder {
+    color: #CCCFD3;
+    font-size: 13px;
+}
+.THIS #DOBId::-moz-placeholder {
+    color: #CCCFD3;
+    font-size: 13px;
+}
+.THIS #DOBId:-ms-input-placeholder {
+    color: #CCCFD3;
+    font-size: 13px;
+}
+.THIS #DOBId:-moz-placeholder {
+    color: #CCCFD3;
+    font-size: 13px;
+}
+.THIS #DOBId {
+    height: 40px;
+    position: relative;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    padding: 0 10px;
+    color: #2f3537;
+    font-size: 14pt;
+}
+.THIS .datefield .slds-button.slds-button--icon-bare {
+    position: absolute;
+    right: 5%;
+    top: 11px;
+}
+.THIS .clear {
+    float: none;
+    clear: both;
+}
+.THIS #patientSearchDivIpad {
+    display: none;
+}
+.THIS .disableField {
+    pointer-events: none;
+}
+.THIS .loading {
+    width: 53px;
+    height: 34px;
+}
+@media only screen and (max-width: 1047px) {
+    .THIS .Inputs2Column {
+        width: 166px;
+    }
+    .THIS .ButtonSearch,
+    .THIS .ButtonCancel {
+        width: 164px;
+    }
+}
+@media only screen and (max-width: 991px) {
+    .THIS .ButtonSearch {
+        width: 120px;
+        margin-right: 15px;
+        padding: 10px 20px;
+    }
+    .THIS .ButtonCancel {
+        width: 120px;
+        padding: 10px 30px;
+    }
+    .THIS div.Labels2Column {
+        margin-bottom: 20px;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .THIS .ButtonCancel,
+    .THIS .ButtonSearch {
+        width: 170px;
+    }
+    .THIS .Inputs2Column {
+        width: 169px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .THIS .tabletView {
+        width: 30.5%;
+        margin-right: 25px;
+        float: left;
+    }
+    .THIS .Labels2Column.datefield {
+        width: 30.5%;
+        float: left;
+        margin-right: 0px !important;
+        margin-top: 12px;
+    }
+    .THIS .Labels2Column.genderfield {
+        width: 30%;
+        float: left;
+    }
+    .THIS .datefield .Inputs2Column,
+    .THIS .genderfield .Inputs2Column {
+        width: 100%;
+    }
+    .THIS .cinfield {
+        float: left;
+        margin-left: 25px;
+        margin-top: 0px;
+        clear: none !important;
+        width: 65%
+    }
+    .THIS .mt80 {
+        margin-top: 0px;
+    }
+    .THIS .ButtonSearch,
+    .THIS .ButtonCancel {
+        width: 30.5%;
+        margin-right: 20px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    /*.THIS .NotIpad{display:none;}
+    .THIS .ipadOnly{display:block;}*/
+}
+@media only screen and (max-width: 700px) {
+    .THIS .tabletView {
+        width: 100%;
+        float: left;
+    }
+    .THIS .Labels2Column.datefield {
+        width: 48%;
+        float: left;
+        margin-right: 20px !important;
+        margin-top: 0px;
+    }
+    .THIS .Labels2Column.genderfield {
+        width: 48%;
+        float: left;
+    }
+    .THIS .datefield .Inputs2Column,
+    .THIS .genderfield .Inputs2Column {
+        width: 100%;
+    }
+    .THIS .cinfield {
+        float: none;
+        margin-left: 0;
+        margin-top: 0;
+        clear: both !important;
+        width: 100%;
+    }
+    .THIS .mt80 {
+        margin-top: 0px;
+    }
+    .THIS .ButtonSearch,
+    .THIS .ButtonCancel {
+        width: 30.5%;
+        margin-right: 20px;
+    }
+    .THIS div.Labels2Column .uiInput--datetime .datePicker-openIcon:before {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .THIS .Labels2Column.datefield {
+        width: 47.5%;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .THIS .tabletView {
+        width: 100%;
+        margin-right: 0px;
+        float: none;
+        clear: both;
+    }
+    .THIS .Labels2Column.datefield {
+        width: 46%;
+        float: left;
+        margin-right: 20px !important;
+        margin-top: 0px;
+    }
+    .THIS .datefield:after {
+        top: 13px;
+    }
+    .THIS .font0 {
+        font-size: 0;
+    }
+    .THIS .font14 {
+        font-size: 14px;
+    }
+    .THIS .Inputs2Column,
+    .THIS #DOBId {
+        font-size: 14px;
+    }
+    .THIS .Labels2Column.genderfield {
+        width: 47%;
+        float: left;
+    }
+    .THIS .cinfield {
+        width: 100%;
+        margin-left: 0px;
+        float: none;
+        clear: both;
+    }
+    .THIS .mt80 {
+        margin-top: 0px;
+        float: left;
+        width: 100%;
+    }
+    .THIS .ButtonSearch {
+        width: 45%;
+        float: left;
+        margin: 0px 20px 20px 0;
+        padding: 10px 20px;
+    }
+    .THIS .ButtonCancel {
+        width: 46%;
+        float: left;
+        margin-right: 0;
+        padding: 10px 20px;
+    }
+}
+@media only screen and (max-width: 384px) {
+    .THIS #DOBId::-webkit-input-placeholder {
+        font-size: 12px;
+    }
+    .THIS #DOBId::-moz-placeholder {
+        font-size: 12px;
+    }
+    .THIS #DOBId:-ms-input-placeholder {
+        font-size: 12px;
+    }
+    .THIS #DOBId:-moz-placeholder {
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 360px) {
+    .THIS .Labels2Column.genderfield {
+        width: 46%;
+    }
+    .THIS .ButtonCancel {
+        width: 45%;
+    }
+    .THIS .fl_label {
+        font-size: 11px;
+    }
+    .THIS .Inputs2Column {
+        font-size: 13px;
+    }
+    .THIS .Inputs,
+    .THIS .InputCIN {
+        font-size: 14px;
+    }
+    .THIS #DOBId::-webkit-input-placeholder {
+        font-size: 11px;
+    }
+    .THIS #DOBId::-moz-placeholder {
+        font-size: 11px;
+    }
+    .THIS #DOBId:-ms-input-placeholder {
+        font-size: 11px;
+    }
+    .THIS #DOBId:-moz-placeholder {
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,39 @@
+.THIS.hc-carePlanTask {
+    min-height: 25px;
+}
+
+.THIS .health1-careplanTaskCard {
+    /* Style for "Rounded Rectan" */
+    background-color: #f8fcff;
+    border-top: none;
+}
+
+.THIS .health1-careplanTaskLabel {
+    /* Text style for "These tasks ar" */
+    color: #296ba9;
+
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.THIS .slds-task-dropdown {
+    border: none;
+    background-color: #f8fcff;
+    box-shadow: none;
+    outline: none;
+}
+
+.THIS .task-text {
+    padding-right: 10px;
+    font-size: 0.9rem;
+    line-height: 1.25;
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: .0625rem;
+    outline: none;
+    vertical-align: middle;
+}
+
+.THIS .health1-carePlanHeaderDropdown {
+    z-index: 60;
+}

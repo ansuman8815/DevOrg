@@ -1,0 +1,10 @@
+<aura:component abstract="true" controller="HealthCloudGA.HcAppConfig" extensible="true" implements="HealthCloudGA:baseIndustry">
+    <aura:attribute name="globalSettings" type="Object" />
+    <aura:attribute name="namespace" type="String" />
+    <aura:attribute name="namespaceDash" type="String" />
+    <aura:handler action="{!c.doInit}" name="init" value="{!this}"/>
+    <ltng:require styles="/resource/HealthCloudGA__industryresources/landmark/styles/salesforce-lightning-design-system-v0.9.1.css,
+    						        /resource/HealthCloudGA__healthresources/health1/css/health1.css"/>
+    <ltng:require scripts="/resource/HealthCloudGA__commonresources/secure-filters/secure-filters.min.js"/>
+    {!v.body}
+</aura:component>

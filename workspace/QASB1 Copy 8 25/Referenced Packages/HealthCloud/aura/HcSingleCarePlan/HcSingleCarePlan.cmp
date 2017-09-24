@@ -1,0 +1,11 @@
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcCarePlanController">
+    <aura:attribute name="patientId" type="String" default="" required="true" />
+    <aura:attribute name="carePlanId" type="String" default="" required="true" />
+    <aura:attribute name="itemData" type="Object" />
+    <aura:attribute name="shownInAlohaConsole" type="Boolean" default="false" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div class="{!'hc-singleCarePlan' + (v.shownInAlohaConsole ? '' : ' slds-card')}">
+        <div id='carePlanPanel' aura:id="carePlanPanel" />
+    </div>
+</aura:component>

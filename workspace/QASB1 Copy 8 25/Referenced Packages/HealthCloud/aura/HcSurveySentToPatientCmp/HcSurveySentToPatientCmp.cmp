@@ -1,0 +1,35 @@
+<!-- * Copyright © 2017 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description Survey Sent to Patient component
+ * @since 210.
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent">
+    <aura:attribute name="patientId" type="String"/>
+    <aura:attribute name="searchText" type="String"/>
+    <lightning:input class="hc-surveyinvitation-search" aura:id="search-input" name="search-input" label=" " type="search" onchange="{!c.onTypeInSearch}" placeholder="{!$Label.healthcloudga.Text_Search_Assessments}"/>
+    <div class="slds-card">
+        <div class="slds-card__header slds-grid survey_header">
+            <header class="slds-media slds-media--center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <lightning:icon iconName="standard:orders" size="small" />
+                </div>
+                <div class="slds-col slds-has-flexi-truncate slds-align-middle">
+                    <div class="slds-media__body">
+                        <h3 class="slds-text-heading--small slds-m-right--small slds-truncate">
+                             <ui:outputText value="{!$Label.healthcloudga.Title_Assessments}" />
+                        </h3>
+                    </div>
+                </div>
+            </header>
+        </div>
+       
+    <div class="slds-card__body">
+            <HealthCloudGA:HcSurveySentToPatientTable tableClass='hc-surveyTable slds-table--bordered slds-table--fixed-layout' rowClass='hc-surveyTable_row' cellClass='hc-surveyTable_cell' aura:id="SurveySentToPatientTable" id="SurveySentToPatientTable" searchText="{!v.searchText}">
+                <aura:set attribute="dataProvider">
+                     <HealthCloudGA:HcSurveySentToPatientDataProvider autoInit='true' pageSize='1000' patientId="{!v.patientId}" searchText="{!v.searchText}"/> 
+                </aura:set>
+        </HealthCloudGA:HcSurveySentToPatientTable>
+        </div>
+    </div>
+</aura:component>

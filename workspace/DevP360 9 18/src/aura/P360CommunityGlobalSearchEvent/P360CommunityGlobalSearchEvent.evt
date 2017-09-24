@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="searchString" type="String"/>
+    <aura:attribute name="viewGlobalSearch" type="boolean"/>   
+</aura:event>

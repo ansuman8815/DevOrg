@@ -1,0 +1,109 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcGenericListView component: a configurable, reusable, container component for building
+ * list UIs which allow the selection of multiple list views, and actions that can be applied to the
+ * list items;
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent">
+    <aura:attribute name="dataProvider" type="Aura.Component[]" required="true"/>
+    <aura:attribute name="isSelectable" type="Boolean" />
+    <aura:attribute name="selectActions" type="Object[]" />
+    <aura:attribute name="viewSelectName" type="String" />
+    <aura:attribute name="listViews" type="List" />
+    <aura:attribute name="selectedView" type="Object" />
+    <aura:attribute name="selectedViewId" type="String"/>
+    <aura:attribute name="selectedItems" type="List" />
+    <aura:attribute name="sortBy" type="String" />
+    <aura:attribute name="sortByLabel" type="String" />
+    <aura:attribute name="viewSelectPrompt" type="String" />
+    <aura:attribute name="listItems" type="List" />
+    <!-- List of components to be used to override the outputComponent property of columns (if the names match) -->
+    <aura:attribute name="columnOutputOverrides" type="Aura.ComponentDefRef[]" />
+    <!-- Toggle this value to trigger a refresh of the component's data -->
+    <aura:attribute name="refresh" type="Boolean" default="true" />
+    <aura:attribute name="toastContent" type="Object" default="{}"/>
+    <aura:attribute name="modal" type="List" />
+    <aura:attribute name="defRecOpenType" type="String" />
+
+    <aura:registerEvent name="HcMessageCmpEvent" type="HealthCloudGA:HcMessageCmpEvent" />
+    <aura:handler name="change" value="{!v.refresh}" action="{!c.onRefresh}" />
+    <aura:handler name="change" value="{!v.selectedView}" action="{!c.onViewSelected}" />
+    <aura:handler name="change" value="{!v.selectedItems}" action="{!c.handleSelectedChange}"/>
+
+    <aura:handler name="onchange" event="ui:dataChanged" action="{!c.handleDataChange}"/>
+    <div>
+        <div>
+            <div class="slds-page-header health1-responsive-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate">
+                        <p class="slds-text-heading--label health1-small-hide">
+                            <aura:text value="{!v.viewSelectName}" />
+                        </p>
+                        <div class="slds-grid health1-patientlist-dropdown">
+                            <HealthCloudGA:HcDropdownMenu aura:id="filter-dropdown" selected="{!v.selectedView}" list="{!v.listViews}" defaultLabel="{!viewSelectPrompt}" labelClassName="slds-grid slds-type-focus slds-no-space slds-align-middle" menuClassName="slds-dropdown slds-dropdown--left slds-dropdown--large slds-dropdown--menu">
+                                <aura:set attribute="trigger">
+                                    <h1 class="slds-text-heading--medium slds-truncate">
+                                    <aura:if isTrue="{!v.selectedView != null}">
+                                        {!v.selectedView.Name}
+                                        <aura:set attribute="else">
+                                            <aura:text value="{!v.viewSelectPrompt}"/>
+                                        </aura:set>
+                                    </aura:if>
+                                </h1>
+                                    <button class="slds-button slds-button--icon-bare slds-shrink-none slds-align-middle slds-m-left--x-small">
+                                        <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#switch" class="slds-button__icon" />
+                                        <span class="slds-assistive-text">{!$Label.healthcloudga.Link_View_More}</span>
+                                    </button>
+                                </aura:set>
+                                <aura:set attribute="header">
+                                    <span class="slds-text-heading--label"><aura:text value="{!v.viewSelectName}"/></span>
+                                </aura:set>
+                            </HealthCloudGA:HcDropdownMenu>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-no-flex slds-align-bottom health1-small-hide">
+                        <div class="slds-grid">
+                            <div class="slds-button-space-left">
+                                <label class="slds-form-element__control">
+                                    <div class="slds-input-has-icon slds-input-has-icon--right">
+                                        <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#search" class="slds-input__icon" />
+                                        <input aura:id="search-input" id="hc-search" class="slds-input health1-input-small" type="text" value="" placeholder="{!$Label.healthcloudga.Text_Search_List}" onkeyup="{!c.onSearchList}" />
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="slds-button-space-left">
+                                <aura:if isTrue="{! !empty(v.selectActions)}">
+                                    <lightning:buttonMenu class="slds-button--last" aura:id="selectActionMenu" onselect="{! c.selectActionClicked }" alternativeText="Action" iconName="utility:settings" menuAlignment="right" disabled="true">
+                                       <aura:iteration items="{!v.selectActions}" var="selectAction">
+                                           <lightning:menuItem value="{!selectAction.name}" label="{!selectAction.label}"/>
+                                       </aura:iteration>
+                                    </lightning:buttonMenu>
+                                </aura:if>
+                            </div>
+                            <div class="slds-button-space-left">
+                              <HealthCloudGA:HcHelpTrayDropDown helpType="CandidatePatient" defaultHelpCss="HealthCare-HelpTray-button-icon"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="slds-text-body--small slds-anchor__detail health1-small-hide">
+                    <aura:if isTrue="{!(v.sortBy != null)}">
+                        • {!format($Label.healthcloudga.Text_Sort_Order, v.sortByLabel)} • <a onclick="{!c.handleRefreshClick}">{!$Label.healthcloudga.Button_Label_Refresh}</a>
+                    </aura:if>
+                </p>
+                <HealthCloudGA:toast aura:id="toast-message" content="{!v.toastContent}"/>
+            </div>
+        </div>
+        <div>
+            <HealthCloudGA:HcCandPatTable aura:id="datagrid" selectedItems="{!v.selectedItems}" viewId="{!v.selectedViewId}" defRecOpenType="{!v.defRecOpenType}" tableDataUpdatedEvent="{!c.handleDataChange}">
+                <aura:set attribute="dataProvider">
+                    <HealthCloudGA:HcCandPatDataProvider aura:id="CandidatePatientDataProvider" autoInit='false' pageSize="50" sortClientSide="true"/>
+                </aura:set>
+            </HealthCloudGA:HcCandPatTable>
+        </div>
+        <div>{!v.modal}</div>
+    </div>
+</aura:component>

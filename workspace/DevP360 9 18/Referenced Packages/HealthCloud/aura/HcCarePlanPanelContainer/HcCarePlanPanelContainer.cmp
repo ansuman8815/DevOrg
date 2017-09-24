@@ -1,0 +1,16 @@
+<aura:component controller="HealthCloudGA.HcCarePlanController">
+    <aura:attribute name="patientId" type="String" default="" />
+    <aura:attribute name='status' type='String'/>
+    <aura:attribute name="careplans" type="Object[]" />
+    <aura:attribute name='startT' type='Integer' />
+    <aura:attribute name='excludeStatus' type='String'/>
+    <aura:attribute name="isPSLEnforced" type="Boolean" default="false"/>  
+
+    <div class="slds-p-bottom--large">
+      <HealthCloudGA:HcCarePlanTable aura:id="CarePlanTable" showHeader="false" id="CarePlanTable" tableClass="hc-carePlanTable slds-no-row-hover slds-table--fixed-layout" rowClass='hc-carePlanTable_row' cellClass='hc-carePlanTable_cell' isPSLEnforced="{!v.isPSLEnforced}">
+        <aura:set attribute="dataProvider">
+            <HealthCloudGA:HcCarePlanTableDataProvider autoInit='true' startT='{!v.startT}' patientId='{!v.patientId}' status='{!v.status}' pageSize='5' excludeStatus='{!v.excludeStatus}' isPSLEnforced="{!v.isPSLEnforced}"/>
+        </aura:set>
+    </HealthCloudGA:HcCarePlanTable>
+    </div>
+</aura:component>

@@ -1,0 +1,12 @@
+/* Spinner / please wait block in modal */
+
+.THIS .slds-modal__footer .slds-spinner--small {
+  display: inline-block;
+}
+
+/* IE10 hack for more robust modal flexbox behaviour */
+.THIS .slds-modal__content {
+  -ms-flex-positive: 0;
+  -ms-flex-negative: 1;
+  -ms-flex-preferred-size: auto;
+}

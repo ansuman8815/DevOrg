@@ -1,0 +1,12 @@
+<aura:component extends="HealthCloudGA:HcAbstractSimpleTable" controller="HealthCloudGA.HcCarePlanController">
+    <aura:attribute name='patientId' type='String'/>
+    <aura:dependency resource="HealthCloudGA:HcCarePlanDetailHeader" /> 
+    <aura:dependency resource="HealthCloudGA:HcCarePlanPanel" /> 
+    <aura:set attribute="customActionComponentName" value="HealthCloudGA:HcCarePlanPanel" />  
+    <aura:set attribute="viewMoreText" value="{!$Label.healthcloudga.Link_View_More_Care_Plans}" />
+    <aura:set attribute="noItemsText" value="{!$Label.healthcloudga.Text_No_CarePlans}" />
+    <aura:attribute name="isPSLEnforced" type="Boolean" default="false"/> 
+   <aura:if isTrue="{!v.isPSLEnforced}">
+       <HealthCloudGA:PSLAccessError aura:id="pslAccessError" headerTitleText="{!$Label.healthcloudga.Msg_Component_Has_NoAccess}"/>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,59 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+	<ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}"/>
+    <ltng:require styles="{! $Resource.SLDS090 }"/>
+    <ltng:require scripts="{!join(',', 
+    						$Resource.P360JqueryResources + '/jquery-2.2.4.min.js', 
+    						$Resource.svg4everybody + '/svg4everybody-master/dist/svg4everybody.js')}"  afterScriptsLoaded="{!c.myAction}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:SearchResult" action="{!c.handleApplicationEvent}"/> 
+   <!-- <aura:handler event="aura:doneRendering" action="{!c.doneRendering}"/>-->
+    <aura:attribute name="search_clicked" type="Boolean" />
+    <aura:attribute name="quickLinksIcon" type="String"/>
+    <aura:attribute name="viewSearchon" type="boolean" default="false"/>
+    <aura:attribute name="profilename" type="String" default=''/>
+    <aura:attribute name="sessionData" type="ProfileMenuController.userSessionWrapper"/>
+    
+     <!-- <select name="webmenu" id="webmenu">
+	    <option value="calendar" data-image="C:\Users\451865\Desktop\P360CommunityIcons\PatientPortalIcon-02.png">PatientPortalIcon</option>
+	    <option value="cd" data-image="C:\Users\451865\Desktop\P360CommunityIcons\procedure.png">Procedure</option>
+	    <option value="email"  selected="selected" title="C:\Users\451865\Desktop\P360CommunityIcons\provider_icon_2.png">Provider</option>
+	    <option value="faq" data-image="C:\Users\451865\Desktop\P360CommunityIcons\announcement_.png">Announcement</option>
+	  </select>-->
+                   
+                           <div class="dropdown">
+  <button onclick="{!c.myFunction}" class="dropbtn" id="dropbtnID">SELECT</button>
+                              <div><i class="down"></i></div>
+                             <div id="myDropdown" class="dropdown-content dropdowndiplay" >
+                               
+                                <ul id="quickLinkList">
+                                  <li class="listCss">
+                                      <c:P360CommunityIcon label="Patient Registries" svgPath="{! $Resource.P360CommunityIcons + '/PatientRegisteries.svg#Layer_1'}" class="IconStyle patRegIcon" buttonStyle="border:none; background-color:transparent;float:left;padding-right:10px" press="{!c.registryClick}" />
+                                  </li>
+                                    <li class="listCss">
+                                      <c:P360CommunityIcon label="Patient" svgPath="{! $Resource.P360CommunityIcons + '/PatientRegisteries.svg#Layer_1'}" class="IconStyle patRegIcon" buttonStyle="border:none; background-color:transparent;float:left;padding-right:10px" press="{!c.registryClick}" />
+                                  </li>
+                                    <li class="listCss">
+                                      <c:P360CommunityIcon label="Registries" svgPath="{! $Resource.P360CommunityIcons + '/PatientRegisteries.svg#Layer_1'}" class="IconStyle patRegIcon" buttonStyle="border:none; background-color:transparent;float:left;padding-right:10px" press="{!c.registryClick}" />
+                                  </li>
+                                </ul>
+                                 
+                            </div>
+                               </div>
+    
+         
+           
+ <!--    <div class="dropdown">
+  <button onclick="{!c.myFunction}" class="dropbtn ">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content dropdowndiplay">
+      <ul>
+          <li class="listCss">
+              <c:P360CommunityIcon label="Patient Registries" svgPath="{! $Resource.P360CommunityIcons + '/PatientRegisteries.svg#Layer_1'}" class="IconStyle patRegIcon" buttonStyle="border:none; background-color:transparent;float:left;padding-right:10px" press="{!c.registryClick}" />
+          </li>
+      </ul>
+   <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+ </div>
+</div> -->
+                           
+</aura:component>

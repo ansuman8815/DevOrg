@@ -1,0 +1,36 @@
+<aura:component >
+    <aura:attribute name="recordTypes" type="List" default="null" />
+    <aura:attribute name="selectedRecordType" type="Object"/>
+    <div>
+        <h2 class="slds-text-heading--small slds-m-around--large">{! $Label.healthcloudga.Msg_Lead_To_Patient_Select_Record_Type }</h2>
+        <table class="slds-table slds-table--bordered slds-table--fixed-layout">
+            <thead>
+                <tr class="slds-text-title--caps">
+                  <th class="cprt-selection" scope="col" />
+                  <th class="cprt-recordTypeName" scope="col">
+                    <div class="slds-th__action slds-truncate">{! $Label.healthcloudga.Header_L2P_Wizard_RT_Name }</div>
+                  </th>
+                  <th scope="col">
+                    <div class="slds-th__action slds-truncate">{! $Label.healthcloudga.Header_L2P_Wizard_RT_Description }</div>
+                  </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.recordTypes}" var="recordType">
+                    <tr>
+                        <td>
+                            <lightning:input type="radio" label=" " value='{!recordType}' name="recTypeRadio"
+                                             aura:id="carePlanRecordTypeRadio" checked="{!recordType.isDefault}" onchange="{!c.setSelectedRecordType}" class="slds-align--absolute-center"/>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">{!recordType.label}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">{!recordType.description}</div>
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+</aura:component>

@@ -1,0 +1,27 @@
+.THIS {}
+.THIS .close{float:right;cursor:pointer;}
+
+.THIS.detailDiv{width: 30%; height:25%;margin: 50px auto;
+    box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 5px;
+    overflow-y: hidden;background-color: #fff;padding: 20px;top: 75px;}
+
+.THIS .providerNotesSub{width:100%;float:left;margin-top: 22px;}
+
+.THIS .specialty span:first-child,
+.THIS .npi span:first-child{width:100%;font-weight:bold;}
+
+.THIS .specialty span:last-child,
+.THIS .npi span:last-child{font-size: 14px;color: #2f3537;width:50%; float: right;}
+
+.THIS .npi p,.THIS .specialty p{font-size: 14px;color: #707f8a;}
+
+.THIS .headersProviders{padding-left: 10px;
+    font-weight: bold;color: #707f8a;margin-top: 18px;}
+
+.THIS .providerNotesSub >div{padding-left:10px;}
+
+.THIS .headersProvidersbottom{border-bottom:1px solid #707f8a;padding-top:4px;}
+
+@media only screen and (max-width : 1024px) {
+.THIS.detailDiv{width: 50%; height:190px;}
+}

@@ -1,0 +1,105 @@
+<aura:component controller="UtilityGeneral">
+    <aura:attribute name="patientid" type="String" />
+    <aura:attribute name="whereclause" type="String" />
+    <aura:attribute name="empi" type="String" />
+    <div class="floatL palletDetail violet">
+        <div class="floatL  palletTable">
+            <c:P360CommunityApiDynPallet >
+                <aura:set attribute="svgPath" value="{!$Resource.P360CommunityIcons + '/20-MedicalHistory.svg#Layer_1'}" />
+                <aura:set attribute="patientid" value="{!v.patientid}" />
+                <aura:set attribute="whereclause" value="{!v.whereclause}" />
+                <aura:set attribute="empi" value="{!v.empi}" />
+                <aura:set attribute="listName" value="Medical History" />
+                <aura:set attribute="tableName" value="medical_table" />
+                <aura:set attribute="pageName" value="Clinical Summary" />
+                <aura:set attribute="resourceName" value="Medical History" />
+            </c:P360CommunityApiDynPallet>
+        </div>
+    </div>
+    <div class="floatL palletDetail green mr0">
+        <div class="floatL  palletTable">
+            <c:P360CommunityDynamicPallet >
+                <aura:set attribute="svgPath" value="{! $Resource.P360CommunityIcons + '/21-SurgicalHistory.svg#Layer_1'}" />
+                <aura:set attribute="patientid" value="{!v.patientid}" />
+                <aura:set attribute="whereclause" value="{!v.whereclause}" />
+                <aura:set attribute="listName" value="Surgical History" />
+                <aura:set attribute="tableName" value="surgical_table" />
+                <aura:set attribute="pageName" value="Clinical Summary" />
+            </c:P360CommunityDynamicPallet>
+        </div> 
+    </div>
+    <div class="floatL palletDetail golden">
+        <div class="floatL  palletTable">
+            <c:P360CommunityDynamicPallet >
+                <aura:set attribute="svgPath" value="{! $Resource.P360CommunityIcons + '/22-Medication.svg#Layer_1'}" />   
+                <aura:set attribute="patientid" value="{!v.patientid}" />
+                <aura:set attribute="whereclause" value="{!v.whereclause}" />
+                <aura:set attribute="listName" value="Medications" />
+                <aura:set attribute="tableName" value="medications_table" />
+                <aura:set attribute="pageName" value="Clinical Summary" />
+            </c:P360CommunityDynamicPallet>
+        </div>
+    </div>
+    <div class="floatL palletDetail blue mr0">
+        <div class="floatL  palletTable">
+            <c:P360CommunityDynamicPallet >
+                <aura:set attribute="svgPath" value="{! $Resource.P360CommunityIcons + '/23-L3Encounters.svg#Layer_1'}" />       
+                <aura:set attribute="patientid" value="{!v.patientid}" />
+                <aura:set attribute="whereclause" value="{!v.whereclause}" />
+                <aura:set attribute="listName" value="Encounter" />
+                <aura:set attribute="tableName" value="encounter_table" />
+                <aura:set attribute="pageName" value="Clinical Summary" />
+            </c:P360CommunityDynamicPallet>
+        </div> 
+    </div>
+    <div class="floatL palletDetail pink">
+        <div class="floatL  palletTable">
+            <c:P360CommunityDynamicPallet >
+                <aura:set attribute="svgPath" value="{! $Resource.P360CommunityIcons + '/24-Allergies.svg#Layer_1'}" />       
+                <aura:set attribute="patientid" value="{!v.patientid}" />
+                <aura:set attribute="whereclause" value="{!v.whereclause}" />
+                <aura:set attribute="listName" value="Allergies" />
+                <aura:set attribute="tableName" value="allergy_table" />
+                <aura:set attribute="pageName" value="Clinical Summary" />
+            </c:P360CommunityDynamicPallet>
+        </div>
+    </div>
+    <div class="floatL palletDetail violet mr0">
+        <div class="floatL  palletTable">
+            <c:P360CommunityApiDynPallet >
+                <aura:set attribute="svgPath" value="{! $Resource.P360CommunityIcons + '/25-ProblemList.svg#Layer_1'}" />       
+                <aura:set attribute="patientid" value="{!v.patientid}" />
+                <aura:set attribute="whereclause" value="{!v.whereclause}" />
+                <aura:set attribute="empi" value="{!v.empi}" />
+                <aura:set attribute="listName" value="Problem List" />
+                <aura:set attribute="tableName" value="problemlist_table" />
+                <aura:set attribute="pageName" value="Clinical Summary" /> 
+                <aura:set attribute="resourceName" value="Problem List" />
+            </c:P360CommunityApiDynPallet>
+        </div> 
+    </div>
+    <div class="floatL palletDetail green mr0">
+        <div class="floatL  palletTable">
+            <c:P360CommunityDynamicPallet >
+                <aura:set attribute="svgPath" value="{! $Resource.P360CommunityIcons + '/26-Immunization.svg#Layer_1'}" />           
+                <aura:set attribute="patientid" value="{!v.patientid}" />
+                <aura:set attribute="whereclause" value="{!v.whereclause}" />
+                <aura:set attribute="listName" value="Immunizations" />
+                <aura:set attribute="tableName" value="immunization_table" />
+                <aura:set attribute="pageName" value="Clinical Summary" />
+            </c:P360CommunityDynamicPallet>
+        </div> 
+    </div>
+    <div class="floatL palletDetail blue mr0">
+        <div class="floatL  palletTable">
+            <c:P360CommunityDynamicPallet >
+                <aura:set attribute="svgPath" value="{! $Resource.P360CommunityIcons + '/28-Proceedure.svg#Layer_1'}" />               
+                <aura:set attribute="patientid" value="{!v.patientid}" />
+                <aura:set attribute="whereclause" value="{!v.whereclause}" />
+                <aura:set attribute="listName" value="Procedures" />
+                <aura:set attribute="tableName" value="procedure_table" />
+                <aura:set attribute="pageName" value="Clinical Summary" />
+            </c:P360CommunityDynamicPallet>
+        </div> 
+    </div> 
+</aura:component>

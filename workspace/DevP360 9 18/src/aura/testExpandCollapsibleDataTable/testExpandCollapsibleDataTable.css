@@ -1,0 +1,93 @@
+.THIS table{
+    width:80%;
+    float:left;
+    margin-top:80px;
+    margin-left:9%;
+}
+.THIS table tr {
+   /* padding-bottom:10px;*/
+}
+.THIS table *{
+    background:none !important;
+    box-shadow:0 0 !important;
+    padding: 15px !important
+}
+
+.THIS table table{
+    width:100%;
+    margin-top:0;
+    margin-left:0;
+}
+.THIS table table tr td:first-child{
+    position: relative;
+    bottom: 55px;
+    font-weight: bold;
+}
+
+.THIS table thead{
+    background : #717f8a !important;
+    color:#fff;
+}
+.THIS table.dataTable.display tbody td{
+    border-top:none;
+    white-space:normal;
+}
+.THIS table tr{
+        border-top: 1px solid #000 !important;
+}
+.THIS table td.details-control, .THIS table td.details-control-2 {
+    margin-left: 20px;
+    float: left;
+    font-size: 20px;
+    box-shadow: 0 0 !important;
+    cursor: pointer;
+    border: 2px solid #ccc !important;
+    border-radius: 30px;
+    margin-top: 10px;
+    width: 15px;
+    font-weight: bold;
+    padding: 5px 10px !important;
+    text-align:center;
+    margin-bottom:10px;
+    position: relative;
+    top: 15px;
+    right: 10px;
+}
+.THIS table tr.shown + tr{
+    background:#ddd !important;
+    border-top:none !important;
+}
+@media only screen and (max-width: 1023px) {
+    
+.THIS table tr.shown + tr{
+    background:#ddd !important;
+    border-top:none !important;
+}
+.THIS table tr.shown + tr td{
+    padding-left:0 !important;
+    padding-right:0 !important;
+}
+.THIS table table tr:nth-child(odd){
+   display:none;
+}
+ 
+.THIS table table td {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+        border : none !important;
+} 
+    .THIS table td.details-control, .THIS table td.details-control-2 {
+    margin-left: 0;
+    float: none;
+    font-size: 20px;
+    box-shadow: 0 0 !important;
+    cursor: pointer;
+    border: none !important;
+    border-radius: 0;
+    margin-top: 0;
+    width: auto;
+    font-weight: bold;
+    padding-left: 0;
+    margin-bottom:0px;
+}
+}

@@ -1,0 +1,38 @@
+<aura:component controller="RegistryController"> 
+    <ltng:require styles="{! $Resource.P360JqueryResources + '/jquery.dataTables.min.css'}"/>
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}"/>
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jQueryDataTableJs.js'}"/> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="aura:waiting" action="{!c.waiting}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.doneWaiting}"/>
+    
+    <aura:attribute name="result" type="RegistryController.DisplayRegistry[]"/>
+    <aura:attribute name="whereclause" type="string"/>
+    <aura:attribute name="count" type="string" default="0"/>
+    <aura:attribute name="filteredCount" type="String"/>
+    <aura:attribute name="totalCount" type="String"/>
+    <aura:attribute name="refreshDate" type="string"/>
+		<span class="record-count">({!v.count} record (s))</span> 
+    	<span class="filtercountVal">({!v.filteredCount} out of {!v.totalCount} record (s))</span>
+		<span class="refresh-date" style="color: #707f8a;font-size:12px;">Data Refresh Date : {!v.refreshDate}</span> 
+
+        <center style="clear:both;">
+        <article class="slds-card">
+            <div class="slds"> 
+                <table class="slds-table slds-table--bordered slds-max-medium-table--stacked-horizontal" aura:id="registryDiv" id="registryResult" cellspacing="0" style="height:100%;align-center">
+                    <thead>
+                        <tr>
+                            <th scope="col"><span class="slds-truncate"><b>Name</b></span></th>
+                            <th scope="col"><span class="slds-truncate"><b>Date Of <br />  Birth</b></span></th>
+                            <th scope="col"><span class="slds-truncate"><b>Gender</b></span></th>
+                            <th scope="col"><span class="slds-truncate"><b>Medicaid ID <br />  (CIN)</b></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <span id="Loadingspinner" style="display:none">Loading...<ui:spinner /></span>
+                    </tbody>
+                </table>
+            </div>
+        </article>
+    </center>
+</aura:component>

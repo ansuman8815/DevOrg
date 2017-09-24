@@ -1,0 +1,8 @@
+<design:component label="Care Plan Tasks for Health Cloud Empower">
+    <design:attribute name="taskFieldSet" label="Field Set Name" description="{!$Label.HealthCloudGA.Community_Task_Component_Field_Set_Help_Text}" />
+    <design:attribute name="showLabels" label="Show labels" description="{!$Label.HealthCloudGA.Community_Task_Component_Show_Labels_Help_Text}" />
+    <design:attribute name="showAll" label="Show all tasks" description="{!$Label.HealthCloudGA.Community_Task_Component_Show_All_Help_Text}" />
+    <sfdc:objects >
+    	<sfdc:object >Case</sfdc:object>
+  	</sfdc:objects>
+</design:component>

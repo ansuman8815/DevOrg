@@ -1,0 +1,4266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Add_Member_To_Community_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message that is shown when unable to add a member to the community</shortDescription>
+        <value>Unable to add a member to the community.</value>
+    </labels>
+    <labels>
+        <fullName>Add_Member_To_Community_Setup_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message that is shown when community isn&apos;t setup in the org</shortDescription>
+        <value>You can&apos;t add this member to a community since Salesforce Communities isn&apos;t set up in your org. Contact your Salesforce admin for help</value>
+    </labels>
+    <labels>
+        <fullName>AgentOrGuardianOrGuarantor</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Agent or Guardian or Guarantor</shortDescription>
+        <value>Agent/Guardian/Guarantor</value>
+    </labels>
+    <labels>
+        <fullName>All_Care_Plans</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>all Care Plans label</shortDescription>
+        <value>All Care Plans</value>
+    </labels>
+    <labels>
+        <fullName>Allergies</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Allergies</shortDescription>
+        <value>Allergies</value>
+    </labels>
+    <labels>
+        <fullName>Alt_Text_Please_Wait</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please wait alt text for spinner image</shortDescription>
+        <value>Please wait...</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Add_Account</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button label for Add Account on relationship</shortDescription>
+        <value>+ Add Account</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Add_Contact</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button label for Add Contact on relationship</shortDescription>
+        <value>+ Add Contact</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Add_Group_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Button label for Add Group Member on relationship</shortDescription>
+        <value>+ Add Member</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Add_Household</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Button label for Add Household on relationship</shortDescription>
+        <value>+ Add Household</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Add_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add Member</shortDescription>
+        <value>Add</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Add_Row</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add row button label</shortDescription>
+        <value>Add Row</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Apply</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Apply</shortDescription>
+        <value>Apply</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Back</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Back Button Label</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Cancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel Button Text</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Continue</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Continue Label</shortDescription>
+        <value>Continue</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Convert</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Convert button label</shortDescription>
+        <value>Convert</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_CreateMember</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create Member button on Care Team Member</shortDescription>
+        <value>Create External Member</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Delete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Edit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_New</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New button</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Next</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Next Button Label</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_OK</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OK Button Label</shortDescription>
+        <value>OK</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Refresh</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Refresh button</shortDescription>
+        <value>Refresh</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Relationship_New_Account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Button label for Relationships tab for creating a new account</shortDescription>
+        <value>Create Account</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Relationship_New_Household</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Button label for Relationships tab for creating a new account</shortDescription>
+        <value>Create Household</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Remove</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used for remove option in modal.</shortDescription>
+        <value>Remove</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Reset</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Reset button title</shortDescription>
+        <value>Reset</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Save</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save Button Label</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Save_And_New</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save-and-New button label</shortDescription>
+        <value>Save &amp; New</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Send</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Send button</shortDescription>
+        <value>Send</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Settings</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label to denote settings button or link.</shortDescription>
+        <value>Settings</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Zoom_In</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Zoom in button title</shortDescription>
+        <value>Zoom In</value>
+    </labels>
+    <labels>
+        <fullName>Button_Label_Zoom_Out</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Zoom out button title</shortDescription>
+        <value>Zoom Out</value>
+    </labels>
+    <labels>
+        <fullName>Button_ShowAll</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Button to Show All results</shortDescription>
+        <value>Show All</value>
+    </labels>
+    <labels>
+        <fullName>CarePlanID_IsBlank_Exception</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Exception that is thrown when Care Plan ID is blank</shortDescription>
+        <value>Error: Care Plan ID is blank.</value>
+    </labels>
+    <labels>
+        <fullName>CarePlan_PicklistDefaultOptionsText_Help_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CarePlan Picker picklistDefaultOptionText Design Attribute  Help Text.</shortDescription>
+        <value>Default text shown in the picklist.</value>
+    </labels>
+    <labels>
+        <fullName>CarePlan_Picklist_Placeholder_Default_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CarePlan Picklist Placeholder Default Text</shortDescription>
+        <value>Select a name and care plan...</value>
+    </labels>
+    <labels>
+        <fullName>CarePlan_ShowBirthDate_Help_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Care Plan Picklist showBirthDate Attribute Help Text</shortDescription>
+        <value>Include patient&apos;s birthdate in the picklist.</value>
+    </labels>
+    <labels>
+        <fullName>CarePlan_includeYearOfBirth_Help_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Care Plan Picklist include year of birth Attribute Help Text</shortDescription>
+        <value>Include patient&apos;s year of birth in the picklist.</value>
+    </labels>
+    <labels>
+        <fullName>CarePlan_useTextMonth_Help_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Care Plan Picklist useTextMonth Attribute Help Text</shortDescription>
+        <value>Show the patient&apos;s birth month as text, such as Jan or Feb.</value>
+    </labels>
+    <labels>
+        <fullName>Care_Plan</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Care Plan</shortDescription>
+        <value>Care Plan</value>
+    </labels>
+    <labels>
+        <fullName>Care_Plan_And_Timeline</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Care Plan and Timeline</shortDescription>
+        <value>Care Plan and Timeline</value>
+    </labels>
+    <labels>
+        <fullName>CaseTeamRole_Not_Found_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message that is shown when CaseTeamRole record was not found</shortDescription>
+        <value>Unable to find Case Team Role record.</value>
+    </labels>
+    <labels>
+        <fullName>Case_Not_Found_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message that is shown when Case record was not found</shortDescription>
+        <value>Unable to find Case record.</value>
+    </labels>
+    <labels>
+        <fullName>Closed_Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Closed Tasks</shortDescription>
+        <value>ClosedTasks</value>
+    </labels>
+    <labels>
+        <fullName>Cmty_CarePlanOwner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Value displayed for a care plan owner on cmty care team list.</shortDescription>
+        <value>Care Plan Owner</value>
+    </labels>
+    <labels>
+        <fullName>Cmty_CarePlanOwnerLabelDescription</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used as description in design attribute for Cmty Care Team list</shortDescription>
+        <value>Enter label text for the name of the care team owner role.</value>
+    </labels>
+    <labels>
+        <fullName>Cmty_CareTeam_IncludeOwner_Help</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Help message shown for Include Owner in cmty care team list.</shortDescription>
+        <value>Show the care plan owner in the list of care team members when that person is an internal user.</value>
+    </labels>
+    <labels>
+        <fullName>Collaboration</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Collaboration</shortDescription>
+        <value>Collaboration</value>
+    </labels>
+    <labels>
+        <fullName>Community_Profile_Not_Found_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Creating a user. Unable to find a community profile</shortDescription>
+        <value>Unable to create a user due to missing or invalid community profile.</value>
+    </labels>
+    <labels>
+        <fullName>Community_Task_Component_Field_Set_Help_Text</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Community task component field set help text</shortDescription>
+        <value>Determines the fields that appear in a task.</value>
+    </labels>
+    <labels>
+        <fullName>Community_Task_Component_Show_All_Help_Text</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Community Task Component Show All Help Text</shortDescription>
+        <value>Users can see their tasks and those assigned to other members based on user sharing.</value>
+    </labels>
+    <labels>
+        <fullName>Community_Task_Component_Show_Labels_Help_Text</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Community Task Component Show Labels Help Text</shortDescription>
+        <value>Include field labels for task fields.</value>
+    </labels>
+    <labels>
+        <fullName>Confirmation_Detail_Delete_ContactContact_Relationship</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Do you want to delete Contact-Contact Relationship?</shortDescription>
+        <value>Do you want to delete Contact-Contact Relationship?</value>
+    </labels>
+    <labels>
+        <fullName>Confirmation_Msg_Filter_List_Delete_Non_Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Confirmation box to delete the patient filter list</shortDescription>
+        <value>{0} owns this list.</value>
+    </labels>
+    <labels>
+        <fullName>Confirmation_Msg_Filter_List_Delete_Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Confirmation box to delete the patient filter list</shortDescription>
+        <value>Delete the {0} list?</value>
+    </labels>
+    <labels>
+        <fullName>Confirmation_Title_Delete_ContactContact_Relationship</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Delete Contact-Contact Relationship</shortDescription>
+        <value>Delete Contact-Contact Relationship</value>
+    </labels>
+    <labels>
+        <fullName>Contact_Must_Be_Linked_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Could not enable the community user. Contact must be linked to the account.</shortDescription>
+        <value>Unable to create the community user. Contact must be linked to the account.</value>
+    </labels>
+    <labels>
+        <fullName>Contact_Search_Str_Empty_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>The Contact Search String is Empty</shortDescription>
+        <value>Enter two or more characters to search for the contact.</value>
+    </labels>
+    <labels>
+        <fullName>Create_new_Care_Plan</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create new Care Plan</shortDescription>
+        <value>New Care Plan</value>
+    </labels>
+    <labels>
+        <fullName>Date_of_Birth</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Field label override for Candidate Patient Birth Date</shortDescription>
+        <value>Date of Birth</value>
+    </labels>
+    <labels>
+        <fullName>DefaultListViewHeaderName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Default Value for the Surveys List View Header</shortDescription>
+        <value>All Surveys</value>
+    </labels>
+    <labels>
+        <fullName>Default_Patient_Pic</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Patient Default Pic</shortDescription>
+        <value>/profilephoto/005/F</value>
+    </labels>
+    <labels>
+        <fullName>Detail_Dialog_Household_Member_Remove</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Remove membership dialog text on Relationships tab of profiles</shortDescription>
+        <value>When you remove a member, you remove the member&apos;s related accounts from this relationship group.</value>
+    </labels>
+    <labels>
+        <fullName>Dropdown_Action</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Action</shortDescription>
+        <value>Action</value>
+    </labels>
+    <labels>
+        <fullName>Dropdown_Create</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dropdown to create task and problem</shortDescription>
+        <value>Create</value>
+    </labels>
+    <labels>
+        <fullName>Dropdown_Select_All_Events</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select All Events</shortDescription>
+        <value>Select All Events</value>
+    </labels>
+    <labels>
+        <fullName>Dropdown_Select_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select a List</shortDescription>
+        <value>Select a List</value>
+    </labels>
+    <labels>
+        <fullName>DueDate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Community Timeline Label for when the task needs to be completed</shortDescription>
+        <value>Due Date</value>
+    </labels>
+    <labels>
+        <fullName>Duplicate_Email_Address_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>The Email address on contact should be unique</shortDescription>
+        <value>The contact’s email address must be unique.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Is_Required_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact Validation: Email on Contact is required to enable a portal user</shortDescription>
+        <value>Email address is required. Please add the member&apos;s email address and try again.</value>
+    </labels>
+    <labels>
+        <fullName>EmpowerTimelineUnavailable</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message shown when there are no configs for the empower timeline component.</shortDescription>
+        <value>The patient timeline isn&apos;t available.</value>
+    </labels>
+    <labels>
+        <fullName>Empty_State_Text_Select_Person_To_View_Care_Team</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Text to display when no person is selected from careplan picker</shortDescription>
+        <value>Select a name to view the person&apos;s care team.</value>
+    </labels>
+    <labels>
+        <fullName>EnableUserForCommunity_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error in enabling User for Community</shortDescription>
+        <value>Unable to create community user.</value>
+    </labels>
+    <labels>
+        <fullName>Encounters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Encounters</shortDescription>
+        <value>Encounters</value>
+    </labels>
+    <labels>
+        <fullName>Encrypted_Value_Not_Allowed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You can’t use an encrypted value in this field.</shortDescription>
+        <value>You can’t use an encrypted value in {0} field.</value>
+    </labels>
+    <labels>
+        <fullName>Engagement</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Engagement</shortDescription>
+        <value>Engagement</value>
+    </labels>
+    <labels>
+        <fullName>Engagement_Data</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Engagement Data</shortDescription>
+        <value>Engagement Data</value>
+    </labels>
+    <labels>
+        <fullName>Events</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Events</shortDescription>
+        <value>Events</value>
+    </labels>
+    <labels>
+        <fullName>Field_BirthDate_Age</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Field BirthDate Age</shortDescription>
+        <value>{0} ( {1} {2} {3} {4} )</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Add_Filters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter criteria add patient filters label</shortDescription>
+        <value>ADD FILTERS</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Candidate_Patient_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Candidate Patient Name Label</shortDescription>
+        <value>PATIENT NAME</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_CarePlan_Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for CarePlan(Case) Owner field</shortDescription>
+        <value>Owner</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Care_Team_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Care Team add member search box label in add member lightning component</shortDescription>
+        <value>Person</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Care_Team_Role</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Care Team Role label in add member lightning component</shortDescription>
+        <value>Care Team Role</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Current_Page</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Indicate current page number of to the total pages in the list</shortDescription>
+        <value>Page {0} of {1}</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Date_Completed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Date Completed Label</shortDescription>
+        <value>Date Completed</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Date_Sent</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Date Sent Label</shortDescription>
+        <value>Date Sent</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Date_of_Birth</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>The label for the date upon which it is commonly agreed that someone was born.</shortDescription>
+        <value>Date of Birth</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Days_To_Show</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Days to Show</shortDescription>
+        <value>Days to Show</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Description</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Description Label</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_DesignAttrib_PatientFieldSet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Patient Field Set Name</shortDescription>
+        <value>User field set with fields from the User and Contact objects displayed for the patient.</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_DesignAttrib_TeamMemberFieldSet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team Member Field Set Name</shortDescription>
+        <value>User field set with fields from the User and Contact objects displayed for care team members.</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_DesignAttrib_showLabels</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Show Labels</shortDescription>
+        <value>Include field labels in the list.</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Edit_Task</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit task title</shortDescription>
+        <value>Edit Task</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Filter_Criteria</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter criteria filter label</shortDescription>
+        <value>Filter</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Filter_Field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter criteria field label</shortDescription>
+        <value>Field</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Filter_Logic</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for filter logic text field on filter criteria panel.</shortDescription>
+        <value>Filter Logic</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Gender</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for the commonly accepted definition of gender.</shortDescription>
+        <value>Gender</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Items</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>label to display number of items in a list.</shortDescription>
+        <value>items</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_List_View</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter criteria customize patient filters display label</shortDescription>
+        <value>CUSTOMIZE DISPLAY</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_MRN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Medical Record Number (abbreviated) label.</shortDescription>
+        <value>MRN</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Name Label</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Name_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter criteria name a patient filter list label</shortDescription>
+        <value>NAME THE LIST</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Patient_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Patient Name Label</shortDescription>
+        <value>{0} Name</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Percent_Complete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label to show percent complete</shortDescription>
+        <value>{0}% complete</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Phone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Phone Label</shortDescription>
+        <value>Phone</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Reason</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Column header for list reasons why some something happened</shortDescription>
+        <value>REASON</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter criteria record type</shortDescription>
+        <value>Record</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Record_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter criteria record name label</shortDescription>
+        <value>Record Name</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Recur_Task_Day</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for Day of Month recurring task field</shortDescription>
+        <value>Day</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Recur_Task_End_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for End Date recurring task field</shortDescription>
+        <value>End Date</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Recur_Task_Ends</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for Ends recurring task field</shortDescription>
+        <value>Ends</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Recur_Task_Max_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for maximum end date of recurrences</shortDescription>
+        <value>Maximum Allowed End Date</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Recur_Task_Repeats</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for Repeats recurring task field</shortDescription>
+        <value>Repeats</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Recur_Task_Repeats_Every</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for length of cycle, e.g. 1 week</shortDescription>
+        <value>Repeats Every</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Recur_Task_Repeats_On</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for Repeats On recurring task field</shortDescription>
+        <value>Repeats On</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Recur_Task_Starts_On</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for Starts On recurring task field</shortDescription>
+        <value>Starts On</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Required_field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This label is showing when a field is required</shortDescription>
+        <value>This field is required.</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Start_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Start Date</shortDescription>
+        <value>Start Date</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Status Label</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Task_Due_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for Due Date task field</shortDescription>
+        <value>Due Date</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Task_External_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for External Member task field</shortDescription>
+        <value>External Member</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Task_Number_Occurrences</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for number of occurrences</shortDescription>
+        <value>Number of Occurrences</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Task_Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for Task Owner task field</shortDescription>
+        <value>Task Owner</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_Task_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for TaskType task field</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>URL Label</shortDescription>
+        <value>URL</value>
+    </labels>
+    <labels>
+        <fullName>Field_Label_User</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Field label for the word User</shortDescription>
+        <value>User</value>
+    </labels>
+    <labels>
+        <fullName>Field_Placeholder_Pick_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pick a Date</shortDescription>
+        <value>Pick a Date</value>
+    </labels>
+    <labels>
+        <fullName>Field_label_Recs_per_page</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Field label Recs per page</shortDescription>
+        <value>{0} per page</value>
+    </labels>
+    <labels>
+        <fullName>Field_label_Year</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Field label Year</shortDescription>
+        <value>Year</value>
+    </labels>
+    <labels>
+        <fullName>Field_label_Years</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Field label Years</shortDescription>
+        <value>Years</value>
+    </labels>
+    <labels>
+        <fullName>Field_label_month</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Field label month</shortDescription>
+        <value>Month</value>
+    </labels>
+    <labels>
+        <fullName>Field_label_months</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Field label months</shortDescription>
+        <value>Months</value>
+    </labels>
+    <labels>
+        <fullName>Filter_Default_Object</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Default Filter column object</shortDescription>
+        <value>Account</value>
+    </labels>
+    <labels>
+        <fullName>Formula_Label_Not_Applicable</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Formula Label for Not Applicable</shortDescription>
+        <value>N/A</value>
+    </labels>
+    <labels>
+        <fullName>Formula_Label_Years_Old</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Formula Label for Years Old</shortDescription>
+        <value>Years Old</value>
+    </labels>
+    <labels>
+        <fullName>Formula_Label_Years_Old_Or_Over</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Formula Label for Years Old Or Over</shortDescription>
+        <value>Years Old or Over</value>
+    </labels>
+    <labels>
+        <fullName>Gender</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Field label override for Candidate Patient gender</shortDescription>
+        <value>Gender</value>
+    </labels>
+    <labels>
+        <fullName>Header_Add_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add a Care Team Member header message</shortDescription>
+        <value>Add a Care Team Member</value>
+    </labels>
+    <labels>
+        <fullName>Header_All_Care_Plans</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All Care Plans header</shortDescription>
+        <value>All Care Plans</value>
+    </labels>
+    <labels>
+        <fullName>Header_Candidate_Patients_Wizard_Assign_Care_Coordinator</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header for care coordinator assignment section of candidate patient wizard</shortDescription>
+        <value>2. ASSIGN {0}</value>
+    </labels>
+    <labels>
+        <fullName>Header_Candidate_Patients_Wizard_Assign_Care_Coordinator_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header/Title for care coordinator name column  in candidate patient conversion</shortDescription>
+        <value>{0} NAME</value>
+    </labels>
+    <labels>
+        <fullName>Header_Candidate_Patients_Wizard_Assign_Care_Coordinator_Role</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header/Title for role column for care coordinator  assignment</shortDescription>
+        <value>ROLE</value>
+    </labels>
+    <labels>
+        <fullName>Header_Candidate_Patients_Wizard_View_Assignments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header/Title for the view assignment section of candidate patient  wizard</shortDescription>
+        <value>3. REVIEW</value>
+    </labels>
+    <labels>
+        <fullName>Header_Candidate_Patients_Wizard_View_Duplicates</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header/Title for the view duplicates section of candidate patient wizard</shortDescription>
+        <value>1. VIEW DUPLICATES</value>
+    </labels>
+    <labels>
+        <fullName>Header_CarePlanTemplateWizard_SelectedTemplates</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header/Title for the shopping cart section of care plan template wizard</shortDescription>
+        <value>Selected Templates</value>
+    </labels>
+    <labels>
+        <fullName>Header_Care_Plan</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Care Plan header</shortDescription>
+        <value>Care Plan</value>
+    </labels>
+    <labels>
+        <fullName>Header_Careteam_Member_Remove</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Remove Care Team Member header</shortDescription>
+        <value>Remove Care Team Member</value>
+    </labels>
+    <labels>
+        <fullName>Header_ChatterFeed_AllPatients</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header/Title describing Chatter feed for all patients&apos; activity</shortDescription>
+        <value>What&apos;s Happening</value>
+    </labels>
+    <labels>
+        <fullName>Header_Chatter_Feed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Chatter Feed Header</shortDescription>
+        <value>Chatter Feed</value>
+    </labels>
+    <labels>
+        <fullName>Header_Column_Description</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Column header for care plan template description</shortDescription>
+        <value>DESCRIPTION</value>
+    </labels>
+    <labels>
+        <fullName>Header_Column_Template_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Column header for care plan template name</shortDescription>
+        <value>TEMPLATE NAME</value>
+    </labels>
+    <labels>
+        <fullName>Header_Component_Cases</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cases component header on Home page</shortDescription>
+        <value>Cases</value>
+    </labels>
+    <labels>
+        <fullName>Header_Component_Leads</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Leads component header on Home page</shortDescription>
+        <value>Leads ({0})</value>
+    </labels>
+    <labels>
+        <fullName>Header_Component_Opportunities</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunities component header on Home page</shortDescription>
+        <value>Opportunities ({0})</value>
+    </labels>
+    <labels>
+        <fullName>Header_Component_Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tasks component header on Home page</shortDescription>
+        <value>Tasks ({0})</value>
+    </labels>
+    <labels>
+        <fullName>Header_Convert_To_Patient</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header/Title for candidate patient conversion wizard</shortDescription>
+        <value>Convert to {0}</value>
+    </labels>
+    <labels>
+        <fullName>Header_Create_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header for Create Member in  Care Team</shortDescription>
+        <value>New External Member</value>
+    </labels>
+    <labels>
+        <fullName>Header_Create_New_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title for creating a patient new filter list</shortDescription>
+        <value>New List</value>
+    </labels>
+    <labels>
+        <fullName>Header_Dialog_Household_Member_Remove</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Remove membership dialog header on Relationships tab of profiles</shortDescription>
+        <value>Remove member from group?</value>
+    </labels>
+    <labels>
+        <fullName>Header_Edit_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title for editing an existing patient filter list</shortDescription>
+        <value>Edit List</value>
+    </labels>
+    <labels>
+        <fullName>Header_Help_Tray</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header/Title Help Tray</shortDescription>
+        <value>HELP &amp; TRAINING</value>
+    </labels>
+    <labels>
+        <fullName>Header_L2P_Wizard_RT_Description</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header/Title for the record type description for the L2P wizard</shortDescription>
+        <value>DESCRIPTION</value>
+    </labels>
+    <labels>
+        <fullName>Header_L2P_Wizard_RT_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header/Title for the record type name for the L2P wizard</shortDescription>
+        <value>RECORD TYPE NAME</value>
+    </labels>
+    <labels>
+        <fullName>Header_L2P_Wizard_Review</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header/Title for the view assignment section of the L2P wizard</shortDescription>
+        <value>{0}. REVIEW</value>
+    </labels>
+    <labels>
+        <fullName>Header_L2P_Wizard_Select_Rec_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header/Title for the select record type section of candidate patient wizard</shortDescription>
+        <value>3. SELECT RECORD TYPE</value>
+    </labels>
+    <labels>
+        <fullName>Header_Lead_To_Patients_Wizard_View_Validations</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header/Title for the view duplicates section of lead to patient wizard</shortDescription>
+        <value>1. VIEW VALIDATIONS</value>
+    </labels>
+    <labels>
+        <fullName>Header_Minicard_NextTaskDue</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Small header in patient minicard to indicate next task due</shortDescription>
+        <value>Next task due</value>
+    </labels>
+    <labels>
+        <fullName>Header_Minicard_TaskMostOverdue</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Small header in patient minicard to indicate most overdue task</shortDescription>
+        <value>Most overdue task</value>
+    </labels>
+    <labels>
+        <fullName>Header_New_Goal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Goal header</shortDescription>
+        <value>New Goal</value>
+    </labels>
+    <labels>
+        <fullName>Header_New_Problem</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Problem header</shortDescription>
+        <value>New Problem</value>
+    </labels>
+    <labels>
+        <fullName>Header_New_Task</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Task dialog header text</shortDescription>
+        <value>New Task</value>
+    </labels>
+    <labels>
+        <fullName>Header_New_Task_For_1_Patient</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Task modal header create task for 1 person</shortDescription>
+        <value>New Task for 1 Patient</value>
+    </labels>
+    <labels>
+        <fullName>Header_New_Task_For_N_Patients</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Task modal header create tasks for N patients</shortDescription>
+        <value>New Task for {0} Patients</value>
+    </labels>
+    <labels>
+        <fullName>Header_New_Task_For_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Task modal header create task for person name</shortDescription>
+        <value>New Task for {0}</value>
+    </labels>
+    <labels>
+        <fullName>Header_Patient_Details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Patient Details Header</shortDescription>
+        <value>Patient Details</value>
+    </labels>
+    <labels>
+        <fullName>Header_Patient_Edit_SubTab</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Patient Edit Label</shortDescription>
+        <value>Patient Edit</value>
+    </labels>
+    <labels>
+        <fullName>Header_Patient_Navigation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Patient Navigation Header</shortDescription>
+        <value>Patient Navigation</value>
+    </labels>
+    <labels>
+        <fullName>Header_Record_Edit_SubTab</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Record Edit Label</shortDescription>
+        <value>Record Edit</value>
+    </labels>
+    <labels>
+        <fullName>Header_Section_Group_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Group name section header on the visualization component</shortDescription>
+        <value>{0} ({1})</value>
+    </labels>
+    <labels>
+        <fullName>Header_Section_Related_Accounts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Related Accounts section header on Relationships tab of household profiles</shortDescription>
+        <value>Related Accounts</value>
+    </labels>
+    <labels>
+        <fullName>Header_Section_Related_Contacts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Related Contacts header on Relationships tab of client and household profiles</shortDescription>
+        <value>Related Contacts</value>
+    </labels>
+    <labels>
+        <fullName>Header_Template_Page</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header Template Page</shortDescription>
+        <value>Apply Care Plan Template</value>
+    </labels>
+    <labels>
+        <fullName>Header_TodayBanner_TasksCompletedToday</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header/Title describing users completed tasks against total tasks for today</shortDescription>
+        <value>{0} of {1} tasks completed today</value>
+    </labels>
+    <labels>
+        <fullName>Header_TodayPage_Containers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header/Title describing content of the Today page (tasks)</shortDescription>
+        <value>Open Tasks</value>
+    </labels>
+    <labels>
+        <fullName>Header_Today_My_Patients</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Today Page header description for number of patients user is responsible for</shortDescription>
+        <value>Patients I&apos;m responsible for</value>
+    </labels>
+    <labels>
+        <fullName>Header_Today_New_Patients</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Today Page header description for number of new patients</shortDescription>
+        <value>New patients</value>
+    </labels>
+    <labels>
+        <fullName>Header_Today_New_Patients_Period</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Today Page header description for since when new patients added</shortDescription>
+        <value>last 7 days</value>
+    </labels>
+    <labels>
+        <fullName>Header_Today_TasksCompletedToday</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Today Page header describing users completed tasks vs total tasks for today</shortDescription>
+        <value>{0} of {1}</value>
+    </labels>
+    <labels>
+        <fullName>Header_Today_TasksCompletedToday_Amount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Today Page header describing amount completed</shortDescription>
+        <value>of</value>
+    </labels>
+    <labels>
+        <fullName>Header_Today_TasksCompletedToday_What</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Today Page header describing what was completed</shortDescription>
+        <value>tasks completed</value>
+    </labels>
+    <labels>
+        <fullName>Header_Wave_Patientlist_To_Healthcloud</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header Einstein Analytics Patientlist To Healthcloud</shortDescription>
+        <value>Send List to Health Cloud</value>
+    </labels>
+    <labels>
+        <fullName>Heading_Health_Timeline</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Health Timeline</shortDescription>
+        <value>Health Timeline</value>
+    </labels>
+    <labels>
+        <fullName>Help_Tray_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Help Tray Error</shortDescription>
+        <value>Unable to display Help content.</value>
+    </labels>
+    <labels>
+        <fullName>Immunizations</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Immunizations</shortDescription>
+        <value>Immunizations</value>
+    </labels>
+    <labels>
+        <fullName>Include_All_Care_Plans_Option_in_the_list_of_care_plans_design_attribute_text</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Include All Care Plans Option in the list of care plans design attribute text</shortDescription>
+        <value>For patients with multiple care plans, show all care plans the viewer has access to</value>
+    </labels>
+    <labels>
+        <fullName>Invalid_Contact_List_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact List is blank</shortDescription>
+        <value>Error: There are no contacts to display.</value>
+    </labels>
+    <labels>
+        <fullName>Invalid_User_ID_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>User ID is blank</shortDescription>
+        <value>Error: User ID is blank.</value>
+    </labels>
+    <labels>
+        <fullName>Items_Display_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Generic UI items creation error</shortDescription>
+        <value>We can&apos;t display these items. Contact your Salesforce admin for help.</value>
+    </labels>
+    <labels>
+        <fullName>Label_Add_To_Existing_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add to existing list</shortDescription>
+        <value>Add to existing list</value>
+    </labels>
+    <labels>
+        <fullName>Label_Completed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label Completed</shortDescription>
+        <value>Completed</value>
+    </labels>
+    <labels>
+        <fullName>Label_Create_New_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create new list</shortDescription>
+        <value>Create new list</value>
+    </labels>
+    <labels>
+        <fullName>Label_Field_Set_Relationship_Groups</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Custom label for relationship groups field set on client profile</shortDescription>
+        <value>Relationship Groups</value>
+    </labels>
+    <labels>
+        <fullName>Label_For_None</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label For None</shortDescription>
+        <value>None</value>
+    </labels>
+    <labels>
+        <fullName>Label_Name_Of_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label Name of List</shortDescription>
+        <value>List Name</value>
+    </labels>
+    <labels>
+        <fullName>Label_Number_of_Care_Plans_Fetched</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Indicates how many open care plans of all open care plans are fetched</shortDescription>
+        <value>Showing {0} of {1} Care Plans</value>
+    </labels>
+    <labels>
+        <fullName>Label_Remove_Patient_Filter_List_Modal_Header_Non_Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label on Patient Filter List Remove Modal</shortDescription>
+        <value>Delete someone else&apos;s patient list?</value>
+    </labels>
+    <labels>
+        <fullName>Label_Remove_Patient_Filter_List_Modal_Header_Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label on Patient Filter List Remove Modal</shortDescription>
+        <value>Delete Patient List?</value>
+    </labels>
+    <labels>
+        <fullName>Label_Sent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label Sent</shortDescription>
+        <value>Sent</value>
+    </labels>
+    <labels>
+        <fullName>Label_Ten_Thousand_Limit_Note_On_Wave_Patient_List_Import_Screen</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label Ten Thousand Limit Note On Einstein Analytics Patient List Import Screen</shortDescription>
+        <value>NOTE: Only the first 10,000 records will be sent to Health Cloud. Please pick additional filter criteria if your list is greater than 10,000 to ensure all patients are exported.</value>
+    </labels>
+    <labels>
+        <fullName>Label_Visualization_Primary_Group</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom label for primary group label used in the Visualization component</shortDescription>
+        <value>Primary Group</value>
+    </labels>
+    <labels>
+        <fullName>Label_Visualization_Primary_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom label for primary member label used in the Visualization component</shortDescription>
+        <value>Primary Member</value>
+    </labels>
+    <labels>
+        <fullName>Languages</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Languages</shortDescription>
+        <value>Languages</value>
+    </labels>
+    <labels>
+        <fullName>LastName_Is_Required_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact Validation: Last Name on Contact is required to enable a portal user</shortDescription>
+        <value>Last name is required. Please add the member&apos;s last name and try again.</value>
+    </labels>
+    <labels>
+        <fullName>Last_Encounter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Encounter</shortDescription>
+        <value>Last Encounter</value>
+    </labels>
+    <labels>
+        <fullName>Link_Add_Member_Community</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add Member To Community label in add member lightning components</shortDescription>
+        <value>Add Member to Community</value>
+    </labels>
+    <labels>
+        <fullName>Link_Advanced_Filter_Logic</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Link Advanced Filter Logic</shortDescription>
+        <value>https://help.salesforce.com/articleView?err=1&amp;id=working_with_advanced_filter_conditions_in_reports_and_list_views.htm&amp;siteLang=</value>
+    </labels>
+    <labels>
+        <fullName>Link_Call_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Call Member</shortDescription>
+        <value>Call Member</value>
+    </labels>
+    <labels>
+        <fullName>Link_Copy_Current_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Copy Current List</shortDescription>
+        <value>Copy Current List</value>
+    </labels>
+    <labels>
+        <fullName>Link_Create_New_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create New List</shortDescription>
+        <value>Create New List</value>
+    </labels>
+    <labels>
+        <fullName>Link_Create_Task</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create Task</shortDescription>
+        <value>Create Task</value>
+    </labels>
+    <labels>
+        <fullName>Link_Delete_Current_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Delete Current List</shortDescription>
+        <value>Delete Current List</value>
+    </labels>
+    <labels>
+        <fullName>Link_Edit_Current_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit Current List</shortDescription>
+        <value>Edit Current List</value>
+    </labels>
+    <labels>
+        <fullName>Link_Edit_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit Member</shortDescription>
+        <value>Edit Member</value>
+    </labels>
+    <labels>
+        <fullName>Link_Pagination_First</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Link to navigate to the first page of records in the list</shortDescription>
+        <value>First</value>
+    </labels>
+    <labels>
+        <fullName>Link_Pagination_Jump_To_Page</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Link to navigate to a certain page of records in the list</shortDescription>
+        <value>Jump to page</value>
+    </labels>
+    <labels>
+        <fullName>Link_Pagination_Last</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Link to navigate to the last page of records in the list</shortDescription>
+        <value>Last</value>
+    </labels>
+    <labels>
+        <fullName>Link_Pagination_Next</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Link to navigate to the next page of records in the list</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>Link_Pagination_Previous</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Link to navigate to the previous page of records in the list</shortDescription>
+        <value>Previous</value>
+    </labels>
+    <labels>
+        <fullName>Link_Remove_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Remove Member</shortDescription>
+        <value>Remove Member</value>
+    </labels>
+    <labels>
+        <fullName>Link_Send_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Send Message</shortDescription>
+        <value>Send Message</value>
+    </labels>
+    <labels>
+        <fullName>Link_View_All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>View All link</shortDescription>
+        <value>View All</value>
+    </labels>
+    <labels>
+        <fullName>Link_View_More</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for link or button to view more results or items</shortDescription>
+        <value>View More</value>
+    </labels>
+    <labels>
+        <fullName>Link_View_More_Care_Plans</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label for link or button to view more care plans in All Care Plans page</shortDescription>
+        <value>View More Care Plans</value>
+    </labels>
+    <labels>
+        <fullName>List_Recent_Response_Survey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>List only the most recent responses in Survey in Communities</shortDescription>
+        <value>List only the most recent responses</value>
+    </labels>
+    <labels>
+        <fullName>MRN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Field label override for Candidate Patient Medical Record Number</shortDescription>
+        <value>MRN</value>
+    </labels>
+    <labels>
+        <fullName>Medical_Data</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Medical Data</shortDescription>
+        <value>Medical Data</value>
+    </labels>
+    <labels>
+        <fullName>Medications</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Medications</shortDescription>
+        <value>Medications</value>
+    </labels>
+    <labels>
+        <fullName>MemberID_IsBlank_Exception</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Exception that is thrown when Member ID is blank</shortDescription>
+        <value>Error: Member ID is blank.</value>
+    </labels>
+    <labels>
+        <fullName>Member_Type_Is_Not_Supported_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Member Type is not supported</shortDescription>
+        <value>Member Type is not supported.</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Add_CareTeam_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option to add care team member</shortDescription>
+        <value>Add Care Team Member</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_All_Completed_Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All completed tasks option in dropdown menu</shortDescription>
+        <value>All Completed Tasks</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_All_Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All tasks option in dropdown menu</shortDescription>
+        <value>All Tasks</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Apply_CarePlanTemplates</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option to apply care plan templates</shortDescription>
+        <value>Apply Care Plan Templates</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Collapse_all_CarePlans</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option to collapse all care plans</shortDescription>
+        <value>Collapse All Care Plans</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Convert_Patient</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Convert to Patients action label</shortDescription>
+        <value>Convert to {0}</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Converted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Converted candidate patients view label</shortDescription>
+        <value>Converted</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Create_Goal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create Goal option in dropdown menu</shortDescription>
+        <value>Create Goal</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Create_New_CarePlan</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option to create new care plan</shortDescription>
+        <value>New Care Plan</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Create_New_Problem</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option to create new problem</shortDescription>
+        <value>New Problem</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Create_New_Task</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option to create new task</shortDescription>
+        <value>New Task</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Create_Problem</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create problem option in dropdown menu</shortDescription>
+        <value>Problem</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Create_Task</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create task option in dropdown menu</shortDescription>
+        <value>Task</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Edit_Goal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit Goal option in dropdown menu</shortDescription>
+        <value>Edit Goal</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Edit_Problem</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit option in dropdown menu</shortDescription>
+        <value>Edit Problem</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Edit_Task</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit task option in dropdown menu</shortDescription>
+        <value>Edit Task</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Expand_all_CarePlans</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option to expand all care plans</shortDescription>
+        <value>Expand All Care Plans</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_My_Completed_Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My completed tasks option in dropdown menu</shortDescription>
+        <value>My Completed Tasks</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_My_Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My tasks option in dropdown menu</shortDescription>
+        <value>My Tasks</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_New_Patient_Tab</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Patient Tab Label</shortDescription>
+        <value>OPEN NEW TAB</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Open_Collaboration</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option to open collaboration</shortDescription>
+        <value>Open Collaboration Tab</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Patient_List_View_All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All candidate patients view label</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Patient_Not_Converted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Unconverted candidate patients view label</shortDescription>
+        <value>Not Converted</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Recur_Task_1_Week</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option for 1 week recurrence</shortDescription>
+        <value>1 Week</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Recur_Task_1st_Day</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option for first weekday</shortDescription>
+        <value>1st</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Recur_Task_2nd_Day</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option for second weekday</shortDescription>
+        <value>2nd</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Recur_Task_3rd_Day</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option for third weekday</shortDescription>
+        <value>3rd</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Recur_Task_4th_Day</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option for fourth weekday</shortDescription>
+        <value>4th</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Recur_Task_After_Occurrences</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option for number of recurrences</shortDescription>
+        <value>After Occurrences</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Recur_Task_Daily</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option for daily recurrence</shortDescription>
+        <value>Daily</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Recur_Task_Every_Weekday</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option for every weekday recurrence</shortDescription>
+        <value>Every Weekday</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Recur_Task_Last_Day</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option for last weekday</shortDescription>
+        <value>last</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Recur_Task_Monthly</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option for monthly recurrence</shortDescription>
+        <value>Monthly</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Recur_Task_N_Weeks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option for N week recurrence</shortDescription>
+        <value>{0} Weeks</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Recur_Task_On_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option for recurrence end date</shortDescription>
+        <value>On Date</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Recur_Task_Weekly</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option for weekly recurrence</shortDescription>
+        <value>Weekly</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Recur_Task_Yearly</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu option for yearly recurrence</shortDescription>
+        <value>Yearly</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Related_Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Related Tasks option in dropdown menu</shortDescription>
+        <value>Related Tasks</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Relationship_Remove</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Menu item for Relationships tab of client and relationship group profiles</shortDescription>
+        <value>Remove Relationship</value>
+    </labels>
+    <labels>
+        <fullName>Menu_Item_Unrelated_Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Unrelated Tasks option in dropdown menu</shortDescription>
+        <value>Unrelated Tasks</value>
+    </labels>
+    <labels>
+        <fullName>More_task_Button_Label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>More tasks Button Label for task list community component</shortDescription>
+        <value>More tasks</value>
+    </labels>
+    <labels>
+        <fullName>MsgRole</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Role label used in community components</shortDescription>
+        <value>Role</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Action_Variable_Create</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>&quot;Create&quot; action verb used in system messages</shortDescription>
+        <value>Create</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Action_Variable_Delete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>&quot;Delete&quot; action verb used in system messages</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Action_Variable_Read</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>&quot;Read&quot; action verb used in system messages</shortDescription>
+        <value>Read</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Action_Variable_Update</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>&quot;Update&quot; action verb used in system messages</shortDescription>
+        <value>Update</value>
+    </labels>
+    <labels>
+        <fullName>Msg_All_Tasks_Related_To_CarePlan</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when all tasks related to care plan dropdown option is selected</shortDescription>
+        <value>These are all the tasks related to the Care Plan</value>
+    </labels>
+    <labels>
+        <fullName>Msg_BackToPrevious</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Link text indicating action to go back to the previous page</shortDescription>
+        <value>Back to previous page</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Candidate_Ptient_List_not_available</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead to Patient Conversion failure message</shortDescription>
+        <value>This tab is not available in your org. Try again or contact your Salesforce admin for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Cannot_Complete_Actions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when a user accesses a field without the appropriate permission</shortDescription>
+        <value>To complete this action, ask your Salesforce admin to give you access to the required fields:</value>
+    </labels>
+    <labels>
+        <fullName>Msg_CarePlanTemplateWizard_CustomizeTab_Next_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Warning message shown when next button on Customize To Patient tab is clicked</shortDescription>
+        <value>Select at least one problem, goal, or task to move to the next page.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_CareplanTemplateWizard_No_CareCoodinator_User</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message shown when there is no internal user in a care coordinator role.</shortDescription>
+        <value>Add at least one internal user in a {0} role.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Careteam_Error_Missing_Patient_Role</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message shown when Care Team network is missing the Patient.</shortDescription>
+        <value>To show the care team, first add a patient to the care team.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Careteam_Error_Missing_Patient_Role_AssistiveText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Assistive text for error shown when Care Team network is missing the Patient.</shortDescription>
+        <value>Error: No Patient member.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Careteam_Remove_Member_Modal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Care Team remove member modal content message</shortDescription>
+        <value>If this person has incomplete tasks, be sure to reassign the tasks before you remove the member from the care team.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Component_Has_NoAccess</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when user has no access to the UI component</shortDescription>
+        <value>Your account doesn&apos;t have the permission set license that&apos;s required for accessing this component. Contact your Salesforce admin.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Confirm_Add_Member_To_Community</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message to confirm adding member to the community</shortDescription>
+        <value>Are you sure you want to add {0} to the community?</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Duplicate_Both</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Failure reason when convert candidate, with same MRN as other candidate/patient</shortDescription>
+        <value>Duplicate with another selected candidate and an existing patient</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Duplicate_Candidate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Failure reason when convert candidate, with same MRN as another candidate</shortDescription>
+        <value>Duplicate with another selected candidate</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Duplicate_MRN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Candidate Patient Conversion no duplicate MRNs message</shortDescription>
+        <value>The following items have duplicate MRNs. You can go back and correct the records or continue the process without converting these items.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Duplicate_Patient</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Failure reason when convert candidate, with same MRN as existing patient</shortDescription>
+        <value>Duplicate with an existing patient</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_ACR_Account_Invalid</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when a person is entered as the account in an ACR.</shortDescription>
+        <value>Can&apos;t choose a person as the account in this relationship.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Add_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add Member failure generic message.</shortDescription>
+        <value>The member wasn&apos;t ​added. Please try again.​</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Add_Member_Household_Invalid</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when the selected account is not a household</shortDescription>
+        <value>The selected account must be a household, not an individual or business account.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Cannot_Access_Fields</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when a user accesses object fields without appropriate permission</shortDescription>
+        <value>To complete this action, ask your Salesforce admin for {0} access to {1} on {2}.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Cannot_Delete_Relationship</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when Relationship(CCR, ACR, AAR) deletion fails</shortDescription>
+        <value>You can&apos;t remove this record. Contact your administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Changing_Record_Types</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when record type is modified once created.</shortDescription>
+        <value>This record type can&apos;t be changed.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Choose_List_To_Send</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message to prompt user to choose a list</shortDescription>
+        <value>Select a list to send.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Contact_Invalid_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when a Contact of Individual Record Type is created</shortDescription>
+        <value>You can’t create a contact record with an Individual record type.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Contact_User_Exists</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when a general error occurs</shortDescription>
+        <value>Portal user already exists for contact. Cannot add the contact to community</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Create_Care_Plan</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when no care plan exists for the current patient</shortDescription>
+        <value>Create a care plan to see the contents of this page.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Create_Care_Team</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when no care team roles for the current patient</shortDescription>
+        <value>Can&apos;t find roles for care team members. Ask your Salesforce admin to set up roles.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Duplicate_List_Name_Found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when Einstein Analytics list created has duplicate name.</shortDescription>
+        <value>A list with that name already exists. Provide a unique name.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Encrypted_Fields_In_Filter_Condition</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when the patient list has encrypted fields in Filter Condition</shortDescription>
+        <value>Conditions in this list use encrypted fields, so you can&apos;t view the list. Contact your Salesforce administrator.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_End_Date_Over_Max</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when End Date value is greater than max</shortDescription>
+        <value>End date is over the max allowed date: {0}</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Failed_To_Add_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message that is shown when unable to add member</shortDescription>
+        <value>Unable to add care team member.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Failed_To_Add_Member_Duplicate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message that is shown when unable to add member</shortDescription>
+        <value>You can&apos;t add this person because they&apos;re already part of the care team.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_FieldSet_Missing_Fields</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when fieldset has no fields added.</shortDescription>
+        <value>Add fields to the fieldset.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_FieldSet_Missing_Sobj</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when given Sobject is not valid.</shortDescription>
+        <value>Enter the sObject to retrieve data.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_FieldSet_Not_Found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when the provided fieldset is not found.</shortDescription>
+        <value>Unable to find the field set.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Field_Value_Null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when the required value for a field has been cleared</shortDescription>
+        <value>The value of {0} can’t be null. Restore it to the original value.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Filter_Columns</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message that is shown when columns cannot be retrieved</shortDescription>
+        <value>Unable to retrieve selected columns, please contact your Salesforce admin for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Filter_Criteria_Invalid</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>{0} isn&apos;t valid. Check your filter criteria.</shortDescription>
+        <value>Error message when filter criteria are invalid on client or household list views</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Filter_List_Create</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when patient filter list creation has failed.</shortDescription>
+        <value>Filter List Creation Failed</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Filter_List_Edit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when patient filter list edit  has failed.</shortDescription>
+        <value>Filter List Update Failed</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Filter_Record_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message that is shown when record type cannot be retrieved</shortDescription>
+        <value>Unable to retrieve record list, please contact your Salesforce admin for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Filter_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message that is shown when field type cannot be retrieved</shortDescription>
+        <value>Unable to retrieve field type, please contact your Salesforce admin for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_General</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when a general error occurs</shortDescription>
+        <value>Something&apos;s not quite right. Try your action again, and if the issue continues, contact your administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Group_Acr_No_Delete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when trying to delete a group ACR record</shortDescription>
+        <value>Can’t delete AccountContactRelation records. Instead, you can deactivate it.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Group_Business_Primary_Invalid</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when a business is a primary group or primary member in an ACR.</shortDescription>
+        <value>Can&apos;t choose a business as a primary group or primary member.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Group_Record_Type_Not_Unique</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when the Group record type is not unique</shortDescription>
+        <value>There is more than one Group record type for Account. The record type must be unique. Contact your administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message to denote error</shortDescription>
+        <value>Error</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Household_Existing_Membership</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when adding a household member who already belongs to a household</shortDescription>
+        <value>We can&apos;t add this person to this household because the person already belongs to a household.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Household_Primary_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when designating a second primary household member</shortDescription>
+        <value>We can&apos;t designate this person as primary. Someone else is already the primary household member.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Individual_Multiple_Contact</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when an Individual is being associated with multiple contacts</shortDescription>
+        <value>The selected account has an Individual record type and can&apos;t have additional contacts associated with it.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Insert_Topic_Assignment_For_Account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message on insertion of topic assignment for Account.</shortDescription>
+        <value>Something’s not quite right. Ask your admin to confirm that Topics is enabled for the Account object.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Insufficient_Permission_Set_Privileges</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when user do not have permission set to perform operation</shortDescription>
+        <value>To complete this action, ask your Salesforce admin for the required Health Cloud permission set license.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Insufficient_Privileges</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when user has insufficient level of access</shortDescription>
+        <value>You don&apos;t have the level of access required to complete this action. Please contact your administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Invalid_End_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when End Date field value is not valid</shortDescription>
+        <value>Invalid end date</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Invalid_Filter_Logic</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message that is shown when filter logic is invalid</shortDescription>
+        <value>Invalid filter logic.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Invalid_Group_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when the Group record type is not found</shortDescription>
+        <value>The Group record type isn&apos;t available. Contact your administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Invalid_Interval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when date-time interval is not valid</shortDescription>
+        <value>Invalid interval</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Invalid_Number_Occurrences</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when number of occurrences is not valid</shortDescription>
+        <value>Invalid number of occurrences</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Invalid_Person_Account_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when the Person Account record type is not found</shortDescription>
+        <value>The Person Account record type isn&apos;t available. Contact your administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Invalid_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when the Individual record type is not found</shortDescription>
+        <value>The Individual record type isn&apos;t available. Contact your administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Invalid_Use_Of_Individual_RT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Invalid use of Individual Record Type</shortDescription>
+        <value>You can&apos;t create an account or contact using an Individual record type because your org has enabled Person accounts. Create the account or contact using a different record type instead.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Inverse_Role_Needed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when the inverse reciprocal role record is not existing.</shortDescription>
+        <value>We can&apos;t save this record because the selected role is missing required information. Ask your administrator to define its inverse role.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Lead_Already_Converted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when validating already converted lead for patient conversion</shortDescription>
+        <value>This lead has been converted to another record type and can&apos;t be converted to a patient record type.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Lead_Conversion</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when lead can&apos;t be converted to individual</shortDescription>
+        <value>This lead couldn&apos;t be converted to an Individual. Please try again.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Lead_Invalid_CP_RT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when validating lead custom fields for Care Plan Record Type</shortDescription>
+        <value>You can&apos;t use this care plan record type for patient conversion. Select another and try again.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Lead_Invalid_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when validating lead record type for patient conversion</shortDescription>
+        <value>The record you&apos;ve selected isn&apos;t valid for patient conversion. Please modify the record to use the record type your org uses for patients.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Lead_Record_Type_Not_Unique</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when Lead record types are not unique</shortDescription>
+        <value>Duplicates found for Lead Record Type: {0}.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_List_No_Longer_Exists</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message shown when a selected patient list filter does not exist.</shortDescription>
+        <value>This list no longer exists.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Member_Create</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Member failure generic message.</shortDescription>
+        <value>The member wasn&apos;t created. Please try again.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Message_Empty</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message for empty private message</shortDescription>
+        <value>Message can&apos;t be empty</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Multi_Group_Migration</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when multiple relationship groups for contacts is being enabled</shortDescription>
+        <value>We&apos;re enabling multiple relationship groups for contacts. Try again in a few minutes.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_No_Access_To_Create_Wave_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message for user does not have access to create a Einstein Analytics list.</shortDescription>
+        <value>We can’t send the list because you don’t have permission to create a list from the Einstein Analytics dashboard. Ask your Salesforce admin for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_No_Create_Access_On_Filter_Column</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when logged in user does not create access on Filter Column.</shortDescription>
+        <value>We can’t send your list to Health Cloud. You’re not set up to create filter columns.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_No_Create_Access_On_Filter_Condition</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when logged in user does not create access on Filter Condition.</shortDescription>
+        <value>We can’t send your list to Health Cloud. You’re not set up to create filter conditions.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_No_Create_Access_On_Filter_Criteria</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when logged in user does not create access on Filter Criteria.</shortDescription>
+        <value>We can’t send your list to Health Cloud. You’re not set up to create filter criteria.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_No_Survey_Email_Branding</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message shown when the system does not have an survey email branding.</shortDescription>
+        <value>We&apos;d love to send this survey, but first your admin needs to set up email branding.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Not_Community_Member_for_SurveyInvitation_Creation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message shown when survey invitation is successfully created.</shortDescription>
+        <value>You can&apos;t send surveys to people who aren&apos;t community members.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_On_No_Accounts_From_Wave_Query</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message shown when no accounts are retrieved from Einstein Analytics query.</shortDescription>
+        <value>We can’t send an empty list to Health Cloud. Was the Record ID column for patient details deleted?</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_On_Wave_Callout_Failure</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message on Einstein Analytics callout failure.</shortDescription>
+        <value>We can’t send the list to Health Cloud. Ask your admin to make sure that a service endpoint is set up in the remote site settings.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_On_Wave_Response_Failed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when Einstein Analytics response failed.</shortDescription>
+        <value>Einstein Analytics for Health Cloud data wasn’t processed correctly. Ask your admin for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_One_Primary_Group_For_Contact</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when enabling more than one primary group for a contact.</shortDescription>
+        <value>A contact can have only one primary group.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Operation_Entity</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message about an unsuccessful operation on an entity</shortDescription>
+        <value>We could not {0} this {1}. Please try again.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Record_Type_Not_Unique</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when the Individual record type is not unique</shortDescription>
+        <value>There is more than one Individual record type for Account or Contact. The record type must be unique. Contact your administrator for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Relationship_Not_Found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when relationship is not found in sObject</shortDescription>
+        <value>There is no relationship between Objects with name:</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Remove_Member_Household</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when a household member can&apos;t be removed</shortDescription>
+        <value>We couldn&apos;t remove this household member.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_RequiredFields</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when required fields are missing in Add Member</shortDescription>
+        <value>These required fields must be completed: {0}</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Required_Field_Missing</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when a required field is missing</shortDescription>
+        <value>{0} field is required.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Required_Fields</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when missing required fields while adding a household member</shortDescription>
+        <value>These required fields must be completed: {0}</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Select_Option_To_Proceed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Prompt user to choose an option before proceeding.</shortDescription>
+        <value>Choose an option to continue.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Service_Not_Found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message service is not found for a feature</shortDescription>
+        <value>Service not found for feature {0}</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Subject_Required</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when Subject field is empty</shortDescription>
+        <value>Subject required</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Surveys_Not_Available</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message that is shown when Survey&apos;s are not available for the user</shortDescription>
+        <value>You don&apos;t have permission to view Assessments. Ask your Salesforce admin for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Topic_Not_Enabled_For_Org</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when topic is not enabled in an org.</shortDescription>
+        <value>To send a list to Health Cloud, ask your admin to enable Topics in Salesforce and on the Accounts object.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Unable_To_Create_Task</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message that is shown when unable to create a task</shortDescription>
+        <value>Unable to save this task.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Unable_To_Remove_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message that is shown when unable to remove a member</shortDescription>
+        <value>You can&apos;t remove this member.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Unable_To_Retrive_CarePlan</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when we are unable to retrieve any Care Plan.</shortDescription>
+        <value>No care plan available to display.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Wave_List_Cannot_Be_Edited</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when Einstein Analytics list cannot be edited.</shortDescription>
+        <value>The criteria for this list changed and can&apos;t be edited. Create a new list or ask your Salesforce admin for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_Wave_Query_Row_Exceed_Limit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error when exporting Einstein Analytics list rows exceeding the max limit.</shortDescription>
+        <value>You can send lists with up to {0} patient records. To shorten your list, change the filter criteria.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Error_conditions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message shown when</shortDescription>
+        <value>Unable to retrieve filter conditions, please contact your Salesforce admin for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Failure_Filter_List_Delete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message to show when patient filter list deletion fails</shortDescription>
+        <value>Can&apos;t delete patient list.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Field_Set_Edit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hc Field Set Edit Success Message</shortDescription>
+        <value>Record Updated</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Field_Set_Success</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hc Field Set Create Success Message</shortDescription>
+        <value>Record Created</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Info_CarePlanTemplateWizard_SearchRecords_Limit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message to be displayed when template selection count reaches the limit</shortDescription>
+        <value>We found over {0} results for your search term. Try narrowing your search.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Info_CarePlanTemplateWizard_SelectedTemplates_Empty</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message to be displayed when the shopping cart is empty</shortDescription>
+        <value>When you select a template, you&apos;ll see it here. You can select up to {0} different templates to address your patient&apos;s conditions.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Info_CarePlanTemplateWizard_Selection_Count</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message to be displayed when template selection count reaches the limit</shortDescription>
+        <value>You can choose up to {0} templates.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Info_CarePlanTemplateWizard_Template_Already_Exists</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message to be displayed when template already exists in selected templates list</shortDescription>
+        <value>{0} already exists in Selected Template list.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Info_SelectedRecords</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Msg_Info_SelectedRecords</shortDescription>
+        <value>If you leave the page, you’ll lose your selections.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Invalid_Filter_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message for invalid filter selection</shortDescription>
+        <value>Invalid filter selection</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Invalid_Problem</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used in HcTask component</shortDescription>
+        <value>Invalid problem ID. Please select a problem.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Lead_Patient_Convert_Fail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead to Patient Conversion failure message</shortDescription>
+        <value>Patient conversion failed. Try again or contact your Salesforce admin for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Lead_Patient_Convert_Success_Back_To_Leads</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead to Patient Conversion success dialog user flow explanation</shortDescription>
+        <value>Now, we&apos;ll take you to the Leads page where you can continue working.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Lead_Patient_Convert_Success_Plural</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead to Patient Conversion success message plural form</shortDescription>
+        <value>{0} leads were converted to patients.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Lead_Patient_Convert_Success_Singular</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead to Patient Conversion success message singular form</shortDescription>
+        <value>1 lead was converted to a patient.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Lead_To_Patient_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead to Patient Conversion no errors message</shortDescription>
+        <value>We can&apos;t convert these items. You can go back and correct the records or continue the process without converting them.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Lead_To_Patient_Select_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead to Patient Conversion Wizard message to select a care plan record type</shortDescription>
+        <value>Select a Care Plan Record Type</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Lead_To_Patient_Validation_No_Errors</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead to Patient Conversion no errors message</shortDescription>
+        <value>There are no errors or duplicates.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_LeadsConversion_NoSelection</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message indicating no selection was made during lead to patient conversion.</shortDescription>
+        <value>No leads selected for conversion.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_LeadsConversion_Summary</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message shown at summary step.</shortDescription>
+        <value>Review the following patient records. To assign a different care coordinator, use the back button below and change the assignment on the previous page. To continue converting these records as they are, click Convert.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Loading</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Generic loading message and ALT text for spinner.</shortDescription>
+        <value>Loading...</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Max_Events_Limit_Reached</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Msg Max Events Limit Reached</shortDescription>
+        <value>Can&apos;t show more events. Max limit reached.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Member_Search</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>error msg when less than two characters are entered while performing search</shortDescription>
+        <value>Enter two or more characters to perform a search.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Missing_Gender</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used in Patient Card view</shortDescription>
+        <value>Gender not specified</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Missing_Required_Fields</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter criteria error message on missing field</shortDescription>
+        <value>Please make sure you fill out all required fields.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_No_CareTeam_Members</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message that is shown when no records are retrieved</shortDescription>
+        <value>No Team members to display</value>
+    </labels>
+    <labels>
+        <fullName>Msg_No_Duplicate_MRN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Candidate Patient Conversion no duplicate MRNs message</shortDescription>
+        <value>There are no duplicate MRNs.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_No_Events</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Msg No More Events</shortDescription>
+        <value>No events to show.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_No_Events_For_Today</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Msg No Events For Today</shortDescription>
+        <value>No events for today.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_No_More_Events</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Msg No Events</shortDescription>
+        <value>No more events to show.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Patient_Convert_Fail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Candidate Patient Conversion failure message</shortDescription>
+        <value>Patient conversion failed.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Patient_Convert_Success</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Candidate Patient Conversion success message</shortDescription>
+        <value>Patient conversion succeeded.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Patient_Not_Community_User</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>The patient isn&apos;t a community user.</shortDescription>
+        <value>The patient isn&apos;t a community user, so patient tasks are assigned to the {0}.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Please_Select_Template_To_Proceed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message please select template to proceed</shortDescription>
+        <value>Please select a template to proceed</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Save_Goal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Saving goal message shown while waiting</shortDescription>
+        <value>Saving goal...</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Save_Problem</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Saving problem message shown while waiting</shortDescription>
+        <value>Saving problem...</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Save_Task</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Saving task message shown while waiting</shortDescription>
+        <value>Saving task...</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Send_Private_Success</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Send private message success</shortDescription>
+        <value>You sent a private message.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Show_Less</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Show less icon msg</shortDescription>
+        <value>Show Less</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Show_More</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Show more icon msg</shortDescription>
+        <value>Show More</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Success_Add_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add Member success generic message.</shortDescription>
+        <value>The member was ​added successfully.​</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Success_Add_Member_To_Community</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Success message that is shown when a member is added to the community</shortDescription>
+        <value>The member was added to the community successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Success_CarePlanTemplateWizard_Apply</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Success message shown after apply button is clicked</shortDescription>
+        <value>The care plan template was applied to the patient.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Success_Create_External_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Success message for create external member</shortDescription>
+        <value>Member created.​</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Success_Filter_List_Create</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Success message when patient filter list is created.</shortDescription>
+        <value>The filter list was successfully created.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Success_Filter_List_Delete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Success message when patient filter list is deleted.</shortDescription>
+        <value>{0} patient list was deleted.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Success_Filter_List_Edit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Success message when patient filter list is edited.</shortDescription>
+        <value>The filter list was edited successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Success_Remove_Member</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Success message that is shown when a member is removed</shortDescription>
+        <value>The member was removed successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Success_Task_Updated</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message confirms task updated</shortDescription>
+        <value>Task updated.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Task_NoDescription</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message indicating no description for a task</shortDescription>
+        <value>Task has no description.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Tasks_Related_To_Problem_In_CarePlan</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when related tasks care plan dropdown option is selected  Name</shortDescription>
+        <value>These tasks are related to problems or goals</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Template_Applied_Async</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Apply Template Response message when done asynchronously (not immediately)</shortDescription>
+        <value>We&apos;re applying the care plan template to the patient. Refresh the Care Plan tab in a few minutes to see your changes.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Text_Lookup_NoResults</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message when no results are available</shortDescription>
+        <value>No results found</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Timeline_NoConfigRecords</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Warning message shown when no config records are available</shortDescription>
+        <value>Can&apos;t find valid timeline settings. Contact your admin for help.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_To_Close_Window</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Msg To Close Window</shortDescription>
+        <value>You may close this window.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_TodayPage_NoResults_TasksDueToday</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message indicating no patients with tasks due today found on Today page</shortDescription>
+        <value>No patients with tasks due today.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_TodayPage_NoResults_TasksDueTomorrow</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message indicating no patients with tasks due tomorrow found on Today page</shortDescription>
+        <value>No patients with tasks due tomorrow.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_TodayPage_NoResults_TasksOverdue</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message indicating no patients with tasks overdue found on Today page</shortDescription>
+        <value>No patients with overdue tasks.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Unrelated_Tasks_In_CarePlan</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when unrelated tasks in a careplan down option is selected</shortDescription>
+        <value>These tasks aren&apos;t related to a problem or goal.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Warning_CarePlanTemplateWizard_Back_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Warning message shown when back button on care plan template wizard is clicked</shortDescription>
+        <value>If you go back, you&apos;ll lose your changes.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Warning_CarePlanTemplateWizard_Cancel_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Warning message shown when cancel button on care plan template wizard is clicked</shortDescription>
+        <value>If you cancel, you&apos;ll lose your changes.</value>
+    </labels>
+    <labels>
+        <fullName>Msg_Wave_List_Creation_Async</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Apply Einstein Analytics List Response message when done asynchronously</shortDescription>
+        <value>We’re getting your list ready. It will be available in Health Cloud in a few minutes.</value>
+    </labels>
+    <labels>
+        <fullName>Name_Is_Required_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Patient conversion Validation: Name on candidate patient is required</shortDescription>
+        <value>Can&apos;t convert Candidate Patient. Add a name to the Candidate Patient record and try again.</value>
+    </labels>
+    <labels>
+        <fullName>New_Patient_Count_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>error when unable to fetch the number of new patients for user</shortDescription>
+        <value>Unable to fetch the number of new patients for this user.</value>
+    </labels>
+    <labels>
+        <fullName>NoActivitiesAssigned</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Community Timeline Label for when there are no timeline activities</shortDescription>
+        <value>No Timeline Activities Assigned</value>
+    </labels>
+    <labels>
+        <fullName>No_Care_Plan_to_display_text</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Care Plan to display text</shortDescription>
+        <value>There is no care plan to display.</value>
+    </labels>
+    <labels>
+        <fullName>Not_Found_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>When an item is not found</shortDescription>
+        <value>Not Found.</value>
+    </labels>
+    <labels>
+        <fullName>Not_Valid_Account_Lookup_Field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Not a valid account lookup field.</shortDescription>
+        <value>Specify a valid field name that exists in {0} and also references Account as a lookup.</value>
+    </labels>
+    <labels>
+        <fullName>Not_Valid_Checkbox_Field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Not a valid checkbox field.</shortDescription>
+        <value>Specify a valid field name that exists in {0} and is a checkbox field.</value>
+    </labels>
+    <labels>
+        <fullName>Not_Valid_Date_Field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This field is not a valid Date or DateTime field</shortDescription>
+        <value>Specify a valid field name that exists in {0} and is a date/time or date field.</value>
+    </labels>
+    <labels>
+        <fullName>Not_Valid_Default_Value_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Specify a valid field name in field that references particular object</shortDescription>
+        <value>Specify a valid field name in {0} that references {1}.</value>
+    </labels>
+    <labels>
+        <fullName>Not_Valid_Field_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Specify valid field name(s) that exists in Object.</shortDescription>
+        <value>Specify valid field name(s) that exists in {0}.</value>
+    </labels>
+    <labels>
+        <fullName>Not_Valid_Field_Operator_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This operator is not valid for the field</shortDescription>
+        <value>Specify a valid filter operator such as “equals” or “less than.”</value>
+    </labels>
+    <labels>
+        <fullName>Not_Valid_Filename_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Not a valid filename error.</shortDescription>
+        <value>Specify a valid filename for an image in the Health Cloud Assets folder.</value>
+    </labels>
+    <labels>
+        <fullName>Not_Valid_Object_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Object name must be valid for your organization.</shortDescription>
+        <value>Object name must be valid for your organization.</value>
+    </labels>
+    <labels>
+        <fullName>Not_Valid_Text_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Not valid picklist, combobox or text.</shortDescription>
+        <value>Specify a valid text, picklist or combobox field that exists in {0}.</value>
+    </labels>
+    <labels>
+        <fullName>Not_valid_Number_Date_Picklist_Combobox_or_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Not valid Number, Date, Picklist, Combobox or Text.</shortDescription>
+        <value>Specify a valid date, number, text, picklist or combo box field that exists in {0}.</value>
+    </labels>
+    <labels>
+        <fullName>Open_Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Open Tasks</shortDescription>
+        <value>OpenTasks</value>
+    </labels>
+    <labels>
+        <fullName>Open_Tasks_Due_Today_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>error when unable to fetch tasks due today for user</shortDescription>
+        <value>Unable to fetch the tasks due today for this user.</value>
+    </labels>
+    <labels>
+        <fullName>Open_Tasks_Due_Tomorrow_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>error when unable to fetch tasks due tomorrow for user</shortDescription>
+        <value>Unable to fetch the tasks due tomorrow for this user.</value>
+    </labels>
+    <labels>
+        <fullName>Open_Tasks_Overdue_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>error when unable to fetch tasks overdue for user</shortDescription>
+        <value>Unable to fetch the overdue tasks for this user.</value>
+    </labels>
+    <labels>
+        <fullName>Operator_Patient_Filter_CONTAINS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for operators used to create/edit patient filter lists.</shortDescription>
+        <value>contains</value>
+    </labels>
+    <labels>
+        <fullName>Operator_Patient_Filter_DOES_NOT_CONTAIN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for operators used to create/edit patient filter lists.</shortDescription>
+        <value>does not contain</value>
+    </labels>
+    <labels>
+        <fullName>Operator_Patient_Filter_EQUALS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for operators used to create/edit patient filter lists.</shortDescription>
+        <value>equals</value>
+    </labels>
+    <labels>
+        <fullName>Operator_Patient_Filter_EXCLUDES</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for operators used to create/edit patient filter lists.</shortDescription>
+        <value>excludes</value>
+    </labels>
+    <labels>
+        <fullName>Operator_Patient_Filter_GREATER_OR_EQUAL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for operators used to create/edit patient filter lists.</shortDescription>
+        <value>greater or equal</value>
+    </labels>
+    <labels>
+        <fullName>Operator_Patient_Filter_GREATER_THAN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for operators used to create/edit patient filter lists.</shortDescription>
+        <value>greater than</value>
+    </labels>
+    <labels>
+        <fullName>Operator_Patient_Filter_INCLUDES</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for operators used to create/edit patient filter lists.</shortDescription>
+        <value>includes</value>
+    </labels>
+    <labels>
+        <fullName>Operator_Patient_Filter_LESS_OR_EQUAL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for operators used to create/edit patient filter lists.</shortDescription>
+        <value>less or equal</value>
+    </labels>
+    <labels>
+        <fullName>Operator_Patient_Filter_LESS_THAN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for operators used to create/edit patient filter lists.</shortDescription>
+        <value>less than</value>
+    </labels>
+    <labels>
+        <fullName>Operator_Patient_Filter_NOT_EQUAL_TO</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for operators used to create/edit patient filter lists.</shortDescription>
+        <value>not equal to</value>
+    </labels>
+    <labels>
+        <fullName>Operator_Patient_Filter_STARTS_WITH</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for operators used to create/edit patient filter lists.</shortDescription>
+        <value>starts with</value>
+    </labels>
+    <labels>
+        <fullName>Page_Reload_size</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No of default activities to be shown in Community Timeline</shortDescription>
+        <value>The number of events loaded initially and when the users scrolls to the end of the list.</value>
+    </labels>
+    <labels>
+        <fullName>Page_Size_Survey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Number of Surveys to be displayed in a page in Communities</shortDescription>
+        <value>Number of Surveys to be displayed</value>
+    </labels>
+    <labels>
+        <fullName>Patient_Card_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Patient Card Header</shortDescription>
+        <value>Patient Card</value>
+    </labels>
+    <labels>
+        <fullName>Patient_Count_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>error when unable to fetch the total patients for a user</shortDescription>
+        <value>Unable to fetch the total number of patients for this user.</value>
+    </labels>
+    <labels>
+        <fullName>Patient_Details_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Patient details error</shortDescription>
+        <value>Error retrieving patient details.</value>
+    </labels>
+    <labels>
+        <fullName>Patient_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Field label override for Candidate Patient name</shortDescription>
+        <value>Patient Name</value>
+    </labels>
+    <labels>
+        <fullName>Patient_Record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Column header for link to Candidate Patient record detail page</shortDescription>
+        <value>Patient Record</value>
+    </labels>
+    <labels>
+        <fullName>Portal_User_Creation_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Could not create the user</shortDescription>
+        <value>We can&apos;t create the user. Try again or contact your admin for help.</value>
+    </labels>
+    <labels>
+        <fullName>Prescriptions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Prescriptions</shortDescription>
+        <value>Prescriptions</value>
+    </labels>
+    <labels>
+        <fullName>ProcedureRequests</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Procedure Requests</shortDescription>
+        <value>Procedure Requests</value>
+    </labels>
+    <labels>
+        <fullName>Procedures</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Procedures</shortDescription>
+        <value>Procedures</value>
+    </labels>
+    <labels>
+        <fullName>Section_Care_Plans</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Care Plans section on patient card dropdown</shortDescription>
+        <value>Care Plans</value>
+    </labels>
+    <labels>
+        <fullName>Send_To_Patient</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>&quot;Send to patient&quot; for send survey invitation communities drop down</shortDescription>
+        <value>Send to Patient</value>
+    </labels>
+    <labels>
+        <fullName>Send_To_Patient_In</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>&quot;Send to patient in &quot; for send survey invitation communities drop down</shortDescription>
+        <value>Send to Patient in</value>
+    </labels>
+    <labels>
+        <fullName>Sending_Direct_Message_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error sending a direct message to recipients</shortDescription>
+        <value>Unable to send private message to recipients.</value>
+    </labels>
+    <labels>
+        <fullName>Success_Message_for_SurveyInvitation_Creation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message shown when survey invitation is successfully created.</shortDescription>
+        <value>Survey invitation created.</value>
+    </labels>
+    <labels>
+        <fullName>Success_Page_Header_Wave_Patientlist_Save_On_Healthcloud</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success Page Header Einstein Analytics Patientlist Save On Healthcloud</shortDescription>
+        <value>Patient list was sent to Health Could console.</value>
+    </labels>
+    <labels>
+        <fullName>Survey_Header_Name_Communities</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Header Name for Survey Container Component in Communities</shortDescription>
+        <value>Header Name for List View</value>
+    </labels>
+    <labels>
+        <fullName>Tab_Assessment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Assessment tab showing surveys that the user has access to view.</shortDescription>
+        <value>Assessments</value>
+    </labels>
+    <labels>
+        <fullName>Tab_Care_Team</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Care Team tab in care plan</shortDescription>
+        <value>Care Team</value>
+    </labels>
+    <labels>
+        <fullName>Tab_Careplan</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Care Plan console secondary tab label</shortDescription>
+        <value>Care Plan</value>
+    </labels>
+    <labels>
+        <fullName>Tab_Careplan_And_Timeline</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Care Plan and Timeline console secondary tab label</shortDescription>
+        <value>Care Plan and Timeline</value>
+    </labels>
+    <labels>
+        <fullName>Tab_Careplan_Template_Wizard</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Care Plan Template Wizard console secondary tab label</shortDescription>
+        <value>Care Plan Templates</value>
+    </labels>
+    <labels>
+        <fullName>Tab_Careplan_Timeline</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Care Plan and Timeline console secondary tab label</shortDescription>
+        <value>Care Plan and Timeline</value>
+    </labels>
+    <labels>
+        <fullName>Tab_Collaboration</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Care Team visualization console secondary tab label</shortDescription>
+        <value>Collaboration</value>
+    </labels>
+    <labels>
+        <fullName>Tab_Household</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Household map tab label.</shortDescription>
+        <value>Household</value>
+    </labels>
+    <labels>
+        <fullName>Tab_Problem_And_Goals</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Problem and Goals Tab in care plan</shortDescription>
+        <value>Problems &amp; Goals</value>
+    </labels>
+    <labels>
+        <fullName>Tab_Questions_And_Answers</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Questions And Answers Tab</shortDescription>
+        <value>QUESTIONS &amp; ANSWERS</value>
+    </labels>
+    <labels>
+        <fullName>Tab_Task</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tasks tab in care plan</shortDescription>
+        <value>Tasks</value>
+    </labels>
+    <labels>
+        <fullName>Tab_Timeline</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Timeline console secondary tab label</shortDescription>
+        <value>Timeline</value>
+    </labels>
+    <labels>
+        <fullName>Tab_Title_Careplan_Templates</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tab title for Care Plan Template Wizard</shortDescription>
+        <value>Care Plan Templates: {0}</value>
+    </labels>
+    <labels>
+        <fullName>Task_Count_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>error when unable to fetch the number of tasks for user</shortDescription>
+        <value>Unable to fetch the number of tasks for this user.</value>
+    </labels>
+    <labels>
+        <fullName>Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tasks</shortDescription>
+        <value>Tasks</value>
+    </labels>
+    <labels>
+        <fullName>Text_And</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Text used in Filter List to add multiple rows</shortDescription>
+        <value>and</value>
+    </labels>
+    <labels>
+        <fullName>Text_CarePlanTemplateWizard_Task_Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Whom the task will be assigned to</shortDescription>
+        <value>Task Owner</value>
+    </labels>
+    <labels>
+        <fullName>Text_CarePlanTemplateWizard_Task_Priority</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>The priority of the task to be created</shortDescription>
+        <value>Priority</value>
+    </labels>
+    <labels>
+        <fullName>Text_CarePlanTemplateWizard_Task_Subject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>The subject of the task to be created</shortDescription>
+        <value>Task Name</value>
+    </labels>
+    <labels>
+        <fullName>Text_CarePlan_Subject_Suffix</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>The suffix for a care plan subject.</shortDescription>
+        <value>&apos;s Care Plan</value>
+    </labels>
+    <labels>
+        <fullName>Text_Click_Next</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Wizard text indicating to proceed to next screen.</shortDescription>
+        <value>Click Next to continue.</value>
+    </labels>
+    <labels>
+        <fullName>Text_Collapse</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Description for support text, collapse</shortDescription>
+        <value>collapse</value>
+    </labels>
+    <labels>
+        <fullName>Text_Collapse_All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Description for support text, collapse all</shortDescription>
+        <value>Collapse All</value>
+    </labels>
+    <labels>
+        <fullName>Text_Community_CarePlanPicker_DefaultText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Default text shown in the Community Care Plan dropdown.</shortDescription>
+        <value>Select a patient&apos;s care plan</value>
+    </labels>
+    <labels>
+        <fullName>Text_Community_CarePlanPicker_Label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label to display next to the Community Care Plan dropdown.</shortDescription>
+        <value>Care Plan</value>
+    </labels>
+    <labels>
+        <fullName>Text_Expand</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Description for support text, expand</shortDescription>
+        <value>expand</value>
+    </labels>
+    <labels>
+        <fullName>Text_Expand_All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Description for support text, expand all</shortDescription>
+        <value>Expand All</value>
+    </labels>
+    <labels>
+        <fullName>Text_External</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>External text on Care Team Collaboration tab</shortDescription>
+        <value>EXTERNAL</value>
+    </labels>
+    <labels>
+        <fullName>Text_Future</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Future</shortDescription>
+        <value>Future</value>
+    </labels>
+    <labels>
+        <fullName>Text_Health_Assessments</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Text Health Assessments</shortDescription>
+        <value>Health Assessments</value>
+    </labels>
+    <labels>
+        <fullName>Text_Internal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Internal text on Care Team Collaboration tab</shortDescription>
+        <value>INTERNAL</value>
+    </labels>
+    <labels>
+        <fullName>Text_Label_Group</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Text Label Group</shortDescription>
+        <value>Group</value>
+    </labels>
+    <labels>
+        <fullName>Text_Label_Patients</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Text Label Patients</shortDescription>
+        <value>Patients</value>
+    </labels>
+    <labels>
+        <fullName>Text_List_My_Custom_Lists</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title for My Custom Lists</shortDescription>
+        <value>My Custom Lists</value>
+    </labels>
+    <labels>
+        <fullName>Text_List_View_Category</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title for selecting a patient filter column category</shortDescription>
+        <value>Select a Category</value>
+    </labels>
+    <labels>
+        <fullName>Text_List_View_Column_Order</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title for setting a patient filter column fields order</shortDescription>
+        <value>Set Column Order</value>
+    </labels>
+    <labels>
+        <fullName>Text_List_View_Fields</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title for selecting a patient filter column field</shortDescription>
+        <value>Select Fields to Display</value>
+    </labels>
+    <labels>
+        <fullName>Text_List_View_Select</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title for Select a List</shortDescription>
+        <value>SELECT A LIST</value>
+    </labels>
+    <labels>
+        <fullName>Text_List_View_Value</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter criteria value label</shortDescription>
+        <value>Value</value>
+    </labels>
+    <labels>
+        <fullName>Text_Lookup_NoResults</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Text_Lookup_NoResults</shortDescription>
+        <value>No results found</value>
+    </labels>
+    <labels>
+        <fullName>Text_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message</shortDescription>
+        <value>Message</value>
+    </labels>
+    <labels>
+        <fullName>Text_Meta_HasXTasksInContext</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Meta content describing number of tasks within a context</shortDescription>
+        <value>Tasks: {0}</value>
+    </labels>
+    <labels>
+        <fullName>Text_No</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Text used for the word &quot;No&quot;</shortDescription>
+        <value>No</value>
+    </labels>
+    <labels>
+        <fullName>Text_No_CarePlans</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when the All Care Plans page has no items to show.</shortDescription>
+        <value>No care plans to show.</value>
+    </labels>
+    <labels>
+        <fullName>Text_No_Care_Team_Members</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message shown when there are no associated care team members</shortDescription>
+        <value>No care team members to show.</value>
+    </labels>
+    <labels>
+        <fullName>Text_No_Goals</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message shown when a problem has no associated goals.</shortDescription>
+        <value>No goals to show.</value>
+    </labels>
+    <labels>
+        <fullName>Text_No_Leads</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when the Home page Leads component has no items to show.</shortDescription>
+        <value>No leads to show.</value>
+    </labels>
+    <labels>
+        <fullName>Text_No_Opportunities</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when the Home page Opportunities component has no items to show.</shortDescription>
+        <value>No opportunities to show.</value>
+    </labels>
+    <labels>
+        <fullName>Text_No_Option_Selected</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label For None</shortDescription>
+        <value>None</value>
+    </labels>
+    <labels>
+        <fullName>Text_No_Patients</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message shown when there are no patients for a selected list.</shortDescription>
+        <value>No patients to show.</value>
+    </labels>
+    <labels>
+        <fullName>Text_No_Problems</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when the Problem component has no items to show.</shortDescription>
+        <value>No problems to show.</value>
+    </labels>
+    <labels>
+        <fullName>Text_No_Related_Tasks</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message when the Care Plan has no related tasks to show.</shortDescription>
+        <value>No related tasks to show.</value>
+    </labels>
+    <labels>
+        <fullName>Text_No_Results</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Generic message when there are no results to be shown.</shortDescription>
+        <value>No results found.</value>
+    </labels>
+    <labels>
+        <fullName>Text_No_Subject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No subject text for care plan and task</shortDescription>
+        <value>( No Subject )</value>
+    </labels>
+    <labels>
+        <fullName>Text_No_Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when the Home page Tasks component has no items to show.</shortDescription>
+        <value>No tasks to show.</value>
+    </labels>
+    <labels>
+        <fullName>Text_No_Unrelated_Tasks</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message when the Care Plan has no unrelated tasks to show.</shortDescription>
+        <value>No unrelated tasks to show.</value>
+    </labels>
+    <labels>
+        <fullName>Text_No_Wave_Lists</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when there are no Einstein Analytics lists to show.</shortDescription>
+        <value>No Einstein Analytics lists to show.</value>
+    </labels>
+    <labels>
+        <fullName>Text_Open_Assessment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Text to display for the url whilch leads to open assessment action</shortDescription>
+        <value>Open assessment</value>
+    </labels>
+    <labels>
+        <fullName>Text_Past</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Past</shortDescription>
+        <value>Past</value>
+    </labels>
+    <labels>
+        <fullName>Text_Patient_List_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter criteria to save a patient filter list text</shortDescription>
+        <value>Enter a name...</value>
+    </labels>
+    <labels>
+        <fullName>Text_Recur_Task_Days</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Partial label appended to numeric date input field</shortDescription>
+        <value>Days</value>
+    </labels>
+    <labels>
+        <fullName>Text_Recur_Task_Every</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Partial label prepended to numeric date input field</shortDescription>
+        <value>Every</value>
+    </labels>
+    <labels>
+        <fullName>Text_Recur_Task_Months</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Partial label appended to numeric month input field</shortDescription>
+        <value>months</value>
+    </labels>
+    <labels>
+        <fullName>Text_Recur_Task_Of_Every</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Partial label prepended to numeric month input field</shortDescription>
+        <value>of every</value>
+    </labels>
+    <labels>
+        <fullName>Text_Recur_Task_The</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Partial label prepended to Nth weekday input field</shortDescription>
+        <value>The</value>
+    </labels>
+    <labels>
+        <fullName>Text_Remove_Patient_Filter_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Remove text on Patient filter criteria list screen</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>Text_Remove_Template</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Description for support text, Remove Template</shortDescription>
+        <value>Remove Template</value>
+    </labels>
+    <labels>
+        <fullName>Text_Search_Assessments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Text Search Assessments</shortDescription>
+        <value>Search Assessments...</value>
+    </labels>
+    <labels>
+        <fullName>Text_Search_Careplan_Templates</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hint text for searching the care plan templates</shortDescription>
+        <value>Search for templates...</value>
+    </labels>
+    <labels>
+        <fullName>Text_Search_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search box prompt for patient list view</shortDescription>
+        <value>Search this page...</value>
+    </labels>
+    <labels>
+        <fullName>Text_Search_No_Matches</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message shown when there are no matching results for the search performed.</shortDescription>
+        <value>We couldn&apos;t find anything that matches your search criteria. Double-check your spelling or try a different keyword.</value>
+    </labels>
+    <labels>
+        <fullName>Text_Send_Private_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Send a Private Message, used in Link and Title</shortDescription>
+        <value>Send a Private Message</value>
+    </labels>
+    <labels>
+        <fullName>Text_Sort_Order</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label to display how a list was sorted. Prepended to sort type.</shortDescription>
+        <value>Sorted by {0}</value>
+    </labels>
+    <labels>
+        <fullName>Text_Task_External_Member_Hint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hint text for external member related to this task</shortDescription>
+        <value>Patient or external care team member</value>
+    </labels>
+    <labels>
+        <fullName>Text_Task_Max_Occurrences</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Text for recurring task field max occurrences</shortDescription>
+        <value>Maximum Allowed Occurrences</value>
+    </labels>
+    <labels>
+        <fullName>Text_Task_Offset</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Offset for task start date</shortDescription>
+        <value>+{0} days</value>
+    </labels>
+    <labels>
+        <fullName>Text_Task_Owner_Lookup_Hint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hint text for owner of this task</shortDescription>
+        <value>Internal user or community member who performs or oversees the task</value>
+    </labels>
+    <labels>
+        <fullName>Text_Task_Recur_Of</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Partial label for the Nth week of the Mth month</shortDescription>
+        <value>of</value>
+    </labels>
+    <labels>
+        <fullName>Text_Task_Recurring</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for recurring task checkbox</shortDescription>
+        <value>This is a recurring task</value>
+    </labels>
+    <labels>
+        <fullName>Text_Task_Templ_Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Whom the task will be assigned to</shortDescription>
+        <value>Task Owner</value>
+    </labels>
+    <labels>
+        <fullName>Text_Task_Templ_Priority</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>The priority of the task to be created</shortDescription>
+        <value>Priority</value>
+    </labels>
+    <labels>
+        <fullName>Text_Task_Templ_Subject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>The subject of the task to be created</shortDescription>
+        <value>Task Name</value>
+    </labels>
+    <labels>
+        <fullName>Text_Task_Update_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Result of task update operation</shortDescription>
+        <value>Task Update {0}</value>
+    </labels>
+    <labels>
+        <fullName>Text_Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Word for tasks (plural)</shortDescription>
+        <value>tasks</value>
+    </labels>
+    <labels>
+        <fullName>Text_Timing_DueToday</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Timing text describing due today</shortDescription>
+        <value>due today ({0})</value>
+    </labels>
+    <labels>
+        <fullName>Text_Timing_DueTomorrow</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Timing text describing due tomorrow</shortDescription>
+        <value>due tomorrow ({0})</value>
+    </labels>
+    <labels>
+        <fullName>Text_Timing_Overdue</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Timing text describing overdue</shortDescription>
+        <value>overdue ({0})</value>
+    </labels>
+    <labels>
+        <fullName>Text_Timing_Today</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Timing text describing that something happened today</shortDescription>
+        <value>today</value>
+    </labels>
+    <labels>
+        <fullName>Text_To</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>To</shortDescription>
+        <value>To</value>
+    </labels>
+    <labels>
+        <fullName>Text_Today</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Today</shortDescription>
+        <value>Today</value>
+    </labels>
+    <labels>
+        <fullName>Text_True</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Text for the word &quot;true&quot;</shortDescription>
+        <value>true</value>
+    </labels>
+    <labels>
+        <fullName>Text_Type_A_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Text Type a name</shortDescription>
+        <value>Type a name...</value>
+    </labels>
+    <labels>
+        <fullName>Text_Yes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Text used for the word &quot;Yes&quot;</shortDescription>
+        <value>Yes</value>
+    </labels>
+    <labels>
+        <fullName>Text_You</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Text &apos;you&apos; denoting current user</shortDescription>
+        <value>you</value>
+    </labels>
+    <labels>
+        <fullName>Timeline_PicklistDefaultOptionsText_Help_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Timeline picklistDefaultOptionText Design Attribute  Help Text.</shortDescription>
+        <value>Text instructing users to select a care plan to view timeline events.</value>
+    </labels>
+    <labels>
+        <fullName>Timeline_Picklist_Placeholder_Default_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Timeline Picklist Placeholder Default Text</shortDescription>
+        <value>Select a care plan to view timeline events.</value>
+    </labels>
+    <labels>
+        <fullName>Timeline_View_Item_Record_Detail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Timeline View Item Record Detail</shortDescription>
+        <value>Record Detail</value>
+    </labels>
+    <labels>
+        <fullName>Timeline_future_activity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Community Timeline to include the future activities</shortDescription>
+        <value>Display future events in the patient timeline.</value>
+    </labels>
+    <labels>
+        <fullName>Timeline_past_activity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Community Timeline to include the past activities</shortDescription>
+        <value>Display past events in the patient timeline.</value>
+    </labels>
+    <labels>
+        <fullName>Title_All_Cases</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title all cases on multiple care plan page</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>Title_Assessments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title for Assessments Tab</shortDescription>
+        <value>Assessments</value>
+    </labels>
+    <labels>
+        <fullName>Title_Available_To_Send</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title surveys available to send</shortDescription>
+        <value>Available to Send</value>
+    </labels>
+    <labels>
+        <fullName>Title_Closed_Cases</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title closed cases on multiple care plan page</shortDescription>
+        <value>Closed</value>
+    </labels>
+    <labels>
+        <fullName>Title_Customize_to_Patient_Tab</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title Customize to Patient Tab</shortDescription>
+        <value>2. CUSTOMIZE TO PATIENT</value>
+    </labels>
+    <labels>
+        <fullName>Title_Open_Cases</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title open cases on multiple care plan page</shortDescription>
+        <value>Open</value>
+    </labels>
+    <labels>
+        <fullName>Title_Review_And_Apply</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title Review And Apply</shortDescription>
+        <value>3. REVIEW AND APPLY</value>
+    </labels>
+    <labels>
+        <fullName>Title_Select_Template_Tab</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title Select Template Tab</shortDescription>
+        <value>1. SELECT TEMPLATES</value>
+    </labels>
+    <labels>
+        <fullName>Title_Sent_To_Patient</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title surveys that are sent to patient</shortDescription>
+        <value>Sent to Patient</value>
+    </labels>
+    <labels>
+        <fullName>Title_Show_Goals</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title Show Goals on Problem, Goals, Tasks tree</shortDescription>
+        <value>Show Goals</value>
+    </labels>
+    <labels>
+        <fullName>Title_Show_Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title Show Goals on Problem, Goals, Tasks tree</shortDescription>
+        <value>Show Tasks</value>
+    </labels>
+    <labels>
+        <fullName>Unable_To_Send_Private_Message_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message that is shown when unable to send a private message</shortDescription>
+        <value>Unable to send private message.</value>
+    </labels>
+    <labels>
+        <fullName>Unimplmented_Functionality</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Unimplmented functionality</shortDescription>
+        <value>Error: this operation is not supported.</value>
+    </labels>
+    <labels>
+        <fullName>Upto_seven_comma_separated_field_names_are_allowed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Up to seven comma separated field names are allowed</shortDescription>
+        <value>Enter up to 7 comma-separated values for Hover Field Name.</value>
+    </labels>
+    <labels>
+        <fullName>Wave_Patientlist_Creation_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Einstein Analytics Patientlist Creation Error</shortDescription>
+        <value>Failed to send the list. Please try again.</value>
+    </labels>
+</CustomLabels>

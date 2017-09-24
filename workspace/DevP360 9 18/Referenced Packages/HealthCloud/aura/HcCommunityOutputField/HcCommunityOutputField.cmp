@@ -1,0 +1,32 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCommunityOutputField - Used to render outputfields based on the field data type.
+ * @since 208
+-->
+<aura:component >
+  <aura:attribute name="record" type="Object"/>
+  <aura:attribute name="field" type="Object"/>
+  <aura:attribute name="fieldValue" type="String"/>
+  <aura:attribute name="fieldType" type="String"/>
+  <aura:attribute name="showLabels" type="Boolean" default="true"/>
+  <aura:attribute name="fieldIndex" type="Integer"/>
+  <aura:attribute name="maxNumberOfFields" type="Integer"/>
+  <aura:attribute name="formElement" type="Aura.Component[]" />
+  <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+
+  <li class="slds-item">
+      <div aura:id="formElem">
+          <aura:if isTrue="{!and(v.showLabels,!empty(v.fieldValue))}">
+            <aura:if isTrue="{!notequals(v.field.fieldType,'TEXTAREA')}">
+            <ui:outputText value="{! v.field.fieldLabel +':'}"/>&nbsp;&nbsp;
+            </aura:if>
+          </aura:if>
+          <aura:if isTrue="{!and(v.fieldType == 'PHONE',!empty(v.fieldValue))}">
+            <ui:outputPhone value="{!v.fieldValue}"/>
+          </aura:if>
+          {!v.formElement}
+      </div>
+  </li>
+</aura:component>

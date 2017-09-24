@@ -1,0 +1,55 @@
+<!--
+   * Copyright © 2015 salesforce.com, inc. All rights reserved.
+   * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+   * transferred, or disclosed to others, without the prior written consent of Salesforce.
+   * @description HcCarePlanTaskCmp component, a component which displays all tasks or categorized tasks(related to goals)
+   * or uncategorized task (not related to goals).
+   * @since 196
+   -->
+<aura:component extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable" controller="HealthCloudGA.HcCarePlanController">
+   <aura:attribute name="records" type="Object[]" />
+   <aura:attribute name="selectedTaskEvent" type="String" default="{!$Label.healthcloudga.Menu_Item_All_Tasks}" />
+   <aura:attribute name="defaultTaskSelection" type="String" default="All Tasks"/>
+   <aura:attribute name="infoMessage" type="String" default="Testing"/>
+   <aura:attribute name="taskMetadata" type="Object[]" default=""/>
+   <aura:attribute name="resultData" type="Object[]" default=""/>
+   <aura:attribute name="patientId" type="String" />
+   <aura:attribute name="carePlanId" type="String" />
+   <aura:attribute name="isLoadTasksOnInit" type="Boolean" default="false" description="Load the tasks on init if the flag is true."/>
+   <aura:handler event="HealthCloudGA:HcCarePlanCmpEvent" action="{!c.refresh}" />
+   <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+   <!-- DEBUG -->
+   <aura:attribute name="startT" type="Integer" />
+
+   <div >
+      <div class="slds-p-around--small slds-p-left--x-large health1-careplanTaskCard">
+         <header class="card-header">
+            <div class="slds-grid slds-grid--align-spread slds-grid--vertical-align-center">
+              <span class="slds-text-heading--small">{!v.infoMessage}</span>
+                <ui:menu class="slds-task-dropdown slds-dropdown--menu slds-p-around--x-small menu-header-content"> 
+                    <ui:menuTriggerLink aura:id="filter-dropdown" class="slds-text-heading--label">
+                        <div>
+                            <span aura:id="task-dropdown-text" class=".slds-text-heading--small task-text" >{!v.selectedTaskEvent}</span>
+                            <lightning:icon iconName="utility:switch" size="x-small" alternativeText="Open Menu"/>
+                        </div>
+                    </ui:menuTriggerLink>
+                    <ui:menuList aura:id="menuList" class="hc-dropdown__list slds-dropdown--small slds-m-top--small" autoPosition="false">
+                        <ui:actionMenuItem aura:id="All Tasks" label="{!$Label.healthcloudga.Menu_Item_All_Tasks}" class="slds-dropdown__item"  click="{!c.handleFilter}" />
+                        <ui:actionMenuItem aura:id="Unrelated Tasks" label="{!$Label.healthcloudga.Menu_Item_Unrelated_Tasks}" class="slds-dropdown__item"  click="{!c.handleFilter}" />
+                        <ui:actionMenuItem aura:id="Related Tasks" label="{!$Label.healthcloudga.Menu_Item_Related_Tasks}" class="slds-dropdown__item"  click="{!c.handleFilter}" />
+                    </ui:menuList> 
+                </ui:menu>
+
+            </div>
+         </header>
+      </div>
+      
+      <div>
+          <HealthCloudGA:HcSimpleTaskTable carePlanId='{!v.carePlanId}' aura:id="CarePlanTaskTable" id="CarePlanTaskTable" startT='{!v.startT}'>
+            <aura:set attribute="dataProvider">
+                <HealthCloudGA:HcTaskDataProvider autoInit='true' startT='{!v.startT}' patientId='{!v.patientId}' carePlanId='{!v.carePlanId}' pageSize='100' />
+            </aura:set>
+          </HealthCloudGA:HcSimpleTaskTable>
+      </div>
+   </div>
+</aura:component>

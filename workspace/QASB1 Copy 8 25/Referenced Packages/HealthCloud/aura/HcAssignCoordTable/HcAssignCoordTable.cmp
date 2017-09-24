@@ -1,0 +1,14 @@
+<aura:component description="HcAssignCoordTable" extends="HealthCloudGA:HcAbstractSimpleTable" controller="HealthCloudGA.HcCareTeamController">
+
+    <aura:method name="handleSelectionEvent" />
+
+    <aura:attribute name="selected" type="Object"/>
+    <aura:attribute name='searchTerm' type='String'/>
+    <aura:handler name="change" value="{!v.searchTerm}" action="{!c.handleSearchChange}" />
+
+    <aura:set attribute="selectionType" value="SINGLE"/>
+
+    <aura:set attribute="noItemsText" value="" />
+    <aura:set attribute="uniqueRecordIdField" value="id" />
+
+</aura:component>

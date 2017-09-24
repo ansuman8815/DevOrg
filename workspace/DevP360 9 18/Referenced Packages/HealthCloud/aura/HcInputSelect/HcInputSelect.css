@@ -1,0 +1,4 @@
+/*This fix is for a known bug in the slds system as of slds 2.0.0-rc.8 (202) */
+.THIS .slds-select[size]{
+  min-height: calc(1.75rem + (1px * 2));
+}

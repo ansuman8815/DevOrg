@@ -1,0 +1,58 @@
+<aura:component >
+    <aura:attribute name="leadResults" type="List" default="null" />
+	<aura:attribute name='leadLabels' type='Object' />
+    <aura:attribute name="coordinator" type="Object" default="null" />
+    <aura:attribute name="coordinatorName" type="String" default="" />
+    <aura:attribute name="coordinatorRole" type="String" />
+
+    <!-- can use same handler for change and init - just setting the coordinator name in both cases-->
+    <aura:handler name="change" value="{!v.coordinator}" action="{!c.setCoordinatorName}" />
+    <aura:handler name="init" value="{!this}" action="{!c.setCoordinatorName}" />
+
+    <div>
+        <h2 class="slds-text-heading--small slds-m-around--large">{! $Label.healthcloudga.Msg_LeadsConversion_Summary }</h2>
+
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+            <thead>
+                <tr class="slds-text-title--caps">
+                  <th scope="col">
+                    <div class="slds-truncate">{! v.leadLabels.Name }</div>
+                  </th>
+                  <th scope="col">
+                    <div class="slds-truncate">{! v.leadLabels.SourceSystem__c }</div>
+                  </th>
+                  <th scope="col">
+                    <div class="slds-truncate">{! v.leadLabels.SourceSystemId__c }</div>
+                  </th>
+                  <th scope="col">
+                    <div class="slds-truncate">{! v.leadLabels.MedicalRecordNumber__c }</div>
+                  </th>
+                  <th scope="col">
+                    <div class="slds-truncate">{!v.coordinatorRole}</div>
+                  </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.leadResults}" var="leadResult">
+                    <tr>
+                        <th scope="row" >
+                            <div class="slds-truncate">{!leadResult.lead.Name}</div>
+                        </th>
+                        <td>
+                            <div class="slds-truncate">{!leadResult.lead.SourceSystem__c}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">{!leadResult.lead.SourceSystemId__c}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">{!leadResult.lead.MedicalRecordNumber__c}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">{!v.coordinatorName}</div>
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+</aura:component>

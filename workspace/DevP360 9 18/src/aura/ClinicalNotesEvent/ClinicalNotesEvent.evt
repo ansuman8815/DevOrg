@@ -1,0 +1,7 @@
+<aura:event type="APPLICATION" description="Event template" >
+    <aura:attribute name="patientid" type="string"/>
+    <aura:attribute name="tableName" type="string"/>
+    <aura:attribute name="listName" type="string"/>
+    <aura:attribute name="clinicalNoteId" type="string"/>
+    <aura:attribute name="viewClinicalNotes" type="boolean" default="false"/>
+</aura:event>

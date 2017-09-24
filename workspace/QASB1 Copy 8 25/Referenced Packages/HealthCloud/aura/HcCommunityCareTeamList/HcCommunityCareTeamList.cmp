@@ -1,0 +1,51 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCommuityCareTeamList
+ * @since 208
+-->
+
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="HealthCloudGA.HcCommunityCareTeamController" access="global" description="Displays details for members of the care team.">
+    <aura:attribute name="recordId" type="String" /><!--  NOTE: Do no change access per doc on implementing force:hasRecordId -->
+    <aura:attribute name="carePlanId" type="String" description="Id of the care plan or case for a given care team" access="global"/>
+     <aura:attribute name="patientId" type="String" description="The accountId of the patient for which care plan members needs to be shown" access="global"/>
+    <aura:attribute name="records" type="List" />
+    <aura:attribute name="patients" type="List" />
+    <aura:attribute name="teamMembers" type="List" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+    <aura:attribute name="errorMsg" type="String" default=""/>
+    <aura:attribute name="emptyStateMsg" type="String" default="{!$Label.healthcloudga.Empty_State_Text_Select_Person_To_View_Care_Team}"/>
+    <aura:attribute name="PatientFieldSet" type="String" default="HcPatientInfoFields" access="global" description="Field set name used to retrieve Patient fields"/>
+    <aura:attribute name="TeamMemberFieldSet" type="String" default="HcTeamMemberInfoFields" access="global" description="Field set name used to Team member fields"/>
+    <aura:attribute name="showLabels" type="Boolean" default="true" access="global" description="Boolean attribute to toggle label visibility."/>
+    <aura:attribute name="includeOwner" type="Boolean" default="false" access="global" description="Show the care plan owner in the list of care team members when that person is an internal user."/>
+    <aura:attribute name="carePlanOwnerRoleLabel" type="String" 
+                    access="global" 
+                    description="Label to use for the care plan owner when included in the list of roles."
+                    default="{!$Label.healthcloudga.Cmty_CarePlanOwner}"/>
+
+    <aura:handler event="HealthCloudGA:HcCommunityEventCarePlanSelected" action="{!c.onCarePlanChange}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+      <aura:if isTrue="{!!empty(v.errorMsg)}">
+        <div class="slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture" role="alert">
+            <span class="slds-assistive-text">Info</span>
+            <h2>{!v.errorMsg}</h2>
+        </div>
+      </aura:if>
+      <aura:if isTrue="{!!empty(v.emptyStateMsg)}">
+        <ui:outputText value="{!v.emptyStateMsg}" aura:id="emptyStateMsg"/>
+      </aura:if>
+      <lightning:spinner alternativeText='{!$Label.healthcloudga.Alt_Text_Please_Wait}' class="{!(v.showSpinner == true ? '' : 'slds-hide')}" variant="brand" size="large"/>
+      <span>
+        <aura:iteration items="{!v.patients}" var="patient">
+             <HealthCloudGA:HcCommunityPatientCard record="{!patient}" showLabels="{!v.showLabels}"/>
+        </aura:iteration>
+      </span>
+      <span>
+        <aura:iteration items="{!v.teamMembers}" var="member">
+            <HealthCloudGA:HcCommunityCareTeamListItem record="{!member}" showLabels="{!v.showLabels}"/>
+            <div class="HcHRDiv"/>
+        </aura:iteration>
+      </span>
+</aura:component>

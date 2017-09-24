@@ -1,0 +1,8 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="patientid" type="string"/>
+    <aura:attribute name="whereclause" type="string"/>
+    <aura:attribute name="listName" type="string"/>
+    <aura:attribute name="tableName" type="string"/>
+    <aura:attribute name="viewMore" type="boolean"/>
+    <aura:attribute name="viewSocialsummary" type="boolean"/>   
+</aura:event>

@@ -1,0 +1,9 @@
+<design:component label="Care Team for Health Cloud Empower">
+  <design:attribute name="PatientFieldSet" label="Patient Field Set Name" description="{!$Label.HealthCloudGA.Field_Label_DesignAttrib_PatientFieldSet}"/>
+  <design:attribute name="TeamMemberFieldSet" label="Team Member Field Set Name" description="{!$Label.HealthCloudGA.Field_Label_DesignAttrib_TeamMemberFieldSet}"/>
+  <design:attribute name="showLabels" label="Show labels" description="{!$Label.HealthCloudGA.Field_Label_DesignAttrib_showLabels}"/>
+  <sfdc:objects >
+      <sfdc:object >Case</sfdc:object>
+  </sfdc:objects>
+
+</design:component>

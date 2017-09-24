@@ -1,0 +1,34 @@
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcCarePlanController">
+  <aura:attribute name="expanded" type="Boolean" default="false" />
+  <aura:attribute name="expandGoals" type="Boolean" default="false" />
+  <aura:attribute name="goalsFetched" type="Boolean" default="false" />
+  <aura:attribute name="problem" type="Map"/>
+  <aura:attribute name="goals" type="List" default="[]"/>
+  <aura:attribute name="tasksMap" type="Map"/>
+  <aura:attribute name="tasksMetaData" type="Object[]"/>
+  <aura:attribute name="baseIndentLevel" type="Integer" default="1" />
+  <aura:attribute name="carePlanId" type="String" />
+  <aura:attribute name="showProblemSpinner" type="Boolean" default="false" />
+  <aura:set attribute="showSpinner" value="{!v.showProblemSpinner}" />
+  <aura:handler event="HealthCloudGA:HcMultipleCarePlanEvent" action="{!c.expandCollapseAllProblems}" />
+
+  <HealthCloudGA:HcCarePlanHeader aura:id="problemHeader"
+    expandable="true" HcCarePlanEvent="{!c.handleCarePlanEvent}"
+    header="{!v.problem.Name}" showPercentComplete="false"
+    priority="{!v.problem.Priority__c}" problemId="{!v.problem.Id}"
+    createActionButtonLabel="{!$Label.healthcloudga.Menu_Item_Create_Goal}" createActionButtonId="Create Goal"
+    editActionButtonLabel="{!$Label.healthcloudga.Menu_Item_Edit_Problem}" editActionButtonId="Edit Problem"
+    class="hc-tree__item" expandIconTooltip="{!$Label.healthcloudga.Title_Show_Goals}" carePlanId="{!v.carePlanId}" />
+
+  <div aura:id="goals" class="{!(v.expanded  ? '' : 'slds-hide')}">
+    <div class="{! 'hc-noItemsMessage slds-align--absolute-center' + (v.goals.length == 0  ? '' : ' slds-hide')}">
+      {!$Label.healthcloudga.Text_No_Goals}
+    </div>
+    <aura:iteration items="{!v.goals}" var="goal">
+        <div class="hc-carePlanGoal__container">
+          <HealthCloudGA:HcCarePlanBaseGoalsCmp carePlanId="{!v.carePlanId}" problemId="{!v.problem.Id}" goal="{!goal}" tasksMetaData="{!v.tasksMetaData}" tasksMap="{!v.tasksMap}" baseIndentLevel="{# v.baseIndentLevel + 1 }" />
+        </div>
+    </aura:iteration>
+  </div>
+
+</aura:component>

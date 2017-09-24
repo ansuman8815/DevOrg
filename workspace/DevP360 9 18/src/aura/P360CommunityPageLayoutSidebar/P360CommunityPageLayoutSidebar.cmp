@@ -1,0 +1,41 @@
+<aura:component implements="forceCommunity:layout" description="Custom Content Layout for 2 columns" access="global">   
+    <ltng:require scripts="{! $Resource.svg4everybody + '/svg4everybody-master/dist/svg4everybody.js'}"  afterScriptsLoaded="{!c.myAction}"/>
+    <aura:attribute name="column1" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="column2" type="Aura.Component[]" required="false"></aura:attribute>
+	<aura:attribute name="column3" type="Aura.Component[]" required="false"></aura:attribute>
+	<aura:attribute name="column4" type="Aura.Component[]" required="false"></aura:attribute>
+  
+    <div class="container" id="layoutHeight">
+        <div class="contentPanel" >
+        	<div id="column1Div" class="left">
+                {!v.column1}
+        	</div>
+        </div>
+        <div class="contentPanel fullContent" id="fullcontent" onclick="{!c.getContent}" > 
+            <div class="row"> 
+                <div id="maskMobile" class="active"></div>
+                <div id="column2Div"  class="left ">
+                     <a class="mobileMenu hideEl" id="closeIcon" onclick="{!c.mobileMenuClick}">
+                        <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/12-CloseButton.svg#Layer_1'}" class="IconStyle" press="{!c.expandView}" buttonStyle="border:none;  outline:none; background-color:transparent" />
+                     </a>
+                     <a class="mobileMenuOpen"  id="OpenIcon" onclick="{!c.mobileMenuClickOpen}">
+                        <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/44-Hamburger.svg#Layer_1'}" class="IconStyle" press="{!c.expandView}" buttonStyle="border:none;  outline:none; background-color:transparent" />
+                     </a>
+                     <div class="Sidebar active" aura:id="sidebarExp" id="mobileSidebar">
+                        {!v.column2}
+                     </div>
+                </div >
+                <div id="column3Div" class="right rightContent">
+                    <div id="column3Content">
+                        {!v.column3}
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="contentPanel" onclick="{!c.getContent}">
+        	<div id="column4Div" class="left">
+            	{!v.column4}
+        	</div>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,78 @@
+.THIS .li {
+    padding: 5px
+}
+
+.THIS .dropdownbutton {
+    width: 100%;
+    white-space: nowrap;
+}
+
+
+.THIS.dropdown{
+    position: relative;
+}
+
+
+.THIS .dropdown-menu {
+    min-height: 120px;
+    margin: 0;
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    min-width: 100%;
+    padding: 5px 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    top: 100%;
+    max-height: 140px;
+    overflow-y: auto;
+}
+
+
+.THIS .dropdown-menu>li>a {
+    white-space: normal;
+}
+
+
+
+
+.THIS .health1-dropdowncmp-dropdown-show{
+    display : block;
+}
+
+.THIS .health1-dropdowncmp-dropdown-hide{
+    display : none;
+}
+
+.THIS .health1-dropdown-text {
+    color: #0070d2;
+
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.THIS .health1-dropdownselected-text {
+    color: #152e5a;
+
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.THIS .health1-dropdown-caret {
+    float: right;
+}

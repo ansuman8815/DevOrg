@@ -1,0 +1,29 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcAdtConversionWizard component, a modal container component present prompt modal of ADT conversion workflow.
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent">
+    <aura:attribute name="entries" type="List" />
+    <aura:attribute name="adtSelections" type="List" />
+    <aura:attribute name="coordinatorSelection" type="Object" />
+    <aura:attribute name="coordinatorRole" type="String" />
+    <aura:attribute name="patientRole" type="String" />
+
+
+    <HealthCloudGA:modal aura:id="modal" headerTitle="{!format($Label.healthcloudga.Header_Convert_To_Patient, v.patientRole)}" count="3" isDoable="true" backEvent="{!c.onPrevious}" nextEvent="{!c.onNext}" finishEvent="{!c.onFinish}">
+        <lightning:tabSet aura:id="navigationTabset" class="hc-wizardTabset">
+            <lightning:tab label="{!$Label.healthcloudga.Header_Candidate_Patients_Wizard_View_Duplicates}" id="conversionDupCheckTab">
+                <HealthCloudGA:HcAdtConversionDupCheck entries="{!v.entries}" output="{!v.adtSelections}" />
+            </lightning:tab>
+            <lightning:tab label="{!format($Label.healthcloudga.Header_Candidate_Patients_Wizard_Assign_Care_Coordinator , v.coordinatorRole)}" id="conversionAssignCoordTab">
+                <HealthCloudGA:HcAdtConversionAssignCoord output="{!v.coordinatorSelection}" />
+            </lightning:tab>
+            <lightning:tab label="{!$Label.healthcloudga.Header_Candidate_Patients_Wizard_View_Assignments}" id="conversionSummaryTab">
+                <HealthCloudGA:HcAdtConversionSummary aura:id="summary" entries="{!v.adtSelections}" coordinator="{!v.coordinatorSelection}" coordinatorRole="{!v.coordinatorRole}"/>
+            </lightning:tab>
+        </lightning:tabSet>
+    </HealthCloudGA:modal>
+</aura:component>

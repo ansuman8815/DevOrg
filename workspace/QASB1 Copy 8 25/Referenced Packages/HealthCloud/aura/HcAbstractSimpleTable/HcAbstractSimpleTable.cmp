@@ -1,0 +1,159 @@
+<aura:component extends="HealthCloudGA:HcBaseComponent" extensible="true" abstract="true">
+	<aura:attribute name="items" type="List" description="A list of objects representing the rows of data in the grid" default="[]" />
+    <aura:attribute name="headerColumns" type="List" description="Components used as the header elements of the table" default="[]" />
+    <aura:attribute name="rows" type="Aura.Component[]" description="Rows"/>
+    <aura:attribute name="hasMoreData" type="Boolean" default="false" />
+    <aura:attribute name="viewMoreText" type="String" default="{!$Label.healthcloudga.Link_View_More}"/>
+    <aura:attribute name="noItemsText" type="String" default="{!$Label.healthcloudga.Text_Search_No_Matches}"/>
+    <aura:attribute name="_noItemsMessage" type="Aura.Component" access="private" />
+
+    <aura:attribute name="currentAction" type="String" default="" />
+    <aura:attribute name="dataFetchState" type="String" default="IDLE" />
+    <aura:attribute name="dataProvider" type="Aura.Component[]" />
+
+    <aura:attribute name='_id' type='String' access="private" description="Private id for this component"/>
+    <aura:attribute name="_selectedItemsMap" type="Object" />
+
+    <!-- **** Workaround because aura:methods cannot return values and events are overkill for this purpose -->
+    <!-- aura method to populate the selectedItems attribute from a higher level component -->
+        <aura:method name="populateSelectedItemsList" />
+        <!-- Always call populateSelectedItemsList method before component.get('v.selectedItems'), unreliable otherwise -->
+        <aura:attribute name="selectedItems" type="List" />
+    <!-- **** -->
+
+    <!-- aura methods to reset table -->
+    <aura:method name="resetTable" />
+    <!-- aura methods to programmatically select / deselect items -->
+    <aura:method name="selectItems" />
+    <aura:method name="deselectItems" />
+    <aura:method name="selectAll" />
+    <aura:method name="clearSelection" />
+
+    <!-- / *** SET THESE IN THE INHERITED TABLE COMPONENT -->
+
+    <aura:attribute name='id' type='String' description="Mandatory unique id for this component" required="true"/>
+    
+    <!-- USAGE: Must be set if items from data provider do not have 'Id' as one of the fields -->
+    <aura:attribute name='uniqueRecordIdField' type='String' default="Id" description="Which id field to use as the unique identifier for each row ?"/>
+
+    <aura:attribute name="showHeader" type="Boolean" default="true" />
+
+    <aura:attribute name="userDateFormat" type="String" default="" />
+    <aura:attribute name="userDateTimeFormat" type="String" default="" />
+
+    <!-- USAGE: AVAILABLE API & RELATED DEEPENDENCY
+        <aura:dependency resource="lightning:input" />
+        <aura:set attribute="selectionType" value="SINGLE" /> 
+    -->
+    <aura:attribute name="selectionType" type="String" default="" description="Selection type can be SINGLE or MULTI" />
+
+    <aura:attribute name="defaultActions" type="List" default="[]" description="Default actions can include EDIT / DELETE" />
+
+    <!-- USAGE: The custom action component must have the following two non-private aura attributes defined for access to the respective data,
+        <aura:attribute name="itemData" type="Object" /> -> Row specific item data as provided by data provider
+        <aura:attribute name="columnsMetadata" type="List" /> -> Table specific list of metadata of visible columns as provided by data provider
+    -->
+    <aura:attribute name="customActionComponentName" type="String" description="Name of custom component to render in action column" />
+    
+    <!-- USAGE : HANDLING TABLE EVENTS
+        1. Add these as required in the extending component cmp
+        2. Each aura:method requires a corresponding controller method (with the same name) in the extending component to work
+            ( alternatively, define 'action' parameter to use a controller method of a different name )
+        <aura:method name="handleActionEvent" /> 
+        <aura:method name="handleSelectionEvent" /> 
+        <aura:method name="handlePointerEvent" /> 
+    -->
+    
+    <!-- USAGE: DECIDE WHETHER TO DISPLAY CELL CONTENT AS A HYPERLINK
+        1. Set this map in the extending component's init.
+            Eg: { <Field Name> : function( itemData ) { <function body> } } 
+        2. itemData is the data associated with the row
+        3. For each column where rawName == , this function is executed during cell creation to determine if the cell content has to be a hyperlink or not.
+        4. Use this along with columnLinkFunctionMap. This function alone will not serve the purpose.
+        5. <Field Name> in columnLinkResolverFunctionMap and columnLinkFunctionMap should be same.
+    -->  
+    <aura:attribute name="columnLinkResolverFunctionMap" type="Object" />
+
+    <!-- USAGE: DISPLAYING CELL CONTENT AS A HYPERLINK
+        1. Set this map in the extending component's init.
+            Eg: { <Field Name> : function( itemData ) { <function body> } } 
+        2. itemData is the data associated with the row
+        3. All cells in the column where rawName == <Field Name> will have hyperlinks that execute the given function on click.
+    -->  
+    <aura:attribute name="columnLinkFunctionMap" type="Object" />
+
+    <!-- *** / -->
+
+    <!-- DEBUG -->
+    <aura:attribute name="startT" type="Integer" />
+    <aura:handler event="aura:doneRendering" action="{!c.doneRendering}"/>
+
+    <aura:handler name="actionEvent" event="HealthCloudGA:HcSimpleTableEvent" action="{!c.handleActionEvent}" />
+    <aura:attribute name="actionEvent" type="Object" />    
+    <aura:handler name="selectionEvent" event="HealthCloudGA:HcSimpleTableEvent" action="{!c.handleSelectionEvent}" />
+    <aura:attribute name="selectionEvent" type="Object" />
+    <aura:handler name="pointerEvent" event="HealthCloudGA:HcSimpleTableEvent" action="{!c.handlePointerEvent}" />
+    <aura:attribute name="pointerEvent" type="Object" />
+    <aura:attribute name="tableClass" type="String" default='slds-table--bordered slds-table--fixed-layout' />
+    <aura:attribute name="rowClass" type="String" default=''/>
+    <aura:attribute name="cellClass" type="String" default=''/>
+
+    <aura:handler name="onchange" event="ui:dataChanged" description="Event fired when the list data changes." action="{!c.showData}" includeFacets="true"/>
+    <aura:handler name="error" event="ui:dataProvideError" description="Event fired when there a data provider error occurs." action="{!c.showError}" includeFacets="true"/>
+
+    <aura:registerEvent name="tableErrorEvent" type="HealthCloudGA:HcSimpleTableEvent" />
+    <aura:registerEvent name="tableDataUpdatedEvent" type="HealthCloudGA:HcSimpleTableEvent" />
+
+    <aura:handler name="tableErrorEvent" event="HealthCloudGA:HcSimpleTableEvent" description="Event fired when a error occurs in the table component hierarchy." action="{!c.showError}" includeFacets="true"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.abstractInit}" />
+    
+    <aura:dependency resource="HealthCloudGA:HcSimpleTableRow" />
+    <aura:dependency resource="HealthCloudGA:HcSimpleTableCell" />
+    <aura:dependency resource="HealthCloudGA:HcSimpleTableActionCell" />
+
+    <div id="{!v._id}" class="ast-container">
+        <table class="{!'slds-table '+ v.tableClass + ' ' + ( v.headerColumns.length gt 0 ? '' : 'slds-hide ' )}" role="grid" > 
+            <aura:if isTrue="{! and(v.showHeader, v.headerColumns.length gt 0) }">           
+                <thead >
+                    <tr class='slds-text-title--caps'>
+                        <aura:iteration items="{!v.headerColumns}" var="col">
+                            <th id="{!v.id + '_' + col.rawName}" class="{! 'ast-columnName ' + (and(col.isSortable, v.items.length gt 0) ? col.name + ' slds-is-sortable' : col.name + ' ast-noSort')}" scope="col" >
+                                <aura:if isTrue="{!and(col.type == 'SELECTION', col.selectionAttributes.type == 'MULTI' )}">
+                                    <lightning:input aura:id="ast-select-all" name="ast-select-all" type="checkbox" label=" " class="ast-cell__selection slds-align--absolute-center" onchange="{!c.toggleSelectAll}"/>
+                                    <aura:set attribute="else">
+                                        <div data-id='{!col.rawName}' data-sortable='{!and(col.isSortable, v.items.length gt 0)}' onclick="{!c.handleSort}" class='slds-th__action slds-text-link--reset'>
+                                            <span class="slds-truncate" title="{#col.label}" >{#col.label}</span>
+                                            <div class="{# 'ast-sortIcon__container slds-icon_container ' + (col.sortOrder != '' ? '' : 'slds-hide')}">
+                                                <lightning:icon iconName="{!(col.sortOrder == 'A') ? 'utility:up' : (col.sortOrder ==   'D') ? 'utility:down' : '' }" size="xx-small" class="slds-button__icon" />
+                                            </div>
+                                        </div>
+                                    </aura:set>
+                                </aura:if>
+                            </th>
+                        </aura:iteration>
+                    </tr>
+                </thead>
+            </aura:if>
+            <tbody >
+                {!v.rows}
+            </tbody>
+        </table>
+        {!v._noItemsMessage}
+        <div>
+        	<aura:if isTrue="{!and(v.hasMoreData, v.dataFetchState == 'FETCHED')}">
+                <div class="ast-viewMore__container">
+                    <lightning:button class="slds-button--brand" label="{!v.viewMoreText}" onclick="{!c.fetchMoreData}"/>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!and(v.hasMoreData, v.dataFetchState == 'FETCHING')}">
+                <div class="ast-viewMore__container ast-viewMore__loading">
+                    {!$Label.healthcloudga.Msg_Loading}
+                </div>
+            </aura:if>
+        </div>
+    </div>
+    <div class="ast-concreteBodyContainer">
+        {!v.body}
+    </div>
+</aura:component>

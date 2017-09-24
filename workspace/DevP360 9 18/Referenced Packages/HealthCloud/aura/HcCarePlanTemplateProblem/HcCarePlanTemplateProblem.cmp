@@ -1,0 +1,47 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCarePlanTemplateProblem: component representing one problem template
+ * @since 204
+-->
+<aura:component >
+    <aura:attribute name="problemName" type="String" default=""/>
+    <aura:attribute name="templateId" type="String"/>
+    <aura:attribute name="problemId" type="String"/>
+    <aura:attribute name="goals" type="List"/>
+
+    <aura:attribute name="selectable" type="Boolean" default="true"/>
+    <aura:attribute name="review" type="Boolean" default="false"/>
+    <aura:attribute name="expanded" type="Boolean" default="false" />
+    <aura:attribute name="objectLabelMap" type="Map" default="{}" description="Stores the object name for the Problems, goals, and task objects for localization purposes" />
+    <aura:attribute name="objectLabel" type="String" default="Problem" description="Localized version of the Problem label, set by objectLabelMap" />
+    <aura:attribute name="baseIndentLevel" type="Integer" default="1" />
+
+    <aura:attribute name="careCoordinatorSelectedValue" type="String" default="" />
+    <aura:attribute name="patientUser" type="Object" default="{}" />
+    <aura:attribute name="dueDate" type="String" />
+    <aura:attribute name="globalSettings" type="Object" />
+  
+    <aura:registerevent name="customizeCheckboxEvent" type="HealthCloudGA:HcCarePlanTemplateCustomizeCheckboxEvent"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <aura:handler name="goalCheckboxEvent" event="HealthCloudGA:HcCarePlanTemplateGoalCheckBoxEvent" action="{!c.goalCheckboxEvent}"/>
+
+    <div aria-level="{# v.baseIndentLevel }">
+        <!-- TODO: Replace hardcoded description with object label name -->
+        <HealthCloudGA:HcCarePlanHeader aura:id="problemHeader" expandable="true" selectable="{!v.selectable}" showDescriptionText="true" showPriority="false" expanded="{# v.expanded }" showPercentComplete="false" showActionButton="false" HcCarePlanEvent="{!c.handleCarePlanEvent}" header="{!v.problemName}" descriptionText="{!v.objectLabel}" class="hc-tree__item" HcCarePlanHeaderCheckBoxEvent="{!c.checkboxEvent}" />
+
+        <div aura:id="goals" class="{!( v.expanded ? '' : 'slds-hide' ) }">
+          <aura:iteration items="{!v.goals}" var="aGoal">
+              <!-- TODO Fix temp indentation -->
+             <aura:if isTrue="{! !v.review || and(v.review, aGoal.selected == undefined || aGoal.selected)}">  
+              <HealthCloudGA:HcCarePlanTemplateGoal globalSettings="{!v.globalSettings}" aura:id="carePlanTemplateGoal" templateId="{!v.templateId}" problemId="{!v.problemId}" goalId="{!aGoal.goalId}" selectable="{!v.selectable}" goalName="{!aGoal.goalName}" review="{!v.review}" taskItems="{!aGoal.taskResponses}" objectLabelMap="{!v.objectLabelMap}" expanded="{# v.expanded }" baseIndentLevel="{# v.baseIndentLevel + 1 }"
+              careCoordinatorSelectedValue="{!v.careCoordinatorSelectedValue}"
+              patientUser="{!v.patientUser}" dueDate="{!v.dueDate}" goalChecked="{!aGoal.selected == undefined || aGoal.selected}"
+              />
+            </aura:if>
+          </aura:iteration>
+        </div>
+    </div>
+</aura:component>

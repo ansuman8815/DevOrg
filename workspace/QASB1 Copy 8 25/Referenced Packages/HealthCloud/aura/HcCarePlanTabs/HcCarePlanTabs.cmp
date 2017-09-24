@@ -1,0 +1,31 @@
+<!-- * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCarePlanTabs Component
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable">
+   <aura:attribute name="selectedTab" type="String" default="one"/>
+   <aura:attribute name="carePlanId" type="String"/>
+   <aura:attribute name="patientId" type="String"/>
+   <aura:attribute name="isTasksTabLoaded" type="Boolean" default="false" />
+   <aura:attribute name="isCareTeamTabLoaded" type="Boolean" default="false" />
+   <aura:attribute name="problems" type="List"/>
+   <aura:attribute name="problemFetchDone" type="Boolean" default="false"/>    
+
+   <aura:dependency resource="HealthCloudGA:HcCarePlanTaskCmp" />
+   <aura:dependency resource="HealthCloudGA:HcCareTeamTableContainer" />
+
+   <aura:registerEvent name="HcCarePlanTabEvent" type="HealthCloudGA:HcCarePlanTabEvent" />
+
+   <div>
+      <lightning:tabset >
+         <lightning:tab onactive="{!c.handleActive}" id="problems_goals" label="{!$Label.healthcloudga.Tab_Problem_And_Goals}">
+            <HealthCloudGA:HcCarePlanBaseProblemsCmp problems="{!v.problems}" problemFetchDone='{!v.problemFetchDone}' patientId="{!v.patientId}" carePlanId="{!v.carePlanId}" />
+         </lightning:tab>
+         <lightning:tab onactive="{!c.handleActive}" id="tasks" label="{!$Label.healthcloudga.Tab_Task}" />
+         <lightning:tab onactive="{!c.handleActive}" id="careTeam" label="{!$Label.healthcloudga.Tab_Care_Team}" />
+      </lightning:tabset>
+   </div>
+
+</aura:component>

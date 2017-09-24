@@ -1,0 +1,46 @@
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcLeadsToPatientsComponentController">
+    <aura:attribute name='isPSLRestricted' type="Boolean" default="false" />
+    <aura:attribute name="selectedLeads" type="List" />
+    <aura:attribute name="validLeads" type="List" default="[]" />
+    <aura:attribute name="coordinatorSelection" type="Object" />
+    <aura:attribute name="userContext" description="Used to determine the current app environment. Populated from {!$User.UITheme} in a VF Page." type="String" />
+    <aura:attribute name="returnUrl" type="String" />
+    <aura:attribute name="patientRole" type="String" />
+    <aura:attribute name="coordinatorRole" type="String" />
+    <aura:attribute name='leadLabels' type='Object' />
+    <aura:attribute name='showSuccessModal' type="Boolean" default="false" />
+    <aura:attribute name='showSuccessLabel' type="String" />
+    <aura:attribute name="recordTypes" type="List" />
+    <aura:attribute name="selectedRecordType" type="Object" />
+    <aura:attribute name="tabList" type="List" default="['leadValidationTab','careCoordinatorAssignmentTab']" Access="PRIVATE" />
+    <aura:attribute name="count" type="Integer" default="3" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div aura:id='noSelectedLeadsMsg' class='slds-grid--frame slds-align--absolute-center slds-hide'>
+        <div class="slds-align--absolute-center">
+            <lightning:icon iconName="utility:warning" size="medium" variant="error" class="slds-m-right--small" />
+            <div class="slds-col slds-align-middle">
+                <h2 class="slds-text-heading--medium">{!$Label.healthcloudga.Msg_LeadsConversion_NoSelection}</h2>
+            </div>
+        </div>
+    </div>
+    <aura:dependency resource="HealthCloudGA:HcLeadsConversionSummary" />
+    <aura:dependency resource="HealthCloudGA:HcLeadCarePlanRecTypePickerTab" />
+    <aura:dependency resource="HealthCloudGA:HcLeadToPatientWizardReviewTab" />
+    <div aura:id='wizardContainer' class='slds-hide'>
+        <HealthCloudGA:toast aura:id="toast-message" />
+        <HealthCloudGA:wizard aura:id="wizard" userContext="{!v.userContext}" returnUrl="{!v.returnUrl}" headerTitle="{!format($Label.healthcloudga.Header_Convert_To_Patient, v.patientRole)}" count="{!v.count}" isDoable="true" backEvent="{!c.onPrevious}" nextEvent="{!c.onNext}" enableNext="{!v.validLeads.length > 0}" finishEvent="{!c.onFinish}" finishButtonText="{! $Label.healthcloudga.Button_Label_Convert }" showSuccessModal="{!v.showSuccessModal}" showSuccessLabel="{!v.showSuccessLabel}">
+            <div class="slds-hide" aura:id="tabDiv">
+                <lightning:tabset aura:id="navigationTabset" class="hc-wizardTabset">
+                    <lightning:tab id="leadValidationTab" label="{!$Label.healthcloudga.Header_Lead_To_Patients_Wizard_View_Validations}">
+                        <HealthCloudGA:HcLeadValidation aura:id="leadValidation" leadLabels="{!v.leadLabels}" />
+                    </lightning:tab>
+                    <lightning:tab id="careCoordinatorAssignmentTab" label="{!format($Label.healthcloudga.Header_Candidate_Patients_Wizard_Assign_Care_Coordinator, v.coordinatorRole)}">
+                        <HealthCloudGA:HcAdtConversionAssignCoord output="{!v.coordinatorSelection}" />
+                    </lightning:tab>
+                    <div aura:id="carePlanRTPickerTab" />
+                    <div aura:id="reviewTab" />
+                </lightning:tabset>
+            </div>
+        </HealthCloudGA:wizard>
+    </div>
+</aura:component>

@@ -1,0 +1,7 @@
+.THIS ul{
+	justify-content: center;
+}
+
+.THIS .hc-wizardTabset .slds-tabs--default__item {
+	pointer-events: none;
+}

@@ -1,0 +1,74 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcFilterConditionsBuilderCmp Component,  component responsible for selecting Patient List Filter Condition Rows.
+ * @since 196
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable" controller='HealthCloudGA.HcFilterCriteriaCmpController'>
+  <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+  <aura:registerEvent name="deleteEvent" type="HealthCloudGA:HcHandleFilterRowDelete"/>
+
+  <aura:attribute name="isRecord" type="boolean" default="false"/>
+  <aura:attribute name="dropDownValuesRecord" type="Map[]"/>
+  <aura:attribute name="dropDownValuesField" type="Map[]"/>
+  <aura:attribute name="dropDownValuesFilter" type="Map[]"/>
+  <aura:attribute name="filterCond" type="Object" />
+  <aura:attribute name="filterValue" type="String"/>
+  <aura:attribute name="domElement" type="Aura.Component[]" />
+  <aura:attribute name="isEdit" type="boolean" default="false"/>
+  <aura:attribute name="isFirst" default="false" type="Boolean"/>
+  <aura:attribute name="rowNumber" default="1" type="Decimal"/>
+  <aura:attribute name="fieldTypeError" default="" type="String"/>
+  <aura:attribute name="recordTypeError" default="" type="String"/>
+    <aura:attribute name="configObject" type="Object"/>
+  <aura:dependency resource="ui:inputDateTime" />
+
+  <div class="slds-p-horizontal--x-large slds-p-vertical--x-small slds-grid health1-filterFormulaRow">
+
+    <aura:if isTrue="{!v.isRecord}">
+
+      <div class="slds-col">
+        {!add(v.rowNumber,1)}
+      </div>
+
+      <div class="slds-col slds-size--1-of-4 health1-filtercondition-dropdown" id='dropDownRecord'>
+        <aura:if isTrue="{!v.recordTypeError != ''}">
+          <div class="slds-input health1-stencil__input health1-type-error-textColor">{!v.recordTypeError}</div>
+         <aura:set attribute="else">
+           <HealthCloudGA:HcLookup aura:id="record" inputID="record" originalList="{!v.dropDownValuesRecord}" onLookUpChangeEvent="{!c.handleObjectType}" placeHolder="{!$Label.healthcloudga.Field_Label_Record}" disabled="true"/>
+         </aura:set>
+        </aura:if>
+        </div>
+
+      <div class="slds-col--padded slds-size--1-of-4 health1-filtercondition-dropdown" id='dropDownField'>
+        <HealthCloudGA:HcLookup aura:id="object" inputID="object" originalList="{!v.dropDownValuesField}" onLookUpChangeEvent="{!c.handleFieldType}" placeHolder="{!$Label.healthcloudga.Field_Label_Filter_Field}" disabled="true" />
+      </div>
+
+      <div class="slds-col slds-size--1-of-4 health1-filtercondition-dropdown" id='dropDownOperator'>
+          <HealthCloudGA:HcInputSelect aura:id="operator" name="operatorSelect" options="{!v.dropDownValuesFilter}" selectChange="{!c.handleOperatorType}" disabled="true">
+          </HealthCloudGA:HcInputSelect>
+      </div>
+
+      <div class="slds-col--padded slds-size--1-of-4 health1-filtercondition-value" id='conditionInputValue'>
+        <label class="slds-form-element__label"><span></span></label>
+        <aura:if isTrue="{!v.domElement.length > 0}">
+          {!v.domElement}
+          <aura:set attribute="else">
+            <div class="slds-input health1-stencil__input health1-type-error-textColor">{!v.fieldTypeError}</div>
+          </aura:set>
+        </aura:if>
+      </div>
+
+      <div class="slds-col--padded">
+
+        <button class="slds-button slds-button--icon-container deleteButton" onclick="{!c.deletefilterCondition}">
+        <lightning:buttonIcon iconName="utility:delete"  variant="bare"  class="slds-button__icon health1-deletebutton-icon" alternativeText="Delete"/>
+        </button>
+
+      </div>
+
+    </aura:if>
+  </div>
+
+</aura:component>

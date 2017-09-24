@@ -1,0 +1,13 @@
+.THIS.hc-wizard_container  {
+    margin-bottom: 60px;
+}
+
+.THIS .slds-docked-form-footer {
+    display: block;
+    padding: .75rem 1rem;
+    text-align: right;
+}
+
+.THIS .slds-docked-form-footer.hc-wizard__footer--directional .slds-button:first-child {
+    float: left;
+}

@@ -1,0 +1,59 @@
+<!--
+ * Copyright © 2017 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcWaveListIntegrationCmp Component, The component is for integration wave lists into Health cloud.
+ * @since 208
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable" controller='HealthCloudGA.HcWaveListIntegrationController'>
+    <aura:attribute name="queryFromWave" type="String" default="" />
+    <aura:attribute name="isSuccess" type="Boolean" default="false" />
+    <aura:attribute name="errorMsg" type="String" />
+    <aura:attribute name="successMsg" type="String" />
+    <aura:attribute name="listName" type="String" />
+    <aura:attribute name="isFailed" type="Boolean" default="false" />
+    <aura:attribute name="toastObj" type="Object" />
+    <aura:attribute name="isFirstRadio" type="Boolean" default="true" />
+    <aura:attribute name="isSecondRadio" type="Boolean" default="false" />
+    <aura:attribute name="output" type="Object" />
+    <aura:attribute name="selectedItems" type="List" />
+    <aura:handler action="{!c.handleTableSelectionChange}" name="change" value="{!v.output}" />
+    <!-- this is the initial page header, it is visible before the user clicks Send -->
+    <div class="{!v.isSuccess ? 'slds-hide' : '' }">
+        <HealthCloudGA:toast aura:id="toast-message" />
+        <div class="slds-page-header pageTitle" role="banner">
+            <p class="slds-page-header__title slds-align--absolute-center" title="Send list To Health Cloud">{!$Label.healthcloudga.Header_Wave_Patientlist_To_Healthcloud}</p>
+        </div>
+        <div class="slds-form--stacked">
+            <!--create New List-->
+            <span class="slds-radio slds-p-top--large font-size-text-large">
+                        <lightning:input type="radio" aura:id="firstRadio"  label="{#$Label.healthcloudga.Label_Create_New_List}" name="options"  onchange="{!c.onFirstRadioClicked}" checked="{!v.isFirstRadio}"/>
+            </span>
+            <div class="slds-form-element__control slds-p-top--small slds-m-right--large slds-p-left--large">
+                <lightning:input name="inputBox" type="text" aura:id="listName" label="{!$Label.healthcloudga.Label_Name_Of_List}" value="{!v.listName}" maxlength="80" />
+            </div>
+            <!-- Add to Existing List-->
+            <span class="slds-radio slds-p-top--large font-size-text-large">
+                    <lightning:input type="radio" aura:id="secondRadio"  label="{#$Label.healthcloudga.Label_Add_To_Existing_List}" name="options"  onchange="{!c.onSecondRadioClicked}" checked="{!!v.isFirstRadio}" />
+            </span>
+            <div class="slds-form-element slds-p-top--small slds-m-right--large slds-p-left--large">
+                <HealthCloudGA:HcWaveListTable aura:id="waveListsTable" id="waveListsTable" selected="{!v.output}">
+                    <aura:set attribute="dataProvider">
+                        <HealthCloudGA:HcWaveListDataProvider autoInit='true' pageSize="10" />
+                    </aura:set>
+                </HealthCloudGA:HcWaveListTable>
+            </div>
+        </div>
+        <br/>
+        <div class="hc-block__footer">
+            <button class="slds-button slds-button--brand slds-align--absolute-center" onclick="{!c.onSavePatientsList}">{!$Label.healthcloudga.Header_Wave_Patientlist_To_Healthcloud}</button>
+        </div>
+    </div>
+    <!-- this is the header for Success screen it is visible once the user clicks Send and list creation is successful-->
+    <div class="{!v.isSuccess ? '' : 'slds-hide' }">
+        <div class="slds-page-header slds-align--absolute-center slds-theme--success" role="banner">
+            <p class="slds-page-header__title slds-truncate" title="Success Page">{!v.successMsg}</p>
+        </div>
+        <label class="slds-form-element__label slds-m-top--x-large slds-align--absolute-center">{!$Label.healthcloudga.Msg_To_Close_Window}</label>
+    </div>
+</aura:component>

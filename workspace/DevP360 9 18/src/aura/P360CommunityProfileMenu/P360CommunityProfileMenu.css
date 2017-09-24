@@ -1,0 +1,48 @@
+.THIS *{
+    font-family:inherit;
+}
+.THIS .ProfileLabel{
+    font-size: 16pt;
+    color: #3c91c7;
+    text-align: right;
+    width: 280px;
+    float: right;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-right: 10px;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+.THIS.ProfileMenu{
+    font-size:12px;
+    color:#707f8a;float:left;clear:both;width:270px;margin-left:15px;
+    float: right;
+    text-align: right;
+    margin-right: 30px;
+}
+.THIS .ProfileMenu{}
+
+
+.THIS .ProfileOption{
+    background-image:'resource/P30Header_icons/02-UserProfile.svg';
+}
+.THIS div.actionMenu{
+    left: 62%;
+}
+.THIS .uiMenuList--default.uiMenuList{
+    min-width : 125px;
+}
+.THIS .slds-hide{
+}
+@media only screen and (max-width : 640px) {
+    .THIS.ProfileMenu {
+        width: 235px;
+    }
+    .THIS .ProfileLabel {
+        width: 250px;
+    }
+}
+@media only screen and (max-width : 480px) {
+.THIS.ProfileMenu{margin-right:0;}
+    .THIS{display:none;}
+}

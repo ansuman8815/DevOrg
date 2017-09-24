@@ -1,0 +1,13 @@
+.THIS .health1-inlineDisplay {
+    display:inline-block;
+}
+
+.THIS .health1-PatientLabel{
+	color:#006DD5;
+	font-size: 0.9375rem;
+}
+
+.THIS .HcPicWidth {
+    width: 3rem;
+    border-radius: 50%;
+}

@@ -1,0 +1,322 @@
+/*
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description Controller for the patientDetailComponent
+ * @since 196
+*/
+
+.THIS {
+    color: #384a58;
+    background-color: #F8FAFC;
+    height: 100%;
+}
+
+.THIS li.uiMenuItem>a {
+    height: auto;
+    color: #1270d0;
+    margin-left: 0.5rem;
+}
+
+.THIS li.uiMenuItem>a:hover {
+    background-color: #f4f6f9;
+    text-decoration: none;
+    border-radius: 0;
+}
+
+.THIS li.uiMenuItem>a:focus {
+    background-color: #f4f6f9;
+    text-decoration: none;
+    border-radius: 0;
+}
+
+.THIS li.uiMenuItem>a:blur {
+    background-color: #ffffff;
+    text-decoration: none;
+}
+
+.THIS .slds-scope .slds-m-top--small {
+    margin-top: .75rem;
+}
+
+.THIS .drowpdown-icon_container {
+    margin-left: 0rem;
+    float: right;
+}
+
+.THIS .slds-text-heading--label:hover,
+.THIS .slds-text-heading--label:focus {
+    text-decoration: none;
+}
+
+.THIS .slds-text-heading--label {
+    outline: none;
+}
+
+.THIS .dropdown-label-content {
+    margin-left: 0.5rem;
+}
+
+.THIS .uiMenuList--default .uiMenuItem>a[aria-disabled=true] {
+    text-decoration: none;
+    color: #16325C;
+    cursor: default;
+    border: 0;
+}
+
+.THIS .slds-scope .slds-p-left--small {
+    padding-left: 1rem;
+}
+
+.THIS .uiMenuList>div {
+    display: block;
+    margin-left: -0.5rem;
+    min-width: 15.5rem;
+}
+
+.THIS .div[role=menu] {
+    overflow-y: visible;
+}
+
+.THIS .popupTargetContainer {
+    overflow-y: hidden;
+}
+
+.THIS .dropdown__list {
+    margin-left: -0.5rem;
+    width: 12rem;
+    max-height: 30rem;
+    /*overflow-y: hidden;*/
+}
+
+.THIS .imgStyle {
+    width: 44px;
+}
+
+.THIS .divContainer {
+    background-color: #F8FAFC;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+.THIS .patientRecordContainer {
+    height: 100%;
+    padding: 20px 20px 0;
+    overflow: auto;
+}
+
+.THIS .cardHeader {
+    overflow-x: hidden;
+    max-width: 100%;
+    padding-bottom: 20px;
+    padding-top: 3rem;
+}
+
+.THIS hr {
+    margin-top: 15px;
+    margin-bottom: 0;
+    color: #137CAD;
+}
+
+.THIS .capsule {
+    background-color: #E8676C;
+    border-radius: 16px;
+    font-size: 11px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    width: 50px;
+    height: 18px;
+    bottom: 5px;
+}
+
+.THIS .patientLabel {
+    color: #172e5b;
+    font-size: 17px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.THIS .HealthCare_SubCat {
+    color: #1270D0;
+}
+
+.THIS .bDate {
+    color: #445572;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.THIS .patientLabelSmall {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 14px;
+    font-color: #445572;
+    text-transform: uppercase;
+}
+
+.THIS .cCaption {
+    color: #5f749a;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.THIS .cDetail {
+    color: #4b5c7b;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.THIS .column {
+    width: 75px;
+}
+
+.THIS .divScrolly {
+    overflow-y: scroll;
+}
+
+.THIS .capsule-label {
+    background-color: #e0e5ee;
+    padding: 0.25rem 0.5rem;
+    border-radius: 15rem;
+    font-size: 0.625rem;
+    line-height: 1.25;
+    text-transform: uppercase;
+    letter-spacing: 0.0625em;
+    color: #16325c;
+    vertical-align: middle;
+}
+
+.THIS .capsule-theme--inverse {
+    color: white;
+    border-color: #061c3f;
+    width: 75px;
+    padding-left: 8px;
+    display: inline-block;
+    width: auto;
+    margin-bottom: 4px;
+}
+
+.THIS .capsule-red {
+    background-color: #E8676C;
+}
+
+.THIS .capsule-green {
+    background-color: green;
+}
+
+.THIS .capsule-yellow {
+    color: black;
+    background-color: #FFCC33;
+}
+
+.THIS select.cSelect {
+    border: 1px solid lightgrey;
+    background-color: #B5BDC5;
+    border: medium none;
+    border-radius: 5px 0 0 5px;
+    color: white;
+    margin-left: 75px;
+    width: 200px;
+    height: 30px;
+}
+
+.THIS .cSelect option {
+    padding-left: 15px;
+}
+
+.THIS .cSelect {
+    z-index: 9999;
+}
+
+.THIS .cSelectNew {
+    z-index: 9999;
+    background-color: #95A1AA;
+    color: #FFF;
+    height: 34px;
+    font-size: 12px;
+}
+
+.THIS .optgroup {
+    background-color: #fff;
+    color: blue;
+}
+
+.THIS .cCategory {
+    background-color: #fff;
+    color: #556881;
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+
+.THIS .cSubCategory {
+    background-color: #fff;
+    color: #136dd0;
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+
+.THIS .cDivider {
+    background-color: #fff;
+}
+
+.THIS .cDivider div {
+    background-color: gray;
+}
+
+.THIS .liDummy {}
+
+.THIS .slds-dropdown {
+    margin-top: 1rem;
+    min-width: 12rem;
+}
+
+.THIS .slds-dropdown__item.liDummy.optgroup > a {
+    font-size: 14px;
+    color: #0174DF;
+    padding: 5px 10px 5px 21px;
+}
+
+.THIS hr:last-child {
+    display: none;
+}
+
+.THIS .HealthCare_Patientcard_bgColor {
+    background-color: #C23934;
+}
+
+.THIS .HealthCare_Patientcard_positionfixed {
+    width: 100%;
+    background-color: #F8FAFC;
+    border-bottom: solid 1px #d0d0d0;
+}
+
+.THIS .HealthCare_Patientcard_divHeight {
+    height: 20px;
+}
+
+.THIS .HealthCare_Patientcard_paddingLeft {
+    padding-left: 100px
+}
+
+.THIS .HealthCare-floatRight {
+    float: right;
+    padding-right: 1rem;
+    line-height: 2;
+    margin-top: 1rem;
+}
+
+.THIS div.slds-media__figure{
+  display:none;
+}
+
+.THIS span.slds-text-heading--small.slds-truncate {
+	color: white;
+	background-color: rgb(194, 57, 52);
+	padding: 5px 11px;
+}

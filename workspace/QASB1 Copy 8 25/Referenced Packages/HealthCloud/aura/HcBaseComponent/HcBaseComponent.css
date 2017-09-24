@@ -1,0 +1,104 @@
+.THIS button{
+	font-weight: 500;
+}
+
+.THIS ul li{
+	margin: 0;
+}
+
+/* Aura input (ui:inputDate and similar) field with icon fix */
+.THIS .input-has-icon--alt {
+	width: 93% !important;
+}
+
+/* Border modifiers */
+.THIS .hc-border-bottom {
+	border-bottom: 1px solid rgb(216, 221, 230);
+}
+
+.THIS .hc-border-left {
+	border-left: 1px solid rgb(216, 221, 230);
+}
+
+/* Tree indentation system */
+.THIS .hc-tree [aria-level="1"] .hc-tree__item {
+	padding-left: 1.5rem;
+}
+
+.THIS .hc-tree [aria-level="2"] .hc-tree__item {
+	padding-left: 4rem;
+}
+
+.THIS .hc-tree [aria-level="3"] .hc-tree__item {
+	padding-left: 6.5rem;
+}
+
+.THIS .hc-tree [aria-level="4"] .hc-tree__item {
+	padding-left: 9rem;
+}
+
+/* Tree elements */
+.THIS .hc-tree-checkbox,
+.THIS .hc-tree-row--expandable { padding-left: 1.5rem; }
+.THIS .hc-tree-checkbox .hc-checkbox--faux { margin-left: -1.5rem; }
+.THIS .hc-tree-row_expander { margin-right: 1.5rem; /* slds-m-right--medium */ }
+.THIS .hc-tree-row_block { display: inline-block; vertical-align: top; }
+
+/* Table in tree */
+.THIS .hc-tree .hc-tree__table--bordered-alt {
+	border-left: none;
+	border-right: none;
+}
+
+.THIS .hc-tree .hc-tree__table--bordered-alt,
+.THIS .hc-tree .hc-tree__table--bordered-alt th {
+	border-top: none;
+}
+
+.THIS .hc-tree .hc-tree__table tr > td:last-child {
+	padding-right: 1rem; /* slds-p-right--medium */
+}
+
+.THIS .hc-tree [aria-level="2"] .hc-tree__table thead th:first-child {
+	padding-left: 3.5rem;
+}
+.THIS .hc-tree [aria-level="2"] .hc-tree__table tbody td:first-child {
+	padding-left: 4rem;
+}
+
+.THIS .hc-tree [aria-level="3"] .hc-tree__table thead th:first-child {
+	padding-left: 6rem;
+}
+.THIS .hc-tree [aria-level="3"] .hc-tree__table tbody td:first-child {
+	padding-left: 6.5rem;
+}
+
+/* hack until alternative SLDS mechanism is available */
+.THIS .tabs-snug .slds-tabs__content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Generic styles & modifiers */
+.THIS .hc-color-text-label { color: rgb(84, 105, 141); /* $color-text-label */ }
+
+.THIS .uiButton.hc-button--plain {
+	border: none;
+	box-shadow: none;
+}
+
+.THIS.slds-spinner_container {
+	z-index: 9999;
+}
+
+.THIS .hc-noItemsMessage {
+	width: 100%;
+    padding: 1rem;
+    color: #54698d;
+}
+
+.THIS span.slds-text-heading--small.slds-truncate {
+	color: white;
+	background-color: rgb(194, 57, 52);
+	padding: 5px 11px;
+}

@@ -1,0 +1,41 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcFilterConditionsCmp Component, parent component responsible for holding Patient List Filter Condition Rows.
+ * @since 196
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable" controller='HealthCloudGA.HcFilterCriteriaCmpController'>
+    <aura:attribute name="condBody" type="List" />
+    <aura:attribute name="filterId" type="String" />
+    <aura:attribute name="filterString" type="String" default=""/>
+    <aura:attribute name="isEdit" type="Boolean" default="false" />
+    <aura:attribute name="toBeDeletedConditions" type="List"/>
+    <!--helpUrl is sanitized in controller-->
+    <aura:attribute name="helpUrl" type="String" access="private"/>
+    <aura:attribute name="conditionsError" default="" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <ltng:require scripts="{!join(',',$Resource.HealthCloudGA__industryresources + '/externalresources/moment/moment.js',$Resource.HealthCloudGA__industryresources + '/externalresources/moment/moment-timezone.js')}" afterScriptsLoaded="{!c.doFetchInit}" />
+
+
+    <div>
+        <div class="slds-text-align--center health1-condition-error-textColor">{!v.conditionsError}</div>
+        <aura:iteration items="{!v.condBody}" var="cond" indexVar="index">
+          <span>
+            <HealthCloudGA:HcFilterConditionBuilderCmp aura:id="health1-filterCond" rowNumber="{!index}" isFirst="{! (index == 0 ? true : false) }" filterCond="{!cond}" deleteEvent="{!c.handleDeleteFilterCond}" isEdit="{! (cond.Type__c == 'Type') ? false : true }" />
+          </span>
+        </aura:iteration>
+
+        <div class="slds-p-horizontal--x-large">
+            <button class="slds-button slds-button--neutral health1-addrow-button" aura:id="add-row" onclick="{!c.addRow}">{!$Label.healthcloudga.Button_Label_Add_Row}</button>
+        </div>
+        <div class="slds-p-horizontal--x-large">
+            <div class="health1-filtercriteria-filterLogic helath1-filtercriteria-inlineBlock">
+              <ui:inputText label="{!$Label.healthcloudga.Field_Label_Filter_Logic}" labelPosition="top" value="{!v.filterString}" class="slds-input input "/>
+            </div>
+            <div class="helath1-filtercriteria-inlineBlock">
+              <a href="{!v.helpUrl}" target="_blank"><lightning:icon iconName="utility:question" size="xx-small" class="slds-button__icon"/></a>
+            </div>
+        </div>
+    </div>
+</aura:component>

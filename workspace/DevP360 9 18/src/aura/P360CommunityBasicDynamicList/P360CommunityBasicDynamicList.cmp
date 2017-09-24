@@ -1,0 +1,33 @@
+<aura:component controller="DynamicListController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="empi" type="string"/>
+    <aura:attribute name="result" type="string"/>
+    <aura:attribute name="tableName" type="string"/>
+    <aura:attribute name="listName" type="string"/>
+    <aura:attribute name="count" type="string"/>
+    <aura:attribute name="isSidebarEvent" type="boolean" default="false"/>
+    
+    <center style="clear:both;">
+        <article class="slds-card"> 
+            
+            <div class="slds"> 
+                <div class="TableSample">
+                    <table class="slds-table slds-table--bordered slds-table--striped slds-max-medium-table--stacked-horizontal" aura:id="SearchDiv"  id="{!v.tableName}" style="height:100%;">
+                        <thead/>
+                        <tbody/>
+                    </table>
+                </div> 
+            </div>
+            
+            <div class="slds"> 
+                <div class="TableSample">
+                    <table class="slds-table slds-table--bordered slds-table--striped slds-max-medium-table--stacked-horizontal" aura:id="searchDiv" id="{!v.tableName}" style="height:100%;width:100% !important;">
+                        <thead/>
+                        <tbody><span id="Loadingspinner" style="display:none">Loading...<ui:spinner /></span></tbody>
+                    </table>
+                </div> 
+            </div>
+        </article>
+    </center>
+</aura:component>

@@ -1,0 +1,4 @@
+/* To hide lightning:input's required label element */
+.THIS .hc-careplantemplates-search .slds-form-element__label {
+	display: none;
+}

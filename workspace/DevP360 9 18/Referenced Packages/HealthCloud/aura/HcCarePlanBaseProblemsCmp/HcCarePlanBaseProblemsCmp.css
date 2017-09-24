@@ -1,0 +1,47 @@
+.THIS .hc-carePlanProblem {
+    border: 1px solid #d8dde6;
+    border-top: 0px;
+}
+
+.THIS .hc-carePlanProblem [aria-level="1"] .hc-carePlanGoal__container:last-child .hc-carePlanGoal {
+    border-bottom: 0px;
+} 
+
+.THIS .hc-carePlanProblem:first-child {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-top: 1px solid #d8dde6;
+}
+
+.THIS .hc-carePlanProblem:first-child [aria-level="1"] > .hc-tree__item {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.THIS .hc-carePlanProblem:last-child,
+.THIS .hc-carePlanProblem:last-child [aria-level="1"] > .hc-tree__item.hc-cp-collapsed,
+.THIS .hc-carePlanProblem:last-child .hc-carePlanGoal .hc-tree__item.hc-cp-collapsed {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.THIS .health1-carePlan-baseProblemGoal-infomsg {
+    background-color:white;
+    width:100%;
+    padding-left:10px
+}
+
+.THIS.container {
+    width: 100%;
+    padding: 10px 0px;
+    margin: 0px;
+}
+
+.THIS.center {
+    margin: 0px auto;
+}
+
+.THIS.content {
+    max-width: 768px;
+    font-size: 12px;
+}

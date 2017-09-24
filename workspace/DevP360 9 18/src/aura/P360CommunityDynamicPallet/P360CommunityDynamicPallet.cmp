@@ -1,0 +1,90 @@
+<aura:component controller="DynamicListController">
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}" />
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jQueryDataTableJs.js'}" />
+    <ltng:require styles="{! $Resource.P360JqueryResources + '/jquery.dataTables.min.css'}" />
+    <ltng:require scripts="{! $Resource.svg4everybody + '/svg4everybody-master/dist/svg4everybody.js'}" afterScriptsLoaded="{!c.myAction}" />
+    
+    <aura:registerEvent name="cmpNotesEvent" type="c:ClinicalNoteClickEvent" />
+    <aura:handler name="cmpNotesEvent" event="c:ClinicalNoteClickEvent" action="{!c.handleCNClicked}" />
+    
+    <ui:spinner aura:id="spinner" />
+    <aura:handler name="init" value="this" action="{!c.doInit}" />
+    
+    <aura:attribute name="selectedId" type="string" />
+    <aura:attribute name="patientid" type="string" />
+    <aura:attribute name="empi" type="string" />
+    <aura:attribute name="whereclause" type="string" />
+    <aura:attribute name="listName" type="string" />
+    <aura:attribute name="tableName" type="string" />
+    <aura:attribute name="pageName" type="string" />
+    <aura:attribute name="viewMore" type="boolean" default="false" />
+    <aura:attribute name="count" type="string" />
+    <aura:attribute name="disclaimer" type="string" />
+    <aura:attribute name="isPallet" type="string" default="pallet" />
+    <aura:attribute name="result" type="list" />
+    <aura:attribute name="columns" type="list" />
+    <aura:attribute name="svgPath" type="String" />
+ <!-- Pallet proPosed design  start-->   
+ <c:P360CommunityIcon svgPath="{!v.svgPath}" class="IconStyle svgBorder mobileonly" buttonStyle="border:none;  outline:none; background-color:transparent" press="{!c.ViewMore}" />
+  <div class="palletTitleMargin">
+    <p class="palletTitle"><a><span onclick="{!c.ViewMore}"> {!v.listName} </span> </a>
+  </p>
+ </div>
+<div class="floatL  palletHeading desktop" onclick="{!c.ViewMore}">
+ <p>
+ <c:P360CommunityIcon svgPath="{!v.svgPath}" class="IconStyle svgBorder " buttonStyle="border:none;  outline:none; background-color:transparent" press="{!c.ViewMore}" />
+ </p>
+</div>
+     <!-- Pallet proPosed design  End-->   
+    
+    
+   <!-- <div class="floatL  palletHeading" onclick="{!c.ViewMore}">
+        <p class="palletTitle"><a><span onclick="{!c.ViewMore}"> {!v.listName} </span> </a></p>
+        <p><c:P360CommunityIcon svgPath="{!v.svgPath}" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent"  press="{!c.ViewMore}"/></p>
+        <p class="disclaimerPara"><span class="disclaimer" >{!v.disclaimer}</span></p>
+    </div> -->
+    
+    <aura:if isTrue="{!v.isPallet == 'pallet'}">
+        
+        <div class="PalletDetailSection">
+            <table class="PalletDetailList slds-table slds-table--bordered slds-table--striped" id="{!v.tableName}" style="height:100%;align-center">
+                <thead/>
+                <tbody/>
+            </table>
+            <div class="recordDetail"><span>{!v.count} record (s)</span>
+                <ui:button label="More" press="{!c.ViewMore}" class="MoreBtn" />
+            </div>
+            
+        </div>
+        
+        
+         <!-- Pallet proPosed design  start-->   
+         <p class="disclaimerPara"><span class="disclaimer">{!v.disclaimer}</span>
+    </p>
+        
+           <!-- Pallet proPosed design  End-->   
+        <aura:set attribute="else">
+            
+            <div class="socialSummaryComp">
+                <aura:if isTrue="{!v.result.length == 0}">
+                    <p class="noDataStyle">No data available</p>
+                    <aura:set attribute="else">
+                        <aura:iteration items="{!v.result}" indexVar="key" var="col">
+                            <p>
+                                <span class="heading">{!col.key}</span>
+                                <span class="dataValue" title="{!col.value}">{!col.value}</span>
+                                
+                            </p>
+                        </aura:iteration>
+                    </aura:set>
+                </aura:if>
+                
+            </div>
+            <div class="PalletDetailSection">
+                <div class="recordDetail"><span>{!v.count} record (s)</span>
+                    <ui:button label="View All " press="{!c.ViewMore}" class="MoreBtn" />
+                </div>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

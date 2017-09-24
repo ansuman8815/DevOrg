@@ -1,0 +1,40 @@
+.THIS {
+}
+.THIS.Headercss{
+    font-family:inherit;
+    font-size: 16pt;
+    color: #2f3537;
+    font-weight: bold;
+    margin-bottom:8px;
+}
+.THIS.Paracss{
+    font-family:inherit;
+    font-size: 13pt;
+    color: black;
+}
+.THIS.linkcss{
+    font-family:inherit;
+    font-size: 14pt;
+    color: #3c91c7;
+}
+.THIS a{ font-size: 11pt;font-style: italic;}
+.THIS .notification{position:relative;}
+.THIS .notification img{position:absolute;width: 20px;height: 20px;right: -15px;bottom: 7px;}
+
+@media only screen and (max-width : 1280px){
+    .THIS.Paracss{font-size: 18px;}
+    .THIS.Headercss{font-size: 21px;}
+}
+@media only screen and (max-width : 1024px){
+     .THIS.Paracss{font-size:16px;}
+     .THIS a{font-size: 12px;}
+}
+@media only screen and (max-width : 768px){
+    .THIS.Paracss{font-size:14px;}
+}
+@media only screen and (max-width : 736px){
+    .THIS.Headercss{ margin-bottom:0px;}
+}
+@media only screen and (max-width : 480px){
+    .THIS.Headercss{ margin-bottom:8px;}
+}

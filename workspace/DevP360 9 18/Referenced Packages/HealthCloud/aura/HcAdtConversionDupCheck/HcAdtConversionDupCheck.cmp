@@ -1,0 +1,81 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcAdtConversionDupCheck component, a component for checking duplicatation at begining of ADT conversion workflow.
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcPatientCreationFlowController">
+    <aura:attribute name="sortBy" type="String" />
+    <aura:attribute name="entries" type="List" />
+    <aura:attribute name="dgEntries" type="List" />
+    <aura:attribute name="output" type="List" />
+    <aura:attribute name="duplicateCount" type="Integer" default="-1" />
+    <aura:attribute name="headerColumns" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <div class="slds-m-vertical--large slds-m-horizontal--small">
+        <aura:if isTrue="{!0 > v.duplicateCount}">
+            <div class="notify__content slds-grid slds-grid--align-center">
+                <div class="slds-spinner--large">
+                    <img src="/resource/HealthCloudGA__industryresources/landmark/images/spinners/slds_spinner.gif" alt="{!$Label.healthcloudga.Msg_Loading}" />
+                </div>
+            </div>
+        </aura:if>
+        <div>
+        <aura:if isTrue="{!v.duplicateCount == 0}">
+            <div class="notify__content slds-grid">
+                <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#check" class="slds-icon slds-icon--medium slds-m-right--small slds-col health1-check-icon" />
+                <div class="slds-col slds-align-middle">
+                    <h2 class="slds-text-heading--medium">{!$Label.healthcloudga.Msg_No_Duplicate_MRN}</h2>
+                    <h2 class="slds-text-heading--small">{!$Label.healthcloudga.Text_Click_Next}</h2>
+                </div>
+            </div>
+        </aura:if>
+        </div>
+        <div>
+        <aura:if isTrue="{!v.duplicateCount > 0}">
+            <div class="notify__content slds-grid">
+                <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#warning" class="slds-icon slds-icon--medium slds-m-right--small slds-col health1-warning-icon" />
+                <div class="slds-col slds-align-middle">
+                    <h2 class="slds-text-heading--small">{!$Label.healthcloudga.Msg_Duplicate_MRN}</h2>
+                </div>
+            </div>
+        </aura:if>
+        </div>
+    </div>
+    <div>
+        <aura:if isTrue="{!v.duplicateCount > 0}">
+            <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                <thead>
+                <tr class="slds-text-title--caps">
+                    <aura:iteration items="{!v.headerColumns}" var="col">
+                        <th id="{!col.name}" class=" slds-text-title--caps slds-is-sortable" scope="col" >
+                            <div data-id='{!col.name}' data-sortable='true' onclick="{!c.handleSort}" class='slds-th__action slds-text-link--reset'>
+                                <span class="slds-truncate" title="{#col.label}" >{#col.label}</span>
+                                <div class="{! 'acdc-sortIcon__container slds-icon_container ' + (col.sortOrder != '' ? '' : 'slds-hide')}">
+                                    <lightning:icon iconName="{!(col.sortOrder == 'A') ? 'utility:up' : (col.sortOrder ==   'D') ? 'utility:down' : '' }" size="xx-small" class="slds-button__icon" />
+                                </div>
+                            </div>
+                        </th>
+                    </aura:iteration>
+                </tr>
+                </thead>
+                <tbody>
+                <aura:iteration items="{!v.dgEntries}" var="entry">
+                    <tr class="slds-hint-parent">
+                        <th scope="row">
+                            <div class="slds-truncate">{!entry.name}</div>
+                        </th>
+                        <td >
+                            <div class="slds-truncate">{!entry.mrn}</div>
+                        </td>
+                        <td >
+                            <div class="slds-truncate">{!entry.reason}</div>
+                        </td>
+                    </tr>
+                </aura:iteration>
+                </tbody>
+            </table>
+        </aura:if>
+    </div>
+</aura:component>

@@ -1,0 +1,6 @@
+<aura:documentation>
+    <aura:description>
+        <p>An <code>c:CustomSearchComponent </code> component represents an element that executes an action defined by a controller.</p>
+    </aura:description>
+    
+</aura:documentation>

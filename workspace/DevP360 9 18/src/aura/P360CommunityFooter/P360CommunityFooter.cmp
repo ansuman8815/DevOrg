@@ -1,0 +1,12 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+     <ltng:require styles="{! $Resource.SLDS090}"/>
+     <aura:attribute type="String" name="CurrentYear"></aura:attribute>
+     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+     <div class="footer" id="footerHide" >
+    	<div class="float-L">
+        	<a href="http://partner.mountsinai.org/web/mt-sinai-pps/terms-conditions" target="_blank">Terms and Conditions</a>
+            <a href="http://partner.mountsinai.org/web/mt-sinai-pps/privacy-policy" target="_blank">Privacy Policy</a>
+            <span class="footertext"> &copy; {!$Label.c.P360CommunityFooterCopyrightText}</span>
+        </div>
+    </div>
+</aura:component>

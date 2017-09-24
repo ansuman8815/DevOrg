@@ -1,0 +1,29 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcAdtConversionAssignCoord component, a component for searching and assigning coordinator in ADT conversion workflow.
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcCareTeamController">
+    <aura:attribute name="sortBy" type="String" />
+    <aura:attribute name="output" type="Object" />
+    <aura:attribute name="searchTerm" type="String" />
+    <aura:attribute name="patients" type="List" />
+    <aura:attribute name="selectedItems" type="List" />
+
+    <div>
+        <div class="slds-form-element slds-m-bottom--medium">
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+                <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#search" class="slds-input__icon" />
+                <input id="lookup" class="slds-input" type="text" placeholder="{!$Label.healthcloudga.Text_Type_A_Name}" onkeyup="{!c.onTypeInSearch}" />
+            </div>
+        </div>
+
+        <HealthCloudGA:HcAssignCoordTable aura:id="assignCoordTable" id="assignCoordTable" searchTerm="{!v.searchTerm}" selected="{!v.output}">
+            <aura:set attribute="dataProvider">
+                <HealthCloudGA:HcAssignCoordDataProvider autoInit='false' searchUsersTerm="{!v.searchTerm}" pageSize="20"/>
+            </aura:set>
+        </HealthCloudGA:HcAssignCoordTable>
+    </div>
+</aura:component>

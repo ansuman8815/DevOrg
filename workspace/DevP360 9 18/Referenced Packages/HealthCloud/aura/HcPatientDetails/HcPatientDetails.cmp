@@ -1,0 +1,25 @@
+<aura:component controller="HealthCloudGA.HcPatientTableController">
+  <aura:attribute name="patientData" type="Object" />
+  <aura:attribute name="patientId" type="String"/>
+  <aura:handler name="init" value="{!this}" action="{!c.init}" />
+  <div id="patientDetails">
+      <table>
+          <div>
+              <aura:iteration items="{!v.patientData}" var="w">
+                  <div>
+                      <tr>
+                          <td>
+                              <div class="HcCaption"><span>{!w.friendlyName}</span> &nbsp;
+                              </div>
+                              <HealthCloudGA:HcTextViewer value="{!w.value}" />
+                          </td>
+                      </tr>
+                      <tr>
+                          <td height="15"></td>
+                      </tr>
+                  </div>
+              </aura:iteration>
+          </div>
+      </table>
+  </div>
+</aura:component>

@@ -1,0 +1,21 @@
+.THIS .customSpinnerCSS
+{
+	float: right;
+    width: 2%;
+    margin-left: 97%;
+    border-top: solid .5px #1589ee;
+    border-bottom: solid .5px #1589ee;
+       
+}
+
+.THIS .marginBottom{
+    margin-top: -0.7rem !important;
+}
+
+.THIS .enableSpinner{
+        background: transparent;
+}
+
+.THIS .slds-backdrop--open{
+        background: transparent;
+}

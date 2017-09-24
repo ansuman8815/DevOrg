@@ -1,0 +1,8 @@
+<aura:event type="APPLICATION" description="Event used to refresh HcCarePlan components">
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="oldParentId" type="String"/>
+    <aura:attribute name="newParentId" type="String"/>
+    <aura:attribute name="topLevelParentId" type="String"/>
+    <aura:attribute name="sObjectName" type="Object"/>
+</aura:event>

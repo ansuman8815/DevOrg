@@ -1,0 +1,52 @@
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcPatientTableController">
+    <aura:attribute name="picUrl" type="String" />
+    <aura:attribute name="patientId" type="String" required="true" />
+    <aura:attribute name="patientName" type="String" />
+    <aura:attribute name="bDateAndAge" type="String" />
+    <aura:attribute name="gender" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <div class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <lightning:icon iconName="standard:people" class="slds-icon hc-patientDetail__icon" />
+            <header class="slds-media slds-media--center">
+                <div class="slds-media__body slds-m-left--small">
+                    <span class="slds-text-heading--small">{!$Label.healthcloudga.Header_Patient_Details} </span>
+                </div>
+            </header>
+        </div>
+        <div class="slds-card__body slds-card__body--inner">
+            <div class="slds-col slds-align-middle" id="patientContact">
+                <div>
+                    <div class="slds-grid slds-m-top_medium">
+                        <div class="slds-col">
+                            <div id="patientProfilePic" class="health1-inlineDisplay">
+                                <img src="{!v.picUrl}" class="HcPicWidth" />
+                            </div>
+                            <div id="health1-patient_detail-name" class="health1-inlineDisplay">
+                                <span class="slds-m-left_medium  slds-truncate health1-PatientLabel">{!v.patientName}&nbsp;</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-m-top_medium ">
+                        <div class="slds-col slds-p-right_medium">
+                            <div>
+                                <span class="slds-text-title slds-truncate slds-m-bottom-xx-small"> Birthdate</span>
+                            </div>
+                            <div>
+                                <span class="slds-text-body-regular">{!v.bDateAndAge}</span>
+                            </div>
+                        </div>
+                        <div class="slds-col">
+                            <div>
+                                <span class="slds-text-title slds-truncate slds-m-bottom-xx-small"> Gender </span>
+                            </div>
+                            <div>
+                                <span class="slds-text-body-regular ">{!v.gender}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

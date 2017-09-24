@@ -1,0 +1,74 @@
+<aura:component controller="ApiDynListController">
+    <ltng:require styles="{! $Resource.P360JqueryResources + '/jquery.dataTables.min.css'}"/>
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}"/>
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jQueryDataTableJs.js'}"/>
+    
+    
+    <div class="dynamicList">
+        <center style="clear:both;">
+            <article class="slds-card">
+                <div class="slds"> 
+                    <div class="TableSample" id="parTable">
+                        
+                            <table class="slds-table slds-table--bordered slds-table--striped slds-max-medium-table--stacked-horizontal dataTable no-footer" id="sample_table" style="height: 100%; width: 100%;" data-aura-rendered-by="70:562;a" role="grid">
+                                <thead data-aura-rendered-by="71:562;a">
+                                    <tr role="row">
+                                        <th class="sorting" tabindex="0" aria-controls="medical_tableviewMore" rowspan="1" colspan="1" aria-label="Description: activate to sort column ascending" style="width: 477px;">Extend</th>
+                                        <th class="sorting" tabindex="0" aria-controls="medical_tableviewMore" rowspan="1" colspan="1" aria-label="Description: activate to sort column ascending" style="width: 477px;">Description</th>
+                                        <th class="sorting" tabindex="0" aria-controls="medical_tableviewMore" rowspan="1" colspan="1" aria-label="Code: activate to sort column ascending" style="width: 113px;">Code</th>
+                                        <th class="sorting" tabindex="0" aria-controls="medical_tableviewMore" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 129px;">Date</th>
+                                        <th class="sorting" tabindex="0" aria-controls="medical_tableviewMore" rowspan="1" colspan="1" aria-label="Source: activate to sort column ascending" style="width: 239px;">Source</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-aura-rendered-by="72:562;a">
+                                    <tr role="row" class="odd">
+                                        <td class="extend-show"><a class="icon" onclick="{!c.extendClick}">icon</a></td>
+                                        <td data-label="Description">ASTHMA</td>
+                                        <td data-label="Code">493</td>
+                                        <td data-label="Date"></td>
+                                        <td data-label="Source">Mount Sinai – Epic EMR</td>
+                                    </tr>
+                                    <tr role="row" class="extend">
+                                        <td></td>
+                                        <td data-label="Description">ASTHMA</td>
+                                        <td data-label="Code">493</td>
+                                        <td data-label="Date"></td>
+                                        <td data-label="Source">Mount Sinai – Epic EMR</td>
+                                    </tr>       
+                                    <tr role="row" class="even">
+                                        <td class="extend-show"><a class="icon" onclick="{!c.extendClick}">icon</a></td>
+                                        <td data-label="Description">ESSENTIAL (PRIMARY) HYPERTENSION</td>
+                                        <td data-label="Code">I10</td>
+                                        <td data-label="Date">8/2014</td>
+                                        <td data-label="Source">Mount Sinai – Epic EMR</td>
+                                    </tr>
+                                    <tr role="row" class="extend">
+                                        <td></td>
+                                        <td data-label="Description">HYPERGLYCEMIA, UNSPECIFIED</td>
+                                        <td data-label="Code">R73.9</td>
+                                        <td data-label="Date">8/2014</td>
+                                        <td data-label="Source">Mount Sinai – Epic EMR</td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <td class="extend-show"><a class="icon" onclick="{!c.extendClick}">icon</a></td>
+                                        <td data-label="Description">MULTIPLE MYELOMA NOT HAVING ACHIEVED REMISSION</td>
+                                        <td data-label="Code">C90.00</td>
+                                        <td data-label="Date">8/2014</td>
+                                        <td data-label="Source">Mount Sinai – Epic EMR</td>
+                                    </tr>
+                                    <tr role="row" class="extend">
+                                        <td></td>
+                                        <td data-label="Description">OTHER SPECIFIED POSTPROCEDURAL STATES</td>
+                                        <td data-label="Code">Z98.890</td>
+                                        <td data-label="Date">11/21/2014</td>
+                                        <td data-label="Source">Mount Sinai – Epic EMR</td>
+                                    </tr>              
+                                </tbody>
+                        </table>
+                    </div> 
+                </div>
+            </article>
+        </center>
+    </div>
+    
+</aura:component>

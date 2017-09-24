@@ -1,0 +1,31 @@
+.THIS table.hc-carePlanHeader_table {
+    width: auto;
+    background-color: inherit;
+}
+
+.THIS table.hc-carePlanHeader_table thead {
+	background-color: inherit;	
+}
+
+.THIS table.hc-carePlanHeader_table td {
+    padding: 0px;
+}
+
+.THIS .hc-carePlanHeader_cell.CaseNumber {
+    width: 7.5rem;
+}
+
+.THIS .hc-carePlanHeader_cell.Status {
+    width: 7.5rem;
+}
+
+.THIS .hc-carePlanHeader_cell.Owner {
+    width: 12.5rem;
+}
+
+.THIS .hc-carePlanHeader_cell.LMD {
+    width: 12.5rem;
+}
+
+.THIS .hc-carePlanHeader_cell.CD {
+}

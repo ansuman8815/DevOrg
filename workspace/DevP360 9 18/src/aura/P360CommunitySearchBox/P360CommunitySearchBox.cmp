@@ -1,0 +1,18 @@
+<aura:component implements="forceCommunity:searchInterface" access="global">
+    <aura:registerEvent name="globalSearchEvent" type="c:P360CommunityGlobalSearchEvent"/>
+    <aura:attribute name="searchTerm" type="String"/>
+    <aura:handler event="aura:doneRendering" action="{!c.doneRendering}"/>
+    
+    <div class="search" onclick="{!c.extendSidebar}">
+        <div class="search-wrapper">
+            <div class="search-input-wrapper" id="focusInput" aura:id="focusInput">
+	            <a onclick="{!c.onClickEnter}"><lightning:icon iconName="utility:search" size="small"/>    </a>
+				
+                <input  aura:id="searchText" id="searchText" class="search-input" type="text" placeholder="Search Chart"  onkeyup="{!c.captureEnterCode}"/>
+                <input class="clearSearch" type="button" value="X" onclick="{!c.clearInputField}" />
+                
+            </div>
+            <input type="hidden" name="language" value="en" />
+        </div>
+    </div>
+</aura:component>

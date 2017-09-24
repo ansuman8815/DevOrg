@@ -1,0 +1,34 @@
+<aura:component controller="HealthCloudGA.HcCareTeamController" extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable">
+    <aura:attribute name="memberObj" type="Object"/>
+    <aura:attribute access="PRIVATE" default="" name="messageToSend" type="String"/>
+    <aura:attribute default="true" name="isMessageValid" type="Boolean"/>
+    <aura:attribute default="" name="errorMsg" type="String" />
+    
+    <aura:handler action="{!c.init}" name="init" value="{!this}"/>
+    <aura:registerEvent name="HcCareTeamEvent" type="HealthCloudGA:HcCareTeamCmpEvent"/>
+
+    <HealthCloudGA:modal aura:id="modal" finishButtonClass="slds-button--brand health1-directMessage-sendMessageButton" finishButtonText="{!$Label.healthcloudga.Button_Label_Send}" finishEvent="{!c.sendMessage}" headerTitle="{!$Label.healthcloudga.Text_Send_Private_Message}" isDoable="true" modalSizeClass="">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size--1-of-1">
+                <div class="slds-form--stacked">
+
+                    <div class="slds-form-element">
+                        <ui:inputText aura:id="toRecipients" class="slds-input health1-directMessage-to" disabled="true" label="{!$Label.healthcloudga.Text_To}" value="{!v.memberObj.name}"/>
+                    </div>
+
+                    <div class="{!'slds-form-element ' + (v.isMessageValid ? '' : 'slds-has-error') + ' slds-is-required'}">
+                        <label class="slds-form-element__label" for="health1-directMessage-textarea">{!$Label.healthcloudga.Text_Message}</label>
+                        <div class="slds-form-element__control">
+                            <textarea aura:id="message" id="health1-directMessage-textarea" class="slds-textarea" onkeypress="{!c.handleKeyPress}"></textarea>
+                        </div>
+                        <aura:if isTrue="{! !v.isMessageValid}">
+                            <small class="slds-form-element__help error--text">{!$Label.healthcloudga.Msg_Error_Message_Empty}</small>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </HealthCloudGA:modal>
+
+</aura:component>

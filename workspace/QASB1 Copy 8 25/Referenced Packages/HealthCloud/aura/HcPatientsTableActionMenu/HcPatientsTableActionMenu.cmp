@@ -1,0 +1,11 @@
+<aura:component >
+	<aura:attribute name="itemData" type="Object" /> 
+    <aura:attribute name="columnsMetadata" type="List" />
+
+    <aura:registerEvent name="patientsTableActionEvent" type="HealthCloudGA:HcSimpleTableEvent" />
+
+	<lightning:buttonMenu aura:id="menu" alternativeText="Show menu" iconSize='x-small' menuAlignment="right" onselect="{!c.onActionClicked}">
+        <lightning:menuItem value="handleCreateTask" label="{!$Label.healthcloudga.Link_Create_Task}" />
+    </lightning:buttonMenu>
+    
+</aura:component>

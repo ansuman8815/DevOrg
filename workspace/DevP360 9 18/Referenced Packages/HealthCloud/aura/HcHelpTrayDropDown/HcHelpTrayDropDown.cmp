@@ -1,0 +1,51 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcHelpTrayDropDown
+ * @since 200
+-->
+
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcHelpTrayController">
+    <aura:attribute type="Boolean" name="loaded" default="false" />
+    <aura:attribute type="String" name="type" default=""/>
+    <!--menuItems comes from backend and is sanitized in js helper-->
+    <aura:attribute name="menuItems" type="Object[]" access="private"/>
+    <aura:attribute name="sanitize" type="Object[]" />
+    <aura:attribute name="helpType" type="String" />
+    <aura:attribute name="errorMsg" type="String" default="none"/>
+    <aura:attribute name="defaultHelpCss" type="String" default="slds-button__icon"/>
+
+    <div class="slds-dropdown-trigger" onmouseover="{!c.showItems}">
+      <a href="javascript:void(0);">
+          <lightning:icon iconName="utility:help" class="{!v.defaultHelpCss}" />
+      </a>
+      <aura:if isTrue="{!v.loaded}">
+        <div class="slds-dropdown slds-dropdown--right slds-text-heading--label slds-dropdown--menu HealthCare-minWidth">
+          <div id="menuPointer">&nbsp;</div>
+            <ul class="slds-dropdown__list" role="menu">
+            <li class="slds-dropdown__item">
+                <aura:if isTrue="{!v.errorMsg != 'none'}">
+                  <p class="HealthCare-slds-truncate" style="text-align: left;">{!v.errorMsg}</p>
+                </aura:if>
+                <div class="slds-align-middle Healthcare-nowrap">
+                  <p class="Healthcare_helpPadding">{!$Label.healthcloudga.Header_Help_Tray}</p>
+                </div>
+                <aura:iteration items="{!v.menuItems}" var="r">
+                  <a href="{!r.value}" role="menuitem" target="_blank" style="padding-bottom:8px">
+                    <div class="slds-grid">
+                        <div class="slds-col">
+                          <lightning:icon iconName="{!'utility:'+r.iconName}" class="HealthCare-slds-button__icon" />&nbsp;
+                        </div>
+                        <div class="slds-align-middle">
+                          <ui:outputText value="{!r.friendlyName}" class="HealthCare-slds-truncate" title="{!r.friendlyName}"/>
+                        </div>
+                    </div>
+                  </a>
+                </aura:iteration>
+            </li>
+          </ul>
+        </div>
+      </aura:if>
+    </div>
+</aura:component>

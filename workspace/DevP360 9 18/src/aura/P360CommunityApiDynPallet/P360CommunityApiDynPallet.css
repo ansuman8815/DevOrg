@@ -1,0 +1,350 @@
+.THIS {} .THIS.spinner.uiSpinner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 80px;
+}
+/*.THIS.PalletDetailSection,.THIS.socialSummaryComp{float: left;width: 68%;}*/
+.THIS.PalletDetailSection,
+.THIS.socialSummaryComp {
+    float: left;
+    width: 87%;
+    height: 116px;
+   /* margin-top: 1%;*/
+}
+/*.THIS .dividerPallet{
+    margin:-9px -14px 0px -29px;
+    border-bottom:1px solid gray;}*/
+.THIS .PalletDetailList {
+    width: 100% !important;
+}
+.THIS .dataTables_wrapper {
+    margin-bottom: 30px;
+}
+.THIS table.dataTable thead .sorting {
+    background: none;
+}
+.THIS table.dataTable thead .sorting_asc {
+    background: none;
+}
+.THIS table.dataTable thead .sorting_desc {
+    background: none;
+}
+.THIS .disclaimer {
+    font-size: 12px;
+    color: #707f8a;
+    position: absolute;
+    top: 158px;
+    left: 7px;
+}
+.THIS .disclaimerPara {
+    line-height: 1;
+  /* position:absolute;top:78%;left: 7px;*/
+}
+.THIS .disclaimer{font-size:12px;color: #707f8a;}
+.THIS .disclaimerPara{line-height:1;}
+.THIS table.PalletDetailList tbody tr,
+.THIS table.PalletDetailList tbody tr td,
+.THIS table.PalletDetailList {
+    /*max-width: 90px;*/
+    
+    border: none;
+    background: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+}
+.THIS table.PalletDetailList tbody tr,
+.THIS table.PalletDetailList tbody tr td {
+    max-width: 110px;
+    /*white-space:inherit;*/
+}
+.THIS table.PalletDetailList tbody tr td button {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+}
+.THIS table.PalletDetailList tbody tr:hover td {
+    box-shadow: none !important;
+    background: none;
+}
+.THIS table.PalletDetailList.slds-table thead th {
+    font-size: 14px;
+    color: #004b7b;
+    padding: 5px 10px 5px 0;
+    /* white-space:inherit;*/
+    
+    cursor: default;
+    pointer-events: none;
+}
+.THIS table.PalletDetailList tbody td {
+    font-size: 14px;
+    color: #707f8a;
+    padding: 5px 10px 5px 0;
+}
+.THIS.PalletDetailSection .MoreBtn{float:right;border:none;padding:0;margin-top:6px;margin-bottom:0;
+    color:#3c91c7;font-size:14px;
+    line-height:1;background:none;font-weight:bold;}
+.THIS.PalletDetailSection .MoreBtn {
+    /*float:right;*/
+    
+    border: none;
+    padding: 0;
+    /*margin-top:6px;margin-bottom:0;*/
+    
+    color: #3c91c7;
+    font-size: 14px;
+    line-height: 1;
+    background: none;
+    font-weight: bold;
+    position: relative;
+    top: 17px;
+    left: -1px;
+}
+.THIS.PalletDetailSection .MoreBtn:focus {
+    box-shadow: 0 0;
+}
+.THIS.PalletDetailSection .MoreBtn span:focus {
+    outline: none;
+}
+.THIS.PalletDetailSection .recordDetail {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+.THIS.PalletDetailSection .recordDetail > span {
+    font-size: 12px;
+    color: #9aa6af;
+    margin-right: 5px;
+    border-right: 1px solid #ccc;
+    padding-right: 5px;
+    position: absolute;
+    top: 22px;
+    left: -85px;
+}
+.THIS.PalletDetailSection .recordDetail > span{font-size:12px;color:#9aa6af;margin-right:5px;
+    border-right:1px solid #ccc;padding-right:5px;}
+.THIS.socialSummaryComp p span {
+    margin-top: 5px;
+}
+.THIS.socialSummaryComp p span.heading {
+    width: 40%;
+    float: left;
+    margin-right: 2%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    color: #707f8a;
+}
+.THIS.socialSummaryComp p span.dataValue {
+    width: 55%;
+    float: left;
+    margin-left: 2%;
+    overflow: hidden;
+    white-space: pre-wrap;
+    font-size: 13px;
+    color: #000;
+}
+.THIS .linkbutton,
+.THIS .linkbutton:hover {
+    border: none;
+    padding: 0;
+    color: #3c91c7;
+    font-size: 14px;
+    background: none;
+    outline: none;
+    text-decoration: underline;
+}
+.THIS .noDataStyle {
+    font-size: 12px;
+    color: #707f8a;
+    padding: 5px 10px 5px 0;
+    margin: 30px auto;
+}
+.THIS .slds-backdrop.slds-backdrop--open {
+    background-color: #e4e8ea !important;
+    opacity: 0.75 !important;
+}
+.THIS table.dataTable thead th,
+.THIS table.dataTable thead td,
+.THIS table.dataTable.no-footer {
+    border: none;
+}
+.THIS .tooltip .tooltiptext {
+    visibility: hidden;
+}
+.THIS .clear {
+    float: none;
+    clear: both;
+}
+.THIS.socialSummaryComp p span.dataValue:empty::before {
+    content: '';
+    display: inline-block;
+}
+/*.THIS .divider{
+    position: absolute;
+    left: 19%;
+    top: -81%;
+    bottom: 0;
+    height: 70px;
+border-left: 1px solid #ccc;}
+.THIS p.palletTitle{
+    position: absolute;
+    top: 5px;
+    left: 7px;
+ 
+}
+.THIS .svgBorder{
+    border-right: 1px solid #ccc;
+}*/
+
+/*.THIS.PalletDetailSection,
+.THIS.socialSummaryComp {
+    height: 116px;
+    // border-left: 1px solid #ccc;
+    //padding-left: 2%;
+    
+    margin-top: 3%;
+}*/
+.THIS .IconStyle.mobileonly {
+    display: none;
+}
+.THIS .alertImg{
+    
+}
+.THIS .hoverTooltip{
+display:none;
+z-index: 1;
+    position: absolute;
+    padding: 10px;
+    top: 0;
+    left: 125px;
+    color:#db2a2a;
+}
+.THIS #alertImgMsg:hover .hoverTooltip{
+display : block;
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .THIS.socialSummaryComp p span.heading {
+        width: 20%;
+    }
+    .THIS.socialSummaryComp p span.dataValue {
+        width: 75%;
+        overflow: initial;
+        text-overflow: initial;
+        white-space: initial;
+        word-break: break-all;
+    }
+    .THIS.PalletDetailSection,
+    .THIS.socialSummaryComp {
+        float: left;
+        width: 90%;
+    } 
+    .THIS.PalletDetailSection,.THIS.socialSummaryComp{float: left;width: 73%;}
+    .THIS table.PalletDetailList tbody tr,
+    .THIS table.PalletDetailList tbody tr td {
+        max-width: 300px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .THIS table.PalletDetailList tbody tr,
+    .THIS table.PalletDetailList tbody tr td {
+        max-width: 165px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    
+    .THIS.PalletDetailSection .recordDetail {
+        bottom: 15px;
+    }
+    .THIS.PalletDetailSection .recordDetail > span {
+        top: 18px;
+    }
+    .THIS.PalletDetailSection .MoreBtn {
+        top: 13px;
+        left: -1px;
+    }
+    .THIS.socialSummaryComp p span.heading {
+        width: 25%;
+    }
+    .THIS .disclaimerPara {
+        line-height: 0.8;
+    }
+    .THIS.socialSummaryComp p span.dataValue {
+        width: 70%;
+        overflow: initial;
+        text-overflow: initial;
+        white-space: initial;
+        word-break: break-all;
+    }
+  /* .THIS.PalletDetailSection,.THIS.socialSummaryComp {float: left;width: 90%;margin-top: 2%; }*/
+     .THIS.PalletDetailSection,.THIS.socialSummaryComp{float: left;width: 70%;}
+    .THIS table.PalletDetailList tbody tr,
+    .THIS table.PalletDetailList tbody tr td {
+        max-width: 185px;
+    }
+    .THIS.PalletDetailSection .recordDetail{bottom:15px;}
+    .THIS.socialSummaryComp p span.heading{width:25%;}
+    .THIS .disclaimerPara{line-height:0.8;}
+    .THIS.socialSummaryComp p span.dataValue{width:70%;overflow: initial;text-overflow: initial;
+    white-space: initial;word-break: break-all;}
+    .THIS.PalletDetailSection,.THIS.socialSummaryComp{float: left;width: 70%;}
+    .THIS table.PalletDetailList tbody tr,.THIS table.PalletDetailList tbody tr td {max-width: 185px;}
+}
+@media only screen and (max-width: 736px) {
+    .THIS table.PalletDetailList tbody tr,
+    .THIS table.PalletDetailList tbody tr td {
+        max-width: 110px;
+    }
+}
+@media only screen and (width: 568px) {
+    .THIS table.PalletDetailList tbody tr,
+    .THIS table.PalletDetailList tbody tr td {
+        max-width: 87px;
+    }
+}
+@media only screen and (max-width: 480px) {
+    /*.THIS{margin-top:30px;}*/
+    
+    .THIS.PalletDetailSection .recordDetail {
+        bottom: 14px;
+    }
+    .THIS .dataTables_wrapper {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .THIS .disclaimer {
+        position: relative;
+        top: 14px;
+        left: 0
+    }
+    .THIS.PalletDetailSection,
+    .THIS.socialSummaryComp {
+        float: left;
+        width: 100%;
+    }
+    .THIS.socialSummaryComp p {
+        margin-top: 25px;
+    }
+    .THIS .palletHeading.desktop {
+        display: none;
+    }
+    .THIS .IconStyle.mobileonly {
+        display: block;
+    }
+    .THIS.PalletDetailSection .recordDetail{bottom:10px;}
+    .THIS .dataTables_wrapper{margin-top:30px;}
+    .THIS .disclaimer{position: relative;top: 24px;}
+    .THIS.PalletDetailSection, .THIS.socialSummaryComp {float: left;width: 100%;}
+    .THIS.socialSummaryComp p{margin-top:25px;}
+}
+@media only screen and (max-width: 320px) {
+    .THIS table.PalletDetailList tbody tr,
+    .THIS table.PalletDetailList tbody tr td {
+        max-width: 75px;
+    }
+}

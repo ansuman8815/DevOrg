@@ -1,0 +1,9 @@
+.THIS .acs-noSort .ast-columnName {
+    cursor: default;
+}
+
+.THIS .acs-sortIcon__container {
+    float: left;
+    margin-top: -1px;
+    pointer-events: none;
+}

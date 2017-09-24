@@ -1,0 +1,104 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcFilterColumnSelectorCmp Component,  component responsible for selecting Patient List Filter Columns.
+ * @since 196
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable" controller='HealthCloudGA.HcFilterCriteriaCmpController'>
+    <aura:attribute name="categories" type="String[]" />
+    <aura:attribute name="categoryFields" type="String[]" />
+    <aura:attribute name="selectedCategory" type="Map" />
+    <aura:attribute name="selectedCategoryField" type="Map" />
+    <aura:attribute name="selectedColumnField" type="Map" />
+    <aura:attribute name="columnFields" type="Map[]" />
+    <aura:attribute name="filterId" type="String" />
+    <aura:attribute name="patientRole" type="String" />
+    <aura:attribute name="columnsError" type="String" default=""/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <div class="health1-columnselector-rowcontainer">
+
+      <div class="slds-picklist--draggable slds-grid slds-grid--align-center slds-p-around--x-large">
+
+        <div class="slds-form-element slds-m-right--large">
+          <span class="slds-form-element__label" aria-label="select-1">{!$Label.healthcloudga.Text_List_View_Category}</span>
+          <div class="slds-picklist slds-picklist--multi">
+            <ul class="slds-picklist__options slds-picklist__options--multi shown" id="displayCategoryList">
+              <aura:iteration items="{!v.categories}" var="optionItem" indexVar="index">
+                <li id="{! 'category-' + index }" class="slds-picklist__item" aria-selected="false" tabindex="{! (index > 0) ? '-1' : '0'}" role="option">
+                  <span class="{! (v.selectedCategory.value == optionItem.value ? 'current ' : '') + 'slds-truncate' }" data-value="{!optionItem.value}" onclick="{!c.getAndUpdateCategoryFields}">
+                    {!optionItem.label}
+                  </span>
+                </li>
+              </aura:iteration>
+            </ul>
+          </div>
+        </div>
+
+        <div class="slds-form-element">
+          <span class="slds-form-element__label" aria-label="select-2">{!$Label.healthcloudga.Text_List_View_Fields}</span>
+          <div class="slds-picklist slds-picklist--multi">
+            <ul class="slds-picklist__options slds-picklist__options--multi shown" id="displayFieldList">
+              <aura:iteration items="{!v.categoryFields}" var="optionItem" indexVar="index">
+                <li id="{! 'field-' + index }" class="slds-picklist__item" aria-selected="false" tabindex="{! (index > 0) ? '-1' : '0'}" role="option">
+                  <span class="{! (v.selectedCategoryField.value == optionItem.value ? 'current ' : '') + 'slds-truncate' }" data-value="{!optionItem.value}" onclick="{!c.setSelectedCategoryField}">
+                    {!optionItem.label}
+                  </span>
+                </li>
+              </aura:iteration>
+            </ul>
+          </div>
+        </div>
+
+        <div class="slds-grid slds-grid--vertical">
+          <button class="slds-button slds-button--icon-container" onclick="{!c.moveFromColumnToCategoryFields}">
+            <lightning:icon iconName="utility:left"  size="x-small"  class="slds-button__icon"/>
+            <span class="slds-assistive-text">Arrow left</span>
+          </button>
+          <button class="slds-button slds-button--icon-container" onclick="{!c.moveFromCategoryToColumnFields}">
+            <lightning:icon iconName="utility:right"  size="x-small"  class="slds-button__icon"/>
+            <span class="slds-assistive-text">Arrow right</span>
+          </button>
+        </div>
+
+        <div class="slds-form-element">
+          <span class="slds-form-element__label" aria-label="select-3">{!$Label.healthcloudga.Text_List_View_Column_Order}</span>
+          <div class="slds-picklist slds-picklist--multi">
+            <ul class="slds-picklist__options slds-picklist__options--multi shown" id="displayColumnList">
+                <li class="li-error-textColor">{!v.columnsError}</li>
+                <li id="order-0" class="slds-picklist__item" aria-selected="false" tabindex="-1" role="option">
+                  <span class="slds-truncate">
+                    <span>
+                      <lightning:icon iconName="utility:lock" size="xx-small" class="slds-button__icon health1-columnselector__lock"/>
+                      <span class="slds-assistive-text">Locked</span>
+                    </span>
+                    {!format($Label.healthcloudga.Field_Label_Patient_Name, v.patientRole)}
+                  </span>
+                </li>
+              <aura:iteration items="{!v.columnFields}" var="optionItem" indexVar="index">
+                <li id="{! 'order-' + (index + 1) }" class="slds-picklist__item" aria-selected="false" tabindex="{! (index > 0) ? '-1' : '0'}" role="option">
+                  <span class="{! ( and(v.selectedColumnField.category.value == optionItem.category.value, v.selectedColumnField.field.value == optionItem.field.value) ? 'current ' : '' ) + 'slds-truncate'}" data-value="{!optionItem.category.value + ':' + optionItem.field.value}" onclick="{!c.setSelectedColumnField}">
+                    {!optionItem.category.label + ': ' + optionItem.field.label}
+                  </span>
+                </li>
+              </aura:iteration>
+            </ul>
+          </div>
+        </div>
+
+        <div class="slds-grid slds-grid--vertical">
+          <button class="slds-button slds-button--icon-container" onclick="{!c.pushValueUp}">
+           <lightning:icon iconName="utility:up"  size="x-small"  class="slds-button__icon"/>
+            <span class="slds-assistive-text">Arrow up</span>
+          </button>
+          <button class="slds-button slds-button--icon-container" onclick="{!c.pushValueDown}">
+           <lightning:icon iconName="utility:down"  size="x-small"  class="slds-button__icon"/>
+            <span class="slds-assistive-text">Arrow down</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+</aura:component>

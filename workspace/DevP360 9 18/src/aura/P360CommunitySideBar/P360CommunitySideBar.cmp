@@ -1,0 +1,48 @@
+<aura:component controller="ProfileMenuController" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!--aura:registerEvent name="demographicEvent" type="c:DemographicEvent"/>
+    <aura:handler event="c:DemographicEvent" action="{!c.demoGraphicSelection}"/-->
+    <aura:attribute name="patientid" type="String" />
+    <aura:attribute name="empi" type="String" />
+    <aura:attribute name="profilename" type="String" default=''/>
+    <aura:attribute name="activeTab" type="String" default=''/>
+    <div class="SideBarDiv">
+        <lightning:card class="LightningCard">
+            <aura:set attribute="title">
+            </aura:set>
+            <aura:set attribute="footer">
+            </aura:set>
+            <aura:set attribute="actions">
+                <div class="LeftBanner">
+                    <c:P360CommunitySearchBox />
+                    <p class="IPadOnly"><c:P360CommunityPatientNameBar /></p>
+                    <aura:if isTrue="{!v.profilename != ''}">
+                        <aura:if isTrue="{!v.profilename == $Label.c.P360CommunityBasicAccess}">
+                            <ul class="PageList" onclick="{!c.extendSidebar}" >                       
+                                <li aura:id="Demographics" id="Demographics"><c:P360CommunityIcon label="Demographics" svgPath="{! $Resource.P360CommunityIcons + '/16-Demographics.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none;  outline:none; width:100%; background-color:transparent" press="{!c.demographicsClick}"/></li>
+                                <li  aura:id="SocialSummary" id="SocialSummary"><c:P360CommunityIcon label="Social Summary" svgPath="{! $Resource.P360CommunityIcons + '/14-SocialSummary.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none;  outline:none; width:100%; background-color:transparent" press="{!c.socialSummaryClick}"/></li>
+                            </ul>
+                            <aura:set attribute="else">
+                                <ul class="PageList" onclick="{!c.extendSidebar}" >
+                                    <li  aura:id="ClinicalSummary" id="ClinicalSummary"><c:P360CommunityIcon label="Clinical Summary" svgPath="{! $Resource.P360CommunityIcons + '/13-ClinicalSUmmary.svg#Layer_1'}" class="IconStyle" buttonStyle="" press="{!c.clinicalSummaryClick}"/></li>
+                                    <li  aura:id="SocialSummary" id="SocialSummary"><c:P360CommunityIcon label="Social Summary" svgPath="{! $Resource.P360CommunityIcons + '/14-SocialSummary.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none;  outline:none; width:100%; background-color:transparent" press="{!c.socialSummaryClick}"/></li>
+                                    <li aura:id="EncounterSummary" id="EncounterSummary"><c:P360CommunityIcon label="Encounter Summary" svgPath="{! $Resource.P360CommunityIcons + '/15-EncounterSummary.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none;  outline:none; width:100%; background-color:transparent" press="{!c.encounterSummaryClick}"/></li>
+                                    <li aura:id="Demographics" id="Demographics"><c:P360CommunityIcon label="Demographics" svgPath="{! $Resource.P360CommunityIcons + '/16-Demographics.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none;  outline:none; width:100%; background-color:transparent" press="{!c.demographicsClick}"/></li>
+                                    <li aura:id="LaboratoryResults" id="LaboratoryResults"><img  src="{! $Resource.P360CommunityIcons + '/lab.png'}"  title="diagnostic"  class="slds-icon slds-icon-- IconStyle" label="Laboratory Results" onclick="{!c.laboratoryResultsClick}"/><c:P360CommunityIcon label="Laboratory Results" press="{!c.laboratoryResultsClick}" /></li>
+                                    <li aura:id="DiagnosticReports" id="DiagnosticReports"><img  src="{! $Resource.P360CommunityIcons + '/diagnostic.png'}"  title="Lab" class="slds-icon slds-icon-- IconStyle" label="Diagnostic Reports" onclick="{!c.diagnosticReportsClick}"/><c:P360CommunityIcon label="Diagnostic Reports" press="{!c.diagnosticReportsClick}"  /></li>
+                                    <li aura:id="Populations" id="Populations"><c:P360CommunityIcon label="Populations" svgPath="{! $Resource.P360CommunityIcons + '/42-Population.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none;  outline:none; width:100%; background-color:transparent" press="{!c.populationsClick}"/></li>
+                                    <li aura:id="ClinicalNotes" id="ClinicalNotes"><c:P360CommunityIcon label="Clinical Notes" svgPath="{! $Resource.P360CommunityIcons + '/19-ClinicalNotes.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none;  outline:none; width:100%; background-color:transparent" press="{!c.clinicalNotesClick}"/></li>
+                                </ul>
+                            </aura:set>
+                        </aura:if>
+                    </aura:if>
+                </div>
+            </aura:set>
+            
+            <p class="slds-p-horizontal--small">
+            </p>
+            
+        </lightning:card>
+    </div>  
+    
+</aura:component>

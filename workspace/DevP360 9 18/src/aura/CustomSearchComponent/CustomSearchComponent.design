@@ -1,0 +1,9 @@
+<design:component >
+	<design:attribute name="inUserContext" label="Consider User Access." description="Object accessiblity will check." />
+    <!--<design:attribute name="isEnableBlockScreen" label="Enable Block Screen." description="Block the screen at the time of finding result." />
+    <design:attribute name="ProvideDeleteLink" label="Enable Delete Icon." description="User should be able to delete the result through the searched result." />
+    -->
+    <design:attribute name="RecordsIcons" label="Show Record Icon" description="It will show the icon for the related recrods." />
+    <design:attribute name="OpenObjectSchema" label="Please Search in Standar/Custom Object." description="Standard/Custom Object Searching enable." />
+    <design:attribute name="OpenSearchMetaData" label="Please Search in Metadata." description="Apex-Class, Visualforce Pages, Trigger, Visualforce Components, Static Resource, Group etc." />
+</design:component>

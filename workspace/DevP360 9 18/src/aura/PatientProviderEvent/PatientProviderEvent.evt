@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event template" >
+<aura:attribute name="selectedId" type="String"/>
+<aura:attribute name="PRselected" type="Boolean"/>
+</aura:event>

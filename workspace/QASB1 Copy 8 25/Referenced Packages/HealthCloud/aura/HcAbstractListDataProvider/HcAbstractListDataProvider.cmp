@@ -1,0 +1,17 @@
+<aura:component extends="ui:dataProvider" extensible="true" abstract="true">
+    <aura:attribute name='metaData' type='List' />
+    <aura:attribute name='lastEndIndex' type='Integer' default='0' />
+    <aura:attribute name='hasMoreData' type='Boolean' default='false' />
+    <aura:attribute name='sortField' type='String' default=''/>
+    <aura:attribute name='sortOrder' type='String' default=''/>
+    <aura:attribute name='autoInit' type='Boolean' default='true'/>
+    <aura:attribute name='currentAction' type='String' default='' />
+    <aura:attribute name='startT' type='Integer' />
+    <aura:attribute name='allowSearch' type='Boolean' default='true' />
+    <aura:attribute name='matchingResultsCount' type='Integer' />
+    <aura:attribute name='sortClientSide' type='Boolean' default='false'/>
+	<aura:set attribute='searchTerm' value='' />
+    
+    <aura:handler name="change" value="{!v.searchTerm}" action="{!c.onSearchTermChanged}" />
+    <aura:handler name="change" value="{!v.pageSize}" action="{!c.resetPagination}" />    
+</aura:component>

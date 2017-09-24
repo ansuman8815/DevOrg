@@ -1,0 +1,64 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCareTeamAddMemberTableCmp component. This components shows the results for Adding Internal/External members.
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent">
+    <aura:attribute name="sortBy" type="String" />
+    <aura:attribute name="output" type="Object" />
+    <aura:attribute name="column1Label" type="String"/>
+    <aura:attribute name="column2Label" type="String" />
+    <aura:attribute name="column3Label" type="String" />
+    <aura:attribute name="column1Name" type="String"/>
+    <aura:attribute name="column2Name" type="String"/>
+    <aura:attribute name="members" type="List"/>
+    <aura:attribute name="items" type="List"/>
+    <aura:attribute name="radioValue" type="String" default="" />
+    <aura:attribute name="isExternalTable" type="Boolean" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <aura:handler name="change" value="{!v.members}" action="{!c.onMembersChange}" />
+    <div>
+        <table class="slds-table slds-table--bordered  slds-no-hover">
+            <thead>
+                <tr>
+                    <th class="slds-row-select ">
+                        <input type="radio" value="radio" name="radio" id="select-all" class="slds-hide" />
+                    </th>
+                    <th class="slds-text-heading--label">
+                        <span class="slds-p-left--medium" >{!v.column1Label}</span>
+                    </th>
+                    <th class="slds-text-heading--label">
+                        <span>{!v.column2Label}</span>
+                    </th>
+                    <aura:if isTrue="{!v.isExternalTable}">
+                        <th class="slds-text-heading--label">
+                            <span>{!v.column3Label}</span>
+                        </th>
+                    </aura:if>
+                </tr>
+            </thead>
+            <tbody aura:id="dataTableBody">
+                <aura:iteration items="{!v.members}" var="mem" indexVar="iter">
+                    <tr class="slds-no-hover">
+                        <td>
+                            <ui:inputRadio type="radio" name="radiogroup" text="{!mem}" value="{!equals(v.radioValue, mem.id)}" change="{!c.handleSelect}" />
+                        </td>
+                        <td>
+                            <ui:menuTriggerLink value="{!mem}" label="{!mem.column1}" class="slds-p-left--medium"  click="{!c.handleClick}" />
+                        </td>
+                        <td>
+                            <ui:outputText value="{!mem.column2}" />
+                        </td>
+                        <aura:if isTrue="{!v.isExternalTable}">
+                            <td>
+                                <ui:outputText value="{!mem.column3}" />
+                            </td> 
+                        </aura:if>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+</aura:component>

@@ -1,0 +1,14 @@
+<!--
+ * Copyright © 2016 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ *
+ * @since 204
+-->
+<aura:event type="component">
+	<aura:attribute name="checked" type="Boolean" />
+	<aura:attribute name="templateId" type="String" />
+    <aura:attribute name="problemId" type="String" />
+    <aura:attribute name="goalId" type="String" />
+    <aura:attribute name="taskId" type="String" />
+</aura:event>

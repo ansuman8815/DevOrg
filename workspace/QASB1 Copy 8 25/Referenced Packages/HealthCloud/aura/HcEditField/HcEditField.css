@@ -1,0 +1,17 @@
+.THIS .uiInput.uiInputText.uiInput--default.uiInput--input {
+    display: block;
+    float: none;
+    width: 100%;
+}
+
+.THIS .uiInput-String {
+    float: none!important;
+    display: block!important;
+    width: 100%!important;
+}
+
+.THIS .health1-formElem {
+    white-space: nowrap;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

@@ -1,0 +1,62 @@
+<aura:component >
+    <aura:attribute name="selectedTemplateList" type="List" />
+    <aura:attribute name="selectedTemplate" type="Object" />
+    <aura:attribute name="selectedTemplateCountLimit" type="Integer" default="5" />
+
+    <aura:registerEvent name="shoppingCartRemoveEvent" type="HealthCloudGA:HcCarePlanTemplateShoppingCartRemoveEvent"/>
+
+    <div>
+        <header class="slds-p-around--medium slds-has-divider--bottom">
+            <div class="slds-has-flexi-truncate" style="position: relative;">
+                <h3 class="slds-truncate slds-section__title hc-section__title">
+                    {!$Label.healthcloudga.Header_CarePlanTemplateWizard_SelectedTemplates}
+                </h3>
+                <span class="slds-p-vertical--xx-small slds-p-horizontal--x-small hcShoppingCartTemplateBadge">
+                  {!v.selectedTemplateList.length}
+                </span>
+            </div>
+        </header>
+
+        <section>
+            <aura:if isTrue="{!empty(v.selectedTemplateList)}">
+                <div class="notify__content slds-grid slds-p-around--medium">
+                    <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#info" class="slds-icon--x-small slds-icon-text-default slds-m-right--x-small" />
+                    <div class="slds-col slds-align-middle">
+                        <p>{!format($Label.healthcloudga.Msg_Info_CarePlanTemplateWizard_SelectedTemplates_Empty,v.selectedTemplateCountLimit)}</p>
+                    </div>
+                </div>
+
+                <aura:set attribute="else">
+                    <ul class="slds-list--vertical slds-has-dividers--bottom-space slds-has-selection slds-scrollable--y">
+
+                        <aura:iteration items="{!v.selectedTemplateList}" var="selectedTemplate" indexVar="i" aura:id="template-list">
+                          <li class="slds-list__item hc-cart-item">
+                            <div class="slds-media slds-tile slds-p-horizontal--x-small">
+                              <div class="slds-media__body">
+                                <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                                  <p class="slds-tile__title slds-truncate">
+                                    {!selectedTemplate.Name}
+                                  </p>
+
+                                  <button class="slds-button slds-button--icon slds-shrink-none" data-record="{!i}" onclick="{!c.handleRemoveTemplateOnClick}">
+                                      <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/action-sprite/svg/symbols.svg#close" class="slds-button__icon slds-button__icon--small" />
+                                      <span class="slds-assistive-text">Remove item</span>
+                                  </button>
+                                </div>
+
+                                <aura:if isTrue="{!!empty(selectedTemplate.Description__c)}">
+                                  <div class="slds-tile__detail slds-text-body--small">
+                                    <p class="slds-truncate">{!selectedTemplate.Description__c}</p>
+                                  </div>
+                                </aura:if>
+                              </div>
+                            </div>
+                          </li>
+                        </aura:iteration>
+                    </ul>
+                </aura:set>
+
+            </aura:if>
+        </section>
+    </div>
+</aura:component>

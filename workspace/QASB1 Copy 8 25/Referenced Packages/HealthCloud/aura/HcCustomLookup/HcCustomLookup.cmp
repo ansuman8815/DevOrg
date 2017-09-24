@@ -1,0 +1,66 @@
+<aura:component controller="HealthCloudGA.MoiUICommonController" extends="ui:input">
+    <aura:attribute type="String" name="Sobject"/>
+    <aura:attribute type="List" name="resultList" />
+    <aura:attribute type="String" name="lookupLabel" default="field label" />
+    <aura:attribute type="Boolean" name="renderResult" default="false" />
+    <aura:attribute type="String" name="selectedId" default="" />
+    <aura:attribute type="String" name="uniqueIdentifier" default="" />
+    <aura:attribute type="String" name="labelClass" default="" />
+    <aura:attribute type="String" name="hint" default="" />
+    <aura:attribute type="Map" name="whereClause" default="" />
+    <aura:attribute type="List" name="selectFields" default="" />
+    <aura:attribute type="String" name="selectedName" default="" />
+    <aura:attribute type="String" name="placeholderName" default="Search..." />
+    <aura:attribute type="String" name="errorMsg" default="" />
+    <aura:attribute type="Boolean" name="isMultiColumn" default="false" />
+    <aura:attribute type="Boolean" name="isRequired" default="false" />
+    <aura:attribute type="Boolean" name="allowKeyUpSearch" default="true" />
+    <aura:attribute type="Boolean" name="allowSearchOnEnter" default="true" description="If allowKeyUpSearch is disabled, allow the ENTER key to initiate the search" />
+    <aura:attribute type="Boolean" name="resultSel" />
+    <aura:attribute type="String" name="class" default="" />
+    <aura:attribute type="Integer" name="limitSize" default="0" description="The maximum number of records to return, a value of 0 indicates no limit" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+
+    <aura:registerEvent name="hcCustomLookupMultiColumnEvent" type="HealthCloudGA:HcCustomLookupMultiColumnEvent"/>
+    <aura:registerEvent name="change" type="ui:change" access="GLOBAL" description="The event fired when the user changes the content of the input."/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.selectedId}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.Sobject}" action="{!c.doInit}"/>
+
+    <aura:if isTrue="{!v.showSpinner}">
+        <div class="slds-spinner_container">
+            <div class="slds-spinner--brand slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+
+    <div aura:id='customLookup' class="{! (v.class ? v.class + ' ' : '') + 'slds-lookup' + (v.renderResult ? ' slds-is-open': '') }" data-select="multi" data-scope="single" data-typeahead="true">
+        <div aura:id="lookupContainer" class="{!'slds-form-element' + v.isRequired ? ' slds-is-required' : ''}">
+            <aura:if isTrue="{!v.lookupLabel != 'field label'}">
+              <label class="{!'slds-form-element__label '+ v.labelClass}" for="lookup">{!v.lookupLabel}</label>
+            </aura:if>
+            <HealthCloudGA:HcAssistiveText text="{!v.hint}"/>
+            <div class="slds-lookup__control slds-input-has-icon slds-input-has-icon--right">
+                <a href="javascript:void(0)" onclick="{!c.searchRecords}">
+                    <lightning:icon iconName="utility:search" size="x-small" class="slds-input__icon"/>
+                </a>
+                <input id="{!v.lookupLabel}" aura:id="lookupValue" class="slds-input health1-customLookUp-Input" type="text" aria-label="lookup" label="Lookup Label" aria-haspopup="true" aria-autocomplete="list" role="combobox" onkeyup="{!c.searchRecordsOnKeyUp}" value="{!v.selectedName}" placeholder="{!v.placeholderName}" onblur="{!c.toggleLookupList}"/>
+            </div>
+          <div class="{!'health1-customLookUp-errorText ' + (empty(v.errorMsg) ? 'slds-hide':'')}"> {!v.errorMsg} </div>
+        </div>
+        <aura:if isTrue="{!and(v.renderResult == true, v.isMultiColumn == false)}">
+            <div class="slds-lookup__menu" role="listbox" id="{!v.uniqueIdentifier}">
+                <ul class="slds-lookup__list" role="presentation">
+                    <aura:iteration items="{!v.resultList}" var="w">
+                        <li class="slds-lookup__item" role="presentation">
+                            <a href="javascript:void(0);" data-role="{!w.id}" onmousedown="{!c.processSelected}">{!w.name}</a>
+                        </li>
+                    </aura:iteration>
+                </ul>
+            </div>
+        </aura:if>
+    </div>
+</aura:component>

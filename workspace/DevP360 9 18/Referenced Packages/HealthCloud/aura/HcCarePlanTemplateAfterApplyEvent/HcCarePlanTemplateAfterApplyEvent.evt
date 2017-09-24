@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Used for switching the tab and clearing the data after apply">
+  <aura:attribute name="isSuccess" type="Boolean"/>
+  <aura:attribute name="successMessage" type="String"/>
+</aura:event>

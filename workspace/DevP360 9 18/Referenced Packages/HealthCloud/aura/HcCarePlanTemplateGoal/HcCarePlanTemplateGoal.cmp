@@ -1,0 +1,122 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCarePlanTemplateGoal: component representing one goal template
+ * @since 204
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcCarePlanTemplateController">
+    <aura:attribute name="goalName" type="String" default=""/>
+    <aura:attribute name="goalId" type="String"/>
+    <aura:attribute name="templateId" type="String"/>
+    <aura:attribute name="problemId" type="String"/>
+
+    <aura:attribute name="firstTimeAccess" type="Boolean" default="true"/>
+
+    <aura:attribute name="selectable" type="Boolean" default="true"/>
+    <aura:attribute name="review" type="Boolean" default="false" />
+    <aura:attribute name="expanded" type="Boolean" default="false" />
+
+    <aura:attribute name="goalChecked" type="Boolean" default="true"/>
+
+    <aura:attribute name="taskItems" type="List" default="[]" />
+    <aura:attribute name="objectLabelMap" type="Map" default="{}" description="Stores the object name for the Problems, goals, and task objects for localization purposes" />
+    <aura:attribute name="objectLabel" type="String" default="Goal" description="Localized version of the Goal label, set by objectLabelMap" />
+    <aura:attribute name="taskObjectLabel" type="String" default="Task" description="Localized version of the Task label, set by objectLabelMap" />
+    <aura:attribute name="baseIndentLevel" type="Integer" default="1" />
+     <aura:attribute name="taskList" type="List" default="[]"/> 
+
+    <aura:attribute name="careCoordinatorSelectedValue" type="String" default="" />
+    <aura:attribute name="patientUser" type="Object" default="{}" />
+    <aura:attribute name="dueDate" type="String" />
+    <aura:attribute name="globalSettings" type="Object" />
+  
+    <aura:method name="problemCheckBoxClicked" action="{!c.problemCheckBoxClicked}" description="Method when problem checkbox is clicked">
+        <aura:attribute name="checked" type="Boolean" default="true" />
+    </aura:method>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <aura:handler name="taskCheckboxEvent" event="HealthCloudGA:HcListViewTableCheckboxEvent" action="{!c.taskCheckboxEvent}"/>
+    <aura:registerevent name="goalCheckboxEvent" type="HealthCloudGA:HcCarePlanTemplateGoalCheckBoxEvent"/>
+    <aura:registerevent name="taskCheckboxEvent" type="HealthCloudGA:HcListViewTableCheckboxEvent"/>
+
+    <div aria-level="{# v.baseIndentLevel }">
+        <HealthCloudGA:HcCarePlanHeader aura:id="goalHeader" expandable="true" selectable="{!v.selectable}" showDescriptionText="true" showPriority="false" expanded="{# v.expanded }" showPercentComplete="false" showActionButton="false" HcCarePlanEvent="{!c.handleCarePlanEvent}" HcCarePlanHeaderCheckBoxEvent="{!c.checkboxEvent}" header="{!v.goalName}" descriptionText="{!v.objectLabel}" class="hc-tree__item" />
+
+        <div aura:id="tasks" class="{!( v.expanded ? '' : 'slds-hide' ) }" aria-level="{# v.baseIndentLevel + 1 }">
+          <!-- Task header row -->
+          <div class="slds-grid hc-tree__item slds-text-heading--label slds-p-left--large slds-p-right--medium slds-p-vertical--x-small">
+            <div class="{! 'slds-size--7-of-12 slds-col--padded' + (v.selectable ? ' slds-p-left--large' : '') }">
+              {!$Label.healthcloudga.Text_CarePlanTemplateWizard_Task_Subject}
+            </div>
+            <div class="slds-size--2-of-12 slds-col--padded slds-col--bump-left slds-truncate" title="{!$Label.healthcloudga.Text_CarePlanTemplateWizard_Task_Owner}">
+              {!$Label.healthcloudga.Text_CarePlanTemplateWizard_Task_Owner}
+            </div>
+            <div class="slds-size--1-of-12 slds-col--padded slds-truncate" title="{!$Label.healthcloudga.Text_CarePlanTemplateWizard_Task_Priority}">
+              {!$Label.healthcloudga.Text_CarePlanTemplateWizard_Task_Priority}
+            </div>
+            <div class="slds-size--1-of-12 slds-truncate" title="{!$Label.healthcloudga.Field_Label_Task_Due_Date}">
+              {!$Label.healthcloudga.Field_Label_Task_Due_Date}
+            </div>
+            <div class="slds-size--1-of-12">&nbsp;</div>
+          </div>
+
+          <aura:if isTrue="{! and(!empty(v.taskItems), v.expanded)}">
+            <!-- iterate over tasks and output each as a row -->
+            <aura:iteration items="{!v.taskItems}" var="aTask">
+               <aura:if isTrue="{! !v.review || and(v.review, aTask.selected == undefined || aTask.selected)}">
+              <div class="slds-grid hc-tree__item  slds-p-left--large slds-p-right--medium slds-p-vertical--x-small">
+                <div class="{! 'slds-size--7-of-12 slds-col--padded' + (v.selectable ? ' slds-p-left--large' : '') }">
+
+                  <aura:if isTrue="{!v.selectable}">
+                    <div class="slds-form-element">
+                      <div class="slds-form-element__control">
+                        <label class="slds-checkbox hc-tree-checkbox">
+                          <ui:inputCheckbox aura:id="taskcheckbox" class="slds-checkbox slds-m-right--small" value="true" name="{!aTask.taskId}" click="{!c.onTaskCheckboxClicked}" />
+                          <span class="slds-checkbox--faux hc-checkbox--faux"></span>
+                          <span class="slds-form-element__label">{! aTask.subject}</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <aura:set attribute="else">
+                      {! aTask.subject}
+                    </aura:set>
+                  </aura:if>
+                </div>
+                <div class="slds-size--2-of-12 slds-col--padded slds-col--bump-left slds-truncate" title="{! aTask.assignedToRole }">
+                    <aura:if isTrue="{!v.review}">
+                        <aura:if isTrue="{! and(aTask.assignedToRole == v.globalSettings.PATIENT_ROLE, v.patientUser.isCommunityEnabled == 'true')}">
+                            {!v.patientUser.name}
+                            <aura:set attribute="else">
+                                {!v.careCoordinatorSelectedValue.name}
+                            </aura:set>
+                        </aura:if>
+                        <aura:set attribute="else">
+                            {!aTask.assignedToRole}
+                        </aura:set>
+                    </aura:if>
+                </div>
+                <div class="slds-size--1-of-12 slds-col--padded slds-truncate" title="{! aTask.priority }">
+                    {!aTask.priority}
+                </div>
+                <div class="slds-size--1-of-12 slds-truncate" title="{!format($Label.healthcloudga.Text_Task_Offset, aTask.offset)}">
+                    <aura:if isTrue="{!v.review}">
+                      <!--  This is actual due date for tasks added by helper.calculateDueDate -->
+                        {!aTask.calculatedDueDate}
+                        <aura:set attribute="else">
+                            {!format($Label.healthcloudga.Text_Task_Offset, aTask.offset)}
+                        </aura:set>
+                    </aura:if>
+                </div>
+                <div class="slds-size--1-of-12 slds-text-align--right slds-p-right--medium hc-color-text-label">
+                  {! v.taskObjectLabel }
+                </div>
+              </div>
+            </aura:if>
+            </aura:iteration>
+          </aura:if>
+        </div>
+    </div>
+
+</aura:component>

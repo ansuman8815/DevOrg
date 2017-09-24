@@ -1,0 +1,32 @@
+.THIS .careplancard__header {
+    border: 1px solid #d8dde6;
+}
+
+.THIS .careplancard__mainheader {
+    padding-top: 1.25rem;
+    padding-bottom: .5rem;   
+}
+
+.THIS .careplancard__mainheader h2 {
+    padding-left: 1.5rem;
+}
+
+.THIS .careplancard__subheader {
+    text-align: left;
+    margin-left: 1rem;
+    padding: .5rem;   
+}
+
+.THIS .careplancard__body {
+	background-color: #C3DDEC; 
+    text-align: left;
+    background-color:rgb(255, 255, 255);
+	padding-left: 1.5rem;
+    padding-right: 1.5rem; 
+}
+
+.THIS .careplancard__expander {
+    position: relative;
+    left: 1rem;
+    top: 1.1rem;
+}

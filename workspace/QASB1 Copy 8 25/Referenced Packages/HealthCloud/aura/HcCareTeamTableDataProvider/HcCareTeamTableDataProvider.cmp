@@ -1,0 +1,9 @@
+<aura:component extends="HealthCloudGA:HcAbstractListDataProvider" controller="HealthCloudGA.HcCareTeamController">
+    <aura:attribute name='carePlanId' type='String'/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <!-- REQUIRED: To invoke helper functions like getData and sortData in this 
+         extending component's context -->
+    <aura:handler name="provide" action="{!c.provider}" />
+    <aura:handler event="HealthCloudGA:HcComponentStatusEvent" action="{!c.handleRefreshEvent}" />
+</aura:component>

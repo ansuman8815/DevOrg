@@ -1,0 +1,37 @@
+<aura:component >
+  <aura:attribute name="record" type="Object" description="Care team user/contact data" />
+  <aura:attribute name="showLabels" type="Boolean" default="true"/>
+  <aura:attribute name="maxNumberOfFields" type="Integer" default="5"/>
+  <aura:attribute name="renderedIndex" type="Integer" default="0"/>
+  <aura:attribute name="showMore" type="BOOLEAN" default="false"/>
+  <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+  <aura:registerEvent name="checkBoxSelectionEvent" type="HealthCloudGA:HcCommunityGlobalEvent"/>
+
+  <aura:if isTrue="{!!v.record.isTask}">
+    <div class="slds-p-left--medium slds-p-right--medium slds-p-bottom--small slds-tile slds-media">
+    <div class="slds-media__figure slds-p-top--xx-small">
+      <ui:inputCheckBox value="{!v.record.recordData.IsClosed}" labelPosition="right" click="{!c.onTaskSelect}"/>
+      <label class="slds-checkbox__label" for="checkbox-160">
+          <span class="slds-checkbox--faux"></span>
+          <span class="slds-form-element__label slds-assistive-text"></span>
+        </label>
+    </div>
+    <div class="slds-media__body">
+      <div aura:id="subjectId">
+        <p class="slds-truncate" title="{!v.record.recordData.Subject}"><a href="javascript:void(0);">{!v.record.recordData.Subject}</a></p>
+      </div>
+      <ul class="slds-list--vertical">
+          <div>
+            <p class="slds-truncate HcRoleStyle"><ui:outputText value="{! 'Owner: '+v.record.recordData.Owner.Name}"/>&nbsp;&nbsp;</p>
+            <aura:iteration items="{!v.record.objectFields}" var="field">
+              <HealthCloudGA:HcCommunityOutputField record="{!v.record}" field="{!field}" showLabels="{!v.showLabels}" maxNumberOfFields="{!v.maxNumberOfFields}" fieldIndex="{!v.renderedIndex}"/>
+            </aura:iteration>
+          </div>
+      </ul>
+      <aura:if isTrue="{!v.showMore}">
+        <a href="javascript:void(0);" onclick="{!c.showMore}"><lightning:icon iconName="utility:threedots" size="xx-small" class="slds-m-right--small" /></a>
+      </aura:if>
+    </div>
+  </div>
+  </aura:if>
+</aura:component>

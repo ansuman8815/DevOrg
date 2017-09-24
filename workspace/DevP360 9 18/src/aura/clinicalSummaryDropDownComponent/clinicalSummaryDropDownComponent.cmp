@@ -1,0 +1,20 @@
+<aura:component >
+	
+     <div class="dropdown">
+    <ui:inputSelect change="{!c.selectChange}" aura:id="sel" class="selectList">
+        
+        <ui:inputSelectOption text="Allergies" label="Allergies" value="Allergies"/>
+        <ui:inputSelectOption text="Patient Problem List" label="Patient Problem List" value="Patient Problem List"/>
+        <ui:inputSelectOption text="Medical History" label="Medical History" value="Medical History"/>
+        <ui:inputSelectOption text="Medication" label="Medication" value="Medication"/>
+        <ui:inputSelectOption text="Immunization" label="Immunization" value="Immunization"/>
+        <ui:inputSelectOption text="Surgical History" label="Surgical History" value="Surgical History"/>
+    </ui:inputSelect>
+    </div>
+    
+    <aura:attribute name="SelectedOption" type="String" default="None"/>    
+    <!--{!v.SelectedOption}-->
+    
+    <aura:registerEvent name="DropDown_Event" type="c:clinicalSummaryDropDownEvent"/>
+    
+</aura:component>

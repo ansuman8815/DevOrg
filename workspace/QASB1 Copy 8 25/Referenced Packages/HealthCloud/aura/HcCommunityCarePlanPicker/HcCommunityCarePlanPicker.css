@@ -1,0 +1,10 @@
+@media screen and (min-width: 768px) {
+  .THIS .hc-picker--fitToContent {
+    display: inline-block;
+  }
+    
+  .THIS .li-error-textColor{
+   	color:#FF0000;
+  }  
+    
+}

@@ -1,0 +1,483 @@
+.THIS {} .THIS div.divCss {
+    border-radius: 3pt;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.THIS .mt80 {
+    margin-top: 80px;
+}
+.THIS div.Labels {
+    color: #9aa6af;
+    width: 200px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border-radius: 3pt;
+    font-weight: normal;
+    font-size: 10pt;
+}
+.THIS .w350 {
+    width: 500px;
+}
+.THIS div.Labels2Column {
+    color: #9aa6af;
+    float: left;
+    width: 23%;
+    margin-left: 1.7%;
+    border-radius: 3pt;
+    font-family: sans-serif;
+    font-size: 10pt;
+}
+.THIS .Inputs {
+    border: none;
+    padding: 0 10px !important;
+    height: 40px;
+    border-radius: 3pt;
+    color: #2f3537;
+    font-weight: normal;
+    font-size: 14pt;
+    border: 1px solid #2f3537;
+}
+.THIS .Inputs2Column {
+    border: none;
+    padding: 0 10px;
+    height: 40px !important;
+    border-radius: 3pt;
+    color: #2f3537;
+    font-family: sans-serif;
+    font-size: 14pt;
+    border: 1px solid #2f3537;
+    width: 100%;
+}
+.THIS .InputCIN {
+    height: 40px;
+    color: #2f3537;
+    font-family: sans-serif;
+    font-size: 14pt;
+    width: 47.7%;
+    margin-left: 1.5%;
+}
+.THIS select option {
+    color: black !important;
+    font-size: 12pt !important;
+}
+.THIS select option:first-child {
+    color: #ccc !important;
+}
+.THIS select.placeholder {
+    color: #ccc !important;
+    font-size: 14px;
+}
+.THIS .ButtonSearch {
+    width: 23%;
+    background-color: #3c91c7;
+    border: none;
+    font-family: sans-serif;
+    font-size: 16pt;
+    font-weight: bold;
+    color: #ffffff;
+    height: 40px;
+    margin: -6px 1.6% 0 1.6%;
+}
+.THIS .ButtonCancel {
+    width: 23%;
+    background-color: #d3dce2;
+    color: #707f8a;
+    font-family: sans-serif;
+    font-size: 16pt;
+    font-weight: bold;
+    border: none;
+    height: 40px;
+    margin-top: -6px;
+}
+.THIS .ButtonSearchLabel {
+    color: white;
+    font-weight: bold;
+}
+.THIS .ButtonCancelLabel {
+    color: black;
+    font-weight: bold;
+}
+.THIS input:focus,
+.THIS select:focus,
+.THIS textarea:focus,
+.THIS button:focus {
+    outline: none;
+}
+.THIS input.Inputs:focus::-webkit-input-placeholder {
+    margin-top: -10px;
+}
+.THIS input.Inputs:focus:-moz-placeholder {
+    margin-top: -10px;
+}
+.THIS input.Inputs:focus::-moz-placeholder {
+    margin-top: -10px;
+}
+.THIS input.Inputs:focus:-ms-input-placeholder {
+    margin-top: -10px;
+}
+.THIS input.Inputs::-webkit-input-placeholder {
+    color: #CCCCCC;
+    position: relative;
+    padding-left: 0;
+    -webkit-transition: padding 0.5s;
+    transition: padding 0.5s;
+}
+.THIS input.Inputs:-moz-placeholder {
+    color: #CCCCCC;
+    position: relative;
+    padding-left: 0;
+    -moz-transition: padding 0.5s;
+    transition: padding 0.5s;
+}
+.THIS input.Inputs::-moz-placeholder {
+    color: #CCCCCC;
+    position: relative;
+    padding-left: 0;
+    -moz-transition: padding 0.5s;
+    transition: padding 0.5s;
+}
+.THIS input.Inputs:-ms-input-placeholder {
+    color: #CCCCCC;
+    position: relative;
+    padding-left: 0;
+    -ms-transition: padding 0.5s;
+    transition: padding 0.5s;
+}
+.THIS .Labelcss {
+    color: #fff;
+    font-weight: bold;
+    font-size: 20pt;
+    padding: 10px 0 20px 20px;
+}
+.THIS.PatientSearch {
+    background-color: #004b7b;
+    width: 100%;
+    height: 355px;
+    padding-bottom: 50px;
+    border-radius: 5pt;
+}
+.THIS.PatientSearchCollapse {
+    margin: 110px auto 40px auto;
+    width: 70%;
+    height: 45px;
+    padding-bottom: 20px;
+    margin: 150px auto 40px auto;
+    position: relative;
+    color: #ffffff;
+    padding: 0 20px;
+    box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.3);
+}
+.THIS.AddBoxShadow {
+    box-shadow: 0 -4px 18px -5px rgba(0, 0, 0, 0.3) !important;
+}
+.THIS.RemBoxShadow {
+    box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.3) !important;
+}
+.THIS div.Message {
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #000000;
+    width: 95%;
+    padding: 25px;
+    margin: 10px auto 10px auto;
+    border-radius: 5px;
+}
+.THIS div.container {
+    margin: 0px 20px 0px 40px;
+}
+.THIS div.expandCollapse {
+    cursor: pointer;
+    width: 10%;
+    float: right;
+}
+.THIS div.show {
+    display: block;
+    background-color: #004b7b;
+}
+.THIS div.hide {
+    display: none !important;
+}
+.THIS div.showcollapse {
+    width: 100%;
+    padding-bottom: 20px;
+    color: #ffffff;
+    box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.3);
+    padding: 0 20px;
+    position: relative;
+    overflow: hidden;
+    margin-left: -2%;
+    position: absolute;
+    max-height: initial;
+    opacity: 1;
+    margin-top: 0;
+    z-index: 2;
+}
+.THIS div.hide1 {
+    background-color: #004b7b;
+    display: none !important;
+}
+.THIS .Clear {
+    content: "";
+    clear: both;
+}
+.THIS .CollapseHeader {
+    color: #004b7b;
+    font-size: 18pt;
+    font-weight: bold;
+    padding-top: 5px;
+}
+.THIS .TogggleText {
+    color: #3c91c7;
+    font-size: 16pt;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+}
+.THIS .datePicker-openIcon:before {
+    font-size: 20px;
+}
+.THIS .fl_label {
+    /* Can change */
+    
+    top: 12px;
+    left: 8px;
+    color: #ccc;
+    font-size: 14px;
+    /* Don't change */
+    
+    position: absolute;
+    z-index: 3;
+    /* This can be removed but then the labels must be placed after the inputs in the HTML */
+    
+    -webkit-transition: all .05s linear;
+    -moz-transition: all .05s linear;
+    -transition: all .05s linear;
+}
+
+.THIS .Labels.focused .fl_label,
+.THIS .Labels.populated .fl_label{
+    /* Can change */    
+    top: 0;
+    font-size: 12px;
+    color: #555;
+}
+.THIS .Labels.focused .fl_label {
+    color: #00A34D;
+}
+.THIS .FloatLeft {
+    float: left;
+}
+.THIS .FirstRow,
+.THIS .SecondRow {
+    padding: 20px 0
+}
+.THIS .FirstName {
+    margin-left: 0px;
+}
+.THIS .uiInput--select.has-error.select {
+    border: 1px solid #2f3537;
+    box-shadow: none;
+}
+.THIS .PatientResultStart {
+    margin-top: 160px;
+}
+.THIS #DOBId::-webkit-input-placeholder {
+    color: #CDCDCD;
+    font-size: 15px;
+}
+.THIS #DOBId::-moz-placeholder {
+    color: #CDCDCD;
+    font-size: 15px;
+}
+.THIS #DOBId:-ms-input-placeholder {
+	color: #CDCDCD;
+    font-size: 15px;
+}
+.THIS #DOBId:-moz-placeholder {
+	color: #CDCDCD;
+    font-size: 15px;
+}
+.THIS #DOBId {
+    height: 40px;
+    position: relative;
+    border-radius: 3px;
+    outline: none;
+    padding: 0 10px;
+    color: #2f3537;
+    font-size: 14pt;
+}
+.THIS .slds-button.slds-button--icon-bare {
+    position: absolute;
+    right: 5%;
+    top: 12px;
+}
+.THIS .loading {
+    width: 53px;
+    height: 34px;
+}
+.THIS #DOBId::-ms-clear {
+    display: none;
+}
+@media only screen and (width: 1024px) {
+    .THIS.PatientSearchCollapse{
+        width:90%
+    }
+}
+@media only screen and (max-width: 960px) {
+    .THIS.PatientSearchCollapse {
+        width: 90%;
+    }
+    .THIS #DOBId::-webkit-input-placeholder {
+        font-size: 12px;
+    }
+    .THIS #DOBId::-moz-placeholder {
+        font-size: 12px;
+    }
+    .THIS #DOBId:-ms-input-placeholder {
+        font-size: 12px;
+    }
+    .THIS #DOBId:-moz-placeholder {
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .THIS.PatientSearchCollapse {
+        width: 96%;
+    }
+    .THIS div.showcollapse {
+        margin-left: -2.5%;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .THIS .fl_label {
+        font-size: 13px;
+    }
+    .THIS .uiInput--input.uiInput--datetime {
+        font-size: 13px;
+    }
+    .THIS #DOBId::-webkit-input-placeholder {
+        font-size: 10px;
+    }
+    .THIS #DOBId::-moz-placeholder {
+        font-size: 10px;
+    }
+    .THIS #DOBId:-ms-input-placeholder {
+        font-size: 10px;
+    }
+    .THIS #DOBId:-moz-placeholder {
+        font-size: 10px;
+    }
+    .THIS #DOBId {
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 667px) {
+    .THIS #DOBId {
+        padding: 0 3px;
+        font-size: 13pt;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .THIS div.showcollapse {
+        width: 97.5%;
+    }
+    .THIS .fl_label {
+        font-size: 11px;
+    }
+    .THIS .Inputs2Column,
+    .THIS .Inputs,
+    .THIS .InputCIN,
+    .THIS #DOBId {
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .THIS div.showcollapse {
+        margin-left: -5.5%;
+        width: 100%;
+    }
+    .THIS div.Labels2Column {
+        width: 47%;
+        margin: 0 0 20px 20px;
+    }
+    .THIS div.Labels2Column:first-child,
+    .THIS div.Labels2Column:nth-child(3) {
+        margin-left: 0;
+    }
+    .THIS div.Labels2Column:nth-child(3),
+    .THIS div.Labels2Column:nth-child(4) {
+        margin-bottom: 0;
+    }
+    .THIS .InputCIN {
+        width: 100%;
+        margin-left: 0;
+    }
+    .THIS .ButtonSearch,
+    .THIS .ButtonCancel {
+        width: 47%;
+        margin: 20px 0 0 0;
+    }
+    .THIS .ButtonCancel {
+        margin-left: 20px;
+    }
+    .THIS .PatientResultStart {
+        margin-top: 290px;
+    }
+    .THIS .TogggleText {
+        font-size: 14pt;
+        margin-top: 5px;
+    }
+    .THIS #DOBId::-webkit-input-placeholder {
+        font-size: 11px;
+    }
+    .THIS #DOBId::-moz-placeholder {
+        font-size: 11px;
+    }
+    .THIS #DOBId:-ms-input-placeholder {
+        font-size: 11px;
+    }
+    .THIS #DOBId:-moz-placeholder {
+        font-size: 11px;
+    }
+}
+@media only screen and (max-width: 384px) {
+    .THIS div.Labels2Column,
+    .THIS .ButtonSearch,
+    .THIS .ButtonCancel {
+        width: 46%;
+    }
+    .THIS .InputCIN {
+        width: 98%;
+    }
+    .THIS .CollapseHeader,
+    .THIS .TogggleText {
+        font-size: 14pt;
+        margin-top: 0px;
+    }
+    .THIS .slds-text-heading--small b {
+        font-size: 19px;
+    }
+    .THIS .slds-text-heading--small {
+        font-size: 13px;
+    }
+    .THIS .fl_label {
+        font-size: 11px;
+    }
+    .THIS div.showcollapse {
+        width: 99.5%;
+    }
+    .THIS .Inputs2Column,
+    .THIS .Inputs,
+    .THIS .InputCIN {
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 320px) {
+    .THIS div.showcollapse {
+        width: 97.5%;
+    }
+    .THIS .InputCIN {
+        width: 99.5%;
+    }
+}

@@ -1,0 +1,106 @@
+.THIS input[type="checkbox"] {
+    clip: rect(0px, 60px, 200px, 0px);
+    margin-top: 3px;
+    padding: 3px 0px 0px 20px;
+    height: 100%;
+    font-weight: 700;
+    margin-right: 0px;
+    width: 14px;
+height: 14px;
+background-color: #077ced;
+border: 1px solid #006dd5;
+border-radius: 3px;
+}
+
+.THIS .multiselect-selected-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: #152e5a;
+}
+
+.THIS .multiselect-container {
+    width: 209px;
+    margin-top: 4px;
+}
+
+.THIS .dropdown-menu>.active>a {
+    padding-left: 0px;
+    /*background-color: #ffffff;
+  color: #337ab7; */
+}
+
+.THIS .dropdown-menu>a {
+    padding-left: 0px;
+    /*background-color: #ffffff;
+    color: #337ab7;*/
+}
+
+.THIS .dropdown-menu {
+
+    
+    
+}
+
+.THIS .multiselect-container>li.multiselect-item.multiselect-group.multiselect-group-clickable label {
+    margin-top: 7px;
+    color: #436078;
+    
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.THIS .multiselect-container>li.multiselect-group label {
+    margin: 0;
+    padding: 3px 0px 0px 20px;
+    height: 100%;
+    font-weight: 500;
+}
+
+.THIS .multiselect-container > hr {
+  height: 1px;
+background-color: #dce4f0;
+margin-top:20px;
+margin-bottom: 7px;
+}
+
+.THIS .multiselect-container>li.active>a>label.checkbox {
+ 
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 40px;
+    height: 100%;
+    font-weight: 300;
+    color: #495f81;
+    
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.THIS .multiselect-container>li>a>label.checkbox {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    height: 100%;
+    font-weight: 300;
+    color: #495f81;
+    
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.THIS .multiselect-container>li.single-option {
+  margin-bottom: -5px;
+}
+
+.THIS .multiselect.dropdown-toggle.btn.btn-link.button--neutral:hover {
+    border: 2px solid #5fb5fa;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0, 111, 210, 0.38);
+}
+
+
+.THIS .multiselect.dropdown-toggle.btn.btn-link.button--neutral.highlighted {
+    border: 2px solid #5fb5fa;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0, 111, 210, 0.38);
+}

@@ -1,0 +1,20 @@
+<aura:component >
+	<!--<ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}" afterScriptsLoaded="{!c.myAction}" />
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}"/>-->
+    
+    <ltng:require scripts="{!join(',', 
+
+    $Resource.P360JqueryResources + '/jquery-2.2.4.min.js', 
+
+    $Resource.JQueryUI + '/jquery-ui.min.js')}" styles="{!$Resource.JQueryUI + '/jquery-ui.min.css'}" afterScriptsLoaded="{!c.myAction}" />
+    
+    <div class="slds">
+    <div class="slds-form">
+		<input type="text" id="testId" placeholder="DOB (MM/DD/YYYY)" />
+
+    <lightning:buttonIcon iconName="utility:event" variant="bare" onclick="{! c.handleDatePickerClick }" alternativeText="Close window." />
+        <!--c:DatePicker label="Test Date" placeholder="DOB (mm/dd/yyyy)" formatSpecifier="MM/dd/yyyy" /-->
+
+    </div>
+  </div>
+</aura:component>

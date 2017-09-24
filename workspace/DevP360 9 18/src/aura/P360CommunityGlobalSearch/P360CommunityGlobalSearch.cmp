@@ -1,0 +1,78 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="SearchUtility">
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}"/>
+    <aura:attribute name="currentPage" type="String"/>
+    <aura:attribute name="searchTerm" type="String"/>
+    <aura:attribute name="redirectTo" type="String"/>
+    <aura:attribute name="patientid" type="String"/>
+    <aura:attribute name="empi" type="String"/>
+    <aura:attribute name="tableHeader" type="List" />
+    <aura:attribute name="result" type="String"/>
+    <aura:attribute name="selectedId" type="String"/>
+    <aura:attribute name="viewMore" type="Boolean" default="false"/>
+    <aura:attribute name="resultsFound" type="Boolean" default="true"/>
+    <aura:attribute name="filteredCount" type="String"/>
+    <aura:attribute name="totalCount" type="String"/>
+    <aura:attribute name="encounterId" type="String" default=""/>
+   
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="aura:waiting" action="{!c.waiting}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.doneWaiting}"/>
+    <aura:registerEvent name="cmpNotesEvent" type="c:ClinicalNoteClickEvent"/>
+    <aura:handler name="cmpNotesEvent" event="c:ClinicalNoteClickEvent" action="{!c.handleCNClicked}"/>
+    <aura:handler event="aura:doneRendering" action="{!c.doneRendering}"/>
+    
+    <div>
+        <article class="slds-card">
+            <div id="headerTitle" class="encSumHead" aura:id="listTitle" title="Search Results">
+                Search Results
+            </div>
+            
+            <br/>
+            
+            <aura:if isTrue="{!v.resultsFound}">
+                
+                <aura:if isTrue="{!v.viewMore}">
+                    <div id="olyCSS" class="viewMoreDiv">
+                        <aura:iteration items="{!v.tableHeader}" var="item" indexVar="key">
+                            <h3> 
+                                <b>{!item.value}</b>
+                                <span class="recCount"> ({!item.count} record(s))</span>
+                                <span class="filtercountVal">({!v.filteredCount} out of {!v.totalCount} record (s))</span>
+                            </h3>
+                            <div>
+                                <table class="slds-table slds-table--bordered slds-table--striped slds-max-medium-table--stacked-horizontal" aura:id="{!item.key}" id="{!item.key}" style="height:100%;width:100% !important;">
+                                    <thead/>
+                                    <tbody/>
+                                </table>
+                            </div>
+                        </aura:iteration>
+                    </div>
+                    <aura:set attribute="else">
+                        <span id="Loadingspinner">Loading...<ui:spinner /></span>
+                        <div id="olyCSS" class="expandDiv">  
+                            <aura:iteration items="{!v.tableHeader}" var="item" indexVar="key">
+                                <div id="{!'expanderHead' + key}" class="expanderHead">
+                                    <h3 headerData = "{!item.value}" onclick="{!c.scriptsLoaded}"> 
+                                        <span class="ToggleText">&#9656;</span>
+                                        <b>{!item.value}</b><span class="recCount"> ({!item.count} record(s))</span>
+                                    </h3>
+                                    <div class="expanderContent" style="display:none;">
+                                       <span id="Loadingspinner">Loading...<ui:spinner /></span>
+                                        <table data-name="{!item.value}" class="slds-table slds-table--bordered slds-table--striped slds-max-medium-table--stacked-horizontal" aura:id="{!item.key}" id="{!item.key}" style="height:100%;width:100% !important;">
+                                            <thead/>
+                                            <tbody/>
+                                        </table>
+                                        <lightning:button label="View All" name="{!item.value}" value="{!item.key}" onclick="{!c.viewMore}" class="MoreBtn"/>
+                                     </div>
+                                </div>
+                            </aura:iteration>
+                        </div>
+                    </aura:set>
+                </aura:if>
+                <aura:set attribute="else">
+                    <span>No Results Found</span>
+                </aura:set>
+            </aura:if>
+        </article>
+    </div>
+</aura:component>

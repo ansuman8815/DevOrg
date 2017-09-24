@@ -1,0 +1,21 @@
+/* Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCarePlanTemplateContainerStyle.
+ * @since 204
+ */
+
+/* Pinned footer */
+.THIS .hc-block--fixed .hc-block__body {
+  margin-bottom: 60px;
+}
+
+.THIS .hc-block--fixed .hc-block__footer {
+  position: fixed;
+    bottom: 0;
+  width: 100%;
+}
+
+.THIS .hc-carePlanTemplateTabset .slds-tabs--default__item {
+    pointer-events: none;
+}

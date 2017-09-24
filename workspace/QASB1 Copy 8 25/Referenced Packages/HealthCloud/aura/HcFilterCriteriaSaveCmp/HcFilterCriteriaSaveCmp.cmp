@@ -1,0 +1,21 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcFilterCriteriaSaveCmp Component, the save component for Patient Filter List functionality
+ * @since 196
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable" controller='HealthCloudGA.HcFilterCriteriaCmpController'>
+    <aura:attribute name="filterName" type="String" default="" />
+    <aura:attribute name="filterIdString" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="configObject" type="Object"/>
+
+    <div class="hc-fc-nameContainer slds-form-element slds-container--center slds-container--small">
+        <div>
+            <fieldset id="filterName">
+                <lightning:input name="inputBox" type="text" aura:id="filtername" label="{!$Label.healthcloudga.Field_Label_Name}"  value="{!v.filterName}" placeholder="{!$Label.healthcloudga.Text_Patient_List_Name}" maxlength="100" required="true" />
+            </fieldset>
+        </div>
+    </div>
+</aura:component>

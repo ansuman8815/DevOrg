@@ -1,0 +1,43 @@
+.THIS .slds-checkbox--faux:before {
+    display: none;
+}
+.THIS .hcMultiDropDownItem {
+    font-size: 0.875rem;
+	font-weight: 400;
+    color: #495f81;
+}
+.THIS .hcMultiDropDownCategory{
+    color: #436078;
+	font-size: 0.75rem;
+	font-weight: 500;
+}
+
+.THIS .selectAllEventsTrigger{
+	font-size: 0.875rem;
+}
+
+.THIS .selectAllEventsTrigger ~ .slds-icon_container .slds-icon {
+    margin-top: -1px;
+}
+
+/* override to correct common.css */
+.THIS .slds-dropdown__item {
+  margin-left: 0;
+}
+
+.THIS .hcClickThrough {
+    pointer-events: none;
+}
+
+.THIS ul.slds-has-divider:last-child{
+    display: none;
+}
+
+.THIS .hc-filter-color svg{
+    fill: #53688E;
+}
+
+.THIS .hc-icon-align{
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+}

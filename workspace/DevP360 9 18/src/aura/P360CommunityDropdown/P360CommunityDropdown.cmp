@@ -1,0 +1,13 @@
+<aura:component controller="DynamicListController">
+    <aura:attribute name="listName" type="string"/>
+    <aura:attribute name="pageName" type="string"/>
+    <aura:attribute name="options" type="string[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.getLstValue}"/>
+    <div id="dropdownDiv" class="dropDown">
+        <ui:inputSelect aura:id="sel" class="selectList" value="{!v.listName}" change="{!c.selectChange}">
+            <aura:iteration items="{!v.options}" var="level">
+                 <ui:inputSelectOption text="{!level}" label="{!level}"/>
+            </aura:iteration>
+        </ui:inputSelect>
+    </div>
+</aura:component>

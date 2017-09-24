@@ -1,0 +1,10 @@
+<aura:event type="APPLICATION" description="Event template" >
+    <aura:attribute name="isClinicalDetails" type="Boolean"/>
+    <aura:attribute name="selectedId" type="String"/>
+    <aura:attribute name="searchTerm" type="String"/>
+    <aura:attribute name="CNselected" type="Boolean"/>
+    <aura:attribute name="ESselected" type="Boolean"/>
+    <aura:attribute name="ECNselected" type="Boolean"/>
+    <aura:attribute name="DRselected" type="Boolean"/>
+    <aura:attribute name="PRselected" type="Boolean"/>
+</aura:event>

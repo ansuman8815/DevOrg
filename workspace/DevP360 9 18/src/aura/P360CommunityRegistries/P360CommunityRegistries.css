@@ -1,0 +1,12 @@
+.THIS {
+}
+.THIS.regDiv{position:relative;}
+.THIS.searchIconStyle{position: absolute;top: 222px;left: 31.5%;z-index: 1;}
+.THIS .IconStyle{height: 20px;width: 16px;fill: #9aa6af;}
+.THIS .SearchIconStyle{height: 20px;width: 20px;fill: #9aa6af;}
+.THIS .ArrowIconStyle{position: absolute;top: 222px;left: 67%;z-index: 1}
+.THIS .searchIconStyle .slds-icon_container{margin-right:10px;}
+
+@media all and (-ms-high-contrast: none) {  
+    .THIS #registryId:focus::-ms-value{background-color: transparent; color:#707f8a;}
+}

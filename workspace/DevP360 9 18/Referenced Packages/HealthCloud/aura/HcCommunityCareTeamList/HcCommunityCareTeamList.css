@@ -1,0 +1,17 @@
+.THIS .HcRoleStyle{
+    color: #445572;
+    font-size: 12px;
+    font-weight: 400;
+}
+.THIS .HcTitleStyle {
+    color: #172e5b;
+    font-size: 17px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+.THIS .HcHRDiv {
+  width: 100%;
+  height: 2px;
+  background: rgb(224, 229, 238);
+  overflow: hidden;
+}

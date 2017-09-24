@@ -1,0 +1,367 @@
+.THIS {} 
+.THIS.patRegContent {
+    text-align: center;
+    margin: 130px auto;
+    width: 90%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.298039);
+    padding: 35px 35px 70px 35px;
+}
+.THIS.patRegResult {
+    text-align: left;
+    margin: 130px auto;
+    width: 70%;
+}
+.THIS.patRegResult .dataTables_paginate {
+    margin-bottom: 20px;
+}
+.THIS .patRegTitle {
+    color: #004b7b;
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+.THIS .listCSS {
+    width: 45%;
+    margin: 20px 0;
+    position: relative;
+    padding-left: 30px;
+    height: 50px;
+    color: #707f8a;
+    border: 1px solid #ccc;
+    font-size: 13px;
+       
+}
+.THIS.patRegResult .listCSS {
+    width: 25%;
+    margin: 35px 0;
+}
+.THIS .modalViewIcons {
+    display: none;
+}
+.THIS .listResult {
+    position: relative;
+    top: -40px;
+    width: 23%;
+    z-index: 1;
+    padding-left: 25px;
+    height: 30px;
+    outline: none;
+    box-shadow: none;
+    color: #707f8a;
+    font-size: 14px;
+    border: 1px solid #ccc;
+}
+.THIS .listDetail {
+    position: relative;
+    bottom: 53px;
+}
+.THIS .listResultSearch {
+    position: absolute;
+    left: 4px;
+    margin-top: -17px;
+    z-index: 2;
+    top: 63px;
+}
+.THIS .ArrowIconStyle {
+    position: absolute;
+    top: 31px;
+    right: 24.2%;
+    z-index: 1;
+}
+.THIS .listResultArrow {
+    position: absolute;
+    top: 33px;
+    left: 20.9%;
+    z-index: 1;
+}
+.THIS .searchIconStyle {
+  top: 55px;
+    position: relative;
+    left: 309px;
+    z-index: 1;
+    width: 5%;
+}
+.THIS .listResultArrow svg {
+    width: 16px;
+    height: 16px;
+}
+.THIS .refresh-date {
+    position: absolute;
+    top: 22px;
+    left: 0;
+    width: auto;
+}
+.THIS .dataTables_wrapper .dataTables_paginate .ellipsis {
+    padding: 0;
+}
+.THIS .dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 5px 10px;
+}
+.THIS .contentPanel .left #footerHide{position:fixed !important;}
+@media all and (-ms-high-contrast: active) {
+    /* Remove purple highlight in HC mode */
+    .THIS .listCSS select:focus::-ms-value {
+        background-color: transparent;
+        color: white;
+    }
+}
+@media all and (-ms-high-contrast: none) {
+    /* Remove blue highlight in Normal mode*/
+    .THIS .listCSS select:focus::-ms-value {
+        background-color: transparent;
+        color: black;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .THIS .slds-card {
+        margin-top: 0 !important;
+    }
+    .THIS .dataTables_wrapper,
+    .THIS #registryResult {
+        background-color: transparent !important;
+    }
+    .THIS .listCSS {
+        width: 40% !important;
+        border: 1px solid #ccc;
+        text-indent: 40px;
+        padding-left: 0;
+    }
+    .THIS .searchIconStyle {
+        left: 31%;
+    }
+    .THIS .listResult {
+        width: 38% !important;
+        border: 1px solid #ccc;
+    }
+    .THIS .disclaimer {
+        top: 50px !important;
+    }
+    .THIS .dataTables_wrapper .top {
+        float: left !important;
+        margin-top: 45px !important;
+    }
+    .THIS .record-count,
+    .THIS .filtercountVal {
+        left: 42% !important;
+    }
+    .THIS .listResultSearch {
+        left: 10px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .THIS .listResultSearch {
+        left: 5px;
+    }
+    .THIS .listCSS {
+        text-indent: 32px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .THIS.patRegResult {
+        margin: 130px 0 0 45px;
+        width: 90%;
+    }
+    .THIS .listCSS {
+        width: 70%;
+        border: 1px solid #ccc;
+        left: 20px;
+        text-indent: 40px;
+    }
+    .THIS .listResult {
+        width: 32% !important;
+        border: 1px solid #ccc;
+    }
+    .THIS .searchIconStyle {
+        left: 35%;
+    }
+    .THIS .dataTables_wrapper .top {
+        margin-top: 45px!important;
+        margin-left: -12px;
+    }
+    .THIS .patRegTitle {
+        margin-bottom: 0;
+    }
+    .THIS .listResult {
+        top: 17px;
+        left: 23px;
+    }
+    .THIS .listResultSearch {
+        margin-top: -16px;
+        left: 25px;
+    }
+    .THIS .dataTables_filter {
+        margin-right: 0px !important;
+    }
+    .THIS .record-count,
+    .THIS .filtercountVal {
+        left: 45% !important;
+    }
+    .THIS .refresh-date {
+        left: 3%;
+    }
+}
+@media only screen and (max-width: 736px) {
+    .THIS .listCSS {
+        width: 70%;
+        border: 1px solid #ccc;
+    }
+    .THIS .listResult {
+        width: 36%;
+        border: 1px solid #ccc;
+    }
+    .THIS .searchIconStyle {
+        left: 35%;
+    }
+    .THIS.patRegResult {
+        margin: 130px 0 0 15px;
+        width: 97%;
+    }
+    .THIS .disclaimer {
+        top: 50px !important;
+    }
+    .THIS .dataTables_wrapper .top {
+        margin-top: 45px !important;
+    }
+    .THIS .dataTables_wrapper,
+    .THIS #registryResult {
+        background-color: transparent !important;
+    }
+    .THIS .slds-table tbody td {
+        max-width: 640px !important;
+    }
+    .THIS .patRegTitle {
+        margin-left: 35px;
+    }
+}
+@media only screen and (max-width: 667px) {
+    .THIS.patRegResult {
+        margin: 130px 0 0 17px;
+        width: 96%;
+    }
+    .THIS .disclaimer {
+        top: 50px !important;
+    }
+    .THIS .dataTables_wrapper .top {
+        margin-top: 45px !important;
+    }
+    .THIS .slds-table tbody td {
+        max-width: 571px !important;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .THIS .listCSS {
+        text-indent: 35px;
+    }
+}
+@media only screen and (max-width: 568px) {
+    .THIS .slds-table tbody td {
+        max-width: 499px !important;
+    }
+    .THIS.patRegResult {
+        margin: 130px 0 0 15px;
+    }
+    .THIS .listCSS {
+        text-indent: 29px;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .THIS .listResult {
+        width: 65% !important;
+        ;
+        border: 1px solid #ccc;
+    }
+    .THIS .listCSS {
+        width: 68% !important;
+        border: 1px solid #ccc;
+        left: 0;
+        text-indent: 30px;
+        background-color: #fff !important;
+    }
+    .THIS .searchIconStyle {
+        left: 19%;
+        background-color: transparent !important;
+    }
+    .THIS.patRegResult {
+        margin: 130px 0 0 10px;
+        width: 97%;
+    }
+    .THIS .slds-table tbody td {
+        max-width: 362px !important;
+        ;
+    }
+    .THIS .disclaimer {
+        top: 50px !important;
+    }
+    .THIS .dataTables_wrapper .top {
+        margin-top: 45px !important;
+    }
+    .THIS .patRegTitle {
+        margin-left: 0px;
+    }
+    .THIS .record-count {
+        left: 69% !important;
+    }
+    .THIS .listResultSearch {
+        left: 5px;
+    }
+    .THIS .refresh-date {
+        left: 0;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .THIS .listResult {
+        width: 65% !important;
+        border: 1px solid #ccc;
+    }
+    .THIS .listCSS {
+        width: 68% !important;
+        border: 1px solid #ccc;
+        left: 0;
+    }
+    .THIS .count.countSep {
+        margin-left: 245px !important;
+    }
+    .THIS .slds-table tbody td {
+        max-width: 316px !important;
+    }
+    .THIS .disclaimer {
+        top: 50px !important;
+    }
+    .THIS .dataTables_wrapper .top {
+        margin-top: 45px !important;
+    }
+    .THIS.patRegContent {
+        padding: 35px 10px !important;
+    }
+    .THIS .slds-table--bordered tbody td {
+        padding: 5px;
+        width: 96%!important;
+    }
+}
+@media only screen and (max-width: 320px) {
+    .THIS .listCSS {
+        width: 100%;
+    }
+    .THIS .listResult {
+        width: 60% !important;
+    }
+    .THIS .slds-table tbody td {
+        max-width: 264px !important;
+    }
+    .THIS .count.countSep {
+        margin-left: 187px !important;
+    }
+    .THIS.patRegResult {
+        margin: 130px 0 0 8px;
+    }
+    .THIS.patRegContent {
+        padding: 35px 10px !important;
+    }
+    .THIS.patRegResult .dataTables_paginate {
+        float: none;
+        clear: both;
+    }
+    .THIS .listCSS {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,333 @@
+.THIS {
+    width: 98%;
+    background-color: transparent;
+}
+.THIS button[data-title]:hover:after {
+      content: attr(data-title);
+    padding: 4px 8px;
+    width: 872px;
+    color: #333;
+    position: absolute;
+    left: 0;
+    text-overflow: ellipsis;
+    top: 36px;
+    z-index: 20;
+    white-space: pre-line;
+    border-radius: 5px;
+    box-shadow: 0 0 4px #222;
+    background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #eeeeee),color-stop(1, #cccccc));
+    background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
+}
+.THIS .slds-card {
+    background-color: transparent;
+}
+.THIS .ToggleText {
+    font-weight: bold;
+    padding-right: 5px;
+}
+.THIS .expandDiv .dataTables_wrapper .dataTables_filter,
+.THIS .expandDiv .dataTables_wrapper .dataTables_paginate,
+.THIS .expandDiv .dataTables_wrapper .dataTables_length,
+.THIS .expandDiv .dataTables_wrapper .dataTables_info {
+    display: none;
+}
+.THIS .viewMoreDiv .dataTables_length,
+.THIS .viewMoreDiv .dataTables_paginate,
+.THIS .viewMoreDiv .dataTables_filter,
+.THIS .viewMoreDiv .dataTables_info {
+    font-size: 14px;
+    font-family: Lato;
+}
+.THIS .slds-table {
+    background-color: transparent;
+}
+.THIS .slds-table--striped tbody tr > td,
+.THIS .slds-table--striped tbody tr > th {
+    background-color: #FFF;
+}
+.THIS table.dataTable.no-footer,
+.THIS table.dataTable.no-footer thead {
+    border-bottom: none;
+}
+.THIS .PalletCheckbox ul {
+    text-align: center;
+    width: 100%;
+    border: 1px solid #ccc;
+    float: left;
+    margin-bottom: 10px;
+    padding: 10px 0px;
+    background-color: #fff;
+}
+.THIS .PalletCheckbox li {
+    float: left;
+    width: 33.3%;
+}
+.THIS div.expanderHead {
+    clear: both;
+    float: left;
+    width: 100%;
+    border: 1px solid #ccc;
+    margin-bottom: 2px;
+}
+.THIS .expanderHead:last-child {
+    margin-bottom: 20px;
+}
+.THIS .recCount,.THIS .filtercountVal {
+    font-weight: normal;
+    font-size: 13px;
+}
+.THIS .filtercountVal {
+    display:none;
+}
+.THIS .expandDiv h3 {
+    background-color: #FFF;
+    cursor: pointer;
+}
+.THIS .MoreBtn,
+.THIS .MoreBtn:hover {
+    border: none;
+    padding: 0;
+    color: #3c91c7;
+    font-size: 14px;
+    background: none;
+    outline: none;
+    text-decoration: underline;
+    text-align: left;
+    font-weight: bold;
+    outline: none;
+    box-shadow: none;
+    margin-left: 10px;
+}
+.THIS .slds-table thead {
+    background-color: #717F8A;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-family: inherit !important;
+    text-shadow: none;
+}
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>td,
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>th {
+    background-color: #E6EBEE;
+}
+.THIS .slds-media__body {
+    position: relative;
+}
+.THIS .slds-card__header {
+    border: 0px;
+    background-color: #EFF3F6;
+    margin-bottom: 0px;
+    height: 50px;
+    padding-left: 0;
+}
+.THIS .slds-text-heading--small {
+    font-size: 12px;
+    color: #707f8a;
+}
+.THIS .slds-text-heading--small b {
+    font-size: 21px;
+    color: transparent;
+}
+.THIS .slds-table tr {
+    height: auto;
+}
+.THIS table.dataTable thead th {
+    padding: 10px!important;
+}
+.THIS .slds-table tbody td {
+    color: #707f8a;
+    font-size: 14px;
+    max-width: 300px;
+    word-wrap: break-word;
+    white-space: inherit;
+    border: none;
+}
+.THIS .slds-text-heading--small {
+    text-align: left;
+    margin-top: 18px;
+}
+.THIS .slds-card {
+    border-radius: 0;
+    border: 0;
+    margin: 0 auto 20px;
+    background-color: #eef3f6;
+    padding-bottom: 20px;
+}
+.THIS .slds-text-heading--small b span {
+    border-left: 1px solid;
+    padding-left: 10px;
+    margin-left: 10px;
+    color: #9aa6af;
+    font-size: 12px;
+    font-weight: normal;
+}
+.THIS .linkbutton,
+.THIS .linkbutton:hover {
+    border: none;
+    padding: 0;
+    color: #3c91c7;
+    font-size: 14px;
+    background: none;
+    outline: none;
+    text-decoration: underline;
+    text-align: left;
+        white-space: nowrap;
+}
+.THIS .encSumHead {
+    color: #004b7b;
+    font-size: 21px;
+    font-weight: bold;
+    left: 0;
+    overflow: hidden;
+    max-width: 217px;
+    text-align: left;
+}
+.THIS .dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #ccc;
+}
+.THIS .paginate_button.first,
+.THIS .paginate_button.last {
+    display: none;
+}
+.THIS .dataTables_length,
+.THIS .dataTables_filter {
+    margin-top: 10px;
+}
+.THIS .dataTables_length {
+    margin-left: 5px;
+}
+.THIS table.dataTable thead th {
+    padding: 10px 15px 10px 10px!important;
+}
+
+/*--------------------
+.THIS .hoverDataCss{
+ display: none;
+}
+
+.THIS .linkbutton:hover .hoverDataCss{
+     display: block;
+    z-index:100;
+ }
+--------------------*/
+.THIS .selectTooltip div.slds-popover.slds-nubbin_left-top{  display: none;
+     z-index: 1;
+    position: absolute;
+    padding:10px;
+     }
+.THIS .selectTooltip:hover div.slds-popover.slds-nubbin_left-top{
+    display:inline-block;
+} 
+.THIS .searchCss{
+    background-color:yellow;
+}
+
+@media only screen and (width: 768px) {
+    .THIS .slds-table tr {
+        height: auto;
+        border: none;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 5px;
+    }
+    .THIS table.dataTable tbody td {
+        border: none;
+        max-width: 620px;
+        margin-top: -1px;
+        padding: 13px;
+    }
+    .THIS .slds-table--striped tbody tr:nth-of-type(even)>td,
+    .THIS .slds-table--striped tbody tr:nth-of-type(even)>th {
+        background-color: #FFF;
+    }
+}
+@media only screen and (max-width: 736px) {
+    .THIS .slds-table tr {
+        height: auto;
+        border: none;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 5px;
+    }
+    .THIS table.dataTable tbody td {
+        border: none;
+        max-width: 462px;
+        margin-top: -1px;
+        padding: 5px 20px!important;
+        font-size: 13px !important;
+    }
+    .THIS .slds-table--striped tbody tr:nth-of-type(even)>td,
+    .THIS .slds-table--striped tbody tr:nth-of-type(even)>th {
+        background-color: #FFF !important;
+    }
+    .THIS table.dataTable {
+        padding: 0px 20px;
+    }
+    .THIS table.dataTable tbody td::before {
+        float: left;
+        text-align: left;
+        width: 50%;
+    }
+    .THIS table.dataTable tbody td p {
+        float: right;
+        text-align: right;
+        width: 50%;
+    }
+    .THIS .dataTables_wrapper .dataTables_length,
+    .THIS .dataTables_wrapper .dataTables_filter {
+        float: none;
+        text-align: center;
+    }
+    .THIS .dataTables_length {
+        margin-left: 0px;
+    }
+}
+@media only screen and (max-width: 640px) {
+    .THIS table.dataTable tbody td {
+        max-width: 440px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .THIS table.dataTable tbody td {
+        max-width: 405px;
+    }
+}
+@media only screen and (max-width: 568px) {
+    .THIS table.dataTable tbody td {
+        max-width: 380px;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .THIS table.dataTable tbody td {
+        max-width: 310px;
+    }
+    .THIS .viewMoreDiv h3 b{
+        font-size: 14px;
+    }
+    .THIS .recCount,.THIS .filtercountVal {
+    	font-size: 11px;
+	}
+}
+@media only screen and (max-width: 384px) {
+    .THIS table.dataTable tbody td {
+        max-width: 285px;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .THIS table.dataTable tbody td {
+        max-width: 275px;
+    }
+}
+@media only screen and (max-width: 360px) {
+    .THIS table.dataTable tbody td {
+        max-width: 260px;
+    }
+}
+@media only screen and (max-width: 320px) {
+    .THIS table.dataTable tbody td {
+        max-width: 221px;
+    }
+}

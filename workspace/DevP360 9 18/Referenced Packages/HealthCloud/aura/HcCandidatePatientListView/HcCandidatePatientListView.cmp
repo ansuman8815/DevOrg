@@ -1,0 +1,37 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCandidatePatientListView component: UI for viewing candidate patient records and
+ * launching the patient conversion wizard.
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcCandidatePatientListViewController">
+    <aura:dependency resource="markup://HealthCloudGA:HcAdtConversionWizard" type="COMPONENT" />
+
+    <aura:attribute name="sortBy" type="String" />
+    <!-- Name of column containing ID used to open the Candidate Patient Detail Page -->
+    <aura:attribute name="candidatePatientIdColumnName" type="String" default="Id" />
+    <!-- Name of column containing ID used to open the Patient Detail Page -->
+    <aura:attribute name="patientIdColumnName" type="String" default="AccountId__rPrimaryContact__c" />
+    <aura:attribute name="coordinatorRole" type="String" />
+    <aura:attribute name="patientRole" type="String" />
+    <aura:attribute name="defRecOpenType" type="String" />
+    <aura:attribute name="listViews" type="List" />
+    <aura:attribute name="modal" type="List" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="HealthCloudGA:HcComponentStatusEvent" action="{!c.handleComponentStatusEvent}" />
+    <div>
+        <HealthCloudGA:HcGenericListView aura:id="listViewCmp" listViews="{!v.listViews}" sortBy="{!v.sortBy}" HcMessageCmpEvent="{!c.handleHcMessageCmpEvent}" defRecOpenType="{!v.defRecOpenType}">
+            <aura:set attribute="dataProvider">
+                <HealthCloudGA:HcCandidatePatientDataProvider aura:id="data-provider" sortBy="{!v.sortBy}" />
+            </aura:set>
+            <aura:set attribute="columnOutputOverrides">
+                <HealthCloudGA:HcActionText name="URL:AccountId__c" label="{!item.AccountId__rName}" value="{!index}" index="{!index}" class="health1-datagrid-cell slds-is-interactive" />
+                <HealthCloudGA:HcActionText name="URL:Name__c" label="{!item.Name__c}" value="{!index}" index="{!index}" class="health1-datagrid-cell slds-is-interactive" />
+            </aura:set>
+        </HealthCloudGA:HcGenericListView>
+        {!v.modal}
+    </div>
+</aura:component>

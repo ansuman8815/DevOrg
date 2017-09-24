@@ -1,0 +1,54 @@
+.THIS {
+    float: left;
+    width: 100%;
+    border-top: 1px solid #d3dce2;
+    position: fixed;
+    background: #fffffe;
+    bottom:0;
+    z-index:9;
+    height: 40px;
+}
+.THIS .float-L{
+    float:left;
+}
+.THIS a{
+    float:left;
+    padding:0px 0 0 35px;
+   	color:#9aa6af;
+    font-size: 13px;
+    padding-top: 7px;
+    text-decoration: none;
+    line-height: 25px !important;
+}
+.THIS div.labeltext{
+    border: none;
+    text-align:right;
+    font-weight: normal;
+    font-size:12pt;
+    color:#9aa6af;
+    vertical-align: bottom;
+}
+
+.THIS .footertext{
+    float:left;
+    padding:0 0 0 20px;
+   	color:#9aa6af;
+    font-size: 13px;
+    padding-top: 7px;
+    text-decoration: none;
+    line-height: 25px !important;
+}
+
+@media only screen and (max-width : 767px) {
+	.THIS{
+        position:relative !important;
+        margin-top:0px;
+    }
+}
+@media only screen and (max-width : 480px) {
+    .THIS a{padding:7px 0 0 10px;font-size:10px}
+    .THIS .footertext{font-size: 10px;}
+}
+@media only screen and (max-width : 320px) {
+	.THIS a {padding: 7px 0 0 5px;font-size: 9px;}
+}

@@ -1,0 +1,19 @@
+<!--
++ * Copyright © 2015 salesforce.com, inc. All rights reserved.
++ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
++ * transferred, or disclosed to others, without the prior written consent of Salesforce.
++ * @description custom component to render image formulafields.
++ * @since 196
+-->
+<aura:component >
+    <aura:attribute name="label" type="String" />
+    <aura:attribute name="value" type="String" />
+    <div>
+        <label class="uiLabel-top uiLabel">
+            <span>{!v.label}</span>
+        </label>
+    </div>
+    <input class="slds-input uiInput uiInputText" type="text" aria-describedby="" placeholder="" />
+    <ui:outputRichText class="slds-input uiInput" value="{!v.value}" />
+    <br/>
+</aura:component>

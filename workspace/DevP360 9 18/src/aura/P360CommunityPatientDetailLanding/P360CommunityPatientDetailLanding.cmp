@@ -1,0 +1,72 @@
+<aura:component controller="UtilityGeneral" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <ltng:require styles="{! $Resource.P360CommunityIcons}"/>
+    <aura:attribute name="isLoaded" type="Boolean" default="false"/>
+    <aura:attribute name="currentPage" type="String"/>
+    <aura:attribute name="encounterId" type="String" default=""/>
+    <aura:attribute name="patientid" type="String" />
+    <aura:attribute name="empi" type="String" />
+    <aura:attribute name="viewMore" type="Boolean" />
+    <aura:attribute name="viewDemographics" type="Boolean" />
+    <aura:attribute name="viewGlobalSearch" type="Boolean" />
+    <aura:attribute name="noDefaultView" type="Boolean" default="true"/>
+  	<aura:attribute name="result" type="String" />
+    <aura:attribute name="tableName" type="String" />
+    <aura:attribute name="listName" type="String"/>
+    <aura:attribute name="viewSocialsummary" type="Boolean" />
+    <aura:attribute name="viewEncountersummary" type="Boolean" />
+    <aura:attribute name="viewClinicalNotes" type="Boolean" />
+    <aura:attribute name="viewPopulations" type="Boolean" />
+    <aura:attribute name="showClinicalPopUp" type="Boolean" default="false"/>
+    <aura:attribute name="showProviderPopUp" type="Boolean" default="false"/>
+    <aura:attribute name="selectedId" type="String" default=""/>
+    <aura:attribute name="selectId" type="String" default=""/>    
+    <aura:attribute name="resourceName" type="String" default=""/>
+    <aura:attribute name="viewLaboratoryResults" type="Boolean" />
+    <aura:attribute name="viewDiagnosticReports" type="Boolean" />
+    <aura:attribute name="popupName" type="String"/>
+    <aura:attribute name="searchTerm" type="String"/>
+    <aura:attribute name="header" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:DynamicPalletEvent" action="{!c.handleApplicationEventFired}"/>
+    <aura:handler event="c:DemographicEvent" action="{!c.handleApplicationEventFired}"/>
+    <aura:handler event="c:SocialSummaryEvent" action="{!c.handleApplicationEventFired}"/>
+    <aura:handler event="c:EncounterSummaryEvent" action="{!c.handleApplicationEventFired}"/>
+    <aura:handler event="c:ClinicalNotesEvent" action="{!c.handleApplicationEventFired}"/>
+    <aura:handler event="c:PopulationsEvent" action="{!c.handleApplicationEventFired}"/> 
+    <aura:handler event="c:CommunityCloseIconEvent" action="{!c.handleClinicalNotesEvent}"/>
+    <aura:handler event="c:ClinicalNotesDetailEvent" action="{!c.handleApplicationEventFired}"/> 
+    <aura:handler event="c:DiagnosticResultsEvent" action="{!c.handleApplicationEventFired}"/>
+    <aura:handler event="c:DiagnosticReportsEvent" action="{!c.handleApplicationEventFired}"/>
+    <aura:handler event="c:P360CommunityGlobalSearchEvent" action="{!c.handleApplicationEventFired}"/>
+    <aura:handler name="cmpEvent" event="c:ClinicalNoteClickEvent" action="{!c.handleApplicationEventFired}"/>
+   	<aura:handler event="aura:doneRendering" action="{!c.doneWaiting}"/>
+    <!--aura:handler name="change" value="{!v.body}" action="{!c.doneWaiting}"/-->
+    
+    <!--aura:handler name="render" value="{!this}" action="{!c.doneWaiting}"/-->
+
+    <aura:if isTrue="{!v.isLoaded}">
+        <div id="FreezeSection">      
+            <c:P360CommunityPatientSummary patientid="{!v.patientid}" isSidebarEvent="false"/>
+        </div>
+    </aura:if>
+    <div class="PalletView" id="NonFreezeSection">
+        <aura:if isTrue="{!v.noDefaultView}">
+            <div class="searchContent">{!v.body}</div>
+                <aura:set attribute="else">
+                    <div>  
+                        <c:P360CommunityClinicalSummary patientid="{!v.patientid}" whereclause="{!v.empi}" empi="{!v.empi}"/>
+                    </div>
+                </aura:set>
+        </aura:if>
+    </div>
+    <div>    
+        <aura:if isTrue="{!v.showClinicalPopUp}">
+        	<c:P360CommunityClinicalNotesDetail patientid="{!v.patientid}" listName="{!v.popupName}" searchText="{!v.searchTerm}" whereClause="{!v.selectedId}" tableName="ClinicalNotesDetail" header="{!v.header}"/>
+    	</aura:if>
+    </div>
+    <div>
+        <aura:if isTrue="{!v.showProviderPopUp}">
+        	<c:P360CommunityProvider whereClause="{!v.selectedId}"/>
+    	</aura:if>
+    </div>
+</aura:component>

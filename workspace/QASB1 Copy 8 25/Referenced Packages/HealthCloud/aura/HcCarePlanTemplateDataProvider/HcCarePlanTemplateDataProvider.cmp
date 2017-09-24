@@ -1,0 +1,12 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCarePlanTemplateDataProvider is a data provider for Care Plan Template
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcAbstractListDataProvider" controller="HealthCloudGA.HcCarePlanTemplateController">
+    <aura:attribute name="searchText" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="provide" action="{!c.provider}" />
+</aura:component>

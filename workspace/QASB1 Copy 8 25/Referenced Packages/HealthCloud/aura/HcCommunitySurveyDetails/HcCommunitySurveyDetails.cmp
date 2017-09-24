@@ -1,0 +1,23 @@
+<!-- * Copyright © 2017 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description A completed Survey's details page component
+ * @since 210.
+-->
+<aura:component controller="HealthCloudGA.HcSurveyController" description="Displays details of a completed survey response">
+    <aura:attribute name="surveyData" type="Object" description="Survey data comprising of key value pairs of fields and their corresponsing values to display"/>
+    <aura:attribute name="dataForColumn1" type="Object" description="survey data (in json format) that we need to show in column 1 of the details tab"/>
+    <aura:attribute name="dataForColumn2" type="Object" description="survey data (in json format) that we need to show in column 2 of the details tab"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+   
+    <div class="slds-grid slds-border">
+        <div class="slds-col slds-size_1-of-2">
+        <HealthCloudGA:HcCommunitySurveyDetailItem dataCollection="{!v.dataForColumn1}"/>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+        <HealthCloudGA:HcCommunitySurveyDetailItem dataCollection="{!v.dataForColumn2}"/>
+        </div>
+    </div>
+    
+  
+</aura:component>

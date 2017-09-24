@@ -1,0 +1,116 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcPatientListView component, a container component contains patient list and related actions to patient(s) or views.
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcPatientListViewController">
+    <aura:attribute name="listViews" type="List" />
+    <aura:attribute name="selectedView" type="Object" />
+    <aura:attribute name="isUserSetView" type="Boolean" default="true" />
+    <aura:attribute name="selectedPatients" type="List" />
+    <aura:attribute name="modal" type="List" />
+    <aura:attribute name="userDateFormat" type="String" default="" />
+    <aura:attribute name="userDateTimeFormat" type="String" default="" />
+    <aura:attribute name="createList" type="Boolean" />
+    <aura:attribute name="editList" type="Boolean" />
+    <aura:attribute name="editFilterRecord" type="Boolean" />
+    <aura:attribute name="deleteList" type="Boolean" />
+    <aura:attribute name="deleteFilterRecord" type="Boolean" />
+    
+    <aura:attribute name="totalPatients" type="String" default="" />
+    <aura:attribute name="startT" type="Integer" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler name="change" value="{!v.selectedView}" action="{!c.onViewSelected}" />
+    
+    <aura:handler name="patientsTableActionEvent" event="HealthCloudGA:HcSimpleTableEvent" action="{!c.handlePatientsTableActionEvent}" />
+    <aura:handler event="HealthCloudGA:HcComponentStatusEvent" action="{!c.handleComponentStatusEvent}" />
+
+    <div id='PatientListViewMainContent'>
+
+        <div class="slds-page-header health1-responsive-header">
+            <div class="slds-grid">
+                <div class="slds-col slds-has-flexi-truncate">
+                    <div class="slds-grid health1-patientlist-dropdown" id='FilterDropDownContent'>
+                        <HealthCloudGA:HcDropdownMenu aura:id="filter-dropdown" selected="{!v.selectedView}" list="{!v.listViews}" defaultLabel="{!$Label.healthcloudga.Dropdown_Select_List}" labelClassName="slds-grid slds-grid--align-spread slds-type-focus slds-no-space slds-align-middle" menuClassName="slds-dropdown slds-dropdown--left slds-dropdown--large slds-dropdown--menu">
+                            <aura:set attribute="trigger">
+                                <h1 class="slds-text-heading--medium slds-truncate">
+                                    <aura:if isTrue="{!v.selectedView != null}">
+                                        {!v.selectedView.Name}
+                                        <aura:set attribute="else">
+                                            {!$Label.healthcloudga.Text_List_View_Select}
+                                        </aura:set>
+                                    </aura:if>
+                                </h1>
+                                <button class="slds-button slds-button--icon-bare slds-shrink-none slds-align-middle slds-m-left--x-small">
+                                    <lightning:buttonIcon iconName="utility:switch"  size="medium"  variant="bare" alternativeText="Switch"/>
+                                    <span class="slds-assistive-text">{!$Label.healthcloudga.Link_View_More}</span>
+                                </button>
+                            </aura:set>
+                            <aura:set attribute="header">
+                                <span class="slds-text-heading--label">{!$Label.healthcloudga.Text_List_My_Custom_Lists}</span>
+                            </aura:set>
+                        </HealthCloudGA:HcDropdownMenu>
+                    </div>
+                </div>
+                <div class="slds-col slds-no-flex slds-align-bottom health1-small-hide">
+                    <div class="slds-grid">
+                        <lightning:input class="hc-patients-search" aura:id="search-input" name="search-input" label=" " type="search" onchange="{!c.onSearchList}" placeholder="{!$Label.healthcloudga.Text_Search_List}"/>
+                        <div class="slds-button-space-left" id="menu-setting-dropdown">
+                            <HealthCloudGA:HcDropdownMenu >
+                                <aura:set attribute="trigger">
+                                    <button class="slds-button slds-button--icon-more" aria-haspopup="true">
+                                        <lightning:icon iconName="utility:settings"  size="x-small" class="slds-button__icon" />
+                                        <span class="slds-assistive-text">Settings</span>
+                                        <lightning:icon iconName="utility:down" size="xx-small" class="slds-m-left--xx-small"/>
+                                    </button>
+                                </aura:set>
+                                <li class="slds-dropdown__item" role="menuitem option" tabindex="0" onclick="{!c.onCreateListClicked}">
+                                    <a href="javascript:void(0)" tabindex="-1" aria-disabled="{!(v.createList == false)}"><span>{!$Label.healthcloudga.Link_Create_New_List}</span></a>
+                                </li>
+                                <li class="slds-dropdown__item" role="menuitem option" tabindex="0" onclick="{!c.onEditListClicked}">
+                                    <a href="javascript:void(0)" tabindex="-1" aria-disabled="{!(v.selectedView == null || v.editList == false || v.editFilterRecord == false)}"><span>{!$Label.healthcloudga.Link_Edit_Current_List}</span></a>
+                                </li>
+                                <li class="slds-dropdown__item" role="menuitem option" tabindex="0" onclick="{!c.onDeleteListClicked}">
+                                    <a href="javascript:void(0)" tabindex="-1" aria-disabled="{!(v.selectedView == null || v.deleteFilterRecord == false || v.deleteList == false)}"><span>{!$Label.healthcloudga.Link_Delete_Current_List}</span></a>
+                                </li>
+                            </HealthCloudGA:HcDropdownMenu>
+                        </div>
+                        <div class="slds-button-space-left" id="menu-action-dropdown">
+                            <HealthCloudGA:HcDropdownMenu >
+                                <aura:set attribute="trigger">
+                                    <button class="slds-button slds-button--icon-more slds-shrink-none " aria-haspopup="true">
+                                        <span>{!$Label.healthcloudga.Dropdown_Action}</span>
+                                       <lightning:icon iconName="utility:down" size="xx-small" class="slds-m-left--xx-small"/>
+                                    </button>
+                                </aura:set>
+                                <li class="slds-dropdown__item" role="menuitem option" tabindex="0" onclick="{!c.onCreateTaskClicked}">
+                                    <a href="javascript:void(0)" tabindex="-1" aria-disabled="{!(v.selectedPatients.length == 0)}"><span>{!$Label.healthcloudga.Link_Create_Task}</span></a>
+                                </li>
+                            </HealthCloudGA:HcDropdownMenu>
+                        </div>
+                        <div class="slds-button-space-left">
+                            <HealthCloudGA:HcHelpTrayDropDown helpType="PatientListView" defaultHelpCss="HealthCare-HelpTray-button-icon" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <aura:if isTrue="{! v.selectedView }">
+              <p class="slds-text-body--small slds-m-top--x-small health1-small-hide">
+                  <p class="{!'slds-float--left' + (v.totalPatients != '' ? ' ' : ' slds-hide')}"> {!v.totalPatients + ' ' + $Label.healthcloudga.Field_Label_Items} </p> &nbsp;<a onclick="{!c.onRefreshClicked}">{!$Label.healthcloudga.Button_Label_Refresh}</a>
+              </p>
+            </aura:if>
+            <HealthCloudGA:toast aura:id="toast-message" />
+        </div>
+    </div>
+
+    <HealthCloudGA:HcPatientsTable aura:id="PatientsTable" id="PatientsTable" selectedItems="{!v.selectedPatients}" userDateFormat="{!v.userDateFormat}" userDateTimeFormat="{!v.userDateTimeFormat}" tableDataUpdatedEvent="{!c.onPatientsTableRefresh}" tableClass="slds-table--bordered hc-responsive-table">
+        <aura:set attribute="dataProvider">
+          <HealthCloudGA:HcPatientsTableDataProvider aura:id="PatientsTableDataProvider" autoInit="true" pageSize="200" startT="{!v.startT}" />
+        </aura:set>
+    </HealthCloudGA:HcPatientsTable>
+
+    <div>{!v.modal}</div>
+</aura:component>

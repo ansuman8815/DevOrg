@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="Show_Result" type="Account[]"/> 
+    <aura:attribute name="Search_Clicked" type="Boolean"/> 
+</aura:event>

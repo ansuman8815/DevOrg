@@ -1,0 +1,11 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCareTeamDataProvider component, a empty data provider component, provides sorting functionalities.
+ * @since 198
+-->
+<aura:component extends="ui:dataProvider">
+    <aura:handler name="change" value="{!v.items}" action="{!c.provide}" />
+    <aura:handler name="provide" action="{!c.provide}" />
+</aura:component>

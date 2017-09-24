@@ -1,0 +1,17 @@
+<aura:component >
+	<aura:attribute name="item" type="Object" />
+	<aura:attribute name="isSelected" type="Boolean" default="false"/>
+	<aura:attribute name="optionClassName" type="String" default="slds-dropdown__item" />
+	<!-- slds-is-selected as part of option class for selected status? -->
+	<aura:attribute name="iconClassName" type="String" default="slds-icon slds-icon--selected slds-icon--x-small slds-icon-text-default slds-m-right--small" />
+    <aura:registerevent name="menuSelect" type="ui:menuSelect" description="The event that is fired when the menu item is selected."/>
+
+    <li class="{!v.optionClassName + (v.isSelected ? ' slds-is-selected' : '')}" role="menuitem option" tabindex="0" onclick="{!c.onOptionClicked}">
+        <a href="javascript:void(0);" tabindex="-1">
+					<p>
+        		<HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/standard-sprite/svg/symbols.svg#task2" class="{!v.iconClassName}" />
+            <span>{!v.item.Name}</span>
+					</p>
+        </a>
+    </li>
+</aura:component>

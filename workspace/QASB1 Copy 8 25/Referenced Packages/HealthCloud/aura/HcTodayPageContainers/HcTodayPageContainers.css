@@ -1,0 +1,71 @@
+/**
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description Styles for HcTodayPageContainers component.
+ * @since 200
+ */
+
+/* use flexbox layout to allow list items to match height regardless of content */
+.THIS .hc-cards-list {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+/* base/default size & spacing: 1 column */
+.THIS .slds-list__item {
+  margin: 0;
+  margin-bottom: 0.75rem;
+  width: 100%;
+}
+
+.THIS .hc-feed__help {
+  position: absolute;
+  top: 0.75rem;
+  right: 2rem;
+}
+
+/* small viewport size: 2 columns (> 480px) */
+@media only screen and (min-width: 30em) {
+  .THIS .slds-list__item {
+    /* use flexbox layout to allow list items to match height regardless of content */
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    margin-bottom: 1rem;
+  }
+
+  /* flexbox fix for IE */
+  .THIS .slds-list__item .hc-patient-minicard {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 30em) and (max-width: 47.999em) {
+  .THIS .slds-list__item { width: 49%; margin-right: 2%; }
+  .THIS .slds-list__item:nth-child(2n) { margin-right: 0; }
+}
+
+/* medium viewport size: 3 columns (> 768px) */
+@media only screen and (min-width: 48em) and (max-width: 63.999em) {
+  .THIS .slds-list__item { width: 32%; margin-right: 2%; }
+  .THIS .slds-list__item:nth-child(3n) { margin-right: 0; }
+}
+
+/* large-ish viewport size: 2 columns (> 1024px, < 1200px) */
+@media only screen and (min-width: 64em) and (max-width: 74.999em) {
+  .THIS .slds-list__item { width: 49%; margin-right: 2%; }
+  .THIS .slds-list__item:nth-child(2n) { margin-right: 0; }
+}
+
+/* largest viewport size: 3 columns (> 1200px) */
+@media only screen and (min-width: 75em) {
+  .THIS .slds-list__item { width: 32%; margin-right: 2%; }
+  .THIS .slds-list__item:nth-child(3n) { margin-right: 0; }
+}

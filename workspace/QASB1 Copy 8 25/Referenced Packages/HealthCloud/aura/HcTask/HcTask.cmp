@@ -1,0 +1,589 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description Create Task component with recurring function like daily, weekly, monthly and yearly
+ * @since 196
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable" controller="HealthCloudGA.HealthCareTaskController">
+    <aura:registerEvent name="HcCarePlanEvent" type="HealthCloudGA:HcCarePlanCmpEvent" />
+    <aura:registerEvent name="HcCareTeamEvent" type="HealthCloudGA:HcCareTeamCmpEvent" />
+    <aura:registerEvent name="HcTaskStatusEvent" type="HealthCloudGA:HcComponentStatusEvent" />
+    <aura:attribute name="action" type="String" default="create" />
+    <aura:attribute name="memberObj" type="Object" />
+    <aura:attribute name="recurringDisplay" type="Boolean" default="false" />
+    <aura:attribute name="clearOnRecurTypeChangeAttr" type="Boolean" default="false" />
+    <aura:attribute name="type" type="List"  default="[]"/>
+    <aura:attribute name="priority" type="List"  default="[]"/>
+    <aura:attribute name="status" type="List"  default="[]"/>
+    <aura:attribute name="typeValue" type="String"  default=""/>
+    <aura:attribute name="priorityValue" type="String"  default=""/>
+    <aura:attribute name="statusValue" type="String"  default=""/>
+    <aura:attribute name="goals" type="Object[]" />
+    <aura:attribute name="selectedGoal" type="String" default="" />
+    <aura:attribute name="problem" type="String" default="" />
+    <aura:handler name="change" value="{!v.problem}" action="{!c.processProblemChange}" />
+    <aura:attribute name="recurringSummary" type="String" default="" />
+    <aura:attribute name="defaultRecurringType" type="String" default="RecursWeekly" />
+    <aura:attribute name="recurMaxEndDate" type="String" default="" />
+    <aura:attribute name="recurMaxOccur" type="String" default="" />
+    <aura:attribute name="patientIds" type="List" default="[]" />
+    <aura:attribute name="idslength" type="String" default="5" description="Ids hold selected patiens" />
+    <aura:attribute name="SObjectId" type="String" default="" />
+    <aura:attribute name="userDateFormat" type="String" default="" />
+    <aura:attribute name="userDateTimeFormat" type="String" default="" />
+    <aura:attribute name="erMsg" type="String[]" default="" />
+    <aura:attribute name="headerErrMsg" type="String" default="none" />
+    <aura:attribute name="fromWhere" type="String" default="" />
+    <aura:attribute name="weeklyDays" type="List" default="[]" />
+    <aura:attribute name="monthlyDays" type="List" default="[01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]" />
+    <aura:attribute name="newTask" type="Map" default="{ 'sobjectType': 'Task',
+                                                        'Subject': '',
+                                                        'Description': '',
+                                                        'Type': '',
+                                                        'ActivityDate': ''
+                                                        ,'IsRecurrence': false
+                                                        ,'RecurrenceType':''
+                                                        ,'RecurrenceStartDateOnly':''
+                                                        ,'RecurrenceEndDateOnly':''
+                                                        ,'RecurrenceTimeZoneSidKey':''
+                                                        ,'RecurrenceInterval': 0
+                                                        ,'RecurrenceDayOfMonth':''
+                                                        ,'RecurrenceInstance':''
+                                                        ,'RecurrenceMonthOfYear':''
+                                                        ,'RecurrenceDayOfWeekMask': 0
+                                                        ,'EndsOn':''
+                                                        ,'HealthCloudGA__TaskType__c': ''
+                                                        ,'Status': ''
+                                                        ,'Priority' : ''
+                                                        ,'HealthCloudGA__SortOrder__c': ''
+                                                        ,'WhoId':''
+                                                        ,'WhatId':''
+                                                        ,'HealthCloudGA__CarePlanProblem__c': ''
+                                                        ,'HealthCloudGA__CarePlanGoal__c': ''
+                                                        }" />
+    <aura:attribute name="task" type="Object" />
+    <aura:attribute name="AssignedTo" type="String" default="" description="Ids hold selected patiens" />
+    <aura:attribute name="RelatedTo" type="String" default="" description="Id to hold WhatId for Task" />
+    <aura:attribute name="PerformedBy" type="String" default="" description="Ids hold related to contact" />
+    <aura:attribute name="isFirstRadio" type="String" default="false" />
+    <aura:attribute name="isSecondRadio" type="String" default="false" />
+    <aura:attribute name="isHealthConsole" type="String" default="false" />
+    <aura:attribute name="patientId" type="String" />
+    <aura:attribute name="carePlanId" type="String" />
+    <aura:attribute name="mapAccountToCarePlan" type="Map" />
+    <aura:attribute name="lookUpWhereClauseMap" type="Map" />
+    <aura:attribute name="isShow" type="Boolean" default="true" />
+    <aura:attribute name="monthNamesEngToLocal" type="Map[]"/>
+    <aura:attribute name="basicFieldLabels" type="Map" />
+    <aura:attribute name="patientMsg" type="String" />
+    <aura:attribute name="monthNamesEnglish" type="String" />
+    <aura:attribute name="openNewModal" type="Boolean" />
+    <aura:attribute name="parentListItemId" type="String" description="Parent's list item id to uniquely identify the parent" />
+    <aura:attribute name="topLevelParentId" type="String" description="Parent's list item id to uniquely identify the parent" />
+
+    <ltng:require scripts="{!join(',',$Resource.HealthCloudGA__industryresources + '/externalresources/moment/moment.js',$Resource.HealthCloudGA__industryresources + '/externalresources/moment/moment-timezone.js')}" afterScriptsLoaded="{!c.doInit}" />
+
+    <div aria-hidden="false" role="dialog" class="slds-modal slds-modal--large slds-fade-in-open slds-backdrop--open slds-backdrop" aura:id="task-modal">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <h2 class="slds-text-heading--medium health1-task-message">{!v.patientMsg}</h2>
+            </div>
+            <aura:if isTrue="{!v.headerErrMsg != 'none'}">
+                <div class="slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture bgColor" role="alert">
+                    <span class="slds-assistive-text">{!$Label.healthcloudga.Msg_Error_Header}</span>
+                    <h2>{!v.headerErrMsg}</h2>
+                </div>
+            </aura:if>
+            <div class="slds-modal__content slds-p-around--medium">
+                <div class="slds-grid slds-grid--align-spread">
+                    <div class="slds-col--padded slds-form--stacked slds-p-horizontal--x-large slds-size--1-of-2">
+                        <!-- slds-is-required is old and deprecated in SLDS v1.x -->
+                        <div class="{! 'slds-form-element is-required slds-is-required' + (v.erMsg[1] ? ' slds-has-error' : '')}">
+                            <label for="tasksubject" class="slds-form-element__label health1-task-label">{!v.basicFieldLabels.Subject}</label>
+                            <div class="slds-form-element__control">
+                                <input id="tasksubject" class="slds-input health1-task-text" type="text" required="" aura:id="tasksubject" value="{!v.newTask.Subject}" aria-describedby="subject-error-message" />
+                            </div>
+                            <div id="subject-error-message" class="slds-form-element__help">{!v.erMsg[1]}</div>
+                        </div>
+                        <div class="slds-form-element has-textarea">
+                            <label for="desc" class="slds-form-element__label health1-task-label">{!v.basicFieldLabels.Description}</label>
+                            <div class="slds-form-element__control">
+                                <textarea id="desc" rows="3" class="slds-textarea health1-task-text" aura:id="desc" value="{!v.newTask.Description}">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col--padded slds-form--stacked slds-p-horizontal--x-large slds-size--1-of-2">
+                        <div class="slds-form-element">
+                            <HealthCloudGA:HcCustomLookup Sobject="User" labelClass="slds-form-element__label health1-task-label" lookupLabel="{!$Label.healthcloudga.Field_Label_Task_Owner}"
+                                                    hint="{!$Label.healthcloudga.Text_Task_Owner_Lookup_Hint}" selectedId="{!v.AssignedTo}" uniqueIdentifier="assignedTo" isRequired="true" whereClause="{ 'IsActive': 'true'}"/>
+                        </div>
+                        <div class="slds-form-element">
+                            <HealthCloudGA:HcCustomLookup Sobject="Contact" labelClass="slds-form-element__label health1-task-label" lookupLabel="{!$Label.healthcloudga.Field_Label_Task_External_Member}"
+                                                    hint="{!$Label.healthcloudga.Text_Task_External_Member_Hint}" selectedId="{!v.PerformedBy}" uniqueIdentifier="performedBy" />
+                        </div>
+                       
+                        <div class="slds-form-element">
+                            <label for="Type" class="slds-form-element__label  health1-task-label">{!v.basicFieldLabels.TaskType__c}</label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-select_container">
+                                    <div class="slds-select_container">
+                                        <select id="Type" class="slds-select health1-task-text" aura:id="taskType" value="{!v.typeValue}">
+                                            <aura:iteration items="{!v.type}" indexVar="key" var="tasktypes">
+                                                <aura:if isTrue="{!(tasktypes.key == v.newTask.TaskType__c)}">
+                                                    <option value="{!tasktypes.key}" selected="true">{!tasktypes.value}</option>
+                                                    <aura:set attribute="else">
+                                                        <option value="{!tasktypes.key}">{!tasktypes.value}</option>
+                                                    </aura:set>
+                                                </aura:if>
+                                            </aura:iteration>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- New fields -->
+                <div class="slds-p-top--medium slds-grid slds-grid--align-spread">
+                    <div class="slds-col--padded slds-form--stacked slds-p-horizontal--x-large slds-size--1-of-2">
+                        <div class="slds-form-element">
+                            <label for="Priority" class="slds-form-element__label  health1-task-label">{!v.basicFieldLabels.Priority}</label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-select_container">
+                                    <select id="Priority" class="slds-select health1-task-text" aura:id="priorityType" value="{!v.priorityValue}">
+                                        <aura:iteration items="{!v.priority}" indexVar="key" var="prioritytypes">
+                                            <aura:if isTrue="{!(prioritytypes.key == v.newTask.Priority)}">
+                                                <option value="{!prioritytypes.key}" selected="true">{!prioritytypes.value} </option>
+                                                <aura:set attribute="else">
+                                                    <option value="{!prioritytypes.key}">{!prioritytypes.value}</option>
+                                                </aura:set>
+                                            </aura:if>
+                                        </aura:iteration>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col--padded slds-form--stacked slds-p-horizontal--x-large slds-size--1-of-2">
+                        <div class="slds-form-element">
+                            <label for="Status" class="slds-form-element__label  health1-task-label">{!v.basicFieldLabels.Status}</label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-select_container">
+                                    <select id="Status" class="slds-select health1-task-text" aura:id="statusType" value="{!v.statusValue}">
+                                        <aura:iteration items="{!v.status}" indexVar="key" var="statustypes">
+                                            <aura:if isTrue="{!(statustypes.key == v.newTask.Status)}">
+                                                <option value="{!statustypes.key}" selected="true">{!statustypes.value}</option>
+                                                <aura:set attribute="else">
+                                                    <option value="{!statustypes.key}">{!statustypes.value}</option>
+                                                </aura:set>
+                                            </aura:if>
+                                        </aura:iteration>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--New Fields-->
+                <div class="slds-p-top--medium slds-grid slds-grid--align-spread">
+                    <aura:if isTrue="{!(v.fromWhere == 'CarePlan') || (v.fromWhere == 'CareTeam')}">
+                        <div class="slds-col--padded slds-form--stacked slds-p-horizontal--x-large slds-size--1-of-2">
+                            <div id="cLookup" class="slds-form-element">
+                                <HealthCloudGA:HcCustomLookup Sobject="CarePlanProblem__c" labelClass="slds-form-element__label health1-task-label" lookupLabel="{!v.basicFieldLabels.CarePlanProblem__c}" whereClause="{!v.lookUpWhereClauseMap}" selectedId="{!v.problem}" uniqueIdentifier="problem" />
+                            </div>
+                        </div>
+                        <div class="slds-col--padded slds-form--stacked slds-p-horizontal--x-large slds-size--1-of-2">
+                            <div class="slds-form-element">
+                                <label for="health1-careplan-goal-selection" class="slds-form-element__label  health1-task-label">{!v.basicFieldLabels.CarePlanGoal__c}</label>
+                                <div class="slds-select_container">
+                                    <select id="health1-careplan-goal-selection" class="slds-select health1-task-text" aura:id="health1-careplan-goal-selection" value="{!v.selectedGoal}">
+                                        <aura:iteration items="{!v.goals}" var="goal">
+                                            <aura:if isTrue="{!(goal.id == v.selectedGoal)}">
+                                                <option value="{!goal.id}" selected="true">{!goal.name} </option>
+                                                <aura:set attribute="else">
+                                                    <option value="{!goal.id}">{!goal.name} </option>
+                                                </aura:set>
+                                            </aura:if>
+                                        </aura:iteration>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </aura:if>
+                </div>
+                <div class="slds-p-top--medium slds-grid slds-grid--align-spread">
+                    <div class="slds-col--padded slds-form--stacked slds-p-horizontal--x-large slds-size--1-of-2 slds-form-element" id="dueDateDiv">
+                    <div class="slds-form-element">
+                        <label for="sortorder" class="slds-form-element__label health1-task-label">{!v.basicFieldLabels.SortOrder__c}</label>
+                        <div class="slds-form-element__control">
+                            <ui:inputNumber class="slds-input health1-task-text" aura:id="sortorder" value="{!v.newTask.SortOrder__c}" format=".00" />
+                        </div>
+                    </div>
+                    </div>
+                    <div class="slds-col--padded slds-form--stacked slds-p-horizontal--x-large slds-size--1-of-2 slds-form-element" id="dueDateDiv">
+                        <!-- slds-is-required is old and deprecated in SLDS v1.x -->
+                        <div class="{! 'slds-form-element' + (v.recurringDisplay ? '': ' is-required ') + (v.recurringDisplay ? '': 'slds-is-required ') + (v.erMsg[2] ? 'slds-has-error ' : '') + 'health1-is-required'}">
+                            <label for="dueDate" class="slds-form-element__label  health1-task-label">{!v.basicFieldLabels.ActivityDate}</label>
+                            <div class="slds-form-element">
+                                <ui:inputDate aura:id="dueDate" domId="health1-task-dueDate" class="slds-form-control slds-input slds-form-element slds-input health1-task-number" displayDatePicker="true" type="text" value="{!v.newTask.ActivityDate}" disabled="{!v.recurringDisplay}" />
+                            </div>
+                            <div id="duedate-error-message" class="{! 'slds-form-element__help' + (v.recurringDisplay ? ' slds-hide': '') }">{!v.erMsg[2]}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-p-top--medium slds-grid slds-grid--align-spread">
+                    
+                    <aura:if isTrue="{!(v.action != 'UpdateTask') }">
+                        <div class="slds-col--padded slds-form--stacked slds-p-horizontal--x-large slds-size--1-of-2">
+                            <div class="slds-form-element health1-task-recurringCheckboxDiv">
+                                <label class="slds-form-element__label  health1-task-label slds-checkbox" for="isRecurring">
+                                    <input class="slds-input" aura:id="isRecurring" type="checkbox" value="{!v.newTask.IsRecurrence}" name="isRecurring" id="isRecurring" onclick="{!c.isReurringClick}" />
+                                    <span class="slds-checkbox--faux"></span>
+                                    <span class="isRecurringCheckbox"> &nbsp;{!$Label.healthcloudga.Text_Task_Recurring} </span>
+                                </label>
+                            </div>
+                        </div>
+                    </aura:if>
+                </div>
+                <aura:if isTrue="{!v.recurringDisplay}">
+                    <div class="slds-p-bottom--x-large recurringcontainer slds-p-top--medium slds-form--stacked" aura:id="recurring">
+                        <div class="slds-grid slds-grid--align-spread">
+                            <div class="slds-col--padded slds-form--stacked slds-p-horizontal--x-large slds-size--1-of-1">
+                                <div class="slds-form-element">
+                                    <label for="RecurrenceType" class="slds-form-element__label  health1-task-label">{!$Label.healthcloudga.Field_Label_Recur_Task_Repeats}</label>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-select_container">
+                                            <select aura:id="RecurrenceType" id="RecurrenceType" class="slds-select health1-task-text" value="{!v.newTask.RecurrenceType}" onchange="{!c.recurringTypeChange}">
+                                                <option value="RecursDaily">{!$Label.healthcloudga.Menu_Item_Recur_Task_Daily}</option>
+                                                <option value="RecursWeekly" selected="selected">{!$Label.healthcloudga.Menu_Item_Recur_Task_Weekly}</option>
+                                                <option value="RecursMonthly">{!$Label.healthcloudga.Menu_Item_Recur_Task_Monthly}</option>
+                                                <option value="RecursYearly">{!$Label.healthcloudga.Menu_Item_Recur_Task_Yearly}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Weekly Starts -->
+                        <div class="slds-p-top--medium slds-grid slds-grid--align-spread">
+                            <!--container row-->
+                            <div class="slds-col slds-size--1-of-2">
+                                <!--column for daily,weekly,monthly, yearly-->
+                                <div class="slds-col--padded slds-form--stacked slds-p-horizontal--x-large slds-size--1-of-1" aura:id="RecursWeekly" id="RecursWeekly">
+                                    <div class="slds slds-size--1-of-1">
+                                        <div class="slds-form-element">
+                                            <label for="RecurrenceInterval" class="slds-form-element__label  health1-task-label">{!$Label.healthcloudga.Field_Label_Recur_Task_Repeats_Every}</label>
+                                            <div class="slds-form-element__control">
+                                                <div class="slds-select_container">
+                                                    <select aura:id="RecurrenceInterval" class="slds-select slds-form-control health1-task-text" value="{!v.newTask.RecurrenceInterval}" onchange="{!c.checkMaxEndDate}">
+                                                        <option value="1">{!$Label.healthcloudga.Menu_Item_Recur_Task_1_Week}</option>
+                                                        <option value="2">{! format($Label.healthcloudga.Menu_Item_Recur_Task_N_Weeks, '2')}</option>
+                                                        <option value="4">{! format($Label.healthcloudga.Menu_Item_Recur_Task_N_Weeks, '4')}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-form-element">
+                                            <label class="slds-form-element__label  health1-task-label" for="WeeklyDays"> {!$Label.healthcloudga.Field_Label_Recur_Task_Repeats_On} </label>
+                                            <div class="slds-form-element__control slds-p-left--medium" id="WeeklyDays">
+                                                <aura:iteration items="{!v.weeklyDays}" var="weekly_day">
+                                                    <label class="slds-form-element__label  health1-task-label slds-checkbox" for="{!weekly_day.auraid}">
+                                                        <input class="slds-input" type="checkbox" name="{!weekly_day.text}" id="{!weekly_day.auraid}" text="{!weekly_day.text}" onchange="{!c.weekdayClick}" checked="{!weekly_day.selected}" />
+                                                        <span class="slds-checkbox--faux"></span>
+                                                        <span>&nbsp;{!weekly_day.display}</span>
+                                                    </label>
+                                                </aura:iteration>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Weekly ends -->
+                                <!--Daily starts -->
+                                <div class="slds-p-top--medium slds-p-horizontal--x-large slds-col--padded slds-form--stacked" aura:id="RecursDaily" id="RecursDaily">
+                                    <label class="slds-form-element__label  health1-task-label"> {!$Label.healthcloudga.Field_Label_Recur_Task_Repeats_On} </label>
+                                    <div class="slds-form-element">
+                                        <div class="slds-p-top--medium">
+                                            <div class="slds-size--1-of-1">
+                                                <label class="slds-form-element__label health1-task-label slds-radio" for="EveryWeekdayDaily">
+                                                    <input class="slds-input" type="radio" aura:id="EveryWeekdayDaily"  id="EveryWeekdayDaily"  value="{!v.isFirstRadio}" onclick="{!c.onFirstRadioTrue}" />
+                                                    <span class="slds-radio--faux"></span>
+                                                    <span>&nbsp;{!$Label.healthcloudga.Menu_Item_Recur_Task_Every_Weekday}</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="slds-p-top--medium">
+                                            <div class="slds-size--1-of-1 slds-grid">
+                                                <label class="slds-form-element__label slds-align-middle slds-float--left  health1-task-label slds-radio" for="EveryDays">
+                                                    <input class="slds-input" type="radio" aura:id="EveryDays" id="EveryDays" value="{!v.isSecondRadio}" onclick="{!c.onSecondRadioTrue}" />
+                                                    <span class="slds-radio--faux"></span>
+                                                    <span>&nbsp;{!$Label.healthcloudga.Text_Recur_Task_Every}</span>
+                                                </label>
+                                                <label class="slds-form-element__label  health1-task-text" for="recurrenceIntervalDaily">
+                                                    <div>
+                                                        <input class="slds-input health1-task-smalltext" type="text" aura:id="recurrenceIntervalDaily" id="recurrenceIntervalDaily" size="4" disabled="true" onchange="{!c.checkMaxEndDate}" />
+                                                    </div>
+                                                </label>
+                                                <label class="slds-form-element__label slds-align-middle  health1-task-label" for="recurrenceIntervalDaily">
+                                                    <span>{!$Label.healthcloudga.Text_Recur_Task_Days}</span>
+                                                </label>
+                                                <label class="slds-form-element__label  health1-task-label" for="recurrenceIntervalDaily">
+                                                    <small class="slds-form-element__helper error--text">{!v.erMsg[3]}</small>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Daily ends -->
+                                <!--Monthly starts -->
+                                <div class="slds-p-top--medium slds-p-horizontal--x-large slds-col--padded slds-form--stacked" aura:id="RecursMonthly" id="RecursMonthly">
+                                    <label class="slds-form-element__label  health1-task-label"> {!$Label.healthcloudga.Field_Label_Recur_Task_Repeats_On} </label>
+                                    <div class="slds-p-top--medium">
+                                        <div class="slds-form-element ">
+                                            <div class="slds-size--1-of-1">
+                                                <div class="slds-form-element__control slds-grid">
+                                                    <label class="slds-form-element__label slds-align-middle slds-float--left health1-task-label slds-radio" for="onDay">
+                                                        <input class="slds-input" type="radio" aura:id="onDay" id="onDay" value="{!v.isFirstRadio}" onclick="{!c.onFirstRadioTrue}" />
+                                                        <span class="slds-radio--faux"></span>
+                                                        <span>&nbsp;{!$Label.healthcloudga.Field_Label_Recur_Task_Day}</span>
+                                                    </label>
+                                                    <label class="slds-form-element__label slds-align-middle  health1-task-text" for="rDayOfMonthSelect">
+                                                        <div class="slds-select_container">
+                                                            <select aura:id="rDayOfMonthSelect" id="rDayOfMonthSelect" class="slds-select health1-task-smalltext" disabled="true">
+                                                                <aura:iteration items="{!v.monthlyDays}" var="index">
+                                                                    <option value="{!index}">{!index}</option>
+                                                                </aura:iteration>
+                                                            </select>
+                                                        </div>
+                                                    </label>
+                                                    
+                                                    <label class="slds-form-element__label slds-align-middle  health1-task-label" for="recurrenceIntervalMonthly1">
+                                                        <span>{!$Label.healthcloudga.Text_Recur_Task_Of_Every}</span>
+                                                    </label>
+                                                    <label class="slds-form-element__label slds-align-middle  health1-task-text" for="recurrenceIntervalMonthly1">
+                                                        <input class="slds-input health1-task-smalltext" type="text" aura:id="recurrenceIntervalMonthly1" id="recurrenceIntervalMonthly1" size="4" disabled="true" onchange="{!c.checkMaxEndDate}" />
+                                                    </label>
+                                                    <label class="slds-form-element__label slds-align-middle  health1-task-label" for="recurrenceIntervalMonthly1">
+                                                        <span>{!$Label.healthcloudga.Text_Recur_Task_Months}</span>
+                                                    </label>
+                                                    <label class="slds-form-element__label slds-align-middle  health1-task-label" for="recurrenceIntervalMonthly1">
+                                                        <small class="slds-form-element__helper error--text">{!v.erMsg[4]}</small>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-top--medium slds-col slds-size--1-of-1">
+                                        <div class="slds-form-element ">
+                                            <div class="slds-col slds-size--1-of-1">
+                                                <div class="slds-form-element__control slds-grid">
+                                                    <label class="slds-form-element__label slds-align-middle slds-float--left health1-task-label slds-radio" for="onThe">
+                                                        <input class="slds-input" type="radio" aura:id="onThe" id="onThe" value="{!v.isSecondRadio}" onclick="{!c.onSecondRadioTrue}" />
+                                                        <span class="slds-radio--faux"></span>
+                                                        <span>&nbsp;{!$Label.healthcloudga.Text_Recur_Task_The}</span>
+                                                    </label>
+                                                    <label class="slds-form-element__label slds-align-middle  health1-task-text" for="recInstance">
+                                                        <div class="slds-select_container">
+                                                            <select aura:id="recInstance" id="recInstance" class="slds-select health1-task-smalltext" disabled="true">
+                                                                <option value="First">{!$Label.healthcloudga.Menu_Item_Recur_Task_1st_Day}</option>
+                                                                <option value="Second">{!$Label.healthcloudga.Menu_Item_Recur_Task_2nd_Day} </option>
+                                                                <option value="Third">{!$Label.healthcloudga.Menu_Item_Recur_Task_3rd_Day}</option>
+                                                                <option value="Fourth">{!$Label.healthcloudga.Menu_Item_Recur_Task_4th_Day}</option>
+                                                                <option value="Last">{!$Label.healthcloudga.Menu_Item_Recur_Task_Last_Day}</option>
+                                                            </select>
+                                                        </div>
+                                                    </label>
+                                                    <label class="slds-form-element__label slds-align-middle health1-task-text" for="recDayOfWeek">
+                                                        <div class="slds-select_container">
+                                                            <select aura:id="recDayOfWeek" id="recDayOfWeek" class="slds-select health1-task-smalltext" disabled="true">
+                                                                <aura:iteration items="{!v.weeklyDays}" var="weekly_day">
+                                                                    <option value="{!weekly_day.text}" selected="{!weekly_day.selected}">{!weekly_day.display}
+                                                                    </option>
+                                                                </aura:iteration>
+                                                            </select>
+                                                        </div>
+                                                    </label>
+                                                    
+                                                </div>
+                                                <div class="slds-form-element__control slds-grid slds-grid slds-p-left--x-large slds-p-top--medium">
+                                                    <label class="slds-form-element__label slds-align-middle health1-task-label" for="recurrenceIntervalMonthly2">
+                                                        <span>{!$Label.healthcloudga.Text_Recur_Task_Of_Every}</span>
+                                                    </label>
+                                                    <label class="slds-form-element__label slds-align-middle health1-task-text" for="recurrenceIntervalMonthly2">
+                                                        <input class="slds-input health1-task-smalltext" type="text" aura:id="recurrenceIntervalMonthly2" id="recurrenceIntervalMonthly2" size="4" disabled="true" onchange="{!c.checkMaxEndDate}" />
+                                                    </label>
+                                                    <label class="slds-form-element__label slds-align-middle health1-task-label" for="recurrenceIntervalMonthly2">
+                                                        <span>{!$Label.healthcloudga.Text_Recur_Task_Months}</span>
+                                                    </label>
+                                                    <label class="slds-form-element__label slds-align-middle health1-task-label" for="recurrenceIntervalMonthly2">
+                                                        <small class="slds-form-element__helper error--text">{!v.erMsg[5]}</small>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Monthly ends -->
+                                <!--Yearly starts -->
+                                <div class="slds-p-top--medium slds-p-horizontal--x-large slds-col slds-size--1-of-1" aura:id="RecursYearly" id="RecursYearsly">
+                                    <label class="slds-form-element__label slds-align-middle  health1-task-label"> {!$Label.healthcloudga.Field_Label_Recur_Task_Repeats_On} </label>
+                                    <div class=" slds-p-top--medium">
+                                        <div class="slds-form-element">
+                                            <div>
+                                                <div class="slds-form-element__control slds-grid">
+                                                    <label class="slds-form-element__label slds-align-middle slds-float--left health1-task-label slds-radio" for="onEveryYearly">
+                                                        <input class="slds-input" type="radio" aura:id="onEveryYearly" id="onEveryYearly" value="{!v.isFirstRadio}" onclick="{!c.onFirstRadioTrue}" />
+                                                        <span class="slds-radio--faux"></span>
+                                                        <span>&nbsp;{!$Label.healthcloudga.Text_Recur_Task_Every}</span>
+                                                    </label>
+                                                    <label class="slds-form-element__label slds-align-middle  health1-task-text" for="recMonthOfYearFirst">
+                                                        <div class="slds-select_container">
+                                                            <select aura:id="recMonthOfYearFirst" id="recMonthOfYearFirst" class="slds-select health1-task-smalltext" disabled="true">
+                                                                <aura:iteration items="{!v.monthNamesEngToLocal}" var="tuple" indexVar="idx">
+                                                                    <option value="{!tuple.english}">{!tuple.local}</option>
+                                                                </aura:iteration>
+                                                            </select>
+                                                        </div>
+                                                    </label>
+                                                    <label class="slds-form-element__label slds-align-middle  health1-task-text" for="rDayOfMonthSelectYearly">
+                                                        <div class="slds-select_container">
+                                                            <select aura:id="rDayOfMonthSelectYearly" id="rDayOfMonthSelectYearly" class="slds-select health1-task-smalltext" disabled="true">
+                                                                <aura:iteration items="{!v.monthlyDays}" var="index">
+                                                                    <option value="{!index}">{!index}</option>
+                                                                </aura:iteration>
+                                                            </select>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-top--medium slds-col slds-size--1-of-1">
+                                        <div class="slds-form-element">
+                                            <div>
+                                                <div class="slds-form-element__control slds-grid">
+                                                    <label class="slds-form-element__label slds-align-middle slds-float--left  health1-task-label slds-radio" for="onTheYearly">
+                                                        <input class="slds-input" type="radio" aura:id="onTheYearly" id="onTheYearly" value="{!v.isSecondRadio}" onclick="{!c.onSecondRadioTrue}" />
+                                                        <span class="slds-radio--faux"></span>
+                                                        <span>&nbsp;{!$Label.healthcloudga.Text_Recur_Task_The}</span>
+                                                    </label>
+                                                    <label class="slds-form-element__label slds-align-middle  health1-task-text" for="recInstanceSecond">
+                                                        <div class="slds-select_container">
+                                                            <select aura:id="recInstanceSecond" id="recInstanceSecond" class="slds-select health1-task-smalltext" disabled="true">
+                                                                <option value="First">{!$Label.healthcloudga.Menu_Item_Recur_Task_1st_Day}</option>
+                                                                <option value="Second">{!$Label.healthcloudga.Menu_Item_Recur_Task_2nd_Day} </option>
+                                                                <option value="Third">{!$Label.healthcloudga.Menu_Item_Recur_Task_3rd_Day}</option>
+                                                                <option value="Fourth">{!$Label.healthcloudga.Menu_Item_Recur_Task_4th_Day}</option>
+                                                                <option value="Last">{!$Label.healthcloudga.Menu_Item_Recur_Task_Last_Day}</option>
+                                                            </select>
+                                                        </div>
+                                                    </label>
+                                                    <label class="slds-form-element__label slds-align-middle  health1-task-text" for="recDayOfWeekYearly">
+                                                        <div class="slds-select_container">
+                                                            <select aura:id="recDayOfWeekYearly" id="recDayOfWeekYearly" class="slds-select health1-task-smalltext" disabled="true">
+                                                                <aura:iteration items="{!v.weeklyDays}" var="weekly_day">
+                                                                    <option value="{!weekly_day.text}" selected="{!weekly_day.selected}">{!weekly_day.display}
+                                                                    </option>
+                                                                </aura:iteration>
+                                                            </select>
+                                                        </div>
+                                                    </label>
+                                                    
+                                                </div>
+                                                <div class="slds-form-element__control slds-grid slds-p-left--x-large slds-p-top--medium">
+                                                    <label class="slds-form-element__label slds-align-middle  health1-task-label" for="recMonthOfYearSecond">
+                                                        <span>{!$Label.healthcloudga.Text_Task_Recur_Of}</span>
+                                                    </label>
+                                                    <label class="slds-form-element__label slds-align-middle  health1-task-text" for="recMonthOfYearSecond">
+                                                        <div class="slds-select_container">
+                                                            <select aura:id="recMonthOfYearSecond" id="recMonthOfYearSecond" class="slds-select health1-task-smalltext" disabled="true">
+                                                                <aura:iteration items="{!v.monthNamesEngToLocal}" var="tuple" indexVar="idx">
+                                                                    <option value="{!tuple.english}">{!tuple.local}</option>
+                                                                </aura:iteration>
+                                                            </select>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Yearly ends -->
+                            </div>
+                            <!-- column for daily,weekly,monthly, yearly Ends-->
+                            <!-- column for date and occurence-->
+                            <div class="slds-col--padded slds-form--stacked slds-p-horizontal--x-large slds-size--1-of-2">
+                                <div class="slds-form-element">
+                                    <div class="slds-size--1-of-1">
+                                        <label for="RecurrenceStartDateOnly" class="slds-form-element__label  health1-task-label">{!$Label.healthcloudga.Field_Label_Recur_Task_Starts_On}</label>
+                                        <div class="slds-form-element">
+                                            <ui:inputDate aura:id="RecurrenceStartDateOnly" domId="health1-task-RecurrenceStartDateOnly" class="slds-form-control slds-input health1-task-number" displayDatePicker="true" value="{!v.newTask.RecurrenceStartDateOnly}" />
+                                        </div>
+                                        <div class="slds-form-element">
+                                            <label for="EndsSelect" class="slds-form-element__label  health1-task-label">{!$Label.healthcloudga.Field_Label_Recur_Task_Ends}</label>
+                                            <div class="slds-form-element__control">
+                                                <div class="slds-select_container">
+                                                    <select id="EndsSelect" aura:id="EndsSelect" class="slds-select health1-task-text" onchange="{!c.endsSelectChange}">
+                                                        <!-- Commenting out until functionality can be implemented...
+                                                    <option value="AfterOccurences">{!$Label.HealthCloudGA.Menu_Item_Recur_Task_After_Occurrences}</option>
+                                                    -->
+                                                        <option value="OnDate" selected="true">{!$Label.healthcloudga.Menu_Item_Recur_Task_On_Date}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-form-element">
+                                            <div aura:id="RecurrenceEndDateOnlyDiv">
+                                                <label for="RecurrenceEndDateOnly" class="slds-form-element__label  health1-task-label">{!$Label.healthcloudga.Field_Label_Recur_Task_End_Date}</label>
+                                                <div class="slds-form-element">
+                                                    <ui:inputDate aura:id="RecurrenceEndDateOnly" domId="health1-task-RecurrenceEndDateOnly" class="slds-form-control slds-input health1-task-number" displayDatePicker="true" value="{!v.newTask.RecurrenceEndDateOnly}" />
+                                                </div>
+                                                <small class="slds-form-element__helper error--text">{!v.erMsg[0]}</small>
+                                                <div aura:id="MaxAllowEndDateDiv">
+                                                    <label for="MaxAllowEndDateDiv" class="slds-form-element__label  health1-task-label"><span>{!$Label.healthcloudga.Field_Label_Recur_Task_Max_Date}</span></label>
+                                                    <ui:outputText value="{!v.recurMaxEndDate}" />
+                                                </div>
+                                            </div>
+                                            <div class="invisible" aura:id="NumberOfOccurenceDiv">
+                                                <div class="slds-form-element ">
+                                                    <label for="NumberOfOccurence" class="slds-form-element__label  health1-task-label">{!$Label.healthcloudga.Field_Label_Task_Number_Occurrences}</label>
+                                                    <div class="slds-form-element__control">
+                                                        <ui:inputText value="" class="slds-input" aura:id="NumberOfOccurence"/>
+                                                        <small class="slds-form-element__helper error--text">{!v.erMsg[2]}</small>
+                                                    </div>
+                                                    <div aura:id="MaxAllowOccurDiv">
+                                                        <label for="MaxAllowOccurDiv" class="slds-form-element__label  health1-task-label">
+                                                            <span>{!$Label.healthcloudga.Text_Task_Max_Occurrences}</span>
+                                                        </label>
+                                                        <ui:outputText value="{!v.recurMaxOccur}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- column for date and occurance Ends-->
+                            </div>
+                        </div>
+                        <!--container row ends-->
+                    </div>
+                </aura:if>
+            </div>
+            <div class="slds-modal__footer">
+                <div class="modalButtonWrap">
+                    <button class="slds-button slds-button--neutral" onclick="{!c.cancelButton}">{!$Label.healthcloudga.Button_Label_Cancel}</button>
+                    <button class="slds-button slds-button--brand" onclick="{!c.saveButton}">{!$Label.healthcloudga.Button_Label_Save}</button>
+                    <aura:if isTrue="{!(v.fromWhere == 'CarePlan') &amp;&amp; (v.action != 'UpdateTask') }">
+                        <button class="slds-button slds-button--brand" onclick="{!c.saveNewButton}">{!$Label.healthcloudga.Button_Label_Save_And_New}</button>
+                    </aura:if>
+                </div>
+                <div class="spinner-block slds-hide">
+                    <div class="slds-spinner--small">
+                    <img src="{!$Resource.HealthCloudGA__industryresources + '/landmark/images/spinners/slds_spinner.gif'}" alt="{!$Label.healthcloudga.Alt_Text_Please_Wait}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

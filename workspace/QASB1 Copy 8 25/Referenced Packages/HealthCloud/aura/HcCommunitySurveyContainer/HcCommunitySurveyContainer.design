@@ -1,0 +1,5 @@
+<design:component label="Survey Container Component for Health Cloud Empower">
+    <design:attribute name="listViewHeaderName" label="List View Header Name" description="{!$Label.HealthCloudGA.Survey_Header_Name_Communities}" />
+    <design:attribute name="pageSize" label="Page Size" description="{!$Label.HealthCloudGA.Page_Size_Survey}" />
+    <design:attribute name="listRecentResponses" label="List only the most recent responses" description="{!$Label.HealthCloudGA.List_Recent_Response_Survey}" />
+</design:component>

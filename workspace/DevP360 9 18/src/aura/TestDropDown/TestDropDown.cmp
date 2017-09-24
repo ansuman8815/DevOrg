@@ -1,0 +1,38 @@
+<aura:component controller="DynamicListController">
+    <!--<ltng:require scripts="{! $Resource.svg4everybody + '/svg4everybody-master/dist/svg4everybody.js'}"  afterScriptsLoaded="{!c.myAction}"/>
+    <ltng:require styles="{! $Resource.P360JqueryResources + '/jquery.dataTables.min.css'}"/>
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}"/>
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jQueryDataTableJs.js'}"/>-->
+    <aura:attribute name="listName" type="string"/>
+    <aura:attribute name="pageName" type="string"/>
+    <aura:attribute name="options" type="string[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.getLstValue}"/>
+    <div class="header">
+        <div class="menu">
+            <!--<li><a href="#"><img src="{! $Resource.P360CommunityIcons + '/lab.png'}" label="Laboratory Results" style="border:1px solid #ccc; width:22px; height:17px;"/></a></li>-->
+            <lightning:select name="selectItem" label="Select an item">
+                <option value="" >
+                    <img src="{! $Resource.P360CommunityIcons + '/lab.png'}" label="Laboratory Results"/>
+                    <iframe src="{! $Resource.P360CommunityIcons + '/lab.png'}"  width="100%" height="1000px;"  scrolling="no"></iframe>
+                    /one...
+                </option>
+            </lightning:select>
+        </div>   
+    </div>
+    <ui:inputSelect >
+        <ui:inputSelectOption text="All Primary" label="All Contacts"/>
+        <ui:inputSelectOption text="All Primary" label="All Primary"/>
+        <ui:inputSelectOption text="All Secondary" label="All Secondary"/>
+        
+    </ui:inputSelect>
+    <ui:menu >
+      
+        <ui:menuList class="actionMenu" aura:id="actionMenu">
+            <ui:actionMenuItem aura:id="item2" label="Open" ><img src="{! $Resource.P360CommunityIcons + '/lab.png'}" label="Laboratory Results"/></ui:actionMenuItem>
+            <ui:actionMenuItem aura:id="item3" label="Closed" />
+            <ui:actionMenuItem aura:id="item4" label="Closed Won" />
+        </ui:menuList>
+    </ui:menu>
+    
+</aura:component>

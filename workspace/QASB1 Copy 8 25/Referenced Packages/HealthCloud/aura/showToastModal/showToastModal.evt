@@ -1,0 +1,6 @@
+<aura:event type="COMPONENT" description="Event to show or hide a toast component">
+    <aura:attribute name="content" type="Object" default="" description="Encapsulates type and message attributes. Possible type values: (normal, warning, error, success)"/>
+    <aura:attribute name="autoHideErrorAndWarning" type="Boolean" default="false" description="Auto Hide the toast showing warning or error after timeout" />
+    <aura:attribute name="timeout" type="Integer" default="5000" description="Timeout after which toast should be hidden" />
+    <aura:attribute name="hide" type="Boolean" default="false" description="True if hide the toast"/>
+</aura:event>

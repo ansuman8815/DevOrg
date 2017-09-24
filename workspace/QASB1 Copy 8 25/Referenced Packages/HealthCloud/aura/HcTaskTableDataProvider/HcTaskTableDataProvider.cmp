@@ -1,0 +1,13 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcTaskTableDataProvider is a data provider for Task Table
+ * @since 198
+-->
+<aura:component extends="ui:dataProvider" controller="HealthCloudGA.HcPatientListViewController">
+	<aura:attribute name="empty" type="Boolean" default="true" />
+	<aura:handler name="provide" action="{!c.init}" />
+	<aura:handler name="change" value="{!v.items}" action="{!c.init}" />
+	<aura:handler name="onchange" action="{!c.onChange}" />
+</aura:component>

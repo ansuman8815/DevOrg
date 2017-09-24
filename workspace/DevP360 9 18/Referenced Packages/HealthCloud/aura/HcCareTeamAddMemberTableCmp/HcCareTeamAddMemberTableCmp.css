@@ -1,0 +1,7 @@
+.THIS .slds-radio--faux:before{
+	display: none;	 
+}
+
+.THIS .slds-radio [type="radio"]:checked ~ .slds-radio--faux:after {
+	 margin-top: 0;
+}

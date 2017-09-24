@@ -1,0 +1,21 @@
+.THIS .hc-timeline-png {
+    background-color: #ffffff;
+    z-index: 5;
+}
+
+.THIS .hc-timeline__media {
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.THIS .hc-timeline__media:before {
+    content: '';
+    background: #d4d4d4;
+    height: 100%;
+    width: 2px;
+    position: absolute;
+    left: .75rem;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+}

@@ -1,0 +1,84 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcTodayPageContainers component, containers for patient mini-cards on the Today page.
+ * @since 200
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcTodayPageController">
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+  <aura:attribute name="patientsWithTasksOverdue" type="Map" />
+  <aura:attribute name="patientsWithTasksDueToday" type="Map" />
+  <aura:attribute name="patientsWithTasksDueTomorrow" type="Map" />
+  <aura:attribute name="containerDefaultShowCount" type="Integer" />
+  <aura:attribute name="defRecOpenType" type="String" />
+
+  <div class="hc-today_page-content">
+
+    <div class="slds-text-heading--large slds-m-bottom--large slds-m-top--x-large"><h2>{!$Label.healthcloudga.Header_TodayPage_Containers}</h2></div>
+
+    <HealthCloudGA:section title="{!format($Label.healthcloudga.Text_Timing_Overdue, v.patientsWithTasksOverdue.count)}"
+      isExpanded="true">
+      <aura:if isTrue="{!v.patientsWithTasksOverdue.count == 0}">
+        <p>{!$Label.healthcloudga.Msg_TodayPage_NoResults_TasksOverdue}</p>
+
+        <aura:set attribute="else">
+          <ul class="hc-cards-list">
+            <aura:iteration items="{!v.patientsWithTasksOverdue.patients}" var="patient">
+              <li class="slds-list__item slds-float--left">
+                <HealthCloudGA:HcPatientMinicard contextIsPast="true"
+                  patient="{!patient}" defRecOpenType="{!v.defRecOpenType}"/>
+              </li>
+            </aura:iteration>
+          </ul>
+        </aura:set>
+      </aura:if>
+
+      <aura:if isTrue="{! and(v.patientsWithTasksOverdue.count > v.containerDefaultShowCount, v.patientsWithTasksOverdue.patients.length lt (v.containerDefaultShowCount + 1))}">
+        <button class="slds-button slds-button--neutral" onclick="{!c.handleShowAllOverdue}">{!$Label.healthcloudga.Button_ShowAll}</button>
+      </aura:if>
+    </HealthCloudGA:section>
+
+    <HealthCloudGA:section title="{!format($Label.healthcloudga.Text_Timing_DueToday, v.patientsWithTasksDueToday.count)}" isExpanded="true">
+      <aura:if isTrue="{!v.patientsWithTasksDueToday.count == 0}">
+        <p>{!$Label.healthcloudga.Msg_TodayPage_NoResults_TasksDueToday}</p>
+
+        <aura:set attribute="else">
+          <ul class="hc-cards-list">
+            <aura:iteration items="{!v.patientsWithTasksDueToday.patients}" var="patient">
+              <li class="slds-list__item slds-float--left">
+                <HealthCloudGA:HcPatientMinicard patient="{!patient}" defRecOpenType="{!v.defRecOpenType}"/>
+              </li>
+            </aura:iteration>
+          </ul>
+        </aura:set>
+      </aura:if>
+
+      <aura:if isTrue="{! and(v.patientsWithTasksDueToday.count > v.containerDefaultShowCount, v.patientsWithTasksDueToday.patients.length lt (v.containerDefaultShowCount + 1))}">
+        <button class="slds-button slds-button--neutral" onclick="{!c.handleShowAllDueToday}">{!$Label.healthcloudga.Button_ShowAll}</button>
+      </aura:if>
+    </HealthCloudGA:section>
+
+    <HealthCloudGA:section title="{!format($Label.healthcloudga.Text_Timing_DueTomorrow, v.patientsWithTasksDueTomorrow.count)}">
+      <aura:if isTrue="{!v.patientsWithTasksDueTomorrow.count == 0}">
+        <p>{!$Label.healthcloudga.Msg_TodayPage_NoResults_TasksDueTomorrow}</p>
+
+        <aura:set attribute="else">
+          <ul class="hc-cards-list">
+            <aura:iteration items="{!v.patientsWithTasksDueTomorrow.patients}" var="patient">
+              <li class="slds-list__item slds-float--left">
+                <HealthCloudGA:HcPatientMinicard patient="{!patient}" defRecOpenType="{!v.defRecOpenType}"/>
+              </li>
+            </aura:iteration>
+          </ul>
+        </aura:set>
+      </aura:if>
+
+      <aura:if isTrue="{! and(v.patientsWithTasksDueTomorrow.count > v.containerDefaultShowCount, v.patientsWithTasksDueTomorrow.patients.length lt (v.containerDefaultShowCount + 1))}">
+        <button class="slds-button slds-button--neutral" onclick="{!c.handleShowAllDueTomorrow}">{!$Label.healthcloudga.Button_ShowAll}</button>
+      </aura:if>
+    </HealthCloudGA:section>
+    <HealthCloudGA:toast aura:id="toast-message" content=""/>
+  </div>
+</aura:component>

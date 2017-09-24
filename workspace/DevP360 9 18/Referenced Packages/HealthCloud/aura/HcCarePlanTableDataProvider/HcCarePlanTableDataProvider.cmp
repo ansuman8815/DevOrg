@@ -1,0 +1,11 @@
+<aura:component extends="HealthCloudGA:HcAbstractListDataProvider" controller="HealthCloudGA.HcCarePlanController">
+    <aura:attribute name="icon" type="String" />
+    <aura:attribute name="header" type="String" />
+    <aura:attribute name="placeholder" type="String" />
+    <aura:attribute name='patientId' type='String'/>
+    <aura:attribute name='status' type='String'/>
+    <aura:attribute name="isPSLEnforced" type="Boolean" default="false"/> 
+    <aura:attribute name='excludeStatus' type='String'/> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="provide" action="{!c.provider}" />
+</aura:component>

@@ -1,0 +1,20 @@
+<aura:component controller="HealthCloudGA.HcSurveyController" description="Displays Question Answer details of a completed survey response">
+    <aura:attribute name="surveyResponseId" type="String"/>
+    <aura:attribute name="surveyData" type="Object" description="Data related to the survey completed by the patient"/>
+    <aura:attribute name="responseDateInfo" type="String" description="Survey sent and completed date information"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+
+    <lightning:icon class="slds-media__figure slds-icon slds-icon--small" iconName="standard:orders" size="small" />
+    <div class="slds-show_inline slds-truncate slds-text-heading_small">{!v.surveyData.invitationName}</div>
+
+    <div class="slds-grid--align-space slds-text-color_weak slds-text-body_small"> {!v.responseDateInfo} </div>
+    <lightning:tabset >
+        <lightning:tab id="questions_answers" label="{!$Label.healthcloudga.Tab_Questions_And_Answers}">
+            <HealthCloudGA:HcCommunitySurveyQuestionAnswer surveyResponseId="{!v.surveyResponseId}"/>
+        </lightning:tab>
+        <lightning:tab id="Tab_Details" label="{!$Label.HealthCloudGA.Tab_Details}">
+            <HealthCloudGA:HcCommunitySurveyDetails surveyData="{!v.surveyData}"/>
+        </lightning:tab>
+    </lightning:tabset>
+
+</aura:component>

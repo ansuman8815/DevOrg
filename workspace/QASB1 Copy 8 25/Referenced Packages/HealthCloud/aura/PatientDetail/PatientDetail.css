@@ -1,0 +1,105 @@
+/*
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description Controller for the patientDetailComponent
+ * @since 196
+*/
+
+.THIS.hc-patientDetail .hc-patientDetail-card {
+    margin-bottom: 0.75rem;
+}
+
+.THIS.hc-alohaPatientDetail .hc-patientDetail-card {
+    margin: 0.75rem;
+}
+
+.THIS .hc-patientDetail__icon {
+    background-color: #A092F0;
+}
+
+.THIS .slds-text-heading--label:hover,
+.THIS .slds-text-heading--label:focus {
+    text-decoration: none;
+}
+
+.THIS .slds-text-heading--label {
+    outline: none;
+}
+
+.THIS .div[role=menu] {
+    overflow-y: visible;
+}
+
+.THIS hr {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    color: #137CAD;
+}
+
+.THIS .column {
+    width: 4.7rem;
+}
+
+.THIS select.cSelect {
+    border: 1px solid lightgrey;
+    background-color: #B5BDC5;
+    border: medium none;
+    border-radius: 5px 0 0 5px;
+    color: white;
+    margin-left: 4.7rem;
+    width: 12rem;
+    height: 1.75rem;
+}
+
+.THIS .cSelect option {
+    padding-left: 1rem;
+}
+
+.THIS .cSelect {
+    z-index: 9999;
+}
+
+.THIS .cSelectNew {
+    z-index: 9999;
+    background-color: #95A1AA;
+    color: #FFF;
+    height: 2rem;
+    font-size: 0.75rem;
+}
+
+.THIS .cCategory {
+    background-color: #fff;
+    color: #556881;
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+
+.THIS .cSubCategory {
+    background-color: #fff;
+    color: #136dd0;
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+
+.THIS .cDivider {
+    background-color: #fff;
+}
+
+.THIS .cDivider div {
+    background-color: gray;
+}
+
+.THIS hr:last-child {
+    display: none;
+}
+
+.THIS div.slds-media__figure {
+    display: none;
+}
+
+.THIS span.slds-text-heading--small.slds-truncate {
+    color: white;
+    background-color: rgb(194, 57, 52);
+    padding: 0.3rem 0.75rem;
+}

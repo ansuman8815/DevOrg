@@ -1,0 +1,26 @@
+/**
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description Styles for patient mini-card component.
+ * @since 200
+ */
+.THIS.hc-patient-minicard {
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 5px;
+}
+
+.THIS .hc-patient-minicard-photo {
+  border-radius: 50%;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.THIS .hc-meta-text,
+.THIS .hc-minicard-subhead {
+  line-height: 0.75;
+}
+
+.THIS .hc-minicard-subhead {
+  font-weight: bold;
+}

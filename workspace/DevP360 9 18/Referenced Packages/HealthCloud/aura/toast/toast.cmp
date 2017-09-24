@@ -1,0 +1,30 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description generic toast with SLDS styling.
+ * @since 198
+-->
+<aura:component >
+    <aura:handler name="showToastModal" event="HealthCloudGA:showToastModal" action="{!c.showToast}" />     
+    <aura:registerEvent name="showToastModal" type="HealthCloudGA:showToastModal" />    
+    <aura:attribute name="timeout" type="Integer" default="5500" />
+    <aura:attribute name="content" type="Object" default="" />
+    <aura:attribute name="typeClass" type="String" default="" />
+    <aura:attribute name="isThemeReverse" type="Boolean" default="true" />
+    <aura:attribute name="autoHideErrorAndWarning" type="Boolean" default="false" />
+    <aura:handler name="change" value="{!v.content}" action="{!c.messageUpdated}" />
+    <aura:method name="closeToast" action="{!c.closebuttonOnclicked}">
+    </aura:method>
+    <div class="slds-notify-container slds-fall-into-ground">
+        <div class="{!'slds-notify slds-notify--toast ' + v.typeClass + (v.isThemeReverse ? ' slds-theme--inverse-text' : '')}" role="alert">
+            <span class="slds-assistive-text">Info</span>
+            <lightning:buttonIcon iconName="utility:close" size="large" variant="bare-inverse" alternativeText="Close" onclick="{!c.closebuttonOnclicked}" class='slds-notify__close'/>
+            <div class="slds-notify__content slds-grid">
+                <div class="slds-col slds-align-middle">
+                    <h2 class="slds-text-heading--small">{!v.content.message}</h2>
+                </div>                    
+            </div>
+        </div>
+    </div>
+</aura:component>

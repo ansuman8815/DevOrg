@@ -1,0 +1,121 @@
+.THIS {
+}
+.THIS.patientSummary{float:left;box-shadow:0 0 5px rgba(0, 0, 0, 0.3);width: 98%;margin: 25px 0 20px 0;padding: 10px;
+background-color:#FFF;}
+.THIS .userDetails,.THIS .firstcol,.THIS .secondcol,.THIS .thirdcol,.THIS .fourthcol{float:left;}
+.THIS .IconStyle{fill:#707f8a;width:18px;height:17px;}
+.THIS .slds-icon_container{float: left;margin-top: -5px;/*position: absolute;*/}
+.THIS .userDetails{width:25%;border-right: 1px solid #ccc;min-height: 75px;}
+.THIS .firstcol{padding-left: 15px;}
+.THIS .firstcol,.THIS .secondcol,.THIS .thirdcol{width:20%;}
+.THIS .fourthcol{width:15%;text-align: center;}
+.THIS .viewLink{font-size:14px;color:#3c91cf;padding-top: 35px;text-align: center;}
+.THIS .font14{font-size:14px;color:#004b7b;}
+.THIS .font12{font-size:13px;color:#707f8a;float:left;/*position:relative;*/}
+.THIS .font24{font-size:24px;color:#004b7b;font-weight: bold;}
+.THIS .mt10{margin-top:10px;}
+.THIS span.mobile:empty::before,.THIS span.cin:empty::before,.THIS span.pcp:empty::before,
+.THIS span.dataRefresh:empty::before,.THIS span.lastEncDate:empty::before,
+.THIS span.lastEncLocation:empty::before,.THIS .name:empty::before,.THIS .dobGender:empty::before {
+    content: '';
+    display: inline-block;
+}
+.THIS .clear{float:none;clear:both;}
+.THIS.linkcss{
+    font-family:inherit;
+    font-size: 14pt;
+    color: #3c91c7;
+}
+.THIS .close{font-weight:bold;float:right;display:none;cursor:pointer;margin-top: -20px;
+    font-size: 20px;margin-right: -10px;color: #707f8a;}
+.THIS .MoreBtn{
+    border: none;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 0;color:#3c91c7;font-size:14px;font-weight:bold;background:none;}
+.THIS .MoreBtn:hover{background:none;}
+.THIS .MoreBtn:focus{    outline: none;
+    border: none;
+    box-shadow: 0 0;}
+.THIS .otherDetailExpand{display:none;padding-left: 15px;float:left;width:75%;padding-top: 10px;}
+.THIS .otherDetailExpand .cin,.THIS .otherDetailExpand .pcp,.THIS .otherDetailExpand .phone,
+.THIS .otherDetailExpand .refreshDate,.THIS .otherDetailExpand .encounterDate,
+.THIS .otherDetailExpand .encounterLoc{float:left;}
+.THIS .otherDetailExpand .cin,.THIS .otherDetailExpand .pcp{width:13%;}
+.THIS .otherDetailExpand .phone,
+.THIS .otherDetailExpand .refreshDate,.THIS .otherDetailExpand .encounterDate{width:17.75%;}
+.THIS .otherDetailExpand .encounterLoc{width:20.75%;}
+.THIS.expandPatientSummary{float:left;;margin: 20px 0;padding: 10px;background-color:#FFF;
+    box-shadow:none;width:98.5%;border-bottom:1px solid #ccc;}
+.THIS .tooltip .tooltiptext{display: none;}
+.THIS .mtn10{margin-top:-10px;}
+.THIS .otherDetailExpand .cin{width: 13%;}
+.THIS .otherDetailExpand .cin p{width: 50%;}
+.THIS .otherDetailExpand .cin p.clear{width:100%;}
+.THIS .otherDetailExpand span.font14.uiOutputText {
+    width: 95% !important;
+    word-break: break-all;
+}
+.THIS .tooltip a{cursor:default;}
+.THIS .otherDetailExpand a{cursor:default;}
+
+
+@media only screen and (max-width : 1024px) {
+    .THIS .IconStyle{display:none;}
+    .THIS .otherDetailExpand .phone{width:17%;}
+    .THIS .otherDetailExpand .refreshDate{width: 19.5%;}
+    .THIS .otherDetailExpand .encounterLoc {width: 18.75%;}
+    .THIS .otherDetailExpand .cin p { width: 58%;}
+}
+
+
+@media only screen and (max-width : 850px) {
+    .THIS .userDetails{width:100%;float:none;clear:both;border-right:0;margin-bottom:-20px;}
+    .THIS .userDetails p.font24:after {content: " | ";font-weight: normal;}
+    .THIS .userDetails p.font24,.THIS .userDetails p.font14{float:left;}
+    .THIS .otherDetails{width:100%;float:none;clear:both;margin-top:20px;}
+    .THIS .firstcol,.THIS .secondcol,.THIS .thirdcol{width:33%;}
+    .THIS .fourthcol{width:100%;text-align: right;float:none;clear:both;}
+    .THIS .MoreBtn {margin-top:10px;}
+    .THIS .tooltip{display: none;}
+    .THIS .tooltip .tooltiptext{visibility: hidden;display: inline-block;width: auto;color: #707f8a; 
+        text-align: center;padding: 2px 0;font-size:12px;position: absolute;z-index: 1;}
+    .THIS .tooltip:hover .tooltiptext{visibility: visible;}
+    .THIS .otherDetailExpand{width:100%;padding-left: 0px;}
+    .THIS .otherDetailExpand .cin, .THIS .otherDetailExpand .pcp {width: 13%;}
+    .THIS .otherDetailExpand .phone{width:17%;}
+    .THIS .otherDetailExpand .refreshDate{width: 19.5%;}
+    .THIS .otherDetailExpand .encounterDate{width: 17%;}
+    .THIS .otherDetailExpand .encounterLoc {width: 19.75%;}
+   
+}
+@media only screen and (width : 768px) {
+       .THIS{padding-right:0px;}
+}
+@media only screen and (max-width : 480px) {
+    .THIS .userDetails{padding-left:15px;margin-bottom:10px;}
+    .THIS .firstcol,.THIS .secondcol,.THIS .thirdcol{width:100%;float:left;padding-left:15px;}
+    .THIS .firstcol > div,.THIS .secondcol > div,.THIS .thirdcol > div {float:left;width:49%;margin-top:0;}
+/*    .THIS.patientSummary{width:80%;}*/
+    .THIS .userDetails p.font24,.THIS .userDetails p.font14{width:100%;}
+    .THIS .userDetails p.font24:after {content: ""}
+    .THIS .clear{clear:none;}
+    .THIS .secondcol,.THIS .thirdcol,.THIS .mt10{margin-top:5px;}
+    .THIS .mobHead {float: left;width:100%;}
+    .THIS .mobDetail { float: left;width: 120px;}
+    .THIS .fourthcol{display:none;}
+    .THIS .tooltip{display: none;}
+     .THIS .tooltip .tooltiptext{   visibility: hidden;
+    display: inline-block;
+    width: auto;
+    color: #707f8a;
+    text-align: center;
+    padding: 2px 0;
+    font-size: 12px;
+    right: 1px;
+    position: absolute;
+    border: 1px solid;
+    z-index: 9999;
+    background: #fff;
+        top: 20px;}
+}

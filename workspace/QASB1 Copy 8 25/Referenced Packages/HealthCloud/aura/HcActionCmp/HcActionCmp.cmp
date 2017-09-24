@@ -1,0 +1,24 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcAction component to show more actions dropdown list
+ * @since 198
++-->
+<aura:component >
+    <aura:attribute name="carePlanId" type="String" default="" />
+    <aura:attribute name="problemId" type="String" default="" />
+    <aura:attribute name="goalId" type="String" default="" />
+    <aura:attribute name="setWidth" type="String" default="" />
+    <aura:attribute name="editLabel" type="String" default="Edit" />
+    <aura:attribute name="editId" type="String" default="Edit" />
+    <aura:attribute name="createLabel" type="String" default="Create" />
+    <aura:attribute name="createId" type="String" default="Create" />
+    <aura:attribute name="dropDownDefaultLabel" type="String" default="Actions" />
+    <div class="slds-float--right slds-align-middle slds-col">
+        <lightning:buttonMenu alternativeText="Show menu" iconSize="x-small" menuAlignment="right">
+            <lightning:menuItem onactive="{! c.handleCreate }" label="{!v.createLabel}" />
+            <lightning:menuItem onactive="{! c.handleEdit }" label="{!v.editLabel}" />
+        </lightning:buttonMenu>
+    </div>
+</aura:component>

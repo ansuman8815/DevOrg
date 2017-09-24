@@ -1,0 +1,20 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="PatientSearchController"  access="global">
+
+  <ltng:require styles="{! $Resource.P360JqueryResources + '/jquery.dataTables.min.css'}"/>
+  <ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}"/>
+  <ltng:require scripts="{! $Resource.P360JqueryResources + '/jQueryDataTableJs.js'}"/> 
+  <aura:handler event="c:SearchResult" action="{!c.handleApplicationEvent}"/> 
+    
+  <aura:attribute name="fn" type="String" />
+  <aura:attribute name="ln" type="String" />
+  <aura:attribute name="gn" type="String" />
+  <aura:attribute name="dob" type="String" />
+  <aura:attribute name="cin" type="String" />
+  <aura:attribute name="isHeader" type="String" default="true"/>
+  <aura:attribute name="isLoaded" type="Boolean" default="false"/>
+  <aura:attribute name="res" type="PatientSearchController.DisplayPatientRecords[]" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+      <div>
+          {!v.body}
+      </div>
+</aura:component>

@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="Event used to communicate with Multilpe Care Plan components">
+	<aura:attribute name="type" type="String"/>
+    <aura:attribute name="carePlanId" type="String" description="The care plan on which the event needs to be handled" />
+    <aura:attribute name="allCarePlansTabId" type="String" description="The all care plan tab on which the event needs to be handled" />
+</aura:event>

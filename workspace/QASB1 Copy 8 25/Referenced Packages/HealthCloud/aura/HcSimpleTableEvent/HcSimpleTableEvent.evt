@@ -1,0 +1,17 @@
+<aura:event type="COMPONENT" description="Event raised by actions within HcSimpleTable components" >
+	<aura:attribute name="eventType" type="String" />
+	<aura:attribute name="eventSubType" type="String" />
+	<aura:attribute name="data" type="Object" /> <!-- Ideally, the data associated with the row in the table -->
+	
+	<!-- eventType: SELECTION 
+	     eventSubType: SINGLE / MULTI_SELECT / MULTI_DESELECT -->
+
+ 	<!-- eventType: ACTION 
+	     eventSubType: EDIT / DELETE / <CUSTOM> -->
+
+ 	<!-- eventType: POINTER 
+	     eventSubType: CLICK / DOUBLE_CLICK / <OTHER EVENTS> --> 
+
+    <!-- eventType: ERROR 
+         eventSubType: <custom error message> --> 
+</aura:event>

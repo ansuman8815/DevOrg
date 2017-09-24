@@ -1,0 +1,35 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCarePlanTemplateCustomize: outermost component representing the care plan template wizard
+ *      page where care coordinators can deselect which problems/goals/tasks they do not want added to a
+ *      patient's care plan.
+ * @since 204
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcCarePlanTemplateController">
+    <aura:attribute name="selectedCarePlanTemplates" type="List" default="" />
+    <aura:attribute name="objectLabelMap" type="Map" default="{}" description="Stores the object name for the Problems, goals, and task objects for localization purposes" />
+    <aura:attribute name="globalSettings" type="Object" />
+
+    <aura:handler name="customizeCheckboxEvent" event="HealthCloudGA:HcCarePlanTemplateCustomizeCheckboxEvent" action="{!c.checkboxEvent}"/>
+
+    <div class="hc-templatelist-container">
+      <aura:iteration items="{!v.selectedCarePlanTemplates}" var="aTemplate">
+        <div class="hc-template-itemgroup hc-tree">
+
+          <div class="slds-media slds-media--center slds-theme--shade slds-p-vertical--x-small slds-p-horizontal--small hc-border-bottom">
+              <lightning:icon iconName="standard:orders" size="small" class="slds-m-right--small"/>
+              <div class="slds-media__body">
+                  <h3 class="slds-text-heading--small slds-truncate">{!aTemplate.templateName}</h3>
+              </div>
+          </div>
+
+          <aura:iteration items="{!aTemplate.problemResponses}" var="aProblem">
+              <HealthCloudGA:HcCarePlanTemplateProblem globalSettings="{!v.globalSettings}" problemName="{!aProblem.problemName}" templateId="{!aTemplate.carePlanTemplateId}" problemId="{!aProblem.problemId}" goals="{!aProblem.goalResponses}" objectLabelMap="{!v.objectLabelMap}"/>
+          </aura:iteration>
+
+        </div>
+      </aura:iteration>
+    </div>
+</aura:component>

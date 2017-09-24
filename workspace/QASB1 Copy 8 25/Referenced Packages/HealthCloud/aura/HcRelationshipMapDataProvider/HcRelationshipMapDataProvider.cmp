@@ -1,0 +1,10 @@
+<!--
+ * Copyright © 2017 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HC specific data provider for relationship map
+ * @since 210
+-->
+<aura:component description="HcRelationshipMapDataProvider" extends="HealthCloudGA:abstractRelationshipMapDataProvider" controller="HealthCloudGA.HcClientVisualizationController">
+    <aura:handler name="provide" action="{!c.provider}" />
+</aura:component>

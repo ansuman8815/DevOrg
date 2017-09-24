@@ -1,0 +1,27 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcFilterCriteriaBaseModalCmp Component, parent component responsible for holding HcFilterCriteria component.
+ * @since 196
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable" controller='HealthCloudGA.HcFilterCriteriaCmpController'>
+    <aura:attribute name="filterId" type="String" />
+    <aura:attribute name="header" type="String" default="{!$Label.healthcloudga.Header_Create_New_List}" />
+    <aura:attribute name="nextButtonLabel" type="String" default="{!$Label.healthcloudga.Button_Label_Next}" />
+    <aura:attribute name="toastObj" type="Object" />
+    <aura:attribute name="headerTitle" type="String" />
+    <aura:attribute name="index" type="Integer" default="1" />
+    <aura:attribute name="allowNavigation" type="Boolean" default="false"/>
+    <aura:attribute name="configObject" type="Object" />
+
+    <aura:registerEvent name="appEvent" type="HealthCloudGA:HcFilterCriteriaConfigEvent"/>
+    <aura:registerEvent name="HcTimelineViewConfigEvent" type="HealthCloudGA:HcComponentStatusEvent" />
+
+    <aura:handler event="HealthCloudGA:HcFilterCriteriaBaseEvent" action="{!c.nextButton}"/>
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+        <HealthCloudGA:modal aura:id="modalCmp" count="3" index="{!v.index}" allowNavigation="{!v.allowNavigation}" finishEvent="{!c.saveResult}" nextEvent="{!c.nextButton}" backEvent="{!c.backButton}" isDoable="true" headerTitle="{!v.headerTitle}" modalToast="{!v.toastObj}" showClose="{!if(empty(v.configObject),true,false)}">
+            <HealthCloudGA:HcFilterCriteriaCmp aura:id='filterCriteriaCmp' filterId="{!v.filterId}" configObject="{!v.configObject}"/>
+        </HealthCloudGA:modal>
+</aura:component>

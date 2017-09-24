@@ -1,0 +1,403 @@
+.THIS {} 
+.THIS.detailDiv {
+    width: 95%;
+    margin: 50px auto;
+    box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 5px;
+    overflow-y: hidden;
+    background-color: white;
+    padding: 20px;
+}
+.THIS #searchdiv span,
+.THIS.search-found {
+    background-color: #FF9;
+    color: #555;
+}
+
+.THIS #searchdiv{
+    line-height:2;
+}
+.THIS .ClinicTableView {
+    overflow-y: auto;
+    width: 100%;
+    padding-bottom: 20px;
+    overflow-x: hidden;
+}
+.THIS .detailNotes {
+    position: relative;
+}
+.THIS table.dataTable thead th,
+.THIS table.dataTable thead td {
+    padding: 10px 30px 10px 10px;
+}
+.THIS .clinicNotes {
+    font-size: 16px;
+    color: #707f8a;
+    margin-top: 10px;
+    list-style: none;
+    list-style-type: none;
+}
+.THIS .clinicNotes ul,
+.THIS .clinicNotes ul li {
+    list-style: none;
+    list-style-type: none;
+}
+.THIS .clinicHead {
+    color: #004b7b;
+    font-weight: bold;
+    font-size: 18px;
+    width: 75%;
+    float: left;
+}
+.THIS .slds-table {
+    margin-bottom: 20px;
+}
+.THIS .close {
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+    margin-top: -15px;
+    font-size: 20px;
+    margin-right: -10px;
+    color: #707f8a;
+}
+.THIS .findText {
+    position: relative;
+}
+.THIS .slds-icon_container {
+    position: absolute;
+}
+.THIS .findText .slds-icon_container {
+    margin-top: 5px;
+}
+.THIS .slds-icon_container svg.slds-icon {
+    height: 13px;
+    width: 20px;
+    fill: #707f8a;
+    margin: 8px 0 0 5px;
+}
+.THIS .uiInput.uiInputText.uiInput--default.uiInput--input {
+    width: 25%;
+    margin-bottom: 20px;
+    padding-left: 30px;
+}
+.THIS .slds-table--bordered tbody td,
+.THIS .slds-table--bordered tbody th {
+    border-top: none;
+}
+.THIS .slds-table--striped tbody tr,
+.THIS .slds-table--striped tbody tr:hover td {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: #FFF;
+}
+.THIS .slds-table--bordered {
+    border: none;
+}
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>td,
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>th,
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>td:hover,
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>th:hover,
+.THIS .slds-table--striped tbody tr:nth-of-type(odd)>td,
+.THIS .slds-table--striped tbody tr:nth-of-type(odd)>th,
+.THIS .slds-table--striped tbody tr:nth-of-type(odd)>td:hover,
+.THIS .slds-table--striped tbody tr:nth-of-type(odd)>th:hover {
+    background-color: #fff;
+    border: none;
+    color: #2f3537;
+    outline: none;
+}
+.THIS #ClinicalNotesDetail_wrapper .slds-table--striped tbody tr,
+.THIS #ClinicalNotesDetail_wrapper .slds-table--striped tbody tr:hover td {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+.THIS .slds-table tr {
+    height: 35px;
+}
+.THIS .slds-table tbody {
+    font-size: 14px;
+}
+.THIS .slds-table thead {
+    color: #707f8a;
+    font-size: 14px;
+}
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>td,
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>th,
+.THIS .slds-table--striped tbody tr:nth-of-type(odd)>td,
+.THIS .slds-table--striped tbody tr:nth-of-type(odd)>th {
+    color: #004b7b;
+    word-break: break-word;
+    white-space: inherit;
+}
+.THIS .slds-table--bordered tbody td,
+.THIS .slds-table--bordered tbody th {
+    border: none;
+}
+.THIS .horizep {
+    border-top: 1px solid #d4d4d4;
+    margin-bottom: 20px;
+}
+.THIS .ButtonSearch {
+    padding: 7px 40px;
+    background-color: #3c91c7;
+    border: none;
+    font-family: sans-serif;
+    font-size: 16pt;
+    font-weight: bold;
+    width: 170px;
+    color: #fff;
+    height: 40px;
+    text-shadow: none;
+    margin: 20px 0;
+    float: right;
+}
+.THIS table.dataTable thead th,
+.THIS table.dataTable thead td,
+.THIS table.dataTable.no-footer {
+    border: none;
+}
+.THIS .otherDetails {
+    display: none;
+}
+.THIS .otherDetailExpand {
+    display: block;
+    padding-left: 15px;
+    float: left;
+    width: 75%;
+    padding-top: 10px;
+}
+.THIS .otherDetailExpand .cin,
+.THIS .otherDetailExpand .pcp,
+.THIS .otherDetailExpand .phone,
+.THIS .otherDetailExpand .refreshDate,
+.THIS .otherDetailExpand .encounterDate,
+.THIS .otherDetailExpand .encounterLoc {
+    float: left;
+}
+.THIS .otherDetailExpand .cin,
+.THIS .otherDetailExpand .pcp {
+    width: 13%;
+}
+.THIS .otherDetailExpand .phone,
+.THIS .otherDetailExpand .refreshDate,
+.THIS .otherDetailExpand .encounterDate {
+    width: 17.5%;
+}
+.THIS .otherDetailExpand .encounterLoc {
+    width: 20.75%;
+}
+.THIS .patientSummary {
+    float: left;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #FFF;
+    box-shadow: none;
+    width: 98.5%;
+    border-bottom: 1px solid #ccc;
+}
+.THIS .patientSummary .fourthcol {
+    display: none;
+}
+.THIS .slds-icon_container svg.slds-icon {
+    height: 17px;
+    width: 17px;
+    fill: #707f8a;
+    margin: 0px 0 0 0px;
+}
+.THIS .slds-modal table {
+    width: 100% !important;
+}
+@media only screen and (max-width: 1024px) {
+    .THIS.detailDiv {
+        overflow-y: auto;
+    }
+    .THIS .ClinicTableView {
+        overflow-y: inherit;
+        max-height: inherit;
+        overflow-x: inherit;
+    }
+    .THIS .IconStyle {
+        display: none;
+    }
+    .THIS .otherDetailExpand .phone {
+        width: 17%;
+    }
+    .THIS .otherDetailExpand .refreshDate {
+        width: 19.5%;
+    }
+    .THIS .otherDetailExpand .encounterLoc {
+        width: 18.75%;
+    }
+    .THIS #ClinicalNotesDetail_wrapper table#ClinicalNotesDetail {
+        width: 100% !important;
+        float: left;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .THIS .uiInput.uiInputText.uiInput--default.uiInput--input {
+        width: 50%;
+        padding: 2px 30px;
+    }
+    .THIS .detailNotes span.clinicHead {
+        width: 50%;
+    }
+    .THIS .slds-table--bordered tbody td,
+    .THIS .slds-table--bordered tbody th {
+        white-space: inherit;
+    }
+}
+@media only screen and (max-width: 850px) {
+    .THIS .otherDetails {
+        display: block;
+    }
+    .THIS .otherDetailExpand {
+        display: none;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .THIS .otherDetails {
+        display: block;
+    }
+    .THIS .otherDetailExpand {
+        display: none;
+    }
+    .THIS .otherDetailExpand {
+        width: 100%;
+        padding-left: 0px;
+    }
+    .THIS .otherDetailExpand .cin,
+    .THIS .otherDetailExpand .pcp {
+        width: 13%;
+    }
+    .THIS .otherDetailExpand .phone {
+        width: 17%;
+    }
+    .THIS .otherDetailExpand .refreshDate {
+        width: 19.5%;
+    }
+    .THIS .otherDetailExpand .encounterDate {
+        width: 17.75%;
+    }
+    .THIS .otherDetailExpand .encounterLoc {
+        width: 19.75%;
+    }
+    .THIS .slds-table tr {
+        height: auto;
+    }
+}
+@media only screen and (width: 768px) {
+    .THIS .otherDetailExpand .refreshDate {
+        width: 14.5%;
+    }
+    .THIS .otherDetailExpand .pcp {
+        width: 22%;
+    }
+    .THIS .otherDetailExpand .pcp p span.uiOutputText {
+        width: 100%;
+    }
+    .THIS .otherDetailExpand .encounterLoc {
+        width: 15.75%;
+    }
+    .THIS #ClinicalNotesDetail_wrapper table#ClinicalNotesDetail {
+        width: 99% !important;
+    }
+}
+@media only screen and (max-width: 736px) {
+    .THIS .otherDetails {
+        display: none;
+    }
+    .THIS .otherDetailExpand {
+        display: block;
+    }
+    .THIS .patientSummary {
+        margin: 0;
+        width: 100%;
+    }
+    .THIS .dataTables_wrapper .slds-table tr {
+        height: auto;
+        padding: 10px 0;
+    }
+    .THIS .slds-max-medium-table--stacked-horizontal td:before {
+        margin: 1px 5px 0 0;
+        text-transform: capitalize;
+    }
+    .THIS .slds-table {
+        margin-bottom: 0px;
+    }
+    .THIS #ClinicalNotesDetail {
+        width: 98% !important;
+    }
+    .THIS .otherDetailExpand .encounterLoc {
+        width: 19%;
+    }
+    .THIS .otherDetailExpand .refreshDate {
+        width: 20%;
+    }
+    .THIS #ClinicalNotesDetail_wrapper .slds-table--striped tbody tr,
+    .THIS #ClinicalNotesDetail_wrapper .slds-table--striped tbody tr:hover td {
+        padding: 5px;
+    }
+    .THIS .uiInput.uiInputText.uiInput--default.uiInput--input {
+        width: 50%;
+    }
+    .THIS .clinicHead {
+        width: 50%;
+    }
+    .THIS #ClinicalNotesDetail_wrapper table#ClinicalNotesDetail {
+        margin-bottom: 0;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .THIS .otherDetails {
+        display: block;
+    }
+    .THIS .otherDetailExpand {
+        display: none;
+    }
+    .THIS .userDetails {
+        padding-left: 15px;
+        margin-bottom: 10px;
+    }
+    .THIS .firstcol,
+    .THIS .secondcol,
+    .THIS .thirdcol {
+        width: 100%;
+        float: left;
+        padding-left: 15px;
+    }
+    .THIS .firstcol > div,
+    .THIS .secondcol > div,
+    .THIS .thirdcol > div {
+        float: left;
+        width: 49%;
+        margin-top: 0;
+    }
+    .THIS .userDetails p.font24,
+    .THIS .userDetails p.font14 {
+        width: 100%;
+    }
+    .THIS .userDetails p.font24:after {
+        content: ""
+    }
+    .THIS .clear {
+        clear: none;
+    }
+    .THIS .secondcol,
+    .THIS .thirdcol,
+    .THIS .mt10 {
+        margin-top: 5px;
+    }
+    .THIS .mobHead {
+        float: left;
+        width: 100%;
+    }
+    .THIS .mobDetail {
+        float: left;
+        width: 120px;
+    }
+    .THIS .fourthcol {
+        display: none;
+    }
+}

@@ -1,0 +1,119 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="PatientSummaryController" access="global">
+    <ltng:require styles="{! $Resource.SLDS090}"/>
+    <ltng:require styles="{! $Resource.P360JqueryResources + '/jquery.dataTables.min.css'}"/>
+    <ltng:require styles="{! $Resource.images}"/>
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}"/>
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jQueryDataTableJs.js'}"/> 
+    <ltng:require scripts="{! $Resource.svg4everybody + '/svg4everybody-master/dist/svg4everybody.js'}"  afterScriptsLoaded="{!c.myAction}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="patientid" type="string"/>
+    <aura:attribute name="empi" type="string"/>
+    <aura:attribute name="patientData" type="PatientSummaryController.PatientData"/>
+    <aura:attribute name="sourceSystem" type="sobject"/>
+    <div>
+        <p class="slds-p-horizontal--small slds-size--1-of-1 sectionTitle">Demographics</p>
+        <div class="slds-grid slds-wrap slds-grid--pull-padded profileDiv">
+            <div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-3 slds-large-size--1-of-3 firstCol">
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle" title="Source partner name">Source partner name<p class="tooltip"> <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/41-Info.svg#Layer_1'}" helpText="Source partner name" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent"/>
+                        </p></span>
+                    <div class="selectTooltip">
+                        <ui:inputSelect aura:id="selSourceVal" class="selectList" change="{!c.selectChange}" mouseover="{!c.mouseOverTooltip}">
+                            <aura:iteration items="{!v.sourceSystem}" var="sourcesystem">
+                                <ui:inputSelectOption label="{!sourcesystem.Account.Source_Name__c}" text="{!sourcesystem.AccountId}"/>
+                            </aura:iteration>
+                        </ui:inputSelect>
+                        <div class="slds-popover  slds-nubbin--left">
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Patient Name</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.name}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Medicaid ID (CIN)</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.cin}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Date of birth</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.dob}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Address</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue addressWidth"  value="{!v.patientData.mailingStreet}"/><br/> 
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">City</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.mailingCity}"/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">State</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.mailingState}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Zip code</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.mailingPostalCode}"/><br/>
+                </div>                    
+            </div>
+            <div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-3 slds-large-size--1-of-3 secondCol">
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Country</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.county}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Home phone</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.phone}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Work phone</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.workPhone}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Mobile phone</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.mobilephone}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Primary language</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.primaryLanguage}"/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Secondary language</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.secondaryLanguage}"/><br/>
+                </div>
+            </div>
+            <div  class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-3 slds-large-size--1-of-3 thirdCol">
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">PCP</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.pcp}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Date of death</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.dod}"/><br/>
+                </div>
+                <!--<span class="keyTitle">Is attributed</span>
+                    <ui:outputText class="keyValue" value=""/><br/>-->
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Race</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.raceLabel}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Ethnicity</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.patientData.ethencity}"/><br/>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+        <p class="slds-p-horizontal--small slds-size--1-of-1 sectionTitle advDirectTitle">Advance Directives</p>
+        <div class="slds-grid slds-wrap slds-grid--pull-padded profileDiv advDirect">
+            <c:P360CommunityBasicDynamicList >  
+                <aura:set attribute="empi" value="{!v.empi}" />
+                <aura:set attribute="listName" value="Advanced Directives" />
+                <aura:set attribute="tableName" value="AdvancedDirectives_table" />
+            </c:P360CommunityBasicDynamicList>
+            <div class="clear"></div>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,17 @@
+<aura:component >
+	<aura:attribute name="itemData" type="Object" /> 
+    <aura:attribute name="columnsMetadata" type="List" />
+
+    <aura:registerEvent name="actionEvent" type="HealthCloudGA:HcSimpleTableEvent" />
+
+	<lightning:buttonMenu aura:id="menu" alternativeText="Show menu" iconSize='x-small' menuAlignment="right">
+        <lightning:menuItem value="{!$Label.healthcloudga.Link_Edit_Member}" onactive="{! c.handleEditMember }" label="{!$Label.healthcloudga.Link_Edit_Member}" />
+        <lightning:menuItem value="{!$Label.healthcloudga.Link_Add_Member_Community}" onactive="{! c.handleAddMemberToCommunity }" label="{!$Label.healthcloudga.Link_Add_Member_Community}" disabled="{!(v.itemData.isUser=='true' || v.itemData.isCommunityEnabled=='true')}" class="{!v.itemData.isCommunitySetupInOrg=='true' ? '' : 'slds-hide'}"/>
+        <lightning:menuItem value="{!$Label.healthcloudga.Text_Send_Private_Message}" onactive="{! c.handlePrivateMessage }" label="{!$Label.healthcloudga.Text_Send_Private_Message}" disabled="{!!(v.itemData.isInternal=='true' || (and(v.itemData.isCommunityLive=='true', v.itemData.isCommunityEnabled=='true'))) }" />
+        <lightning:menuItem value="{!$Label.healthcloudga.Link_Create_Task}" onactive="{! c.handleCreateTask }" label="{!$Label.healthcloudga.Link_Create_Task}" disabled="{! and(v.itemData.isUser=='false', v.itemData.isCommunityEnabled=='false')}" />
+        <aura:if isTrue="{! v.itemData.role != 'Patient'}"> <!-- TODO: What if role is custom set to a different value than Patient ? -->
+            <lightning:menuItem value="{!$Label.healthcloudga.Link_Remove_Member}" onactive="{! c.handleRemoveMember }" label="{!$Label.healthcloudga.Link_Remove_Member}" />
+        </aura:if>
+    </lightning:buttonMenu>
+    
+</aura:component>

@@ -1,0 +1,76 @@
+<aura:component controller="PatientSummaryController">
+    <aura:attribute name="isLoaded" type="Boolean" default="false"/>
+    <aura:attribute name="patientid" type="string"/>
+    <aura:attribute name="patientBannerData" type="PatientSummaryController.PatientBannerData"/>
+    <aura:attribute name="patientData" type="PatientSummaryController.PatientData"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="isSidebarEvent" type="boolean"/>
+    <div class="patientSummary" id="patientSummaryDiv">
+        <span class="close" id="closeButton" onclick="{!c.clinkOnClose}">&times;</span>
+        <div class="userDetails">
+            <p class="font24"><ui:outputText class="name" value="{!v.patientBannerData.name}"/></p> 
+            <p class="font14 mt10"><ui:outputText class="dobGender" value="{!v.patientBannerData.dob +' | '+ v.patientBannerData.gender}"/></p>
+        </div>
+        <div class="otherDetails" id="otherDetails">
+            <div class="firstcol">
+                <div class="cin">
+                    <div class="mobHead"><p class="font12">Medicaid ID (CIN) </p><p class="tooltip"><c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/41-Info.svg#Layer_1'}" helpText="Patient’s Medicaid Client Identification Number" class="IconStyle hideText" buttonStyle="border:none;  outline:none; width:50px;height:50px; background-color:transparent"/> <span class="tooltiptext">Patient’s Medicaid ID</span></p></div>  
+                    <div class="mobDetail"><p class="clear"><ui:outputText class="font14 cin" value="{!v.patientBannerData.cin}"/></p></div>  
+                </div> 
+                <div class="pcp mt10">
+                    <div class="mobHead"><p class="font12">PCP </p><p class="tooltip"><c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/41-Info.svg#Layer_1'}" helpText="Primary care provider’s name" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent"/><span class="tooltiptext mtn10">Primary care provider’s name</span></p></div>  
+                    <div class="mobDetail"><p class="clear"><ui:outputText class="font14 pcp" value="{!v.patientBannerData.pcp}" /> </p></div>   
+                </div>
+            </div>
+            <div class="secondcol">
+                <div class="phone">
+                    <div class="mobHead"><p class="font12">Phone Number </p><p class="tooltip"> <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/41-Info.svg#Layer_1'}" helpText="Patient’s phone number" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent"/><span class="tooltiptext">Patient’s phone number</span></p></div>  
+                    <div class="mobDetail"><p class="clear"><ui:outputText class="font14 mobile" value="{!v.patientBannerData.phone}"/> </p></div>   
+                </div>
+                <div class="refreshDate mt10">
+                    <div class="mobHead"><p class="font12">Data Refresh Date </p><p class="tooltip"> <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/41-Info.svg#Layer_1'}" helpText="Date last refreshed from source system" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent"/><span class="tooltiptext">This is the date of last refresh of patient data at the Patient 360 application</span></p></div> 
+                    <div class="mobDetail"><p class="clear"><ui:outputText class="font14 dataRefresh" value="{!v.patientBannerData.dataRefreshDate}"/> </p></div>   
+                </div>
+            </div>
+            <div class="thirdcol">
+                <div class="encounterDate">
+                    <div class="mobHead"><p class="font12">Last Encounter Date</p><p class="tooltip"> <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/41-Info.svg#Layer_1'}" helpText="Patient’s most recent encounter date" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent"/><span class="tooltiptext">Patient’s most recent encounter date</span></p></div> 
+                    <div class="mobDetail"><p class="clear"><ui:outputText class="font14 lastEncDate" value="{!v.patientBannerData.lastEncDate}"/> </p> </div>  
+                </div>
+                <div class="encounterLoc mt10">
+                    <div class="mobHead"><p class="font12">Last Encounter Location</p><p class="tooltip"> <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/41-Info.svg#Layer_1'}" helpText="Patient’s most recent encounter location" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent"/><span class="tooltiptext">This is the location at which the last encounter for the patient occurred</span></p></div> 
+                    <div class="mobDetail"><p class="clear"><ui:outputText class="font14 lastEncLocation" value="{!v.patientBannerData.lastEncLocation}"/> </p></div>   
+                </div>
+            </div>
+            <div id="fourthcol" class="fourthcol">
+                <ui:button label="View More" press="{!c.ViewMore}" class="MoreBtn"/>
+            </div>
+        </div>
+        <div class="otherDetailExpand" id="otherDetailExpand">
+            <div class="cin">
+                <p class="font12">Medicaid ID (CIN)</p><c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/41-Info.svg#Layer_1'}" helpText="Patient’s Medicaid Client Identification Number" class="IconStyle" buttonStyle="border:none;  outline:none; width:50px;height:50px; background-color:transparent"/>  
+                <p class="clear"><ui:outputText class="font14 cin" value="{!v.patientBannerData.cin}"/> </p> 
+            </div> 
+            <div class="pcp">
+                <p class="font12">PCP</p> <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/41-Info.svg#Layer_1'}" helpText="Primary care provider’s name" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent"/> 
+                <p class="clear"><ui:outputText class="font14 pcp" value="{!v.patientBannerData.pcp}" /> </p>   
+            </div>
+            <div class="phone">
+                <p class="font12">Phone Number</p> <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/41-Info.svg#Layer_1'}" helpText="Patient’s phone number" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent"/> 
+                <p class="clear"><ui:outputText class="font14 mobile" value="{!v.patientBannerData.phone}"/> </p>   
+            </div>
+            <div class="refreshDate">
+                <p class="font12">Data Refresh Date</p> <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/41-Info.svg#Layer_1'}" helpText="Date last refreshed from source system" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent"/>
+                <p class="clear"><ui:outputText class="font14 dataRefresh" value="{!v.patientBannerData.dataRefreshDate}"/> </p>   
+            </div>
+            <div class="encounterDate">
+                <p class="font12">Last Encounter Date</p> <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/41-Info.svg#Layer_1'}" helpText="This is the Last Encounter Date for the patient." class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent"/> 
+                <p class="clear"><ui:outputText class="font14 lastEncDate" value="{!v.patientBannerData.lastEncDate}"/>  </p>  
+            </div>
+            <div class="encounterLoc">
+                <p class="font12">Last Encounter Location</p> <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/41-Info.svg#Layer_1'}" helpText="Patient’s most recent encounter location" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent"/>
+                <p class="clear"><ui:outputText class="font14 lastEncLocation" value="{!v.patientBannerData.lastEncLocation}"/>  </p>  
+            </div>
+        </div>
+    </div> 
+</aura:component>

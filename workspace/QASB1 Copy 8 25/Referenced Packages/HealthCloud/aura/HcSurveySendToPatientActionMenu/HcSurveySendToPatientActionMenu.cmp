@@ -1,0 +1,24 @@
+<aura:component description="HcSurveySendToPatientActionMenu" controller="HealthCloudGA.HcSurveyController">
+
+    <aura:attribute name="itemData" type="Object" />
+    <aura:attribute name="columnsMetadata" type="List" />
+    <aura:attribute name="successMsg" type="String" />
+    <aura:attribute name="isSuccess" type="Boolean" default="false" />
+    <aura:attribute name="communityList" type="List" />
+    <aura:registerEvent name="HcComponentStatusEvent" type="HealthCloudGA:HcComponentStatusEvent"/>
+    <aura:registerEvent name="surveyActionEvent" type="HealthCloudGA:HcSimpleTableEvent" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <lightning:buttonMenu aura:id="menu" alternativeText="Show menu" iconSize='x-small' menuAlignment="right">
+        <!--if communities not empty, iterate all communities-->
+        <aura:if isTrue="{! !empty(v.communityList)}">
+            <aura:iteration var="patientCommunity" items="{! v.communityList }">
+                <lightning:menuItem aura:id="actionMenuItems" label="{!$Label.healthcloudga.Send_To_Patient_In + ' '+ patientCommunity.Name }" value="{! patientCommunity.Id }" onactive="{! c.handleMenuClick }" onfocus=""/>
+            </aura:iteration>
+        </aura:if>
+        <!--if communities empty, just show sent to patient-->
+        <aura:if isTrue="{! empty(v.communityList)}">
+            <lightning:menuItem aura:id="noActionMenuItems" label="{!$Label.healthcloudga.Send_To_Patient }" value="{! 'No Community' }" onactive="{! c.handleMenuClick }"/>
+        </aura:if>
+    </lightning:buttonMenu>
+</aura:component>

@@ -1,0 +1,30 @@
+<aura:component extends="HealthCloudGA:HcBaseComponent">
+    <aura:attribute name="itemData" type="Object" />
+    <aura:attribute name="patientId" type="String" default="" />
+    <aura:attribute name="expanded" type="Boolean" default="false" />
+    <aura:attribute name="firstTimeAccessed" type="Boolean" access="private" default="true" />
+    <aura:attribute name="expandIconClass" type="String" default="slds-m-right--small" />
+    <aura:attribute name="userDateTimeFormat" type="String" default="MM/dd/yyyy h:mm a" />
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <aura:handler event="HealthCloudGA:HcMultipleCarePlanEvent" action="{!c.expandCollapseCarePlans}" />
+    <div aura:id="carePlanPanel">
+        <div class="{!(v.expanded ? 'careplancard__header_expanded' : '')}">
+            <header class='careplancard__mainheader'>
+                <div class="{!'careplancard__expander ' + v.expandIconClass}">
+                    <a onclick="{!c.toggleIcon}">
+                        <lightning:icon iconName="{!v.expanded ? 'utility:chevrondown' : 'utility:chevronright'}" size="xx-small" class="" alternativeText="Open Care Plan" />
+                    </a>
+                </div>
+                <h2 class="slds-text-heading--small">
+                    {!(v.itemData.row.Subject? v.itemData.row.Subject:$Label.healthcloudga.Text_No_Subject)}
+                </h2>
+            </header>
+            <section class="careplancard__subheader">
+                <HealthCloudGA:HcCarePlanDetailHeader caseDetail="{!v.itemData.row}" caseMetaDataList="{!v.itemData.metadata}" />
+            </section>
+        </div>
+        <section class="careplancard__body">
+            <div class="{!(v.expanded ? '' : 'animated slds-hide')}" aura:id="panelRow" >{!v.body}</div>
+        </section>
+    </div>
+</aura:component>

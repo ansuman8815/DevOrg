@@ -1,0 +1,8 @@
+<aura:event type="APPLICATION"
+	description="Event that is fired whenever a care plan is selected in the Healthcloud Care Plan Picker component."
+	access="global">
+    <aura:attribute name="carePlanId"
+    	type="String"
+    	description="The Id of the care plan (case) that was selected."
+    	access="global"/>
+</aura:event>

@@ -1,0 +1,22 @@
+.THIS {} .THIS .palletDetail svg {
+     margin-top: 21px;
+    height: 120px;
+}
+.THIS .disclaimer {
+    font-size: 12px;
+    color: #707f8a;
+}
+/*.THIS .palletDetail:nth-child(1) .palletHeading ,.THIS .palletDetail:nth-child(2) .palletHeading ,
+.THIS .palletDetail:nth-child(1) .palletHeading  a,.THIS .palletDetail:nth-child(2) .palletHeading  a
+{cursor:default;pointer-events: none;}
+.THIS .palletDetail:nth-child(1) .palletHeading .palletTitle a,
+.THIS .palletDetail:nth-child(2) .palletHeading .palletTitle a{text-decoration:none}*/
+/*.THIS .palletDetail:nth-child(1) .palletHeading,.THIS .palletDetail:nth-child(2) .palletHeading 
+{padding-bottom: 10px;}
+.THIS .palletDetail:nth-child(3) .palletHeading {padding-bottom:15px;}*/
+
+@media only screen and (max-width: 480px) {
+    .THIS .palletDetail svg {
+        margin-top: 18px;
+    }
+}

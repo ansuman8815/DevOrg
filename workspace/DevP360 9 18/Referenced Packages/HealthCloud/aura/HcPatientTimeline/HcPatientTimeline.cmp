@@ -1,0 +1,77 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcPatientTimeline component, a component contains timeline display and navigation controls.
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable" controller="HealthCloudGA.HcTimelineViewController">
+    <aura:attribute name="patientId" type="String" />
+    <aura:attribute name="tooltipUpperInfo" type="String" default="n/a" />
+    <aura:attribute name="tooltipLowerInfo" type="String" default="n/a" />
+    <aura:attribute name="filter" type="List" />
+    <aura:attribute name="timeRangeStart" type="Date" />
+    <aura:attribute name="timeRangeDays" type="integer" default="30" />
+    <aura:attribute name="userDateFormat" type="String" default="" />
+    <aura:attribute name="userDateTimeFormat" type="String" default="" />
+    <aura:attribute name="filterCategories" type="List" />
+    <aura:attribute name="loadingEntity" type="String" default=""/>
+    <aura:attribute name="callBackArray" type="List"/>
+    <aura:attribute name="currentIndex" type="Integer" default="0"/>
+
+    <aura:handler name="change" value="{!v.timeRangeStart}" action="{!c.handleChange}" />
+    <aura:handler name="change" value="{!v.timeRangeDays}" action="{!c.handleChange}" />
+
+    <div>
+        <HealthCloudGA:toast aura:id="toast-message" />
+        <div class="slds-grid slds-grid--align-spread">
+            <div class="slds-col slds-shrink slds-align-middle">
+                <h1 class="slds-text-heading--medium">{!$Label.healthcloudga.Heading_Health_Timeline}</h1>
+            </div>
+            <div class="slds-col slds-shrink-none slds-align-middle">
+                <div class="slds-form--inline">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control multiselect-dropdown" id="timeline-control-filter">
+                            <HealthCloudGA:HcMultiDropdownCmp selectedItems="{!v.filter}" categories="{!v.filterCategories}" filterChangedEvent="{!c.filterClicked}"/>
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <ui:label class="slds-form-element__label" label="{!$Label.healthcloudga.Field_Label_Start_Date}" for="timeline-control-datepicker" />
+                        <div class="slds-form-element__control">
+                          <ui:inputDate aura:id="dateField" domId="timeline-control-datepicker" class="slds-input slds-input--small health1_pointer_overide" placeholder="{!$Label.healthcloudga.Field_Placeholder_Pick_Date}" displayDatePicker="true" value="{!v.timeRangeStart}" />
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <ui:label class="slds-form-element__label" label="{!$Label.healthcloudga.Field_Label_Days_To_Show}" for="timeline-control-days" />
+                        <ui:inputNumber aura:id="days" domId="timeline-control-days" class="slds-input slds-input--small health1_pointer_overide" type="integer" max="365" min="1" value="{!v.timeRangeDays}" updateOn="input" />
+                    </div>
+                    <div class="slds-form-element">
+                        <HealthCloudGA:HcHelpTrayDropDown helpType="TimelineView"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="health1-timeline-wrapper" class="slds-grid slds-size--1-of-1" aura:id="timeline-wrapper">
+            <div class="slds-col slds-size--1-of-1">
+                <div id="health1-timeline" aura:id="timeline" />
+                <div id="health1-timeline-axis" aura:id="timeline-axis" />
+                <div class="health1-minimap-wrapper" aura:id="minimap-wrapper">
+                    <div id="health1-minimap" aura:id="minimap" />
+                    <div id="health1-minimap-axis" aura:id="minimap-axis" />
+                </div>
+                <div id="health1-timeline-tooltip" style="visibility: hidden;">
+                    <div class="tooltip-header">{!v.tooltipUpperInfo}</div>
+                    <div class="tooltip-content">
+                        <aura:iteration items="{!v.tooltipLowerInfo}" var="col">
+                            <div class="slds-text-title--caps slds-truncate">{!col.key}</div>
+                            <div class="tooltip-content-sub slds-truncate">{!col.value}</div>
+                        </aura:iteration>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ui:resizeObserver onresize="{!c.onresize}" />
+    <ltng:require scripts="{!join(',',$Resource.HealthCloudGA__industryresources + '/externalresources/moment/moment.js',$Resource.HealthCloudGA__industryresources + '/externalresources/moment/moment-timezone.js',$Resource.HealthCloudGA__commonresources +  '/d3-4.4.0/d3.js')}" afterScriptsLoaded="{!c.initD3}" />
+</aura:component>

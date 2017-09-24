@@ -1,0 +1,26 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcMultiSelectDropdown component, a dropdown component supporting multiple selections.
+ * @since 196
+-->
+<aura:component controller="HealthCloudGA.HcTimelineViewController" implements="force:appHostable">
+    
+    <ltng:require scripts="/resource/HealthCloudGA__commonresources/jquery-2.2.4/jquery.min.js,
+                           /resource/HealthCloudGA__commonresources/bootstrap-3.3.5/js/bootstrap-multiselect.js,
+                           /resource/HealthCloudGA__commonresources/bootstrap-3.3.5/js/bootstrap-Addon.js"
+                            afterScriptsLoaded="{!c.doInit}" />
+
+    <ltng:require styles="/resource/HealthCloudGA__commonresources/bootstrap-3.3.5/css/bootstrap-multiselect.css,
+                            /resource/HealthCloudGA__commonresources/bootstrap-3.3.5/css/bootstrap.min.css,
+                            /resource/HealthCloudGA__commonresources/bootstrap-3.3.5/css/bootstrap-Addon.css," />
+
+    <aura:registerEvent name="filterChangedEvent" type="HealthCloudGA:HcMenuSelectedEvent"/>
+    <aura:attribute name="resultString" type="Object[]" />
+    <!-- Options Dynamically appended-->
+    <div id="mainContainer">
+        <select id="example-multiple-optgroups" multiple="multiple">
+        </select>
+    </div>
+</aura:component>

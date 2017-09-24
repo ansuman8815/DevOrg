@@ -1,0 +1,10 @@
+<!--
+ * Copyright © 2016 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcListViewTable: reusable, light-weight table view component
+ * @since 204
+-->
+<aura:event type="Component">
+	<aura:attribute name="checked" type="Boolean" default="true" description="checkbox clicked event" />
+</aura:event>

@@ -1,0 +1,51 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcMultiDropdownCmp component, a dropdown component supporting multiple selections.
+ * @since 198
+-->
+<aura:component controller="HealthCloudGA.HcTimelineViewController" implements="force:appHostable">
+    <aura:attribute name="categories" type="List" />
+    <aura:attribute name="selectedItems" type="List" />
+    <aura:attribute name="showCategory" type="Boolean" default="True" />
+    <aura:attribute name="placeholderText" type="String" default="{!$Label.healthcloudga.Dropdown_Select_All_Events}"/>
+    <aura:registerEvent name="filterChangedEvent" type="HealthCloudGA:HcMenuSelectedEvent" />
+    <!--This component is used in HC Timeline Console and Community Timeline
+        From Community Timeline we pass the placeholder text as ''. So we are doing that check and
+        determine the appropriate styling that needs to be applied.
+      -->
+    <div class="slds-dropdown-trigger" aria-haspopup="true">
+        <aura:if isTrue="{!!empty(v.placeholderText)}">
+           <button class="slds-button slds-button--icon-more" aria-haspopup="true">
+           <span class="selectAllEventsTrigger">{!v.placeholderText}</span>
+           <lightning:icon iconName="utility:down" class="slds-m-left_x-small" size="x-small" />
+        	</button>
+        <aura:set attribute="else">
+            <button class="hc-icon-align slds-button slds-button--icon-more" aria-haspopup="true">
+            <lightning:icon class="hc-filter-color" iconName="utility:filterList" size="x-small" alternativeText="Filter"/>
+            </button>
+        </aura:set>
+        </aura:if>
+         <div class="{! concat( empty(v.placeholderText) ? 'slds-dropdown--right' : 'slds-dropdown--left',  ' slds-dropdown  slds-dropdown--small slds-dropdown--menu' )}">
+            <aura:iteration items="{!v.categories}" var="category">
+                <div class="{!v.showCategory? 'slds-p-left--small slds-text-body--regular slds-dropdown__header' : 'slds-hide'}">
+                    <div aura:id="category-checkbox" class="slds-p-left--xx-small slds-text-heading-label hcMultiDropDownCategory"> {!category.key} </div>
+                </div>
+                <div class="slds-text-body--small">
+                    <ul class="slds-dropdown__list" role="menu">
+                        <aura:iteration items="{!category.lValue}" var="eachItem">
+                            <li id="menu-10-0" class="slds-dropdown__item slds-is-selected" aria-selected="true" role="menuitem option" tabindex="0">
+                                <a tabindex="-1" class="slds-p-top--xxx-small slds-truncate" id="{!eachItem.id}" onclick="{!c.onItemCheckboxClick}">
+                                    <lightning:input type="checkbox" class="hcClickThrough" aura:id="health1-multiselectDropdownItem-input" label="{!eachItem.friendlyName}" name="{!'checkbox_' + eachItem.id}" checked="{!eachItem.selected}" value="{!eachItem.id}"/>
+                                </a>
+                            </li>
+                        </aura:iteration>
+                    </ul>
+                </div>
+                <ul class="slds-has-divider">
+                </ul>
+            </aura:iteration>
+        </div>
+    </div>
+</aura:component>

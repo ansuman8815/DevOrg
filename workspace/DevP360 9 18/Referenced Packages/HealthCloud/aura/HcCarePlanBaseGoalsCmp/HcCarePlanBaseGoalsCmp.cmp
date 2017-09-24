@@ -1,0 +1,33 @@
+<!-- * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCarePlanBaseGoalsCmp
+ * @since 206
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcCarePlanController">
+  <aura:attribute name="expandable" type="Boolean" default="true"  />
+  <aura:attribute name="problemId" type="String" />
+  <aura:attribute name="goal" type="Map" />
+  <aura:attribute name="tasksMap" type="Map"/>
+  <aura:attribute name="tasks" type="List" />
+  <aura:attribute name="tasksReady" type="Boolean" default="false" />
+  <aura:attribute name="tasksMetaData" type="Object"/>
+  <aura:attribute name="expanded" type="Boolean" default="false" />
+  <aura:attribute name="baseIndentLevel" type="Integer" default="1" />
+  <aura:attribute name="carePlanId" type="String" />
+        
+  <aura:handler event="HealthCloudGA:HcMultipleCarePlanEvent" action="{!c.expandCollapseAllGoals}" />
+
+  <div class="hc-carePlanGoal">
+    <div aria-level="{# v.baseIndentLevel }">
+      <HealthCloudGA:HcCarePlanHeader aura:id="goalHeader" expandable="{!v.expandable}" HcCarePlanEvent="{!c.handleCarePlanEvent}" header="{!v.goal.Name}" percentComplete="{!v.goal.Progress__c}" priority="{!v.goal.Priority__c}" createActionButtonLabel="{!$Label.healthcloudga.Link_Create_Task}" createActionButtonId="Create Task" editActionButtonLabel="{!$Label.healthcloudga.Menu_Item_Edit_Goal}" editActionButtonId="Edit Goal" problemId="{!v.problemId}" goalId="{!v.goal.Id}" class="hc-tree__item" expandIconTooltip="{!$Label.healthcloudga.Title_Show_Tasks}" carePlanId="{!v.carePlanId}" />
+      <div aura:id="tasks" class="{!( v.expanded ? '' : 'slds-hide' ) }" aria-level="{# v.baseIndentLevel + 1 }">
+      <HealthCloudGA:HcSimpleTaskTable carePlanId='{!v.carePlanId}' goalId='{!v.goal.Id}' startT='{!v.startT}' id="{!'CarePlanTask_'+ v.goal.Id}" tableClass="hc-tree__table slds-table--bordered slds-table--fixed-layout">
+        <aura:set attribute="dataProvider">
+            <HealthCloudGA:HcTaskDataProvider autoInit='false' goalId='{!v.goal.Id}' patientId='{!v.patientId}' carePlanId='{!v.carePlanId}' pageSize='100' startT='{!v.startT}'/>
+        </aura:set>
+      </HealthCloudGA:HcSimpleTaskTable>  
+      </div>
+    </div>
+  </div>
+</aura:component>

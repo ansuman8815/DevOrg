@@ -1,0 +1,54 @@
+<!--
+ * Copyright © 2017 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @since 210
+ * @Description: this is the list view for the timeline component used in community
+-->
+<aura:component controller="HealthCloudGA.HcCommunityTimelineController" description="List view for the community timeline component ">
+    <aura:attribute name="records" type="List" description="records to be shown in the timeline view"/>
+    <aura:attribute name="hasMoreRecords" type="Boolean" default="false" description="Flag to indicate if there are more records to load "/>
+    <aura:attribute name="hasLimitReached" type="Boolean" default="false" description="Flag to indicate if limit set for empower timeline activities has been reached "/>
+    <aura:attribute name="eventType" type="String" required="true" description="Tab that triggered the event to fetch records. Expected values: TODAY,PAST,FUTURE"/>
+    <aura:attribute name="pageNumber" type="Integer" default="1"
+                     description="Page number to be retrieved for activity, used in pagination" />
+    <aura:attribute name="pageReloadSize" type="Integer" description="Default number of activities to be shown in the Timeline" />
+    <aura:attribute name="carePlanId" type="String" description="Id of the care plan or case for a given care team" access="global"/>
+    <aura:attribute name="patientId" type="String" description="The patientId of the patient for which care plan members needs to be shown" access="global"/>
+    <aura:attribute name="filterString" type="String" default=""/>
+    <aura:attribute name="errorMsg" type="String" default=""/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <!-- Handles the carePlan change event -->
+    <aura:handler event="HealthCloudGA:HcCommunityEventCarePlanSelected" action="{!c.handleEventChange}"/>
+    <!-- Handles the aura:valueChange event -->
+    <aura:handler name="change" value="{!v.filterString}" action="{!c.handleEventChange}"/>
+
+    <lightning:spinner alternativeText='{!$Label.healthcloudga.Alt_Text_Please_Wait}' class="{!(v.showSpinner == true ? '' : 'slds-hide')}" variant="brand" size="large"/>
+
+    <div class="{!v.records.length > 0 ? '' : 'slds-hide'}">
+        <div id="listId">
+            <ul class="slds-timeline">
+            <aura:iteration items="{!v.records}" var="rec">
+                <HealthCloudGA:HcCommunityTimelineActivityCard record="{!rec}"/>
+            </aura:iteration>
+            </ul>
+        </div>
+        <div class="{! v.hasMoreRecords != true ? 'slds-hide' :'slds-align--absolute-center'}">
+            <lightning:button variant="brand" label="{#$Label.healthcloudga.Msg_Show_More}" onclick="{!c.handleShowMore}" iconPosition="right" />
+        </div>
+        <div aura:id="noMoreRecordsMessage" class="{! v.hasMoreRecords != false ? 'slds-hide' : 'slds-p-top_xx-large slds-text-align_center slds-text-color_weak'}">
+            <aura:if isTrue="{! not(v.hasLimitReached)}">
+                {!$Label.healthcloudga.Msg_No_More_Events}
+            </aura:if>
+        </div>
+        <div aura:id="noMoreRecordsMessage" class="{! not(v.hasLimitReached) ? 'slds-hide' : 'slds-p-top_xx-large slds-text-align_center slds-text-color_weak'}">
+            {!$Label.healthcloudga.Msg_Max_Events_Limit_Reached}
+        </div>
+    </div>
+     <div aura:id="noRecordsMessage" class="{! and(v.records.length == 0,not(v.showSpinner)) ? 'slds-p-top_xx-large slds-text-align_center slds-text-color_weak' : 'slds-hide'  }">
+            {!$Label.healthcloudga.Msg_No_Events}
+      </div>
+     
+</aura:component>

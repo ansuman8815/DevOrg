@@ -1,0 +1,61 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcPatientNetwork component, a visualization component contains patient network and related actions to persons in network.
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcCareTeamController">
+    <aura:attribute name="patientId" type="String" />
+    <aura:attribute name="patientRole" type="String" default="" />
+    <aura:attribute name="hasPatient" type="Boolean" default="true" />
+    <aura:attribute name="patientRoleName" type="String" default="Patient" />
+    <aura:attribute name="carePlanId" type="String" />
+    <aura:attribute name="careTeamByCaseId" type="String" default="false"/>
+
+    <aura:registerEvent name="HcCareTeamEvent" type="HealthCloudGA:HcCareTeamCmpEvent" />
+
+    <aura:handler event="HealthCloudGA:HcComponentStatusEvent" action="{!c.handleRefreshEvent}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <HealthCloudGA:toast aura:id="network-toast-message" />
+    <div class="slds-grid">
+      <!-- if we have a patient show graph -->
+
+      <aura:if isTrue="{! v.hasPatient }">
+        <div class="slds-col slds-size--1-of-1" id="health1-network-wrap">
+          <div id="health1-network" aura:id="network" class="hc-patientnetwork__container"></div>
+        </div>
+        <div class="slds-col slds-size--1-of-1" id="health1-network-control">
+            <div class="slds-grid">
+                <div class="slds-col slds-has-flexi-truncate">
+                    <div class="slds-grid">
+                        <div class="slds-button-group">
+                            <button class="slds-button slds-button--icon-border-filled" title="{!$Label.healthcloudga.Button_Label_Zoom_In}" data-selected="false" onclick="{!c.onZoomInClicked}">
+                                <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#add" class="slds-button__icon" style="" />
+                            </button>
+                            <button class="slds-button slds-button--icon-border-filled" title="{!$Label.healthcloudga.Button_Label_Zoom_Out}" data-selected="false" onclick="{!c.onZoomOutClicked}">
+                                <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#dash" class="slds-button__icon" style="" />
+                            </button>
+                        </div>
+                        <button class="slds-button slds-button--icon-border-filled" title="{!$Label.healthcloudga.Button_Label_Reset}" onclick="{!c.onResetButtonClicked}">
+                            <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#topic" class="slds-button__icon" style="" />
+                        </button>
+                        <button class="slds-button slds-button--icon-border-filled" title="{!$Label.healthcloudga.Button_Label_Refresh}" onclick="{!c.onRefreshButtonClicked}">
+                            <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#refresh" class="slds-button__icon" style="" />
+                        </button>
+                    </div>
+                </div>
+                <div class="slds-col slds-shrink-none slds-align-middle slds-no-flex">
+                    <div class="slds-form--inline">
+                        <button class="slds-button slds-button--neutral" title="button" data-selected="false" id="health1-careteamaddnewmember-button" onclick="{!c.onAddMemberClicked}">{!$Label.healthcloudga.Header_Add_Member}</button>
+                        <HealthCloudGA:HcHelpTrayDropDown helpType="CareTeam" />
+                    </div>
+                </div>
+            </div>
+        </div>
+      </aura:if>
+    </div>
+    <ui:resizeObserver onresize="{!c.onresize}" />
+    <ltng:require scripts="{!$Resource.HealthCloudGA__commonresources + '/d3-4.4.0/d3.js'}" afterScriptsLoaded="{!c.initD3}" />
+</aura:component>

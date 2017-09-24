@@ -1,0 +1,56 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<h1>Hello</h1>
+    <ltng:require styles="{! $Resource.P360JqueryResources + '/jquery.dataTables.min.css'}"/>
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}"/>
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jQueryDataTableJs.js'}"/>
+    <ltng:require scripts="{!join(',', 
+    						$Resource.P360JqueryResources + '/jquery-2.2.4.min.js', 
+    						$Resource.JQueryUI + '/jquery-ui.min.js')}" afterScriptsLoaded="{!c.scriptsLoaded}"/>
+     <aura:attribute name="collpaseText" type="String" default="+"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="aura:doneRendering" action="{!c.doneRendering}"/>
+    <aura:handler event="aura:waiting" action="{!c.waiting}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.doneWaiting}"/>
+    
+
+    <div>
+        
+    	<div class="PalletCheckbox">
+            <ul>
+                <li><span>Clinical Notes</span><br/><input type="checkbox" /></li>
+                <li><span>Diagnostic Reports</span><br/><input type="checkbox" /></li>
+                <li><span>Laboratory Results</span><br/><input type="checkbox" /></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+        <article class="slds-card">
+            <div id="olyCSS" data-role="collapsibleset">
+                <!--<aura:iteration items="{!v.tableList}" var="item">-->
+                    <div data-role="collapsible">
+                        <div id="expanderHead0" class="expanderHead"  >
+                            <h3 onclick="{!c.scriptsLoaded1}"> 
+                                <b>Item1</b>
+                                <span class="ToggleText">&#9656;</span>
+                            </h3>
+                            <div class="expanderContent" style="display:none;" >
+                                <span id="Loadingspinner">Loading...<ui:spinner /></span>
+                                <div>Content1</div>
+             
+                            </div>
+                        </div>
+                        <div id="expanderHead1" class="expanderHead"  >
+                            <h3 onclick="{!c.scriptsLoaded1}"> 
+                                <b>Item2</b>
+                                <span class="ToggleText">&#9656;</span>
+                            </h3>
+                            <div class="expanderContent" style="display:none;" >
+                                <span id="Loadingspinner">Loading...<ui:spinner /></span>
+                                <div>Content2</div>
+                            </div>
+                        </div>
+                    </div>
+                <!--</aura:iteration>-->
+            </div>
+        </article>
+    </div>
+</aura:component>

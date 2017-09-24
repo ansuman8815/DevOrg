@@ -1,0 +1,42 @@
+<aura:component controller="clinicalSummaryController">
+    <ltng:require styles="{! $Resource.SLDS090 + '/assets/styles/salesforce-lightning-design-system.css'}"/>
+    
+    <aura:attribute name="EHRCondition" type="HealthCloudGA__EhrCondition__c[]"/>
+    <aura:attribute name="patientId" type="String" />
+    <aura:attribute name="recordLimit" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <br/>
+    <article class="slds-card">       
+        <div class="slds-card__header slds-grid">
+            <div class="slds-media__body">
+                <h1 class="slds-text-heading--small" title="Patient Problem List"><b>Patient Problem List</b></h1>
+            </div>
+        </div>
+        
+        <div class="slds-card__body"> 
+            <table class="slds-table slds-table--bordered slds-no-row-hover slds-table--cell-buffer">
+                <thead>
+                    <tr class="slds-text-title--caps">
+                        <th scope="col"><span class="slds-truncate"><b>Source Partner  Name</b></span></th>
+                        <th scope="col"><span class="slds-truncate"><b>Diagnosis Code</b></span></th>
+                        <th scope="col"><span class="slds-truncate"><b>Coding System</b></span></th>
+                        <th scope="col"><span class="slds-truncate"><b>Hospital Problem</b></span></th>
+                        <th scope="col"><span class="slds-truncate"><b>Chronic Problem</b></span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.EHRCondition}" var="EHRCondition">
+                        <tr class="slds-hint-parent">
+                            <td class="slds-truncate">{!EHRCondition.HealthCloudGA__SourceSystem__c}</td>
+                            <td class="slds-truncate">{!EHRCondition.HealthCloudGA__Code__c}</td>
+                            <td class="slds-truncate">{!EHRCondition.HealthCloudGA__CodeSystem__c}</td>
+                            <td class="slds-truncate">{!EHRCondition.Hospital_Problem__c}</td>
+                            <td class="slds-truncate">{!EHRCondition.Chronic_Problem__c}</td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+        </div>
+        
+    </article>
+</aura:component>

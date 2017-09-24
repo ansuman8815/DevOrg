@@ -1,0 +1,13 @@
+<!--
+ * Copyright © 2017 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description concrete component for the relationship map leaf header
+ * @since 210
+-->
+<aura:component description="HcRelationshipTreeLeafHeader" extends="HealthCloudGA:abstractRelationshipTreeLeafHeader">
+
+    <aura:set attribute="treeLeafHeaderNameLink">
+        <HealthCloudGA:HcActionText label="{! empty(v.entity.elements.length) ? v.entity.name : format($Label.healthcloudga.Header_Section_Group_Name, v.entity.name, v.entity.elements.length) }" objId="{!v.entity.objId}" />
+    </aura:set>
+</aura:component>

@@ -1,0 +1,10 @@
+<aura:component >
+    <aura:attribute name="recordID" type="String"/>
+    <aura:attribute name="KeyPrefixMap" type="MAP"/>
+    <aura:attribute name="iconName" type="string"/>
+    <aura:attribute name="Title" type="string"/>
+    <!--<aura:attribute name="HideIcon" type="Boolean"/>-->
+    <aura:handler name="init" action="{!c.doinit}" value="{!this}"/>
+   	<lightning:icon iconName="{!v.iconName}" size="small" title="{!v.Title}" class="slds-input__icon"/>
+    
+</aura:component>

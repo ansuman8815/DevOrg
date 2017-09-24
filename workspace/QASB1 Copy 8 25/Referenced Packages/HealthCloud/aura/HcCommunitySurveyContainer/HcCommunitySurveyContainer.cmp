@@ -1,0 +1,45 @@
+<!--
+ * Copyright © 2017 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description: Conatiner component for Survey for Communities
+ * @since 210
+-->
+<aura:component controller="HealthCloudGA.HcSurveyController" description="Container component for Surveys">
+	<aura:attribute name="listViewHeaderName" type="String" default="All Surveys" access="global" description="Default Name for the Surveys List View" />
+	<aura:attribute name="pageSize" type="Integer" default="10" access="global" description="Default Page Size for the Surveys" />
+	<aura:attribute name="listRecentResponses" description="List the recent responses for a Survey" type="Boolean" default="true" access="global"/>
+    <aura:attribute name="responseData" description="List of surveys" type="List" access="global"/>
+    <aura:attribute name="activeComponentId" description="Component Id that is active like SurveyList or SurveyDetails" type="String" default="SurveyList" access="global"/>
+    <aura:attribute name="surveyResponseId" description="Survey Response Id" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+
+    <table class="{!v.activeComponentId == 'SurveyList' ? 'slds-table slds-table_bordered slds-table_cell-buffer' : 'slds-hide'}">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col">
+                    <div class="slds-truncate" title="{!$Label.healthcloudga.Field_Label_Name}">{!$Label.healthcloudga.Field_Label_Name}</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.responseData}" var="item">
+                <tr>
+                    <th scope="row" data-label="{!$Label.healthcloudga.Field_Label_Name}">
+                        <div class="slds-truncate" title="{!$Label.healthcloudga.Field_Label_Name}">
+                            <a href="javascript:void(0);" onclick="{!c.showDetails}" data-data="{!item.Id}">{!item.Invitation.Name}</a>
+                        </div>
+                    </th>
+
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+    <div class="{!v.activeComponentId == 'SurveyList' ? 'slds-hide' :''}">
+        <lightning:breadcrumbs class="slds-p-bottom_small">
+            <lightning:breadcrumb label="{!$Label.healthcloudga.Text_Health_Assessments}" onclick="{!c.showList}"/>
+            <lightning:breadcrumb label=""/>
+        </lightning:breadcrumbs>
+        <div id="survey-details" aura:id="survey-details" />
+    </div>
+</aura:component>

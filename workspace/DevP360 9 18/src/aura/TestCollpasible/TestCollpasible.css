@@ -1,0 +1,127 @@
+.THIS {
+    width:98%;background-color:transparent;margin-left:10px;
+}
+.THIS .slds-card{
+	background-color:transparent;margin-top:10px;
+}
+.THIS #accordion > div {
+    height: auto !important;
+}
+.THIS .clear{float:none;clear:both;}
+.THIS .TogggleText{float:right;cursor:pointer;}
+.THIS .dataTables_filter,.THIS .dataTables_paginate,.THIS .dataTables_length,
+.THIS .dataTables_info{display:none;} 
+.THIS .slds-table--striped tbody tr > td,.THIS  .slds-table--striped tbody tr > th {
+    background-color: #FFF;
+}
+.THIS i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.THIS .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.THIS .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.THIS .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.THIS .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.THIS table.dataTable.no-footer, .THIS table.dataTable.no-footer thead{border-bottom:none;}
+/*.THIS .accordionItem{box-shadow:0 4px 10px -2px rgba(0, 0, 0, 0.3);}*/
+.THIS .PalletCheckbox ul {
+        text-align: center;
+    width: 100%;
+    border: 1px solid #ccc;
+    float: left;
+    margin-bottom: 10px;
+    padding: 10px 0px;
+    background-color:#fff;
+}
+.THIS .PalletCheckbox li {
+    float: left;
+    width: 33.3%;
+}
+.THIS #olyCSS h3{background-color: #FFF;cursor:pointer;border: 1px solid #ccc;
+    /* margin-bottom: 10px; */
+    padding: 5px 0 5px 5px;}
+
+
+
+
+.THIS .slds-table thead {
+    background-color: #717F8A;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-family:inherit !important;
+    text-shadow:none;
+}
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>td,
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>th {
+    background-color: #E6EBEE;
+}
+.THIS .slds-media__body {
+    position: relative;
+}
+.THIS .slds-card__header {
+    border: 0px;
+    background-color: #EFF3F6;
+    margin-bottom: 0px;
+    height: 50px;
+    padding-left: 0;
+}
+.THIS .slds-text-heading--small {
+    font-size: 12px;
+    color: #707f8a;
+}
+.THIS .slds-text-heading--small b {
+    font-size: 21px;
+    color: transparent;
+}
+.THIS .slds-table tr {
+    height: 50px;
+}
+.THIS table.dataTable thead th {
+    padding: 10px!important;
+}
+.THIS .slds-table tbody td {
+    color: #707f8a;
+    font-size: 14px;
+    max-width: 300px;
+    word-wrap: break-word;
+    white-space: inherit;
+}
+.THIS .slds-text-heading--small {
+    text-align: left;
+    margin-top: 18px;
+}
+.THIS .slds-card {
+    border-radius: 0;
+    border: 0;
+    margin: 0 auto 20px;
+    background-color: #eef3f6;
+    padding-bottom: 20px;
+}
+.THIS .slds-text-heading--small b span {
+    border-left: 1px solid;
+    padding-left: 10px;
+    margin-left: 10px;
+    color: #9aa6af;
+    font-size: 12px;
+    font-weight: normal;
+}
+.THIS .expanderContent{display:none;}
+.THIS .expanderHead{margin-bottom:10px}

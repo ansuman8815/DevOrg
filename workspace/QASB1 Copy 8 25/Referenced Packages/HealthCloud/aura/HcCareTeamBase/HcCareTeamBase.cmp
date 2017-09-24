@@ -1,0 +1,34 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCareTeamBase component,  holds all the components related to HcCareTeam visualization functionality
+ * @since 196
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent">
+    <aura:attribute name="modal" type="Object[]" />
+    <aura:attribute name="memberObj" type="Object" />
+    <aura:attribute name="patientId" type="String" default="" />
+    <aura:attribute name="userDateFormat" type="String" default="" />
+    <aura:attribute name="userDateTimeFormat" type="String" default="" />
+    <aura:attribute name="patientRole" type="String" />
+    <aura:attribute name="detailCmpInitDone" type="Boolean" default="false" />
+    <aura:attribute name="carePlanId" type="String" />
+    <aura:attribute name="careTeamByCaseId" type="Boolean" default="false" />
+    <aura:attribute name="shownInAlohaConsole" type="Boolean" default="false" />
+    <aura:registerEvent name="refreshPatientNetwork" type="HealthCloudGA:HcComponentStatusEvent" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="HealthCloudGA:HcComponentStatusEvent" action="{!c.handleComponentStatusEvent}" />
+    <aura:handler name="HcCareTeamEvent" event="HealthCloudGA:HcCareTeamCmpEvent" action="{!c.handleCareTeamDetailEvent}" />
+    
+    <div id='CollViewMainContent' class="{!'hc-careTeam slds-grid' + (v.shownInAlohaConsole ? '' : ' slds-card')}">
+        <div class="slds-col slds-size--1-of-1">
+            <HealthCloudGA:HcPatientNetwork HcCareTeamEvent="{!c.handleCareTeamDetailEvent}" patientId="{!v.patientId}" patientRole="{!v.patientRole}" carePlanId="{!v.carePlanId}" careTeamByCaseId="{!v.careTeamByCaseId}" />
+            <div id="health1-careteamdetail" aura:id="health1-careteamdetail" class="animated slds-hide fadeOutRight">
+            </div>
+        </div>
+    </div>
+    <div aura:id="remove-modal">
+        {!v.modal}
+    </div>
+</aura:component>

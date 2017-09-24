@@ -1,0 +1,77 @@
+.THIS .health1-patientlist-dropdown {
+    max-width: 200px;
+}
+
+.THIS .health1-patientlist-dropdown .slds-dropdown {
+    min-width: 200px;
+}
+
+@media only screen and (max-width: 400px) {
+    .THIS .health1-responsive-header {
+        background-color: #16315C;
+        border-bottom: 0px solid #FFFFFF;
+        padding-top: 12px;
+        color: #E3F1FE;
+        position: fixed;
+        width: 100%;
+        top: 0px;
+        z-index: 1;
+    }
+
+    .THIS .health1-responsive-header .health1-patientlist-dropdown {
+        background-color: #2C4A78;
+        border-radius: 5px;
+        padding: 5px 10px;
+        max-width: 500px;
+    }
+    .THIS .health1-responsive-header .health1-patientlist-dropdown h1 {
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 12px;
+        min-width: 150px;
+    }
+    .THIS .health1-responsive-header .slds-type-focus {
+        border-bottom: 0;
+    }
+    .THIS .hc-responsive-table {
+        margin-top: 56px;
+    }
+    .THIS .hc-responsive-table tr {
+        background-color: #16315C;
+        height: 80px;
+    }
+    .THIS .hc-responsive-table tr.slds-is-selected > td {
+        background-color: #16315C;
+    }
+    .THIS .hc-responsive-table tr:not(.slds-no-hover):hover > td,
+    .THIS .hc-responsive-table tr.slds-is-selected:not(.slds-no-hover):hover > td {
+        background-color: #152A4B;
+        color: #0070d2;
+    }
+
+    .THIS .hc-responsive-table td {
+        padding: 0 25px;
+    }
+
+    .THIS .hc-responsive-table td:hover > div {
+        color: #0070d2;
+    }
+
+    .THIS .hc-responsive-table td > div {
+        text-transform: uppercase;
+        font-size: 80%;
+        color: #E3F1FE;
+    }
+
+    .THIS .health1-responsive-header .health1-small-hide,
+    .THIS .hc-responsive-table thead > tr,
+    .THIS .hc-responsive-table td,
+    .THIS .hc-responsive-table tr > td.account__name ~ td.account__name,
+    .THIS .hc-responsive-table .ast-columnName {
+        display: none;
+    }
+
+    .THIS .hc-responsive-table tr > td.account__name {
+        display: table-cell;
+    }
+}

@@ -1,0 +1,159 @@
+<!-- 
+     Developed By : Ashlekh Gera 
+	 Date : 
+     Purpose : Use this component to search Records/MetaData like apexclass,trigger,component,static_resource,vfp.
+-->
+
+<aura:component implements="forceCommunity:searchInterface,force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="public" controller="CustomSearchController">
+    
+     <!-- Code is using these variable to run functionality -->
+    <aura:attribute name="foundResult" type="list"  access="private"/>
+    <aura:attribute name="objectKeyPrefix" type="Map" access="private"/>
+    <aura:attribute name="queryFast" type="String" access="private"/>
+    <aura:attribute name="isfoundResult" type="boolean" default="false"  access="private" />
+    <aura:attribute name="oldsearchtext" type="string" default=""  access="private"/>
+    <aura:attribute name="message" type="string" default=""  access="private"/>
+    <aura:attribute name="UserActionMessage" type="string" default=""  access="private"/>
+    
+    <!-- Admin can config this variable to desire functionality -->
+    <aura:attribute name="inUserContext" type="boolean" default="false"  description="Search should be run in user context or not, possible value is true and false."/>
+    <aura:attribute name="isEnableBlockScreen" type="boolean" default="false"  description="Block whole screen, user can't click during searching request."/>
+	<aura:attribute name="ProvideDeleteLink" type="boolean" default="false" description="It will enable delete link to delete the result, but currently is not fully developed." />
+    <aura:attribute name="RecordsIcons" type="boolean" default="true"  description="Do we need to show record icons, it will reduce the speed of functionality."/>
+	<aura:attribute name="OpenSearchMetaData" type="boolean" default="false"  description="ApexClass,VFP,Vcomponent,Trriger,AssignmenRule"/>
+    <aura:attribute name="OpenObjectSchema" type="boolean" default="true"  description="Standard, Custom Objects"/>
+
+    <aura:handler name="init" action="{!c.doinit}" value="{!this}"/>
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    
+    <aura:if isTrue="{!v.isEnableBlockScreen}">
+        <div aura:id="isEnableBlockScreenId" class="slds-backdrop slds-backdrop--open slds-hide" style="background: transparent;">
+            <center>
+                <lightning:spinner class="enableSpinner" variant="brand" size="medium"/>
+            </center>    
+        </div>
+    </aura:if>
+   
+   <article class="slds-card1">   
+        <div class="slds-card__body slds-p-around--small" tabindex="0" > 
+            <div tabindex="0" onblur="{!c.hideshowClass}" class="slds-form-element slds-lookup slds-is-close" aura:id="hideshowsldc" 
+                 id="hideshowsldc" data-select="multi" data-scope="single">
+                <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--left">
+                    <lightning:icon iconName="utility:search" size="x-small" alternativeText="Indicates approval" class="slds-input__icon marginBottom"/>
+                    <input onblur="{!c.hideshowClass}" 
+                           onfocus="{!c.foucsOnSearchText}"
+                           aura:id="SearchInputTextID" 
+                           class="slds-lookup__search-input slds-input" 
+                           type="text" aria-autocomplete="list" 
+                           role="combobox" 
+                           aria-expanded="true" 
+                           aria-activedescendant="" 
+                           placeholder="Search" 
+                           value="" 
+                           onkeyup="{!c.findout}"/>
+                    <lightning:spinner aura:id="spinner" class="customSpinnerCSS slds-hide" variant="brand" size="small"/>
+                </div>
+                <div class="slds-lookup__menu" role="listbox">
+                    <!-- <div>
+                        <a href="javascript:void(0);" class="slds-lookup__item-action slds-lookup__item-action-1-label">
+                      <span class="slds-truncate">&quot;salesforce&quot; in accounts</span>
+                   </a>
+                    </div>-->
+                    
+                    <ul class="slds-lookup__list" role="presentation" aura:id="resultInsertionId" id="resultInsertionId">
+                        <span>
+                            <aura:if isTrue="{!and(v.isfoundResult,v.foundResult!=null,v.foundResult.length>0)}">
+                                <span>
+                                    <aura:iteration items="{!v.foundResult}" var="res">
+                                        <li>
+                                            <span   class="slds-lookup__item-action slds-media slds-media--center"  >
+                                                <aura:if isTrue="{!v.ProvideDeleteLink}">
+                                                    <span onclick="{!c.ActionOnRecord}" data-id="{!res.Id+'#DELETE'}" >
+                                                        <lightning:icon iconName="utility:delete" size="x-small" title="Delete" class="slds-input__icon"/>
+                                                    </span>
+                                                </aura:if>   
+                                                <span onclick="{!c.ActionOnRecord}" data-id="{!res.Id+'#NEWWINDOW'}">
+                                                    <lightning:icon iconName="utility:new_window" size="x-small" title="Open in new Window" class="slds-input__icon"/>
+                                                </span>
+                                                
+                                                <aura:if isTrue="{!v.RecordsIcons}">
+                                                <span onclick="{!c.ActionOnRecord}" data-id="{!res.Id+'#NEWWINDOW'}">
+                                                    <c:ObjectIconsRunTime recordID="{!res.Id}"  KeyPrefixMap="{!v.objectKeyPrefix}"/>
+                                                </span>
+                                                </aura:if>
+                                                <div class="slds-media__body" data-id="{!res.Id+'#OPEN'}" onclick="{!c.ActionOnRecord}" style="margin-left:5px">
+                                                    <div class="slds-lookup__result-text" >
+                                                        <aura:if isTrue="{!res.Name != undefined}">
+                                                            <mark>{!res.Name}</mark><span> </span>
+                                                            <aura:set attribute="else">
+                                                                <aura:if isTrue="{!res.LastName != undefined}">
+                                                                    <mark>{!res.LastName}</mark><span></span> 
+                                                                    <aura:set attribute="else">
+                                                                        <aura:if isTrue="{!res.Subject != undefined}">
+                                                                            <mark>{!res.Subject}</mark><span></span> 
+                                                                            <aura:set attribute="else">
+                                                                                <aura:if isTrue="{!res.Title != undefined}">	
+	                                                                                <mark>{!res.Title}</mark><span></span> 
+                                                                                </aura:if>  
+                                                                            </aura:set>
+                                                                        </aura:if>                                                                    </aura:set>
+                                                                </aura:if>
+                                                            </aura:set>
+                                                        </aura:if>	
+                                                    </div>  
+                                                    <span class="slds-lookup__result-meta slds-text-body--small">{!res.CreatedDate}</span>
+                                                </div>
+                                            </span>
+                                        </li>
+                                    </aura:iteration>
+                                </span>
+                                <aura:set attribute="else">
+                                    <li class="lookup__item SEARCH_OPTION slds-text-link--reset slds-grid slds-grid--vertical-align-center slds-truncate default highlighted uiAutocompleteOption forceSearchInputDesktopOption" role="presentation" >
+                                        <a class="SEARCH_OPTION slds-text-link--reset slds-grid slds-grid--vertical-align-center slds-truncate" role="option"  href="javascript:void(0);" >
+                                            <div class="slds-icon_container" >
+                                                <span class="slds-icon_container slds-icon-utility-search slds-icon slds-icon--small slds-icon-text-default slds-text-align--center slds-p-top--xx-small slds-m-vertical--xx-small slds-m-right--small slds-m-left--none slds-button__icon forceIcon" >
+                                                    <span class="slds-assistive-text" >Search </span>
+                                                </span>
+                                            </div>
+                                            <span class="mruSearchLabel slds-text-body--regular slds-text-color--default slds-truncate slds-show slds-m-right--large" title="&quot;asgetr&quot; in Setup">{!v.message}</span>
+                                        </a>
+                                    </li>
+                                </aura:set> 
+                            </aura:if> 
+                        </span>
+                    </ul>
+                    <div>
+                        <!--  <a href="javascript:void(0);" class="slds-lookup__item-action slds-lookup__item-action-1-label">
+                         <span class="slds-truncate">Add Account</span>
+                     </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- toast code -->
+    
+	<article aura:id="DialogBoxActionID" class="slds-hide">
+        <div role="alertdialog" tabindex="-1" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-fade-in-open slds-modal--prompt">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header slds-theme--error slds-theme--alert-texture">
+                    <button data-action="CLOSE" onclick="{!c.DialogBoxAction}" class="slds-button slds-modal__close slds-button--icon-inverse" title="Close">
+                        <lightning:icon iconName="utility:close" size="small" title="Open in new Window" class="slds-input__icon"/>     <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 class="slds-text-heading--medium" id="prompt-heading-id">Delete Alert</h2>
+                </div>
+                <div class="slds-modal__content slds-p-around--medium">
+                    <p>{!v.UserActionMessage} </p>
+                </div>
+                <div class="slds-modal__footer slds-theme--default">
+                    <button data-action="DELETECONFIRMED" onclick="{!c.DialogBoxAction}" class="slds-button slds-button--neutral">Okay</button>
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </article>
+
+    
+</aura:component>

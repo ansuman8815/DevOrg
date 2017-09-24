@@ -1,0 +1,38 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcMultiDropdownCmp component, a dropdown component supporting multiple selections.
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcTimelineViewController" implements="force:appHostable">
+    <aura:attribute name="categories" type="List" />
+    <aura:attribute name="selectedItems" type="List" />
+    <aura:registerEvent name="filterChangedEvent" type="HealthCloudGA:HcMenuSelectedEvent" />
+    <div class="slds-dropdown-trigger" aria-haspopup="true">
+        <button class="slds-button slds-button--icon-more" aria-haspopup="true">
+            <span class="selectALLEventstrigger">{!$Label.healthcloudga.Dropdown_Select_All_Events}</span>
+            <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#down" class="slds-button__icon slds-button__icon--x-small" />
+        </button>
+        <div class="slds-dropdown slds-dropdown--left slds-dropdown--small slds-dropdown--menu">
+            <aura:iteration items="{!v.categories}" var="category">
+                <div class="slds-p-left--small slds-text-body--regular slds-dropdown__header">
+                    <div aura:id="category-checkbox" class="slds-p-left--xx-small slds-text-heading-label hcMultiDropDownCategory"> {!category.key} </div>
+                </div>
+                <div class="slds-text-body--small">
+                    <ul class="slds-dropdown__list" role="menu">
+                        <aura:iteration items="{!category.lValue}" var="eachItem">
+                            <li id="menu-10-0" class="slds-dropdown__item slds-is-selected" aria-selected="true" role="menuitem option" tabindex="0">
+                                <a tabindex="-1" class="slds-p-top--xxx-small slds-truncate" id="{!eachItem.id}" onclick="{!c.onItemCheckboxClick}">
+                                    <lightning:input type="checkbox" class="hcClickThrough" aura:id="health1-multiselectDropdownItem-input" label="{!eachItem.friendlyName}" name="{!'checkbox_' + eachItem.id}" checked="{!eachItem.selected}" value="{!eachItem.id}"/>
+                                </a>
+                            </li>
+                        </aura:iteration>
+                    </ul>
+                </div>
+                <ul class="slds-has-divider">
+                </ul>
+            </aura:iteration>
+        </div>
+    </div>
+</aura:component>

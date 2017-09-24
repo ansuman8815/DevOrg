@@ -1,0 +1,65 @@
+<aura:component controller="HealthCloudGA.HcCommunityTaskController" implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:hasRecordId" access="global" description="Lets users view and complete tasks associated with a care plan.">
+    <aura:attribute name="recordId" type="String" /><!--  NOTE: Do no change access per doc on implementing force:hasRecordId -->
+    <aura:attribute name="taskData" type="List" description="A list of Task Records"/>
+    <aura:attribute name="taskListMenuItems" type="Map" description="List of task list menu items"/>
+    <aura:attribute name="selectedTaskListMenuItem" type="String" default="All Tasks" description="Selected task list menu item"/>
+    <aura:attribute name="carePlanId" type="String" default="" description="Care Plan Id" access="global"/>
+    <aura:attribute name="taskFieldSet" type="String" default="HcCarePlanTaskFields" description="Task Field Set" access="global"/>
+    <aura:attribute name="showLabels" type="Boolean" default="true" access="global"/>
+    <aura:attribute name="showAll" type="Boolean" default="true" access="global"/>
+    <aura:attribute name="pageIndex" type="Integer" default="1" />
+    <aura:attribute name="recordCount" type="Integer" default="20" />
+    <aura:attribute name="showOwner" type="Boolean" default="true" description="Use when we don't want to show owner name on task rows for My Tasks etc."/>
+    <aura:attribute name="emptyStateText" type="String" default="Select a care plan to view the list of tasks." description="Text to display when there is no data to show."/>
+    <aura:attribute name="errorMsg" type="String" default=""/>
+    <aura:attribute name="showMore" type="Boolean" default="true"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+
+    <aura:handler event="HealthCloudGA:HcCommunityEventCarePlanSelected" action="{!c.onCarePlanChange}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="checkBoxSelectionEvent" event="HealthCloudGA:HcCommunityGlobalEvent" action="{!c.handleCheckBoxSelection}"/>
+
+    <aura:if isTrue="{!!empty(v.carePlanId) }">
+	<lightning:spinner alternativeText='{!$Label.healthcloudga.Alt_Text_Please_Wait}' class="{!(v.showSpinner == true ? '' : 'slds-hide')}" variant="brand" size="small" />
+        <aura:if isTrue="{!!empty(v.errorMsg)}">
+            <div class="slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture" role="alert">
+                <span class="slds-assistive-text">Info</span>
+                <h2>{!v.errorMsg}</h2>
+            </div>
+        </aura:if>
+        <div>
+            <header class="slds-card__header slds-media--center slds-grid">
+                <lightning:select name="mySelect" label=" " aura:id="mySelect" value="{!v.selectedTaskListMenuItem}" onchange="{!c.handleSelect}">
+                    <aura:iteration items="{!v.taskListMenuItems}" var="item">
+                        <option text="{!item.label}" value="{!item.value}" />
+                    </aura:iteration>
+                </lightning:select>
+            </header>
+        </div>
+        <div id="taskCard" class="slds-text-body--regular slds-p-top--medium">
+            <section class="slds-card__body">
+                <div>
+                    <!-- required for data due to Aura architecture -->
+                    <aura:if isTrue="{! !empty(v.taskData) }">
+                        <span>
+                            <aura:iteration items="{!v.taskData}" var="response" indexVar="iter">
+                                <HealthCloudGA:HcCommunityTaskCard record="{!response}" showLabels="{!v.showLabels}"/>
+                            </aura:iteration>
+                        </span>
+                        <aura:set attribute="else">
+                            <ui:outputText value="No tasks found." class="slds-m-left--large" />
+                        </aura:set>
+                    </aura:if>
+                </div>
+            </section>
+            <aura:if isTrue="{!v.showMore}">
+                <div class="slds-align--absolute-center">
+                    <lightning:button variant="brand" label="{#$Label.healthcloudga.More_task_Button_Label}" onclick="{!c.handleMore}" iconPosition="right" />
+                </div>
+            </aura:if>
+        </div>
+        <aura:set attribute="else">
+            <ui:outputText value="{!v.emptyStateText}" />
+        </aura:set>
+    </aura:if>
+</aura:component>

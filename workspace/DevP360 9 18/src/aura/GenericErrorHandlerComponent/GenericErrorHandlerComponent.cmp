@@ -1,0 +1,11 @@
+<aura:component access="global">
+    <!--<aura:handler event="c:GenericErrorHandlerEvent" action="{!c.doInit}"/>-->
+    <!--<aura:method name="myMethod" action="{!c.doInit}" access="global"> 
+        <aura:attribute name="title" type="String"/> 
+        <aura:attribute name="message" type="String"/> 
+    </aura:method>-->
+   
+    <aura:attribute name="title" type="String"/> 
+    <aura:attribute name="message" type="String"/> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+</aura:component>

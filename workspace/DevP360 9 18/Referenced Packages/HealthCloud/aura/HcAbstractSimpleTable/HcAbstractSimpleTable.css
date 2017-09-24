@@ -1,0 +1,50 @@
+.THIS {
+    position: relative;
+    min-height: 4rem;
+}
+
+.THIS.ast-concreteBodyContainer {
+    min-height: 0px;   
+}
+
+.THIS table th.ast-columnName {
+    padding: 0px;
+}
+
+.THIS .ast-noSort .slds-th__action {
+    cursor: default;
+}
+
+.THIS table {
+    margin-bottom : 1rem;
+    min-height: 40px;
+}
+
+.THIS .ast-sortIcon__container {
+    float: left;
+    margin-top: -1px;
+	pointer-events: none;
+}
+
+.THIS .ast-viewMore__container {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.THIS .ast-viewMore__loading {
+    height: 32px;
+    line-height: 32px;
+}
+
+.THIS .ast-noItemsMessage {
+    position: absolute;
+    top: 3rem;
+}
+
+.THIS table.slds-hide + .ast-noItemsMessage {
+    top: 1rem;
+}
+
+.THIS .ast-cell__selection .slds-form-element__label {
+    display: none;
+}

@@ -1,0 +1,43 @@
+.THIS {
+}
+.THIS .slds-icon{
+    height : 50px;
+    fill : #3c91c7;
+    outline:none;
+    width:50px;
+}
+.THIS .helpIcon{fill : #fff;stroke: #3c91c7;stroke-width: 4px;}
+.THIS button:focus{outline:none;}
+
+
+.THIS ul.RegistryList{width:100%;padding:40px 35px;text-align:center;}
+.THIS ul.RegistryList li{width:50%;text-align:center;display:inline-block;}
+.THIS ul.RegistryList li img{width:50px;height:50px;}
+.THIS ul.RegistryList li p{color:#2f3537;font-size:16pt;margin-top:10px;}
+.THIS .mt120{margin-top:90px;}
+
+
+@media only screen and (max-width : 1280px) {
+  .THIS ul.RegistryList li {
+    width: 352px;
+}
+}
+@media only screen and (max-width : 1047px) {
+    .THIS ul.RegistryList li{width:235px;}
+}
+@media only screen and (max-width : 991px) {
+    .THIS ul.RegistryList li{width:200px;}
+}
+@media only screen and (max-width : 800px) {
+    .THIS ul.RegistryList li{width:145px; padding: 42px 0;} 
+    .THIS .dataTables_wrapper .dataTables_filter input{width:150px;}
+}
+@media only screen and (max-width : 768px) {
+    .THIS ul.RegistryList{padding: 70px 15px;}
+    .THIS ul.RegistryList li{ padding: 0;}   
+    .THIS ul.RegistryList li:first-child{width:66%;}
+    .THIS ul.RegistryList li:last-child{width:34%;}
+}
+@media only screen and (max-width : 480px) {
+    .THIS ul.RegistryList {padding: 30px 15px;}
+}

@@ -1,0 +1,10 @@
+<!--
+ * Copyright © 2016 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ *
+ * @since 204
+-->
+<aura:event type="APPLICATION" description="Event used to display/hide a spinner">
+	<aura:attribute name="isVisible" type="Boolean"/>
+</aura:event>

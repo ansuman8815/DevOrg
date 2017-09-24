@@ -1,0 +1,7 @@
+<aura:event type="APPLICATION" description="Event template" >
+    <aura:attribute name="patientid" type="string"/>
+    <aura:attribute name="viewDemographics" type="boolean"/>
+    <aura:attribute name="viewSocialsummary" type="boolean"/>
+    <aura:attribute name="viewEncountersummary" type="boolean"/>
+    <aura:attribute name="result" type="string"/>
+</aura:event>

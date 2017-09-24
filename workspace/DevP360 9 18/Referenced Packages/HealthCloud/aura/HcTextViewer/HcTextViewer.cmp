@@ -1,0 +1,35 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcTextViewer component, holds text that can be expanded
+ * @since 196
+-->
+<aura:component >
+    <aura:attribute name="show" type="Boolean" default="true" />
+    <aura:attribute name="showToggle" type="Boolean" default="true" />
+    <aura:attribute name="value" type="String" />
+    <aura:attribute name="valueTrun" type="String" />
+    <aura:attribute name="showMore" type="String" />
+    <aura:attribute name="showLess" type="String" />
+    <aura:attribute name="label" type="String" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <div aura:id="Healthcare_outerDiv">
+        <aura:if isTrue="{!!empty(v.label)}">
+          <div class="Healthcare-inlineBlock"><b><ui:outputText value="{!v.label}"/>&nbsp;&nbsp;</b></div>
+        </aura:if>
+        <div aura:id="Healthcare_innerDiv" class="Healthcare-inlineBlock Healthcare-TextAlign-middle">
+            <ui:outputText value="{!v.value}" />
+        </div>
+    </div>
+    <aura:if isTrue="{!v.showToggle}">
+        <aura:if isTrue="{!v.show}">
+            <a href="javascript:void(0)" class="Healthcare-TextViewer-showmore" onclick="{!c.showHide}">{!v.showMore}</a>
+            <aura:set attribute="else">
+                <a href="javascript:void(0)" class="Healthcare-TextViewer-showmore" onclick="{!c.showHide}">{!v.showLess}</a>
+            </aura:set>
+        </aura:if>
+    </aura:if>
+</aura:component>

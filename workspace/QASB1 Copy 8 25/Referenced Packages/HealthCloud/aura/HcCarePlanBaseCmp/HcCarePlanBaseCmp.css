@@ -1,0 +1,94 @@
+.THIS.hc-carePlanContainer {
+    padding-bottom: 2.5rem;
+}
+
+.THIS .center {
+    margin: 0px auto;
+}
+
+.THIS li.uiMenuItem>a{
+    height: 34px;
+    margin-left: 0.5rem;
+}
+.THIS li.uiMenuItem>a:hover{
+    background-color: #f4f6f9;
+    text-decoration: none;
+}
+
+.THIS li.uiMenuItem>a:focus{
+    background-color: #f4f6f9;
+    text-decoration: none;
+}
+
+.THIS li.uiMenuItem>a:blur{
+    background-color: #ffffff;
+    text-decoration: none;
+}
+
+.THIS .slds-text-heading--label:hover, .THIS .slds-text-heading--label:focus {
+    text-decoration: none;
+}
+
+.THIS .slds-text-heading--label{
+    outline: none;
+}
+
+.THIS .slds-dropdown {
+    margin-top: 0rem;
+    margin-left: 0rem;
+}
+
+.THIS .menu-header-content {
+    position: relative;
+    margin-right: 2rem;
+}
+
+.THIS .slds-icon_container {
+    margin-left: 0rem;
+}
+
+.THIS .slds-scope .slds-p-left--small {
+    padding-left: 1rem;
+}
+
+.THIS .uiMenuList>div {
+    display: block;
+    margin-left: -0.5rem;
+}
+
+.THIS .hc-dropdown__list {
+    margin-left: -0.5rem;
+    min-width: 12rem;
+}
+
+.THIS .slds-icon-text-default {
+    fill: currentColor;
+}
+
+.THIS .health1-carePlanHeaderTitle {
+    /* Text style for "Care Plan" */
+    color: #172e5b;
+
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.THIS .createHeader {
+    padding-right: 0.5rem;
+    vertical-align: bottom;
+}
+
+.THIS .listMenuItem {
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.THIS .slds-dropdown--small {
+    min-width: 100%;
+}
+
+.THIS .hc-carePlanActionMenu {
+    position: absolute;
+    margin-top: 0.5rem;
+    right: 0;
+}

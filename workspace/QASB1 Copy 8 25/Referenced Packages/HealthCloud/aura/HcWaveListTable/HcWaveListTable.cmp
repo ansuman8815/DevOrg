@@ -1,0 +1,6 @@
+<aura:component description="HcWaveListTable" extends="HealthCloudGA:HcAbstractSimpleTable" controller="HealthCloudGA.HcWaveListIntegrationController">
+    <aura:method name="handleSelectionEvent" />
+    <aura:attribute name="selected" type="Object"/> 
+    <aura:attribute name="selectionType" type="String" default="SINGLE"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+</aura:component>

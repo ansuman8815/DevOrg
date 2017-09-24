@@ -1,0 +1,28 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcFieldSetsModal Component, The modal component for creating and editing field sets in a modal
+ * @since 196
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent">
+    <!-- <aura:attribute name="returnMsg" type="string" default="" /> -->
+    <aura:attribute name="toastObj" type="Object"/>
+    <aura:attribute name="headerTitle" type="string" default="Task" />
+    <aura:attribute name="fieldValueInfo" type="Object[]" />
+    <aura:attribute name="columnSize" type="Integer" default="1" />
+    <aura:attribute name="sObjectName" type="String" default="" />
+    <aura:attribute name="fieldSetName" type="String" default="" />
+    <aura:attribute name="auraId" type="String" default="" />
+    <aura:attribute name="viewType" type="String" default="" />
+    <aura:attribute name="recordId" type="String" default="" />
+    <aura:attribute name="prePopMap" type="Object[]" />
+    <aura:attribute name="isShow" type="Boolean" default="true" />
+    <aura:attribute name="parentListItemId" type="String" description="Parent's list item id to uniquely identify the parent" />
+    <aura:attribute name="topLevelParentId" type="String" description="Parent's list item id to uniquely identify the parent" />
+    <ltng:require scripts="{!join(',',$Resource.HealthCloudGA__industryresources + '/externalresources/moment/moment.js',$Resource.HealthCloudGA__industryresources + '/externalresources/moment/moment-timezone.js')}" afterScriptsLoaded="{!c.doInit}" />
+    <aura:handler name="messageCmpEvent" event="HealthCloudGA:HcMessageCmpEvent" action="{!c.handleFieldSetCmpEvent}" />
+                <HealthCloudGA:modal aura:id="modalCmp"  headerTitle="{!v.headerTitle}" modalToast="{!v.toastObj}" finishEvent="{!c.saveResult}" isDoable="true">
+                    <HealthCloudGA:HcRecordEditView aura:id="MandatorySection" columnSize="{!v.columnSize}" sObjectName="{!v.sObjectName}" fieldSetName="{!v.fieldSetName}" recordId="{!v.recordId}" viewType="{!v.viewType}" showValidationErrors="{v.showValidationErrors}" fieldValueInfo="{!v.fieldValueInfo}" prePopMap="{!v.prePopMap}" />
+                </HealthCloudGA:modal>
+</aura:component>

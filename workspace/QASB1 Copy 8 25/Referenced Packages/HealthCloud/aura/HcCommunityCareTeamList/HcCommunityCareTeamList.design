@@ -1,0 +1,17 @@
+<design:component label="Care Team for Health Cloud Empower">
+  <design:attribute name="PatientFieldSet" label="Patient Field Set Name" description="{!$Label.HealthCloudGA.Field_Label_DesignAttrib_PatientFieldSet}"/>
+  <design:attribute name="TeamMemberFieldSet" label="Team Member Field Set Name" description="{!$Label.HealthCloudGA.Field_Label_DesignAttrib_TeamMemberFieldSet}"/>
+  <design:attribute name="showLabels" label="Show labels" description="{!$Label.HealthCloudGA.Field_Label_DesignAttrib_showLabels}"/>
+  <design:attribute name="includeOwner" label="Include owner in list" description="{!$Label.HealthCloudGA.Cmty_CareTeam_IncludeOwner_Help}"/>
+  <!--  TODO: The default should be the label: {!$Label.HealthCloudGA.Cmty_CarePlanOwner}, but currently doesn't work in communities  -->
+  <design:attribute name="carePlanOwnerRoleLabel" 
+                    label="Care Plan Owner Role Name" 
+                    description="{!$Label.HealthCloudGA.Cmty_CarePlanOwnerLabelDescription}"
+                    default="Care Plan Owner"
+                    />
+  <sfdc:objects >
+      <sfdc:object >Case</sfdc:object>
+      <sfdc:object >Account</sfdc:object>
+  </sfdc:objects>
+
+</design:component>

@@ -1,0 +1,18 @@
+<aura:component extends="HealthCloudGA:HcAbstractSimpleTable" >
+
+    <aura:method name="handleActionEvent" action="{!c.handleCareTeamTableEvent}" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:set attribute="uniqueRecordIdField" value="memberId" />
+
+    <aura:dependency resource="HealthCloudGA:HcCareTeamTableActionMenu" /> 
+    <aura:set attribute="customActionComponentName" value="HealthCloudGA:HcCareTeamTableActionMenu" />
+
+    <aura:attribute name="modal" type="Aura.Component[]" />
+
+    <aura:handler name="HcCareTeamEvent" event="HealthCloudGA:HcCareTeamCmpEvent" action="{!c.handleCareTeamModalEvent}" />
+
+    <div> {!v.modal} </div>
+    
+</aura:component>

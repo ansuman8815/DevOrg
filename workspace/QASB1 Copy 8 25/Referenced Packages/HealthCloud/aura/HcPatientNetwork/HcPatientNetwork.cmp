@@ -1,0 +1,53 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcPatientNetwork component, a visualization component contains patient network and related actions to persons in network.
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcCareTeamController">
+    <aura:attribute name="patientId" type="String" />
+    <aura:attribute name="patientRole" type="String" default="" />
+    <aura:attribute name="hasPatient" type="Boolean" default="true" />
+    <aura:attribute name="patientRoleName" type="String" default="Patient" />
+    <aura:attribute name="carePlanId" type="String" />
+    <aura:attribute name="careTeamByCaseId" type="Boolean" default="false"/>
+
+    <aura:registerEvent name="HcCareTeamEvent" type="HealthCloudGA:HcCareTeamCmpEvent" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="HealthCloudGA:HcComponentStatusEvent" action="{!c.handleRefreshEvent}" />
+    <aura:handler name="destroy" value="{!this}" action="{!c.handleDestroy}"/>
+
+    <div class="slds-grid">
+      <!-- if we have a patient show graph -->
+
+      <aura:if isTrue="{! v.hasPatient }">
+        <div class="slds-col slds-size--1-of-1" id="health1-network-wrap">
+          <div id="health1-network" aura:id="network" class="hc-patientnetwork__container"></div>
+        </div>
+        <div class="slds-col slds-size--1-of-1" id="health1-network-control">
+            <div class="slds-grid" style="float:right;">
+                <div class="slds-col slds-shrink-none slds-align-middle slds-no-flex">
+                    <div class="slds-col slds-has-flexi-truncate" style="float:left;">
+                      <div class="slds-grid">
+                         <lightning:buttonGroup >
+                            <lightning:buttonIcon iconName="utility:add" size="medium" variant="border-filled" alternativeText="{!$Label.healthcloudga.Button_Label_Zoom_In}" onclick="{!c.onZoomInClicked}"/>
+                            <lightning:buttonIcon iconName="utility:dash" size="medium" variant="border-filled" alternativeText="{!$Label.healthcloudga.Button_Label_Zoom_Out}" onclick="{!c.onZoomOutClicked}"/>
+                         </lightning:buttonGroup>
+                         <lightning:buttonIcon iconName="utility:topic" size="medium" variant="border-filled" alternativeText="{!$Label.healthcloudga.Button_Label_Reset}" onclick="{!c.onResetButtonClicked}"/>
+                         <lightning:buttonIcon iconName="utility:refresh" size="medium" variant="border-filled" alternativeText="{!$Label.healthcloudga.Button_Label_Refresh}" onclick="{!c.onRefreshButtonClicked}"/>
+                       </div>
+                    </div>
+                    <div class="slds-form--inline" style="float:left; margin-left:0.5cm;">
+                        <button class="slds-button slds-button--neutral" title="button" data-selected="false" id="health1-careteamaddnewmember-button" onclick="{!c.onAddMemberClicked}">{!$Label.healthcloudga.Header_Add_Member}</button>
+                        <HealthCloudGA:HcHelpTrayDropDown helpType="CareTeam" />
+                    </div>
+                </div>
+            </div>
+        </div>
+      </aura:if>
+    </div>
+    <ui:resizeObserver onresize="{!c.onresize}" />
+    <ltng:require scripts="{!$Resource.HealthCloudGA__commonresources + '/d3-4.4.0/d3.js'}" afterScriptsLoaded="{!c.initD3}" />
+</aura:component>

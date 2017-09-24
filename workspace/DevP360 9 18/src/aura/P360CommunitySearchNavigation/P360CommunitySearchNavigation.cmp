@@ -1,0 +1,32 @@
+<aura:component controller="ProfileMenuController">
+    <ltng:require styles="{! $Resource.P360CommunityIcons}"/>
+    <ltng:require scripts="{! $Resource.svg4everybody + '/svg4everybody-master/dist/svg4everybody.js'}"  afterScriptsLoaded="{!c.myAction}"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="profilename" type="String" default=''/>
+	<fieldset class="slds-form--compound">
+        <aura:if isTrue="{!v.profilename != $Label.c.P360CommunityBasicAccess || !v.profilename == ''}">
+        <ul class="RegistryList">
+            <li>
+                <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/PatientRegisteries.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent" press="{!c.registryClick}"/>
+                <p>Patient Registries</p>
+            </li>    
+            <li>
+                <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/05-Help.svg#Layer_1'}" class="IconStyle helpIcon" buttonStyle="border:none; background-color:transparent" press="{!c.helpClick}"/>
+                <p>Help</p>
+            </li>
+        </ul>
+        <aura:set attribute="else">     
+            
+    <ltng:require scripts="{! $Resource.svg4everybody + '/svg4everybody-master/dist/svg4everybody.js'}"  afterScriptsLoaded="{!c.myAction}"/>
+    
+            <ul class="RegistryList">   
+                <li>
+                    <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/05-Help.svg#Layer_1'}" class="IconStyle helpIcon" buttonStyle="border:none; background-color:transparent" press="{!c.helpClick}"/>
+                    <p>Help</p>
+                </li>
+            </ul>
+        </aura:set>
+        </aura:if>
+    </fieldset>
+</aura:component>

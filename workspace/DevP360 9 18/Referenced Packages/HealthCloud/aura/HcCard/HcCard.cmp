@@ -1,0 +1,31 @@
+<!--
+ * Copyright © 2016 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ *
+ * @since 204
+-->
+<aura:component >
+    <aura:attribute name="cardHeader" type="String" default="" />
+    
+    <div class="slds-card slds-text-body--regular">
+        <header class="slds-card__header slds-media--center slds-grid">
+            <div class="slds-media__figure">
+                <HealthCloudGA:svgIconCmp class="slds-icon slds-icon-standard-thanks slds-icon--small slds-p-around--xx-small" 
+                    svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/action-sprite/svg/symbols.svg#share_thanks" />
+            </div>
+            <div class="slds-col slds-has-flexi-truncate slds-align-middle">
+                <div class="slds-media__body">
+                    <h3 class="slds-text-heading--small slds-m-right--small slds-truncate">
+                        <ui:outputText value="{!v.cardHeader}" />
+                    </h3>
+                </div>
+            </div>
+            <div class="slds-no-flex">
+                <button class="slds-button slds-button--neutral slds-col--bump-left">
+                    <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#table" class="slds-button__icon slds-button__icon--small" />
+                </button>
+            </div>
+        </header>
+    </div>
+</aura:component>

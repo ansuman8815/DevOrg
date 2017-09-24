@@ -1,0 +1,11 @@
+<aura:component controller="RegistryController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="regDiv">
+        <div id="searchIcon" class="searchIconStyle">
+            <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/07-Search.svg#Layer_1'}" class="SearchIconStyle" buttonStyle="border:none; outline:none; background-color:transparent" />
+        	<!--<img class="SearchIconStyle" src="{! $Resource.P360CommunityIcons + '/Search_icon.png'}" title="Search"/>-->
+        </div>
+        <select id="registryId" onchange="{!c.selectChange}" class="listCSS"></select>
+        <p id="regDisclaimer"><span style="text-align:left;color: #707f8a;font-size:12px;">Please note: Patient 360 registries are still in development. As of 03/31/17, four example registries have been provided: patients with hypertension, patients attributed to MS PPS by the New York Department of Health (DOH), patients with diabetes, and patients with cardiovascular disease. Each list is currently limited to returning only the first 10,000 qualifying patients. Additional, more tightly defined registries are currently in development.</span></p>
+	</div>
+</aura:component>

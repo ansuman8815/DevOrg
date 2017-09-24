@@ -1,0 +1,35 @@
+<!--
+ * Copyright © 2016 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ *
+ * @since 204
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcCarePlanTemplateApplyController">
+    <aura:attribute name="selectedCarePlanTemplatesFromCustomize" type="List" default="" />
+    <aura:attribute name="dueDate" type="Date" />
+    <aura:attribute name="patientId" type="String" default="" />
+    <aura:attribute name="careCoordinatorSelectedValue" type="String" default="" />
+    <aura:attribute name="patientUser" type="Object" default="{}" />
+    <aura:attribute name="objectLabelMap" type="Map" default="{}" description="Stores the object name for the Problems, goals, and task objects for localization purposes" />
+    <aura:attribute name="globalSettings" type="Object" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <aura:registerEvent name="afterApplyEvent" type="HealthCloudGA:HcCarePlanTemplateAfterApplyEvent"/>
+    <aura:method name="commitData" action="{!c.commitData}"></aura:method>
+    <aura:method name="reset" action="{!c.reset}"></aura:method>
+    <div>
+         <aura:iteration items="{!v.selectedCarePlanTemplatesFromCustomize}" var="aTemplate">
+          <div class="hc-template-itemgroup hc-tree">
+            <aura:iteration items="{!aTemplate.problemResponses}" var="aProblem">
+              <div>
+                <aura:if isTrue="{! aProblem.selected == undefined || aProblem.selected}">
+                  <HealthCloudGA:HcCarePlanTemplateProblem globalSettings="{!v.globalSettings}" problemName="{!aProblem.problemName}" templateId="{!aTemplate.carePlanTemplateId}" problemId="{!aProblem.problemId}" goals="{!aProblem.goalResponses}" selectable="false" review="true" objectLabelMap="{!v.objectLabelMap}" expanded="true" careCoordinatorSelectedValue="{!v.careCoordinatorSelectedValue}"
+              patientUser="{!v.patientUser}" dueDate="{!v.dueDate}" />
+              </aura:if>
+            </div>
+            </aura:iteration>
+          </div>
+        </aura:iteration>
+    </div>
+</aura:component>

@@ -1,0 +1,13 @@
+.THIS .health1-warning-icon {
+    fill: #C71B40;
+}
+
+.THIS .health1-check-icon {
+    fill: #29C36A;
+}
+
+.THIS .acdc-sortIcon__container {
+    float: left;
+    margin-top: -1px;
+    pointer-events: none;
+}

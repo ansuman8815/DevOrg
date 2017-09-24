@@ -1,0 +1,75 @@
+<aura:component >
+	<aura:attribute name='isLeadsValidationComplete' default='false' type='Boolean' />
+	<aura:attribute name='leadResults' type='List' />
+	<aura:attribute name='leadLabels' type='Object' />
+
+	<aura:handler name="change" value="{!v.isLeadsValidationComplete}" action="{!c.onLeadValidationCompleted}"/>
+	<aura:handler name="change" value="{!v.leadResults}" action="{!c.onLeadResultsChanged}"/>
+
+	<div aura:id="leadsLoadMessageContainer" class='lv-message_container slds-align--absolute-center'>
+		<lightning:spinner aura:id="leadsLoadSpinner" variant="brand" size="medium"/>
+
+		<div aura:id='validationSuccessMsg' class='slds-hide'>
+			<lightning:icon iconName="action:approval" size="medium" class="slds-m-right--small slds-float--left" />
+
+			<div class="slds-col slds-align-middle slds-float--left">
+				<h2 class="slds-text-heading--medium">{!$Label.healthcloudga.Msg_Lead_To_Patient_Validation_No_Errors}</h2>
+				<h2 class="slds-text-heading--small">{!$Label.healthcloudga.Text_Click_Next}</h2>
+			</div>
+		</div>
+	</div>
+
+	<div aura:id="leadsTable" class="slds-hide">
+		<div aura:id='validationFailureMsg' class='slds-align--absolute-center slds-p-around--large'>
+			<lightning:icon iconName="utility:warning" size="medium" variant="error" class="slds-m-right--small" />
+			<div class="slds-col slds-align-middle">
+				<h2 class="slds-text-heading--small">{!$Label.healthcloudga.Msg_Lead_To_Patient_Error}</h2>
+			</div>
+		</div>
+
+		<table class="slds-table slds-table--bordered slds-table--cell-buffer">
+			<thead>
+				<tr class="slds-text-title--caps">
+					<th scope="col">
+						<div class="slds-truncate">{! v.leadLabels.Name }</div>
+					</th>
+					<th scope="col">
+						<div class="slds-truncate">{! v.leadLabels.SourceSystem__c }</div>
+					</th>
+					<th scope="col">
+						<div class="slds-truncate">{! v.leadLabels.SourceSystemId__c }</div>
+					</th>
+					<th scope="col">
+						<div class="slds-truncate">{! v.leadLabels.MedicalRecordNumber__c }</div>
+					</th>
+					<th scope="col">
+						<div class="slds-truncate">{!$Label.healthcloudga.Field_Label_Reason}</div>
+					</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<aura:iteration items="{!v.leadResults}" var="leadResult">
+					<tr>
+						<th scope="row">
+							<div class="slds-truncate">{!leadResult.lead.Name}</div>
+						</th>
+						<td >
+							<div class="slds-truncate">{!leadResult.lead.SourceSystem__c}</div>
+						</td>
+						<td >
+							<div class="slds-truncate">{!leadResult.lead.SourceSystemId__c}</div>
+						</td>
+						<td >
+							<div class="slds-truncate">{!leadResult.lead.MedicalRecordNumber__c}</div>
+						</td>
+						<td >
+							<div class="slds-truncate">{!leadResult.errorMsg}</div>
+						</td>
+					</tr>
+				</aura:iteration>
+			</tbody>
+		</table>
+
+	</div>
+</aura:component>

@@ -1,0 +1,29 @@
+.THIS .Healthcare-TextViewer-cDetail {
+    color: #4b5c7b;
+    font-size: 14px;
+    font-weight: 400;
+    width: auto;
+    overflow-x: hidden;
+    white-space: normal;
+}
+
+.THIS .Healthcare-TextViewer-truncateTxt {
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.THIS .Healthcare-TextViewer-showmore {
+    font-size: 12px;
+    left: 30px;
+}
+
+.THIS .Healthcare-inlineBlock{
+  display: inline-block;
+}
+
+.THIS .Healthcare-TextAlign-middle{
+  vertical-align:middle;
+}

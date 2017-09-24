@@ -1,0 +1,8 @@
+.THIS.hc-multipleCarePlan {
+}
+
+.THIS .hc-carePlanActionMenu {
+    position: absolute;
+    margin-top: 0.5rem;
+    right: 0rem;
+}

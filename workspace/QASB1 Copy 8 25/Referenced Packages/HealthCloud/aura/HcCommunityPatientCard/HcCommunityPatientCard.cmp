@@ -1,0 +1,43 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCommunityPatientCard - Used to render Patient card on the community Care Team.
+ * @since 206
+-->
+
+
+<aura:component description="Patient card to shaow patient specific details">
+    <aura:attribute name="record" type="Object" description="Patient data" />
+    <aura:attribute name="showLabels" type="Boolean" default="true"/>
+    <aura:attribute name="maxNumberOfFields" type="Integer" default="5"/>
+    <aura:attribute name="renderedIndex" type="Integer" default="0"/>
+    <aura:attribute name="showMore" type="BOOLEAN" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+
+    <div class="slds-box HcCardContainer">
+        <div class="slds-tile slds-media">
+            <div class="slds-avatar slds-avatar--circle slds-avatar--large slds-media__figure">
+              <aura:if isTrue="{!v.record.isUser}">
+                <img class="slds-size--1-of-1" src="{!v.record.recordData.FullPhotoUrl}" />
+                <aura:set attribute="else">
+                    <img class="slds-size--1-of-1" src="{!v.record.recordData.PhotoUrl}"/>
+                </aura:set>
+              </aura:if>
+            </div>
+            <div class="slds-media__body">
+                <h2 class="slds-truncate HcTitleStyle">{!v.record.recordData.Name}</h2>
+                <div class="slds-tile__detail slds-text-body--small">
+                    <ul class="slds-list--vertical slds-has-dividers">
+                        <aura:iteration items="{!v.record.isUser ? v.record.userFields : v.record.contactFields}" var="field" indexVar="iter">
+                            <HealthCloudGA:HcCommunityOutputField record="{!v.record}" field="{!field}" showLabels="{!v.showLabels}" maxNumberOfFields="{!v.maxNumberOfFields}" fieldIndex="{!v.renderedIndex}"/>
+                        </aura:iteration>
+                    </ul>
+                </div>
+                <aura:if isTrue="{!v.showMore}">
+                    <a href="javascript:void(0);" onclick="{!c.showMore}"><lightning:icon iconName="utility:threedots" size="xx-small" class="slds-m-right--small" /></a>
+                </aura:if>
+            </div>
+        </div>
+    </div>
+</aura:component>

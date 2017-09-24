@@ -1,0 +1,23 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCareTeamRemoveModaleCmp Component, The modal component for confirming care team member disassociation.
+ * @since 196
+-->
+<aura:component controller='HealthCloudGA.HcCareTeamController' extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable">
+    <aura:attribute name="memberObj" type="Object" />
+    <aura:attribute name="isPatient" type="Boolean" />
+    
+    <aura:registerEvent name="HcCareTeamEvent" type="HealthCloudGA:HcCareTeamCmpEvent"/>
+    <HealthCloudGA:modal aura:id="modal" headerTitle="{!$Label.healthcloudga.Link_Remove_Member}" count="1" isDoable="{!!v.isPatient}" finishEvent="{!c.onRemove}" finishButtonText="{!$Label.healthcloudga.Link_Remove_Member}" modalSizeClass="">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size--1-of-1">
+                <div class="slds-form-element slds-form-element-stacked">
+                    <span>{!$Label.healthcloudga.Msg_Careteam_Remove_Member_Modal}</span>
+                </div>
+            </div>
+        </div>
+    </HealthCloudGA:modal>
+
+</aura:component>

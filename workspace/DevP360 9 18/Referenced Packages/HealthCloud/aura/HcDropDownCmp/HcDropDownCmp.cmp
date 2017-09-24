@@ -1,0 +1,34 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description Hc Drop Down Component, a drop down component used in the HcConditionBuilder component.
+ * @since 196
+ * TODO 1. Modify to use onclick event rather than registering individual events.
+ * TODO 2. Move to using Landmark class rather than using bootstrap menu-list__item  class.
+-->
+<aura:component >
+    <aura:attribute name="list" type="String[]" />
+    <aura:attribute name="label" type="String" />
+    <aura:attribute name="selectContainerCSS" type="String" default="" />
+    <aura:attribute name="buttonCSS" type="String" default="" />
+    <aura:attribute name="disabled" type="Boolean" default="false" />
+
+    <div class="{!'slds-dropdown-trigger ' +v.selectContainerCSS}" onmouseenter="{!c.showList}" onmouseleave="{!c.hideList}">
+        <button class="{!'slds-button slds-button--neutral slds-picklist__label ' +v.buttonCSS}" disabled="{!v.disabled ? 'disabled':''}" aria-haspopup="true">
+            <div class="health1-dropdown-caret">
+                <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#down" class="slds-button__icon slds-button__icon--x-small" />
+            </div>
+            <div class="slds-truncate">{!v.label}</div>
+        </button>
+        <div class="{!'slds-dropdown slds-dropdown--left slds-dropdown--menu ' +v.selectContainerCSS}">
+        <ul class="slds-dropdown__list slds-dropdown--length-5" aura:id="options" role="menu" aria-labelledby="menu1">
+            <aura:iteration items="{!v.list}" var="item">
+                <li class="slds-dropdown__item">
+                    <a href="#" class="slds-truncate" onclick="{!c.selectedItem}">{!item}</a>
+                </li>
+            </aura:iteration>
+        </ul>
+      </div>
+    </div>
+</aura:component>

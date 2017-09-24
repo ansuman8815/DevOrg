@@ -1,0 +1,152 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCarePlanTemplateContainer component, a component contains Templates tabs.
+ * @since 204
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcCarePlanTemplateController">
+  <aura:attribute name="headerTitle" type="String" default="{!$Label.healthcloudga.Header_Template_Page}" />
+  <aura:attribute name="carePlanId" type="String" default="" />
+  <aura:attribute name="patientId" type="String" default="" />
+  <aura:attribute name="selectedTemplates" type="Map" default="{}" />
+  <aura:attribute name="selectedTemplateList" type="List" default="[]" />
+  <aura:attribute name="careCoordinatorSelectedValue" type="Object" default="{}" description="User object that is selected from the care coordintor dropdown" />
+  <aura:attribute name="allCareTeamUsers" type="List" default="[]" />
+  <aura:attribute name="patientUser" type="Object" default="{}" />
+  <aura:attribute name="dueDate" type="String" />
+  <aura:attribute name="showDueDateCareCoordinator" type="Boolean" default="false" />
+  <aura:attribute name="selectedTemplateCountLimit" type="Integer" default="5" description="The maximum number of templates that can be added to the shopping cart" />
+  <aura:attribute name="packageNamespace" type="String" default="" />
+  <aura:attribute name="templatesProblemsGoalsTasks" type="Object" default="[]" />
+  <aura:attribute name="showNextButton" type="Boolean" default="true" />
+  <aura:attribute name="showBackButton" type="Boolean" default="false" />
+  <aura:attribute name="showApplyButton" type="Boolean" default="false" />
+  <aura:attribute name="selectedCarePlanTemplatesFromCustomize" type="List" default="[]" />
+  <aura:attribute name="initialized" type="Boolean" default="false" />
+  <aura:attribute name="showAlert" type="Boolean" default="false" />
+  <aura:attribute name="objectLabelMap" type="Map" default="{}" description="Stores the object name for the Problems, goals, and task objects for localization purposes" />
+  <aura:attribute name="careCoordintatorRoleLowerCase" type="String" default="" />
+
+  <aura:registerEvent name="HcToggleSpinnerEvent" type="HealthCloudGA:HcToggleSpinnerEvent" />
+  <aura:handler event="HealthCloudGA:HcToggleSpinnerEvent" action="{!c.toggleSpinner}" />
+
+  <ltng:require scripts="{!join(',',$Resource.HealthCloudGA__industryresources + '/externalresources/moment/moment.js',$Resource.HealthCloudGA__industryresources + '/externalresources/moment/moment-timezone.js')}" afterScriptsLoaded="{!c.onInit}" />
+
+  <div class="careplantemplate_container">
+
+    <aura:if isTrue="{!v.initialized}">
+      <aura:if isTrue="{!empty(v.allCareTeamUsers)}">
+
+        <div class="slds-notify_container">
+          <div class="slds-notify slds-notify--toast slds-theme--error" role="alert">
+            <div class="notify__content slds-grid">
+              <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#warning" class="slds-icon slds-icon--small slds-m-right--small slds-col slds-no-flex" />
+              <div class="slds-col slds-align-middle">
+                <h2 class="slds-text-heading--small">{!format($Label.healthcloudga.Msg_CareplanTemplateWizard_No_CareCoodinator_User, v.careCoordintatorRoleLowerCase)}</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aura:set attribute="else">
+          <div class="slds-page-header slds-col slds-shrink-none" role="banner">
+            <HealthCloudGA:toast aura:id="toast-message" />
+
+            <div class="slds-grid slds-grid--align-spread">
+              <h2 class="slds-text-heading--medium">{!v.headerTitle}</h2>
+
+              <aura:if isTrue="{! and(v.showDueDateCareCoordinator, !empty(v.patientId))}">
+                <div class="slds-form--inline slds-text-align--right">
+                  <div class="slds-form-element slds-p-right--small">
+                    <label class="slds-form-element__label slds-truncate" for="form-help">{!v.globalSettings.CARE_COORDINATOR_ROLE}</label>
+
+                    <div class="slds-form-element__control">
+                      <HealthCloudGA:HcDropdownMenu selected="{!v.careCoordinatorSelectedValue}" list="{!v.allCareTeamUsers}" labelClassName="slds-grid slds-no-space slds-align-middle" menuClassName="slds-dropdown slds-dropdown--left slds-dropdown--small slds-dropdown--menu">
+
+                        <aura:set attribute="trigger">
+                          <button class="slds-button slds-button--neutral">
+                            <span>{!v.careCoordinatorSelectedValue.Name}</span>
+                            <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#down" class="slds-button__icon slds-button__icon--x-small slds-m-left--x-small" />
+                            <span class="slds-assistive-text">View More</span>
+                          </button>
+                        </aura:set>
+                      </HealthCloudGA:HcDropdownMenu>
+                    </div>
+                  </div>
+
+                  <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="form-help">{!$Label.healthcloudga.Field_Label_Start_Date}</label>
+                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+                      <ui:inputDate aura:id="dateField" domId="dueDate-datepicker" class="slds-input slds-input--small input-has-icon--alt slds-text-body--small" displayDatePicker="true" value="{!v.dueDate}" />
+                    </div>
+                  </div>
+                </div>
+              </aura:if>
+            </div>
+          </div>
+
+          <div class="hc-block--fixed">
+            <lightning:tabset aura:id="navigationTabset" class="hc-carePlanTemplateTabset" variant="default">
+              <lightning:tab label="{!$Label.healthcloudga.Title_Select_Template_Tab}" id="selectTemplateTab">
+                <div class="slds-grid slds-wrap slds-grid--vertical-stretch">
+
+                  <div class="slds-col slds-size--1-of-2 slds-medium-size--2-of-3 slds-large-size--9-of-12">
+                    <HealthCloudGA:HcCarePlanSelectTemplate selectedTemplateCountLimit="{!v.selectedTemplateCountLimit}" selectedTemplateList="{!v.selectedTemplateList}" aura:id="selectTemplateCmp" />
+                  </div>
+
+                </div>
+              </lightning:tab>
+
+              <lightning:tab label="{!$Label.healthcloudga.Title_Customize_to_Patient_Tab}" id="customizeToPatientTab">
+                <HealthCloudGA:HcCarePlanTemplateCustomize aura:id="templateCustomize" globalSettings="{!v.globalSettings}" selectedCarePlanTemplates="{!v.templatesProblemsGoalsTasks}" objectLabelMap="{!v.objectLabelMap}" />
+
+                <aura:if isTrue="{!v.showAlert}">
+                  <div>
+                    <div aria-hidden="false" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" role="alertdialog" class="slds-modal slds-modal--prompt slds-fade-in-open">
+                      <div class="slds-modal__container slds-modal--prompt" role="document" id="prompt-message-wrapper" tabindex="0">
+                        <div class="slds-modal__header slds-theme--error slds-theme--alert-texture">
+                          <h2 class="slds-text-heading--small" id="prompt-heading-id"></h2>
+                        </div>
+                        <div class="slds-modal__content slds-p-around--small">
+                          <div>
+                            <p>{!$Label.healthcloudga.Msg_Warning_CarePlanTemplateWizard_Back_Button}</p>
+                          </div>
+                        </div>
+                        <div class="slds-modal__footer slds-theme--default">
+                          <button class="slds-button slds-button--neutral" onclick="{!c.handlePromptOkClick}">{!$Label.healthcloudga.Button_Label_Continue}</button>
+                          <button class="slds-button slds-button--neutral" onclick="{!c.handlePromptCancelClick}">{!$Label.healthcloudga.Button_Label_Cancel}</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="slds-backdrop slds-backdrop--open"></div>
+                  </div>
+                </aura:if>
+
+              </lightning:tab>
+
+              <lightning:tab label="{!$Label.healthcloudga.Title_Review_And_Apply}" id="reviewAndApplyTab">
+                <HealthCloudGA:HcCarePlanTemplateReview aura:id="reviewAndApply" globalSettings="{!v.globalSettings}" selectedCarePlanTemplatesFromCustomize="{!v.selectedCarePlanTemplatesFromCustomize}" dueDate="{!v.dueDate}" careCoordinatorSelectedValue="{!v.careCoordinatorSelectedValue}" patientUser="{!v.patientUser}" patientId="{!v.patientId}" objectLabelMap="{!v.objectLabelMap}" afterApplyEvent="{!c.processAfterApply}"/>
+
+              </lightning:tab>
+
+            </lightning:tabset>
+
+            <div class="{! 'slds-modal__footer hc-block__footer' + (v.showBackButton ? ' slds-modal__footer--directional' : '') }">
+              <aura:if isTrue="{!v.showBackButton}">
+                <button class="slds-button slds-button--neutral" onclick="{!c.handleBackClickOnTab}">{!$Label.healthcloudga.Button_Label_Back}</button>
+              </aura:if>
+              <aura:if isTrue="{!v.showNextButton}">
+                <button class="slds-button slds-button--neutral slds-button--brand" onclick="{!c.handleNextClickOnTab}">{!$Label.healthcloudga.Button_Label_Next}</button>
+              </aura:if>
+              <aura:if isTrue="{!v.showApplyButton}">
+                <button class="slds-button slds-button--neutral slds-button--brand" onclick="{!c.handleApplyClickOnTab}">{!$Label.healthcloudga.Button_Label_Apply}</button>
+              </aura:if>
+            </div>
+          </div>
+        </aura:set>
+      </aura:if>
+
+    </aura:if>
+  </div>
+</aura:component>

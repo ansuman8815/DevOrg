@@ -1,0 +1,4 @@
+<design:component label="Care Plan Selector for Health Cloud Empower">
+  <design:attribute name="picklistDefaultOptionText" label="Placeholder Text for Picklist" description="{!$Label.HealthCloudGA.CarePlan_PicklistDefaultOptionsText_Help_Text}" />
+  <design:attribute name="showBirthDate" label="Show birthdate" description="{!$Label.HealthCloudGA.CarePlan_ShowBirthDate_Help_Text}" />
+</design:component>

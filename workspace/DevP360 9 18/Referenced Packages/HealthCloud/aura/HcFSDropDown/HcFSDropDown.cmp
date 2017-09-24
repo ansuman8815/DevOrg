@@ -1,0 +1,38 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description dropDown component. Houses dropDown container
+ * @since 198
+-->
+<aura:component >
+    <aura:attribute name="list" type="Object[]" />
+    <aura:attribute name="selectedValue" type="String" access="public" />
+    <aura:attribute name="selectContainerCSS" type="String" default="" description="css used for container" />
+    <aura:attribute name="renderMenu" type="Boolean" default="false"/>
+    <aura:handler event="aura:doneRendering" action="{!c.onInit}" />
+    <div class="dropDownContainer" >
+        <div aura:id="selectContainer" aria-haspopup="true">
+            <div class="slds-input" onclick="{!c.showList}">
+                <div class="col-sm-12" style="padding: 6px 0 0;">
+                    <div class="slds-text-heading--small" aura:id="selectValue"> {!v.selectedValue}</div>
+                </div>
+
+                <div aria-hidden="true" class="slds-button__icon slds-button__icon--hint">
+                    <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#down" class="slds-button__icon" />
+                </div>
+            </div>
+            <aura:if isTrue="{!v.renderMenu}">
+                <div aura:id="options">
+                    <ul class="slds-menu-list" role="menu">
+                        <aura:iteration items="{!v.list}" var="item">
+                            <li class="slds-menu-list__item slds-lookup__item" role="menuitem" onclick="{!c.hideList}">
+                                <span title="{!item.value}">{!item.label}</span>
+                            </li>
+                        </aura:iteration>
+                    </ul>
+                </div>
+            </aura:if>
+        </div>
+    </div>
+</aura:component>

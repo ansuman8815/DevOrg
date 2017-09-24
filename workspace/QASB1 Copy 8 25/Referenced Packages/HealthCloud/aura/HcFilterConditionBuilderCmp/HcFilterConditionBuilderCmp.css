@@ -1,0 +1,48 @@
+/* First cell of row should be constant width */
+.THIS .slds-col:first-child {
+  padding-top: 0.5rem;
+  width: 5%;
+}
+
+.THIS .health1-deletebutton-icon {
+    fill:#C6CFE5;
+}
+
+.THIS .health1-filtercondition-action{
+	min-width: 61px;
+}
+
+
+.THIS .slds-dropdown-trigger:hover .slds-button[disabled] + .slds-dropdown {
+  visibility: hidden;
+}
+
+.THIS .slds-button[disabled]{
+  cursor: not-allowed;
+}
+
+.THIS #conditionInputValue .datePicker-openIcon,
+.THIS #conditionInputValue .timePicker-openIcon {
+    left: 85%;
+    top: 50%;
+    position: absolute;
+    margin-top: -0.5rem;
+}
+
+.THIS .dateTime-inputDate.form-element,
+.THIS .dateTime-inputTime.form-element{
+  position: relative;
+}
+
+/* Stencil / placeholder element */
+.THIS .health1-stencil__input {
+  border: 1px dashed #a8b7c7;
+}
+
+.THIS .slds-form-element__label {
+  display: block !important;
+  margin: 0 !important;
+}
+.THIS .health1-type-error-textColor{
+   color:#FF0000;
+}

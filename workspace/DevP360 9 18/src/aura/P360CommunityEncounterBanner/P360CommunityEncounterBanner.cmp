@@ -1,0 +1,147 @@
+<aura:component controller="PatientEncounterSummaryController">
+    <ltng:require styles="{! $Resource.SLDS090}"/>
+    <ltng:require scripts="{! $Resource.svg4everybody + '/svg4everybody-master/dist/svg4everybody.js'}"  afterScriptsLoaded="{!c.myAction}"/>
+    
+    <aura:attribute name="encounterid" type="String"/>
+    <aura:attribute name="empi" type="String"/>
+    <aura:attribute name="EncSummList" type="PatientEncounterSummaryController.PatientEncBannerData"/>
+    <aura:attribute name="svgPath" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>    
+    <aura:handler event="aura:doneRendering" action="{!c.doneRendering}"/>
+    <div>
+        <p class="sectionTitle">Encounter Details</p>
+        
+        <div class="slds-grid slds-wrap slds-grid--pull-padded profileDiv ipadonlydisplay">
+            <div class="widfifper slds-p-horizontal--small  slds-size--1-of-1 slds-medium-size--1-of-3 slds-large-size--1-of-3 firstCol">
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Encounter Start Date</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.EncSummList.encStartDate}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Encounter End Date</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.EncSummList.encEndDate}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Source Partner Name</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.EncSummList.partnername}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Place of Service</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.EncSummList.placeOfService}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Encounter Status</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.EncSummList.encStatus}"/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Encounter Type</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.EncSummList.encType}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Primary Encounter Diagnosis</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.EncSummList.primaryEncDiagnosis}"/><br/>
+                </div>
+                
+            </div>
+            <div class="widfifper slds-p-horizontal--small  slds-size--1-of-1 slds-medium-size--1-of-3 slds-large-size--1-of-3 secondCol">
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Department</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.EncSummList.department}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Speciality</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.EncSummList.speciality}"/><br/>
+                </div>                   
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Admit Source</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.EncSummList.admitSource}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Discharge Disposition</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.EncSummList.dischargeDisposition}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Height {!v.EncSummList.heightUnit}</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.EncSummList.height}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">Weight {!v.EncSummList.weightUnit}</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.EncSummList.weight}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">BMI</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.EncSummList.bmi}"/><br/>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <span class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyTitle">BP</span>
+                    <ui:outputText class="slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-2 keyValue" value="{!v.EncSummList.bp}"/>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    
+    <div>
+        <div class="floatL palletDetail violet">
+            
+            <div class="floatL  palletTable">
+                <c:P360CommunityApiDynPallet >  
+                    <aura:set attribute="svgPath" value="{! $Resource.P360CommunityIcons + '/25-ProblemList.svg#Layer_1'}" />
+                    <aura:set attribute="whereclause" value="{!v.encounterid}" />
+                    <aura:set attribute="selectedId" value="{!v.encounterid}" />
+                    <aura:set attribute="empi" value="{!v.empi}" />
+                    <aura:set attribute="listName" value="Encounter Diagnoses" />
+                    <aura:set attribute="tableName" value="enc_diagonis" />
+                    <aura:set attribute="pageName" value="Encounter Summary" />
+                    <aura:set attribute="resourceName" value="Encounter Diagnoses" />
+                </c:P360CommunityApiDynPallet>
+            </div>
+        </div>
+        <div class="floatL palletDetail green mr0">
+            
+            <div class="floatL  palletTable">
+                <c:P360CommunityDynamicPallet >  
+                    <aura:set attribute="svgPath" value="{!$Resource.P360CommunityIcons + '/22-Medication.svg#Layer_1'}" />
+                    <aura:set attribute="whereclause" value="{!v.encounterid}" />
+                    <aura:set attribute="listName" value="Encounter Medications" />
+                    <aura:set attribute="tableName" value="enc_medication" />
+                    <aura:set attribute="pageName" value="Encounter Summary" />
+                </c:P360CommunityDynamicPallet>
+            </div> 
+        </div>
+        <div class="floatL palletDetail golden">
+            
+            <div class="floatL  palletTable">
+                <c:P360CommunityDynamicPallet >  
+                    <aura:set attribute="svgPath" value="{! $Resource.P360CommunityIcons + '/procedure1.svg#Layer_1'}" />
+                    <aura:set attribute="whereclause" value="{!v.encounterid}" />
+                    <aura:set attribute="listName" value="Encounter Procedures" />
+                    <aura:set attribute="tableName" value="enc_procedure" />
+                    <aura:set attribute="pageName" value="Encounter Summary" />
+                </c:P360CommunityDynamicPallet>
+            </div>
+        </div>
+        <div class="floatL palletDetail blue mr0">
+            <div class="floatL  palletTable">
+                <c:P360CommunityDynamicPallet >  
+                    <aura:set attribute="svgPath" value="{! $Resource.P360CommunityIcons + '/19-ClinicalNotes.svg#Layer_1'}" />
+                    <aura:set attribute="whereclause" value="{!v.encounterid}" />
+                    <aura:set attribute="listName" value="Encounter Clinical Notes" />
+                    <aura:set attribute="tableName" value="encounter_cnotes" />
+                    <aura:set attribute="pageName" value="Encounter Summary" />
+                </c:P360CommunityDynamicPallet>
+            </div>
+        </div>
+        <div class="floatL palletDetail blue mr0">
+            <div class="floatL  palletTable">
+                <c:P360CommunityDynamicPallet >  
+                    <aura:set attribute="svgPath" value="{! $Resource.P360CommunityIcons + '/Encounter_Provider_1.svg#Layer_1'}" />
+                    <aura:set attribute="whereclause" value="{!v.encounterid}" />
+                    <aura:set attribute="listName" value="Encounter Provider" />
+                    <aura:set attribute="tableName" value="encounter_provider" />
+                    <aura:set attribute="pageName" value="Encounter Summary" />
+                </c:P360CommunityDynamicPallet>
+            </div>
+        </div>
+    </div>
+</aura:component>

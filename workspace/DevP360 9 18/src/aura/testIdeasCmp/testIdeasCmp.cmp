@@ -1,0 +1,16 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+	Hello Lets test Popover component
+    
+        <div style="margin-top: 80px;">Hover here ->>
+            <c:Popover >
+                <aura:set attribute="popover">
+                    <img src="https://www.w3schools.com/html/w3schools.jpg"/>
+                    <P>hello lets test the popover</P>
+                </aura:set>
+                <a href="javascript:void(0);">&nbsp;Popover</a>
+            </c:Popover>
+            &nbsp;and see a popover!
+        </div>
+    
+    <c:CustomToolTip text="wow !! i m a custom tooltip." placement="right" iconSize="small"/>
+</aura:component>

@@ -1,0 +1,10 @@
+<design:component label="Timeline for Health Cloud Empower">
+  <design:attribute name="picklistDefaultOptionTextForTimeline" label="Empty State Text" description="{!$Label.HealthCloudGA.Timeline_PicklistDefaultOptionsText_Help_Text}" />
+  <design:attribute name="showPastActivity" label="Show past events" description="{!$Label.HealthCloudGA.Timeline_past_activity}" />
+  <design:attribute name="showFutureActivity" label="Show future events" description="{!$Label.HealthCloudGA.Timeline_future_activity}" />
+  <design:attribute name="pageReloadSize" label="Page Reload Size" description="{!$Label.HealthCloudGA.Page_Reload_size}" />
+  <sfdc:objects >
+  		<sfdc:object >Account</sfdc:object>
+        <sfdc:object >Case</sfdc:object>
+  </sfdc:objects>
+</design:component>

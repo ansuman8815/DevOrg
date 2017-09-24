@@ -1,0 +1,20 @@
+.THIS {
+   float: left;
+   width: 100%;font-family:inherit;
+}
+.THIS.populations{width: 100%;}
+.THIS .profileDiv{margin: 0px 0px 20px 0;display:block;}
+/*.THIS .firstCol{float:left;width:35%;}
+.THIS .secondCol,.THIS .thirdCol{float:left;width:30%;}*/
+.THIS .clear{clear:both;float:none;}
+.THIS .heading{font-size:24px;color:#004b7b;font-weight:bold;}
+.THIS .sectionTitle{font-size:20px;color:#004b7b;font-weight:bold;position:absolute;margin-top: 13px;}
+.THIS .keyTitle{font-size:14px;color:#707f8a;padding: 3px 0;}
+.THIS .keyValue{font-size:14px;color:#2f3537;padding: 3px 0;}
+.THIS .measureDiv{width: 50%;float: right;}
+/*.THIS .firstCol span.keyTitle,.THIS .secondCol span.keyTitle,
+ * .THIS .thirdCol span.keyTitle{width: 50%;display: inline-block;}*/
+.THIS .secondCol{border-left: 1px solid #ccc;border-right:1px solid #ccc;padding-left: 25px;}
+.THIS .thirdCol{padding-left: 25px;}
+/*.THIS .modalViewIcons{display:none;}*/
+.THIS #iconDivId .palletView{display:none;}

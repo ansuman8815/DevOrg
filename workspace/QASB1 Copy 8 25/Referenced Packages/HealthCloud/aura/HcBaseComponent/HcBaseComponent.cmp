@@ -1,0 +1,27 @@
+<aura:component controller="HealthCloudGA.HcAppConfig" implements="HealthCloudGA:baseIndustry" extensible="true" abstract="true">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="globalSettings" type="Object" />
+    <aura:attribute name="showSpinner" type="Boolean"/>
+    <aura:attribute name="startT" type="Integer"/>
+    <aura:attribute name="hasLicense" type="Boolean" description="Checks for assigned PSL License access" default="true"/>
+    <aura:attribute name="toastCmp" type="Aura.Component"/>
+    <aura:attribute name="modalCmp" type="Aura.Component"/>
+    <aura:handler event="HealthCloudGA:HcDelegateEvent" action="{!c.handleDelegatedAction}" phase="bubble" />
+
+    <ltng:require styles="{!$Resource.HealthCloudGA__healthresources + '/health1/css/health1.css'}"/>
+    <ltng:require scripts="{!$Resource.HealthCloudGA__commonresources + '/secure-filters/secure-filters.min.js'}"/>
+    
+    <aura:if isTrue="{!v.hasLicense}">
+        <lightning:spinner alternativeText='{!$Label.healthcloudga.Alt_Text_Please_Wait}' class="{!(v.showSpinner == true ? '' : 'slds-hide')}" variant="brand" size="medium"/>
+        {!v.body}
+        <aura:set attribute="else">
+            <HealthCloudGA:PSLAccessError aura:id="pslAccessError" headerTitleText="{!$Label.healthcloudga.Msg_Component_Has_NoAccess}" placeholder="{!$Label.healthcloudga.Msg_Component_Has_NoAccess}" />
+        </aura:set>
+    </aura:if>
+    <div>
+      {!v.toastCmp}
+    </div>
+    <div>
+      {!v.modalCmp}
+    </div>
+</aura:component>

@@ -1,0 +1,13 @@
+.THIS .sticky-banner {
+    background:#f4f6f9;
+}
+
+.THIS .floating-banner {
+    background:#f4f6f9;
+    position: relative; 
+    z-index:1;
+}
+
+.THIS .margin-at-the-top {
+    margin-top:55px;
+}

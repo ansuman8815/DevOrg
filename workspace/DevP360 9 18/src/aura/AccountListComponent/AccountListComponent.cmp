@@ -1,0 +1,45 @@
+<aura:component controller="AccountController">
+
+  <ltng:require scripts="{!$Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}"/>
+  <ltng:require scripts="{!$Resource.P360JqueryResources + '/jqx.base.css'}"/>
+  <ltng:require scripts="{!$Resource.P360JqueryResources + '/jqx-all.js'}"/>
+  <!--<ltng:require scripts="{! $Resource.P360JqueryResources + '/jQueryDataTableJs.js'}"/>
+  <ltng:require styles="{! $Resource.P360JqueryResources + '/jQueryDataTableMinCss.Css'}"/>-->
+   
+    
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}"/>
+    
+    <aura:attribute name="res" type="AccountController.DisplayAccountRecords[]" />
+     
+    <center style="clear:both;">
+	<article class="slds-card">    
+    <div class="slds-card__header slds-grid">
+         <div class="slds-media__body">
+                <h1 class="slds-text-heading--small" title="Patient Search Result"><b>Search Result</b></h1>
+        </div>
+    </div>        
+    <div class="slds"> 
+        <!--<table class="" id="searchResult" style="Height:100%;width:700px;align-center">
+            <thead>
+			<tr>
+            	<th scope="col"><span class="slds-truncate"><b>qwName</b></span></th>
+                <th scope="col"><span class="slds-truncate"><b>DOB</b></span></th>
+                <th scope="col"><span class="slds-truncate"><b>Gender</b></span></th>
+                <th scope="col"><span class="slds-truncate"><b>CIN</b></span></th>
+                
+            </tr>
+                </thead>
+            <tbody>
+               
+            </tbody>
+        </table>-->
+        <div id='jqxWidget'>
+          <div id="jqxgrid"></div>
+        </div>
+    </div>
+        
+    </article>
+    </center>
+    
+    
+</aura:component>

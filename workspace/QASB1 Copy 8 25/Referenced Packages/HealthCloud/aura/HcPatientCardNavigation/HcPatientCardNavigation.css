@@ -1,0 +1,162 @@
+/*
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description Controller for the patientDetailComponent
+ * @since 196
+*/
+
+.THIS .patientCard_dropdown {
+    height: 2rem;
+    min-width: 10rem;
+    width: 100%;
+    border: 1px solid #D8DDE6;
+    border-radius: 3px;
+    background-color: #FFFFFF;
+}
+
+.THIS li.uiMenuItem>a {
+    height: auto;
+    color: #1270d0;
+    margin-left: 0.5rem;
+}
+
+.THIS li.uiMenuItem>a:hover {
+    background-color: #f4f6f9;
+    text-decoration: none;
+    border-radius: 0;
+}
+
+.THIS li.uiMenuItem>a:focus {
+    background-color: #f4f6f9;
+    text-decoration: none;
+    border-radius: 0;
+}
+
+.THIS li.uiMenuItem>a:blur {
+    background-color: #ffffff;
+    text-decoration: none;
+}
+
+.THIS .drowpdown-icon_container {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    float: right;
+}
+
+.THIS .slds-text-heading--label:hover,
+.THIS .slds-text-heading--label:focus {
+    text-decoration: none;
+}
+
+.THIS .slds-text-heading--label {
+    outline: none;
+}
+
+.THIS .dropdown-label-content {
+    margin: 0.25rem;
+}
+
+.THIS .uiMenuList--default .uiMenuItem>a[aria-disabled=true] {
+    text-decoration: none;
+    color: #16325C;
+    cursor: default;
+    border: 0;
+}
+
+.THIS .uiMenuList>div {
+    display: block;
+    margin-left: -0.5rem;
+    min-width: 15.5rem;
+}
+
+.THIS .div[role=menu] {
+    overflow-y: visible;
+}
+
+.THIS .dropdown__list {
+    width: 100%;
+    max-height: 30rem;
+    max-width: none;
+}
+
+.THIS hr {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    color: #137CAD;
+}
+
+.THIS .column {
+    width: 4.7rem;
+}
+
+.THIS select.cSelect {
+    border: 1px solid lightgrey;
+    background-color: #B5BDC5;
+    border: medium none;
+    border-radius: 5px 0 0 5px;
+    color: white;
+    margin-left: 4.7rem;
+    width: 12rem;
+    height: 1.75rem;
+}
+
+.THIS .cSelect option {
+    padding-left: 1rem;
+}
+
+.THIS .cSelect {
+    z-index: 9999;
+}
+
+.THIS .cSelectNew {
+    z-index: 9999;
+    background-color: #95A1AA;
+    color: #FFF;
+    height: 2rem;
+    font-size: 0.75rem;
+}
+
+.THIS .cCategory {
+    background-color: #fff;
+    color: #556881;
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+
+.THIS .cDivider {
+    background-color: #fff;
+}
+
+.THIS .cDivider div {
+    background-color: gray;
+}
+
+.THIS .slds-dropdown {
+    margin-top: 1rem;
+    min-width: 12rem;
+}
+
+.THIS .slds-dropdown__item.liDummy.optgroup > a {
+    font-size: 14px;
+    color: #0174DF;
+    padding: 5px 10px 5px 21px;
+}
+
+.THIS hr:last-child {
+    display: none;
+}
+
+.THIS div.slds-media__figure {
+    display: none;
+}
+
+.THIS span.slds-text-heading--small.slds-truncate {
+    color: white;
+    background-color: rgb(194, 57, 52);
+    padding: 5px 11px;
+}
+
+.THIS .health1-inlineDisplay {
+    display:inline-block;
+}

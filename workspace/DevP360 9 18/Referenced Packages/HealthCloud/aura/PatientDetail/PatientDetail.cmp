@@ -1,0 +1,87 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description PatientDetailCmp aka patient card view
+ * @since 198
+-->
+<aura:component controller="HealthCloudGA.HcPatientTableController">
+    <aura:attribute name="isPSLRestricted" type="Boolean" default="false"/>
+    <aura:attribute name="userId" type="String" />
+    <aura:attribute name="picUrl" type="String" />
+    <aura:attribute name="result" type="Object[]" />
+    <aura:attribute name="dropValues" type="Object[]" />
+    <aura:attribute name="patientId" type="String" />
+    <aura:attribute name="risk" type="String" />
+    <aura:attribute name="errorMsg" type="String" default="none" />
+    <aura:attribute name="labelTextMap" type="Map" default="{}" access="PRIVATE" />
+    <aura:attribute name="labelNumberOfCarePlans" type="String" access="PRIVATE" />
+    <aura:attribute name="namespaceDash" type="String" access="PRIVATE" default="" />
+    <aura:attribute name="cardViewEntries" type="Object[]" />
+    <aura:attribute name="isMcpEnabled" type="String" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <ltng:require scripts="{!$Resource.HealthCloudGA__healthresources + '/health1/js/hcUtil.js'}" />
+    <div aura:id="pslError">
+      <aura:if isTrue="{!v.isPSLRestricted}">
+        <HealthCloudGA:PSLAccessError aura:id="pslAccessError" headerTitleText="{!$Label.healthcloudga.Msg_Component_Has_NoAccess}"/>
+        <aura:set attribute="else">
+          <div class="mainContainer" id="patientCardContent">
+              <aura:if isTrue="{!v.errorMsg != 'none'}">
+                  <div class="slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture HealthCare_Patientcard_bgColor" role="alert">
+                      <span class="slds-assistive-text">Info</span>
+                      <h2>{!v.errorMsg}</h2>
+                  </div>
+              </aura:if>
+              <div class="table-responsive">
+                  <div class="divContainer slds-grid slds-grid--vertical">
+                      <div class="HealthCare_Patientcard_positionfixed">
+                          <div class="HealthCare_Patientcard_divHeight">
+                              <div class="HealthCare-floatRight">
+                                  <HealthCloudGA:HcHelpTrayDropDown helpType="PatientCard" />
+                              </div>
+                              <ui:menu class="slds-dropdown slds-dropdown--menu slds-p-around--x-small">
+                                  <ui:menuTriggerLink aura:id="mytrigger" class="slds-text-heading--label">
+                                      <div class="dropdown-label-content">
+                                          <span>{!$Label.healthcloudga.Menu_Item_New_Patient_Tab}</span>
+                                          <lightning:icon iconName="utility:down" size="x-small" alternativeText="Open Menu" class="drowpdown-icon_container" />
+                                      </div>
+                                  </ui:menuTriggerLink>
+                                  <ui:menuList aura:id="menuList" class="dropdown__list slds-dropdown--small slds-m-top--small slds-scrollable--y" autoPosition="false">
+                                      <aura:iteration items="{!v.dropValues}" var="category" indexVar="index">
+                                          <aura:if isTrue="{!index ne 0}">
+                                              <ui:menuItemSeparator class="slds-has-divider--top-space" />
+                                          </aura:if>
+                                          <ui:actionMenuItem aura:id="patientCategoryItem" label="{!category.key}" disabled="true" class="slds-dropdown--actions" />
+                                          <aura:iteration items="{!category.lValue}" var="item">
+                                              <ui:actionMenuItem label="{!(item.id? item.id:item.name)}" class="slds-dropdown__item" click="{!c.selectMenuItem}">
+                                                  <li class="slds-m-bottom--xx-small ">
+                                                      <p class="slds-text-body--regular" title="{!item.name}">{!item.displayText}</p>
+                                                      <p class="slds-text-body-regular" title="{!item.name}">{!(item.displayTextSecondLine?item.displayTextSecondLine:'')}</p>
+                                                      <p class="slds-text-title " title="{!(item.caseNumber? item.caseNumber:'')}"> {!(item.caseNumber? item.caseNumber:'')}</p>
+                                                  </li>
+                                              </ui:actionMenuItem>
+                                          </aura:iteration>
+                                          <div class="{!(category.key == $Label.healthcloudga.Section_Care_Plans)? 'slds-p-left--xx-small slds-m-bottom--large slds-m-left--medium' :''}">
+                                              <ui:outputText value="{!(category.key == $Label.healthcloudga.Section_Care_Plans)? v.labelNumberOfCarePlans:''}" />
+                                          </div>
+                                      </aura:iteration>
+                                  </ui:menuList>
+                              </ui:menu>
+                          </div>
+                          <div class="slds-p-horizontal--x-large slds-p-top--x-large cardHeader">
+                              <div class="slds-grid slds-grid--vertical-align-center slds-grid--align-center tableStyle">
+                                  <HealthCloudGA:HcPatientProfilePicInfo patientId="{!v.patientId}" errorMsg="{!v.errorMsg}" />
+                                  <HealthCloudGA:HcPatientContactInfo patientId="{!v.patientId}" errorMsg="{!v.errorMsg}" />
+                              </div>
+                          </div>
+                      </div>
+                      <div class="patientRecordContainer">
+                          <HealthCloudGA:HcPatientDetails patientId="{!v.patientId}" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </aura:set>
+      </aura:if>
+    </div>
+</aura:component>

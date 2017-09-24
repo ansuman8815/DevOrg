@@ -1,0 +1,104 @@
+.THIS .datePicker-openIcon {
+    left: 90%;
+    top: 10px;
+    position: absolute;
+}
+
+.THIS .isRecurringCheckbox {
+    top: 16px;
+}
+
+.THIS .margin-top-5px {
+    margin-top: 5px;
+}
+
+.THIS .margin-top-10px {
+    margin-top: 10px;
+}
+
+.THIS .margin-top-15px {
+    margin-top: 15px;
+}
+
+.THIS .margin-top-20px {
+    margin-top: 20px;
+}
+
+.THIS .margin-top-30px {
+    margin-top: 30px;
+}
+
+.THIS .text-heading--medium.health1-task-message {
+    height: 18px;
+    color: #243764;
+
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+
+.THIS .health1-task-text {
+    color: #051d30;
+
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.THIS .textarea.health1-task-text {
+    height: 113px;
+    color: #051d30;
+
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.THIS .health1-task-number {
+    height: 34px;
+    color: #0b79de;
+
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.THIS .health1-task-recurringCheckboxDiv {
+    margin-top: 10px;
+}
+
+
+.THIS .slds-radio--faux:before{
+    display: none;
+}
+
+.THIS .slds-radio [type="radio"]:checked ~ .slds-radio--faux:after {
+     margin-top: 0;
+}
+
+.THIS .slds-checkbox--faux:before {
+    display : none;
+}
+
+.THIS .bgColor{
+    background-color:#C23934;
+    box-sizing: content-box;
+}
+
+.THIS .health1-is-required > .form-element__label:before {
+    content: '*';
+    color: #c23934;
+    position: absolute;
+    left: -0.5rem;
+}
+
+/* Spinner / please wait block in modal */
+
+.THIS .slds-modal__footer .slds-spinner--small {
+  display: inline-block;
+}
+
+/* IE10 hack for more robust modal flexbox behaviour */
+.THIS .slds-modal__content {
+  -ms-flex-positive: 0;
+  -ms-flex-negative: 1;
+  -ms-flex-preferred-size: auto;
+}

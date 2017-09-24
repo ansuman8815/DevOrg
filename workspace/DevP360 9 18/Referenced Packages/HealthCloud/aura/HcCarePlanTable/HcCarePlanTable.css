@@ -1,0 +1,58 @@
+.THIS .hc-carePlanTable { border-collapse: separate; }
+
+/* To allow care team member action dropdown menu to overflow 
+   over the subsequent care plan header */
+.THIS td.hc-carePlanTable_cell {
+    position: static;
+}
+
+.THIS .hc-carePlanTable_cell {
+    border: 1px solid #d8dde6;
+    padding: 0px !important;
+    border-collapse: collapse;
+}
+
+.THIS .hc-carePlanTable_cell .careplancard__header_expanded {
+    background-color: #f7f9fc;
+}
+
+.THIS .hc-carePlanTable_cell .careplancard__mainheader {
+    padding-top: 0px;
+}
+
+.THIS .hc-carePlanTable_cell .careplancard__mainheader h2 {
+    padding-left: 2.5rem;
+}
+
+.THIS .hc-carePlanTable_cell .careplancard__subheader {
+    margin-left: 2rem;
+}
+
+.THIS .hc-carePlanTable_cell .careplancard__body {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.THIS .hc-carePlanTable_cell .hc-carePlanActionMenu {
+    padding-right: 2.5rem;
+}
+
+.THIS .hc-carePlanTable_row:first-child .hc-carePlanTable_cell:first-child,
+.THIS .hc-carePlanTable_row:first-child .hc-carePlanTable_cell:first-child .careplancard__header_expanded { 
+    border-top-left-radius: 0.5rem; 
+}
+
+.THIS .hc-carePlanTable_row:first-child .hc-carePlanTable_cell:last-child,
+.THIS .hc-carePlanTable_row:first-child .hc-carePlanTable_cell:last-child .careplancard__header_expanded { 
+    border-top-right-radius: 0.5rem; 
+}
+
+.THIS .hc-carePlanTable_row:last-child .hc-carePlanTable_cell:first-child,
+.THIS .hc-carePlanTable_row:last-child .hc-carePlanTable_cell:first-child .careplancard__body { 
+    border-bottom-left-radius: 0.5rem; 
+}
+
+.THIS .hc-carePlanTable_row:last-child .hc-carePlanTable_cell:last-child,
+.THIS .hc-carePlanTable_row:last-child .hc-carePlanTable_cell:last-child .careplancard__body { 
+    border-bottom-right-radius: 0.5rem; 
+}

@@ -1,0 +1,34 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description PatientDetailCmp aka patient card view
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcPatientTableController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:attribute name="isPSLRestricted" type="Boolean" default="false" />
+    <aura:attribute name="dropValues" type="Object[]" />
+    <aura:attribute name="patientId" type="String" default="{!v.recordId}" />
+    <aura:attribute name="shownInAlohaConsole" type="Boolean" default="false" />
+
+    <!-- TODO: Siva: Remove this attribute and corresponding usage when persistent workspace panel is implemented -->
+    <aura:attribute name="isRenderedInPatientConsole" type="Boolean" default="true" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <div class="{!'hc-patientDetail' + (v.shownInAlohaConsole ? ' hc-alohaPatientDetail' : '')}" aura:id="pslError">
+        <aura:if isTrue="{!v.isPSLRestricted}">
+            <HealthCloudGA:PSLAccessError aura:id="pslAccessError" headerTitleText="{!$Label.healthcloudga.Msg_Component_Has_NoAccess}" />
+            <aura:set attribute="else">
+                <div class="hc-patientDetail-card">
+                    <HealthCloudGA:HcPatientCardNavigation patientId="{!v.patientId}" isRenderedInPatientConsole="{!v.isRenderedInPatientConsole}" />
+                </div>
+                <div class="hc-patientDetail-card">
+                    <HealthCloudGA:HcPatientInformation patientId="{!v.patientId}"/>
+                </div>
+                <div class="hc-patientDetail-card">
+                    <HealthCloudGA:HcPatientDetails patientId="{!v.patientId}" />
+                </div>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

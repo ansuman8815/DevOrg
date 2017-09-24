@@ -1,0 +1,51 @@
+<aura:component >
+    <aura:attribute name="isShow" type="Boolean" default="true" />
+    <aura:attribute name="index" type="Integer" default="1" />
+    <aura:attribute name="count" type="Integer" default="1" />
+    <aura:attribute name="isDoable" description="Flag that denotes if wizard can be completed. Enabled when completion criteria is met." type="Boolean" default="false" />
+    <aura:attribute name="finishButtonText" type="String" default="{!$Label.healthcloudga.Button_Label_Save}" />
+    <aura:attribute name="finishButtonClass" type="String" default="slds-button--brand" />
+    <aura:attribute name="headerTitle" type="String" default="" />
+    <aura:attribute name="wizardToast" type="Object" />
+    <aura:attribute name='showSuccessModal' type="Boolean" default="false"/>
+    <aura:attribute name='showSuccessLabel' type="String"/>
+    <aura:attribute name='enableNext' type="Boolean" default="true"/>
+
+    <aura:registerEvent name="cancelEvent" type="ui:actionEvent" />
+    <aura:registerEvent name="backEvent" type="ui:actionEvent" />
+    <aura:registerEvent name="nextEvent" type="ui:actionEvent" />
+    <aura:registerEvent name="finishEvent" type="ui:actionEvent" />
+    <aura:attribute name="userContext" description="Used to determine the current app environment. Derived from {!$User.UITheme} in a VF Page." type="String"/>
+    <aura:attribute name="returnUrl" type="String"/>
+    <div class="hc-wizard_container">
+        <h2 class="slds-m-top--medium slds-m-left--medium slds-text-heading--medium">{!v.headerTitle}</h2>
+        <div role="alertdialog" tabindex="-1" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="{! 'slds-modal slds-fade-in-open slds-modal--prompt ' + (v.showSuccessModal ? '' : 'slds-hide')}">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header slds-theme--success slds-theme--alert-texture">
+                    <lightning:buttonIcon iconName="utility:close" variant="bare-inverse" size="large" alternativeText="{!$Label.HealthCloudGA.Button_Label_Close}" class="slds-modal__close" onclick="{!c.onCancelClicked}"/>
+                    <h2 class="slds-text-heading--medium" id="prompt-heading-id">{!v.showSuccessLabel}</h2>
+                </div>
+                <div class="slds-modal__content slds-p-around--medium">
+                    <div>
+                        <p>{!$Label.healthcloudga.Msg_Lead_Patient_Convert_Success_Back_To_Leads}</p>
+                    </div>
+                </div>
+                <div class="slds-modal__footer slds-theme--default">
+                    <button class="slds-button slds-button--neutral" onclick="{!c.onCancelClicked}">{!$Label.healthcloudga.Button_Label_OK}</button>
+                </div>
+            </div>
+        </div>
+        <div class="{! 'slds-backdrop slds-backdrop--open ' + (v.showSuccessModal ? '' : 'slds-hide')}">
+        </div>
+        <div class="slds-p-around--small">
+            {!v.body}
+        </div>
+        <div class="{! 'slds-docked-form-footer' + (v.index > 1 ? ' hc-wizard__footer--directional' : '') }">
+            <button class="{!'slds-button slds-button--neutral ' + (v.index > 1 ? '' : 'slds-hide')}" onclick="{!c.onBackClicked}">{!$Label.healthcloudga.Button_Label_Back}</button>
+            <button class="slds-button slds-button--neutral " onclick="{!c.onCancelClicked}">{!$Label.healthcloudga.Button_Label_Cancel}</button>
+            <button class="{!'slds-button slds-button--neutral slds-button--brand ' + (v.count > v.index ? '' : 'slds-hide')}" disabled="{!!v.enableNext}" onclick="{!c.onNextClicked}">{!$Label.healthcloudga.Button_Label_Next}</button>
+            <button class="{!'slds-button slds-button--neutral ' + v.finishButtonClass + (v.index == v.count ? '' : ' slds-hide')}" disabled="{!!v.isDoable}" onclick="{!c.onFinishClicked}">{!v.finishButtonText}</button>
+        </div>
+    </div>
+
+</aura:component>

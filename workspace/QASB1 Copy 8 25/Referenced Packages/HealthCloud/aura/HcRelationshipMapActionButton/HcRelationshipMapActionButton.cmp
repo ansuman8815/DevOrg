@@ -1,0 +1,37 @@
+<!--
+ * Copyright © 2017 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description concrete component for the leaf action buttons
+ * @since 210
+-->
+<aura:component description="HcRelationshipTreeLeafActionButtons" extends="HealthCloudGA:HcBaseComponent">
+    <aura:attribute name="modal" type="Object[]" />
+    <!-- adding the ability to add another button to provide an easy way for users to add -->
+    <!-- a new account in aloha console context -->
+    <aura:attribute name="showCreateButton" type="Boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+
+    <aura:attribute name="entity" type="Object" required="true" description="and instance of VisualizationComponent for the leaf node" />
+    <aura:attribute name="parentEntity" type="Object" description="and instance of VisualizationComponent for the leaf's parent node" />
+
+    <aura:attribute name="buttonLabel" type="String" default="{!$Label.healthcloudga.Button_Label_Add_Group_Member}"/>
+    <aura:attribute name="buttonClass" type="String" default="slds-size--12-of-12 slds-button slds-button--neutral" />
+    <aura:attribute name="createButtonLabel" type="String" default="{!$Label.healthcloudga.Button_Label_Relationship_New_Household}"/>
+
+    <ul>
+        <aura:if isTrue="{!v.showCreateButton}">
+            <li>
+                <lightning:button class="{!v.buttonClass}" label="{!v.createButtonLabel}" onclick="{!c.handleCreateButtonClick}"/>
+            </li>
+        </aura:if>
+        <li>
+            <lightning:button class="{!v.buttonClass}" label="{!v.buttonLabel}" onclick="{!c.handleButtonClick}"/>
+        </li>
+    </ul>
+
+    <div>
+        {!v.modal}
+    </div>
+</aura:component>

@@ -1,0 +1,19 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description dropDown component. Houses dropDown container.
+ * @since 196
+-->
+<aura:component >
+    <aura:attribute name="list" type="Object[]" />
+    <aura:attribute name="selectedValue" type="String" access="public" />
+    <aura:attribute name="selectContainerCSS" type="String" default="" description="css used for container" />
+    <aura:attribute name="label" type="String" />
+    <label class="uiLabel-left uiLabel">
+        <span>{!v.label}</span>
+    </label>
+    <div class="uiInput">
+        <HealthCloudGA:HcFSDropDown list="{!v.list}" selectedValue="{!v.selectedValue}" />
+    </div>
+</aura:component>

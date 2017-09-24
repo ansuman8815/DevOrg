@@ -1,0 +1,9 @@
+<aura:component controller="HealthCloudGA.HcFieldSetController" extensible="true">
+	<aura:attribute name="fields" type="Object[]" />
+    <aura:attribute name="fieldValues" type="Object[]" />
+    <aura:attribute name="sObjectName" required="true" default="" type="String" description="Name of the sObject for which the fields needs to be retrieved"/>
+    <aura:attribute name="fieldSetName" required="true" default="" type="String" description="Name of the Field Set for which the field needs to be retrieved"/>
+    <aura:attribute name="recordId" default="" type="String" description="Id of the record that needs to be retrieved"/>
+    <aura:attribute name="recordType" default="" type="String" description="Record Types for Custom Labels"/>
+    {!v.body}
+</aura:component>

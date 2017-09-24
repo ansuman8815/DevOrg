@@ -1,0 +1,29 @@
+.THIS table th.ast-columnName[id^="availableSurveysTable"]{
+    padding-left: 0.5rem;
+}
+.THIS table th.ast-columnName[id^="availableSurveysTable"]:first-child{
+	width: 26rem;
+}
+
+.THIS td.hc-surveyTable_cell {
+    padding-left: 1rem;
+}
+
+.THIS .survey_header{
+	padding-left: 1rem;
+}
+
+.THIS .hc-noItemsMessage{
+    padding:0rem;
+}
+
+.THIS.hc-surveyavailable-search{
+	margin-bottom:.75rem;
+	width:25rem;
+}
+
+/* To hide lightning:input's required label element */
+.THIS.hc-surveyavailable-search .slds-form-element__label {
+	display: none;
+	visibility : hidden;
+}

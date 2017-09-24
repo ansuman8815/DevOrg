@@ -1,0 +1,79 @@
+<!--
+ * Copyright © 2017 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @since 210
+ * @Description: this is the timeline component used in community
+-->
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:hasRecordId" access="global" controller="HealthCloudGA.HcCommunityTimelineController" description="Displays the timeline component for the patient ">
+    <!--These are design attributes -->
+    <aura:attribute name="picklistDefaultOptionTextForTimeline" type="String" default="Select a care plan to view timeline events." access="global" description="Text for default select option." />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="showPastActivity" type="Boolean" default="true" access="global" description="Show Past Activities for the Patient" />
+    <aura:attribute name="showFutureActivity" type="Boolean" default="true" access="global" description="Show Future Activities for the Patient" />
+    <aura:attribute name="pageReloadSize" type="Integer" default="50" access="global" description="Default number of activities to be shown in Timeline tabs" />
+    <!--Attributes required for the Empower Timeline -->
+    <aura:attribute name="carePlanId" type="String" description="Id of the care plan or case for a given care team" access="global"/>
+    <aura:attribute name="patientId" type="String" description="The patientId of the patient for which care plan members needs to be shown" access="global"/>
+    <aura:attribute name="planOrAccountSelected" type="Boolean" default="false" description="Flag to indicate if a care plan or a patient account has been selected."/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+    <aura:attribute name="errorMsg" type="String" default=""/>
+    <aura:attribute name="emptyListMessages" type="Object"/>
+    <aura:attribute name="filterCategories" type="List" />
+    <aura:attribute name="filters" type="List" />
+    <aura:attribute name="filterString" type="String" default=""/>
+    <aura:attribute name="timelineConfigsForEmpower" type="boolean" default="true" description="Flag to track whether there are any timeline configs for the component in the org." />
+                    
+    <aura:handler event="HealthCloudGA:HcCommunityEventCarePlanSelected" action="{!c.onCarePlanChange}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <!--The markup starts from here -->
+    <aura:if isTrue="{!!empty(v.errorMsg)}">
+        <div class="slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture" role="alert">
+            <h2>{!v.errorMsg}</h2>
+        </div>
+    </aura:if>
+
+    <!--  Message to show user if no timeline configs are available for language/empower -->
+    <aura:if isTrue="{!not(v.timelineConfigsForEmpower)}">
+        <div class="slds-notify slds-notify--alert slds-theme--warn slds-theme--alert-texture" role="alert">
+            <h2>{!$Label.healthcloudga.EmpowerTimelineUnavailable}</h2>
+        </div>
+    </aura:if>
+
+    <!--  Message to select a care plan if not already selected and configs exist. -->
+    <aura:if isTrue="{!and(v.timelineConfigsForEmpower,not(v.planOrAccountSelected))}">
+        <ui:outputText value="{!v.picklistDefaultOptionTextForTimeline}" aura:id="picklistDefaultOptionTextForTimeline"/>
+    </aura:if>
+
+    <lightning:spinner alternativeText='{!$Label.healthcloudga.Alt_Text_Please_Wait}' class="{!(v.showSpinner == true ? '' : 'slds-hide')}" variant="brand" size="large"/>
+
+    <aura:if isTrue="{! and(v.planOrAccountSelected, v.timelineConfigsForEmpower) }">
+            <div class="slds-m-bottom_x-small slds-form-element__control multiselect-dropdown slds-float_right" id="timeline-control-filter">
+                <HealthCloudGA:HcMultiDropdownCmp selectedItems="{!v.filters}" categories="{!v.filterCategories}" filterChangedEvent="{!c.filterClicked}" showCategory="false" placeholderText=''/>
+            </div>
+             <lightning:tabset selectedTabId="todayTab" >
+                 <aura:if isTrue="{! v.showPastActivity}">
+                     <lightning:tab aura:id="PAST" id="pastTab" label="{!$Label.healthcloudga.Text_Past}" >
+                         <HealthCloudGA:HcCommunityTimelineListView eventType="PAST" carePlanId="{! v.carePlanId}"
+                                                            patientId="{! v.patientId}" pageReloadSize="{# v.pageReloadSize}" 
+                                                            filterString="{! v.filterString}"/>
+                     </lightning:tab>
+                 </aura:if>
+                 <lightning:tab aura:id="TODAY" id="todayTab" label="{!$Label.healthcloudga.Text_Today}"  >
+                     <HealthCloudGA:HcCommunityTimelineListView eventType="TODAY" carePlanId="{! v.carePlanId}"
+                                                        patientId="{! v.patientId}" pageReloadSize="{# v.pageReloadSize}" 
+                                                        filterString="{! v.filterString}"/>
+                 </lightning:tab>
+                 <aura:if isTrue="{! v.showFutureActivity}">
+                     <lightning:tab aura:id="FUTURE" id="futureTab" label="{!$Label.healthcloudga.Text_Future}" >
+                         <HealthCloudGA:HcCommunityTimelineListView eventType="FUTURE" carePlanId="{! v.carePlanId}"
+                                                            patientId="{! v.patientId}" pageReloadSize="{# v.pageReloadSize}" 
+                                                            filterString="{! v.filterString}"/>
+                     </lightning:tab>
+                 </aura:if>
+            
+            </lightning:tabset>
+        
+    </aura:if>
+
+</aura:component>

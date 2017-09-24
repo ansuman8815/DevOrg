@@ -1,0 +1,10 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description component to display lead card for today page
+ * @since 196
+ * This component is deprecated in 210 (W-3824297)
+-->
+<aura:component access="global" description="DEPRECATED">
+</aura:component>

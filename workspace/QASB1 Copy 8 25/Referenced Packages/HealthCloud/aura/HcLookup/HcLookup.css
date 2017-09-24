@@ -1,0 +1,21 @@
+.THIS .lookupListItemActive{
+      outline: 0;
+      background-color: #f4f6f9;
+      color: #16325c;
+      text-decoration: none;
+}
+
+.THIS.hasContent .deleteBtn{
+  visibility: visible;
+}
+
+.THIS .deleteBtn{
+  visibility: hidden;
+}
+
+/*Remove this class when lightning input search component is released*/
+.THIS .slds-input__icon.health1-searchIcon-align{
+   right: 0.5rem;
+   top: 0.3rem;
+   margin-top: 0rem;
+}

@@ -1,0 +1,103 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCareTeamDetailCmp component, holds all the components related to HcCareTeam visualization functionality
+ * @since 196
+-->
+<aura:component controller="HealthCloudGA.HcCareTeamController" extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable">
+    <aura:attribute name="memberObj" type="Object"/>
+    <aura:attribute name="memberObjphotoURL" type="String" default=""/>
+    <aura:attribute name="showCallAction" type="Boolean" default="false" />
+
+    <aura:registerEvent name="HcCareTeamEvent" type="HealthCloudGA:HcCareTeamCmpEvent"/>
+    <aura:handler action="{!c.handleMemberChange}" name="change" value="{!v.memberObj}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div class="health1-careteamdetail-border">
+        <div class="slds-float--right">
+            <button class="slds-button slds-button--icon-bare" onclick="{!c.handleCancelClick}">
+                <HealthCloudGA:svgIconCmp class="slds-button__icon" svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#close"/>
+            </button>
+        </div>
+        <div class="slds-grid--vertical slds-m-top--medium">
+            <div class="health1-careteammember-photocontainer">
+                <div id="health1-careteammember-circleBase" class="health1-careteammember-circleBase" aura:id="Photo-circleBase">
+                    <img aura:id="health1-careteammember-checkmark" class="health1-careteammember-checkmark" id="health1-careteammember-checkmark" src="/resource/HealthCloudGA__healthresources/health1/icons/health1-checkmark.png"/>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="slds-grid--vertical slds-m-top--x-small">
+                <div class="health1-careteammember-cCaption health1-careteammembername-text" id="health1-careteammembername-text">
+                    {!v.memberObj.name}
+                </div>
+                <div class="health1-careteamdetail--role" id="health1-careteammemberrole-text">
+                    {!v.memberObj.role}
+                </div>
+            </div>
+            <div class="slds-grid--vertical slds-m-top--x-small">
+                <aura:if isTrue="{! empty(v.memberObj.phone)  }">
+                  <p class="health1-careteammember-cDetail" href="" id="health1-careteammemberphone-text">{!v.memberObj.phone}</p>
+                </aura:if>
+                <aura:if isTrue="{! empty(v.memberObj.email)}">
+                  <p class="health1-careteammember-cDetail" href="" id="health1-careteammemberemail-text">{!v.memberObj.email}</p>
+                </aura:if>
+            </div>
+            <div class="slds-grid--vertical slds-m-top--x-small">
+                <div>
+                    <a aura:id="health1-careteam-EditContact" class="health1-careteammember-cDetail health1-careteam-detail--enabled" href="" id="health1-careteammemberedit-link" onclick="{!c.handleEditContact}">{!$Label.healthcloudga.Link_Edit_Member}</a>
+                </div>
+                <aura:if isTrue="{! v.globalSettings.isCommunitySetUpInOrg}">
+                    <div id="health1-careteam-detail--actions">
+                        <aura:if isTrue="{! (v.memberObj.isUser || v.memberObj.isCommunityEnabled) }">
+                        <span class="health1-careteammember-cDetail health1-careteam-detail--disabled" id="health1-careteam-detail--disabled">{!$Label.healthcloudga.Link_Add_Member_Community}</span>
+                            <aura:set attribute="else">
+                                <a class="health1-careteammember-cDetail health1-careteam-detail--enabled" href="" id="health1-enablecommunity-link--action" onclick="{!c.handleEnableCommunity}">{!$Label.healthcloudga.Link_Add_Member_Community}</a>
+                            </aura:set>
+                        </aura:if>
+                    </div>
+                </aura:if>
+
+                <aura:if isTrue="{#v.showCallAction}">
+                  <div class="health1-careteammember-cDetail health1-careteam-detail--disabled" id="health1-careteam-detail--actions">
+                      <span>{!$Label.healthcloudga.Link_Call_Member}</span>
+                  </div>
+                </aura:if>
+
+                <div id="health1-careteam-detail--actions">
+                    <aura:if isTrue="{! (v.memberObj.isInternal=='true' || (and(v.memberObj.isCommunityLive=='true', v.memberObj.isCommunityEnabled==true))) }">                    
+                        <a class="health1-careteammember-cDetail health1-careteam-detail--enabled" href="" id="health1-directmessage-link--action" onclick="{!c.handleDirectMessage}">
+                            {!$Label.healthcloudga.Text_Send_Private_Message}
+                        </a>
+                        <aura:set attribute="else">
+                            <div class="health1-careteammember-cDetail health1-careteam-detail--disabled" id="health1-careteam-detail--disabled">
+                                {!$Label.healthcloudga.Text_Send_Private_Message}
+                            </div>
+                        </aura:set>
+                    </aura:if>
+                </div>
+                <div id="health1-careteam-detail--actions">
+                    <aura:if isTrue="{! (v.memberObj.isUser || v.memberObj.isCommunityEnabled) }">
+                        <a class="health1-careteammember-cDetail health1-careteam-detail--enabled" href="" id="health1-createtask-link--action" onclick="{!c.handleCreateTask}">
+                            {!$Label.healthcloudga.Link_Create_Task}
+                        </a>
+                        <aura:set attribute="else">
+                            <span class="health1-careteammember-cDetail health1-careteam-detail--disabled" id="health1-careteam-detail--disabled">
+                                {!$Label.healthcloudga.Link_Create_Task}
+                            </span>
+                        </aura:set>
+                    </aura:if>
+                </div>
+            </div>
+        </div>
+        <aura:if isTrue="{! v.memberObj.role != 'Patient'}">
+            <div class="slds-grid--vertical">
+                <div class="slds-clearfix">
+                    <div class="slds-float--right">
+                        <a aura:id="remove-button" class="health1-careteamdetail-removelink" id="health1-removemember-button" onclick="{!c.handleRemoveClick}">{!$Label.healthcloudga.Link_Remove_Member}</a>
+                    </div>
+                </div>
+            </div>
+        </aura:if>
+    </div>
+</aura:component>

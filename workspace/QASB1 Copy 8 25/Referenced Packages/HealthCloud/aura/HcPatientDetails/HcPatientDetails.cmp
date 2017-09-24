@@ -1,0 +1,38 @@
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcPatientTableController">
+    <aura:attribute name="patientData" type="Object" />
+    <aura:attribute name="patientId" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <div class="hc-patientDetails slds-card">
+        <div class="slds-card__header slds-grid">
+            <lightning:icon iconName="custom:custom1" class="slds-icon" />
+            <header class="slds-media slds-media--center">
+                <div class="slds-media__body slds-m-left--small">
+                    <span class="slds-text-heading--small">{!$Label.healthcloudga.Patient_Card_Header}</span>
+                </div>
+            </header>
+        </div>
+        <div class="slds-card__body slds-card__body--inner">
+            <div id="patientDetails">
+                <table>
+                    <div>
+                        <aura:iteration items="{!v.patientData}" var="w">
+                            <div>
+                                <tr>
+                                    <td>
+                                        <div class="HcCaption"><span>{!w.friendlyName}</span> &nbsp;
+                                        </div>
+                                        <HealthCloudGA:HcTextViewer value="{!w.value}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="15"></td>
+                                </tr>
+                            </div>
+                        </aura:iteration>
+                    </div>
+                </table>
+            </div>
+        </div>
+    </div>
+</aura:component>

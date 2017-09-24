@@ -1,0 +1,7 @@
+.THIS .digit--flexcenter {
+	justify-content: center;
+}
+
+.THIS a:focus {
+     box-shadow: none; 
+}

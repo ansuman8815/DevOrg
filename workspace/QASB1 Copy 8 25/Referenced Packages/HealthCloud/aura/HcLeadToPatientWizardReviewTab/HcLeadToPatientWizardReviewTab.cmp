@@ -1,0 +1,10 @@
+<aura:component >
+    <aura:attribute name="validLeads" type="List" default="[]" />
+    <aura:attribute name='leadLabels' type='Object' />
+    <aura:attribute name="coordinatorSelection" type="Object" />
+    <aura:attribute name="coordinatorRole" type="String" />
+    <aura:attribute name="reviewTabLabel" type="String" default="REVIEW" />
+    <lightning:tab id="assignmentsViewTab" label="{!v.reviewTabLabel}">
+        <HealthCloudGA:HcLeadsConversionSummary aura:id='assignmentsView' leadLabels="{!v.leadLabels}" leadResults="{!v.validLeads}" coordinator="{!v.coordinatorSelection}" coordinatorRole="{!v.coordinatorRole}" />
+    </lightning:tab>
+</aura:component>

@@ -1,0 +1,691 @@
+.THIS {} 
+.THIS .anchorCss {
+    color: #333;
+    /*float:left;*/
+    
+    margin-top: 3px;
+}
+.THIS .listCss {
+    float: left;
+    padding: 5px 0;
+    border-bottom: thin solid #9aa6af;
+    width: 170px;
+}
+.THIS .listCsslogout {
+    float: left;
+    padding: 5px 0;
+}
+.THIS .listCss:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.THIS .listCss:first-child {
+    padding-top: 0;
+}
+.THIS div.AppName {
+    border-left: 1px solid grey;
+    text-align: center;
+    /*font-family: Salesforce Sans Regular;*/
+    
+    font-weight: normal;
+    font-size: 16pt;
+    color: #004b7b;
+}
+.THIS div.Logo {
+    padding-right: 5px;
+}
+.THIS div.IconContainers {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+    margin-top: 10px;
+    position: relative;
+    height: 20px;
+    width: 33%;
+    color: #9aa6af;
+}
+.THIS div.IconContainers #quickLinkDiv {
+    z-index: 1;
+    position: absolute;
+    padding: 10px;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16);
+    border: 1px solid #d4d4d4;
+    border-style: solid;
+    border-radius: .25rem;
+    float: right;
+    right: 0px;
+}
+.THIS div.IconContainers div#searchLinkDiv {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    left: initial;
+}
+
+
+
+.THIS div.IconContainers div#searchLinkDiv1 {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    left: initial;
+}
+.THIS div.IconContainers a {
+    padding: 0 17px 0 0;
+}
+.THIS div.ParentIconContainer {
+    float: left;
+    height: 45px;
+    border-right: 1px solid grey;
+}
+.THIS .IconStyle,
+.THIS .slds-icon.slds-icon-text-default.slds-icon--small {
+    height: 20px !important;
+    width: 20px !important;
+    fill: #9aa6af;
+}
+.THIS .patRegIcon {
+    margin: -1px 3px 0 0;
+}
+.THIS #quickLinkDiv .listCss .slds-assistive-text {
+    position: static!important;
+    width: auto!important;
+    height: auto!important;
+    clip: inherit!important;
+    white-space: nowrap;
+}
+.THIS #menuDiv .listCsslogout .slds-assistive-text {
+    position: static!important;
+    width: auto!important;
+    height: auto!important;
+    clip: inherit!important;
+    white-space: nowrap;
+}
+.THIS .button {
+    border: none;
+    background-color: transparent;
+}
+.THIS .uiMenuList--default.uiMenuList {
+    min-width: 167px;
+}
+.THIS .slds-show {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+.THIS.hide {
+    display: none;
+}
+.THIS .float-L {
+    float: left;
+}
+.THIS .float-R {
+    float: right;
+}
+.THIS .Logo img {
+    height: 37px;
+    float: left;
+    cursor: pointer;
+}
+.THIS.header {
+    color: #ffffff;
+    height: 80px;
+    padding: 20px;
+    -webkit-box-shadow: 0px 4px 10px -2px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius=3, MakeShadow=true, ShadowOpacity=0.30);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+    width: 100%;
+    z-index: 5;
+    background-color: #FFF;
+    position: fixed;
+    top: 0;
+}
+.THIS .cCenterPanel {
+    width: 100%;
+    margin: 0;
+}
+.THIS .PageTitle {
+    border-left: 1px solid grey;
+    text-align: center;
+    font-weight: normal;
+    font-size: 16pt;
+    color: #004b7b;
+    padding-left: 10px;
+    float: left;
+    margin-top: 5px;
+}
+.THIS a.Logo {
+    padding-right: 10px;
+    float: left;
+}
+.THIS .announceNote{
+     height: 21px;
+    /* z-index: 7; */
+    position: absolute;
+    top: -10px;
+   right: 2px;
+}
+.THIS .announceSty {
+    height: 21px;
+    position: absolute;
+    top: 3px;
+    right: 10px;
+}
+
+.THIS .ProfileName {
+    margin-left: 20px;
+    position: relative;
+}
+.THIS .ProfileName,
+.THIS .ProfileName div {
+    float: left;
+}
+.THIS .PatientSearchBox {
+    width: 406px;
+    padding: 20px;
+    background: #004b7b;
+    float: left;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+.THIS .userProfile,
+.THIS .menuDiv {
+    display: none;
+}
+.THIS .PatientSearchBox .uiInput--datetime .datePicker-openIcon,
+.THIS .PatientSearchBox .uiInput--datetime .timePicker-openIcon {
+    right: -10px !important;
+}
+.THIS .slds-icon_container {
+    white-space: nowrap;
+}
+.THIS .close,
+.THIS .close:hover {
+    display: inline-block !important;
+    float: right;
+    font-weight: bold;
+    color: #FFF;
+    font-size: 20px;
+    cursor: pointer;
+}
+.THIS .Labelcss {
+    display: inline-block;
+}
+.THIS .backLabel {
+    font-size: 11px;
+    white-space: nowrap;
+    position: absolute;
+    right: 30px;
+    top:15px;
+}
+.THIS .divider {
+    position: absolute;
+    left: 40%;
+    top: -55%;
+    bottom: 10%;
+    height: 47px;
+    border-left: 1px solid grey;
+}
+.THIS .ParentIconContainer div.IconContainers:first-child a img {
+    position: relative;
+    right: 25px;
+    width: 15px;
+    height: 15px;
+    top: -5px;
+}
+.THIS .onlyMobileText {
+    display: none;
+}
+.THIS .onlyDeskText {
+    display: block;
+}
+/*.THIS #patientSearchDiv {
+  background-color:transparent;
+}
+.THIS .PatientSearchBox {
+    background: rgba(0, 75, 123, 0.7);
+}
+.THIS .Inputs{
+    opacity:0.8;
+}
+.THIS .Inputs{
+    opacity:0.8;
+}
+.THIS .Inputs{
+    opacity:0.8;
+}
+.THIS #DOBId{
+    opacity:1;
+}
+.THIS div.Labels2Column{
+    opacity:0.8;
+}*/
+
+.THIS .float-L.slds-backdrop.slds-backdrop--open,
+.THIS #column1Div.left.slds-backdrop.slds-backdrop--open {
+    background-color: #e4e8ea !important;
+    opacity: 0.75!important;
+}
+/* *.THIS div.IconContainers div#searchLinkDiv {
+    position: absolute;
+    top: 30px;
+    right:auto;
+    left:-368px;
+}*/
+@media all and (-ms-high-contrast:none)
+     {
+     
+     *.THIS::-ms-backdrop, .THIS div.IconContainers div#searchLinkDiv { right:auto;
+    left:-368px;} 
+     }
+@media only screen and (max-width: 1024px) {
+    .THIS .Inputs2Column {
+        width: 173px !important;
+    }
+    .THIS .ButtonSearch,
+    .THIS .ButtonCancel {
+        width: 171px !important;
+    }
+}
+@media only screen and (max-width: 850px) {
+    .THIS .PatientSearchBox {
+        width: 628px;
+    }
+    .THIS .tabletView {
+        width: 30.5%;
+        margin-right: 25px !important;
+        float: left;
+    }
+    .THIS .Labels2Column.datefield {
+        width: 30.5%;
+        float: left;
+        margin-right: 0px !important;
+        margin-top: 12px !important;
+    }
+    .THIS .Labels2Column.genderfield {
+        width: 30%;
+        float: left;
+    }
+    .THIS .datefield .Inputs2Column,
+    .THIS .genderfield .Inputs2Column {
+        width: 100%;
+    }
+    .THIS .cinfield {
+        float: left;
+        margin-left: 25px !important;
+        margin-top: 0px !important;
+        clear: none !important;
+        width: 65%
+    }
+    .THIS .mt80 {
+        margin-top: 0px !important;
+    }
+    .THIS .ButtonSearch,
+    .THIS .ButtonCancel {
+        width: 30.5%;
+        margin-right: 20px;
+    }
+    .THIS div.IconContainers div#searchLinkDiv {
+        right: -330px;
+    }
+    .THIS .Logo img {
+        height: 33px;
+    }
+    .THIS div.IconContainers a {
+        padding: 0 17px 0 0;
+    }
+    .THIS .ProfileName {
+        margin-left: 0px;
+    }
+    .THIS .PageTitle {
+        font-size: 14pt;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .THIS .PageTitle {
+        font-size: 14px;
+        padding-bottom: 10px;
+    }
+}
+@media only screen and (max-width: 736px) {
+    .THIS .ProfileName {
+        margin-left: 0px;
+    }
+    .THIS .Logo img {
+        height: 30px;
+        width: 77px;
+    }
+    .THIS .PageTitle {
+        font-size: 11pt;
+        padding-left: 0px;
+        padding-bottom: 0px;
+    }
+    .THIS .onlyMobileText {
+        display: block;
+        clear: both;
+        border-left: none;
+    }
+    .THIS .onlyDeskText {
+        display: none;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .THIS #menuDiv {
+        top: 25px !important;
+    }
+    .THIS .PatientSearchBox {
+        width: 500px;
+    }
+    .THIS div.IconContainers div#searchLinkDiv {
+        right: -310px;
+    }
+    .THIS div.IconContainers a {
+        padding: 0 10px 0 0;
+    }
+    .THIS .ProfileName {
+        margin-left: 0px;
+    }
+    .THIS.header {
+        padding: 20px 10px;
+    }
+    .THIS .Labels2Column.datefield {
+        width: 47% !important;
+        margin: 0 25px 0 0 !important;
+    }
+    .THIS .Labels2Column.genderfield {
+        width: 47%;
+        float: left;
+    }
+    .THIS .tabletView {
+        width: 47% !important;
+        float: left;
+        margin-bottom: 0 !important;
+    }
+    .THIS .PatientSearch .tabletView.lastName {
+        margin-right: 0px !important;
+        width: 47.5% !important;
+    }
+    .THIS .PatientSearch .tabletView.firstName {
+        margin-right: 22px !important;
+    }
+    .THIS .InputCIN {
+        width: 99.5% !important;
+    }
+    .THIS div.Labels2Column {
+        margin-bottom: 0 !important;
+    }
+    .THIS .ButtonSearch,
+    .THIS .ButtonCancel {
+        width: 47% !important;
+        margin-right: 0 !important;
+    }
+    .THIS .ButtonSearch {
+        margin-right: 20px !important;
+    }
+    .THIS .cinfield {
+        margin-bottom: 0 !important;
+        margin-left: 0px!important;
+    }
+    .THIS .Inputs2Column {
+        width: 100% !important;
+    }
+    .THIS .IconStyle,
+    .THIS .slds-icon.slds-icon-text-default.slds-icon--small {
+        height: 16px!important;
+        width: 17px!important;
+    }
+    .THIS div.IconContainers a {
+        padding: 0 16px 0 0;
+    }
+}
+@media only screen and (max-width: 640px) {
+    .THIS .PatientSearchBox {
+        padding: 10px 20px;
+    }
+    .THIS .Labelcss {
+        padding: 0 !important;
+    }
+    .THIS .PageTitle {
+        font-size: 11pt;
+    }
+    .THIS .Logo img {
+        height: 30px;
+        width: 71px;
+    }
+    .THIS div.IconContainers a {
+        padding: 0 18px 0 0;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .THIS .ProfileLabel {
+        width: 185px;
+        font-size: 14px;
+    }
+    .THIS .ProfileMenu {
+        width: 200px;
+        font-size: 11px;
+        margin: 0 !important;
+    }
+    .THIS div.IconContainers div#searchLinkDiv {
+        right: -250px;
+        top: 10px;
+    }
+    .THIS .cinfield {
+        margin-left: 0px!important;
+    }
+}
+@media only screen and (max-width: 568px) {
+    .THIS .Logo img {
+        height: 30px;
+        width: 71px;
+    }
+    .THIS .PageTitle {
+        font-size: 11pt;
+        padding-left: 0px
+    }
+}
+@media only screen and (max-width: 480px) {
+    .THIS.header {
+        padding: 20px 10px;
+    }
+    .THIS #onLoadDiv {
+        display: none;
+    }
+    .THIS .Logo img {
+        width: 95px;
+        height: 32px;
+    }
+    .THIS .PageTitle {
+        font-size: 16px
+    }
+    .THIS .userProfile {
+        display: block;
+        width: 25px !important;
+        height: 35px !important;
+        stroke: #3c91c7;
+        stroke-width: 4px;
+    }
+    .THIS div.IconContainers {
+        margin-top: 5px;
+    }
+    .THIS div.IconContainers a {
+        padding: 0 17px 0 0;
+    }
+    .THIS .divider {
+        top: -34%;
+        left: 30%;
+        height: 37px;
+    }
+    .THIS div.ParentIconContainer {
+        height: 35px;
+    }
+    .THIS .ProfileName {
+        margin-left: 13px;
+    }
+    .THIS .PatientSearchBox {
+        width: 335px;
+        margin-top: 35px;
+    }
+    .THIS #menuDiv {
+        top: 40px !important;
+        width: 110px;
+    }
+    .THIS div.IconContainers div#searchLinkDiv {
+        right: -83px;
+        top: 0px;
+    }
+    .THIS .tabletView {
+        width: 100% !important;
+        margin-right: 0px !important;
+        margin-top: 5px !important;
+        float: none;
+        clear: both;
+    }
+    .THIS .PatientSearch .tabletView.lastName {
+        width: 100% !important;
+        margin-top: 5px !important;
+    }
+    .THIS .Labels2Column.datefield {
+        width: 46% !important;
+        float: left;
+        margin: 5px 20px 5px 0 !important;
+    }
+    .THIS .datefield label {
+        font-size: 13px;
+    }
+    .THIS .Labels2Column.genderfield {
+        width: 47% !important;
+        float: left;
+        margin: 5px 0 !important;
+    }
+    .THIS .cinfield {
+        width: 100% !important;
+        margin: 5px 0 0 0px !important;
+        float: none;
+        clear: both;
+    }
+    .THIS .mt80 {
+        margin-top: 0px !important;
+        float: left;
+        width: 100% !important;
+    }
+    .THIS .ButtonSearch {
+        width: 45% !important;
+        float: left;
+        margin: 5px 20px 20px 0 !important;
+        padding: 10px 20px;
+    }
+    .THIS .ButtonCancel {
+        width: 46% !important;
+        float: left;
+        margin-right: 0;
+        padding: 10px 20px;
+        margin-top: 5px !important;
+    }
+    /*.THIS .datefield .Inputs2Column::-webkit-input-placeholder { color: transparent;}
+    .THIS .datefield .Inputs2Column:-moz-placeholder { color: transparent;}
+    .THIS .datefield .Inputs2Column::-moz-placeholder { color: transparent;}
+    .THIS .datefield .Inputs2Column:-ms-input-placeholder {color: transparent;}*/
+    
+    .THIS .PageTitle {
+        padding-left: 0px;
+    }
+}
+@media only screen and (max-width: 384px) {
+    .THIS .Logo img {
+        width: 79px;
+        height: 30px;
+    }
+    .THIS .PageTitle {
+        font-size: 13px;
+    }
+    .THIS .IconStyle,
+    .THIS .slds-icon.slds-icon-text-default.slds-icon--small {
+        height: 16px!important;
+        width: 16px!important;
+    }
+    .THIS .userProfile {
+        width: 25px!important;
+        height: 35px!important;
+    }
+    .THIS .ProfileName {
+        margin-left: 10px;
+    }
+    .THIS a.Logo {
+        padding-right: 5px;
+    }
+    .THIS #DOBId::-webkit-input-placeholder {
+        font-size: 11px !important;
+    }
+    .THIS #DOBId::-moz-placeholder {
+        font-size: 11px !important;
+    }
+    .THIS #DOBId:-ms-input-placeholder {
+        font-size: 11px !important;
+    }
+    .THIS #DOBId:-moz-placeholder {
+        font-size: 11px !important;
+    }
+}
+@media only screen and (max-width: 360px) {
+    .THIS .Logo img {
+        width: 70px;
+        height: 26px;
+    }
+}
+@media only screen and (max-width: 320px) {
+    .THIS .Logo img {
+        width: 80px;
+        height: 25px;
+    }
+    .THIS .IconStyle,
+    .THIS .slds-icon.slds-icon-text-default.slds-icon--small {
+        height: 14px!important;
+        width: 14px!important;
+    }
+    .THIS.header {
+        padding: 20px 2px;
+    }
+    .THIS .ProfileName {
+        margin-left: 7px;
+    }
+    .THIS div.IconContainers a {
+        padding: 0 15px 0 0;
+    }
+    .THIS .PageTitle {
+        font-size: 14px;
+    }
+    .THIS .Labels2Column.genderfield {
+        width: 46%!important;
+    }
+    .THIS .PatientSearchBox {
+        width: 317px;
+    }
+    .THIS .userProfile {
+        width: 25px!important;
+        height: 35px!important;
+    }
+    .THIS div.IconContainers div#searchLinkDiv {
+        right: -75px;
+    }
+    .THIS .backLabel {
+        font-size: 10px;
+        right: 22px;
+    }
+    .THIS .divider {
+        top: -29%;
+        height: 38px;
+        left: 19%;
+    }
+    .THIS .ParentIconContainer div.IconContainers:first-child a img {
+        right: 32px;
+    }
+}

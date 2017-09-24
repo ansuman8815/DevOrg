@@ -1,0 +1,107 @@
+/**
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcGenericListView component: a configurable, reusable, container component for building
+ * list UIs which allow the selection of multiple list views, and actions that can be applied to the 
+ * list items
+ * @since 198
+ */
+
+.THIS .health1-responsive-datagrid th {
+    text-transform: uppercase;
+}
+
+.THIS .health1-datagrid-cell {
+    cursor: pointer;
+    color: #006FD2;
+}
+
+.THIS .health1-action-pointer {
+    cursor: pointer;
+}
+
+.THIS .health1-patientlist-dropdown {
+    max-width: 200px;
+}
+
+.THIS .health1-patientlist-dropdown .slds-dropdown {
+    min-width: 200px;
+}
+
+.THIS .health1-input-big {
+    width: 200px;
+    transition: width 0.3s;
+}
+
+.THIS .health1-input-small {
+    width: 100px;
+    transition: width 0.3s;
+}
+
+.THIS .slds-checkbox--faux:before {
+    display: none;
+}
+
+@media only screen and (max-width: 400px) {
+    .THIS .health1-responsive-header {
+        background-color: #16315C;
+        border-bottom: 0px solid #FFFFFF;
+        padding-top: 12px;
+        color: #E3F1FE;
+        position: fixed;
+        width: 100%;
+        top: 0px;
+    }
+    .THIS .health1-responsive-header .health1-patientlist-dropdown {
+        background-color: #2C4A78;
+        border-radius: 5px;
+        padding: 5px 10px;
+    }
+    .THIS .health1-responsive-header .health1-patientlist-dropdown h1 {
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 12px;
+        min-width: 200px;
+    }
+    .THIS .health1-responsive-header .slds-type-focus {
+        border-bottom: 0;
+    }
+    .THIS .health1-responsive-datagrid {
+        margin-top: 51px;
+        background-color: #16315C;
+        border-bottom: 1px solid #243F6A;
+    }
+    .THIS .health1-responsive-datagrid tr {
+        background-color: #16315C;
+        height: 80px;
+    }
+    .THIS .health1-responsive-datagrid tr.slds-is-selected > td {
+        background-color: #16315C;
+    }
+    .THIS .health1-responsive-datagrid tr:not(.slds-no-hover):hover > td,
+    .THIS .health1-responsive-datagrid tr.slds-is-selected:not(.slds-no-hover):hover > td {
+        border-color: #243F6A;
+        background-color: #152A4B;
+        box-shadow: #d8dde6 0 0 0 inset;
+    }
+    .THIS .health1-responsive-datagrid td {
+        vertical-align: middle;
+        border-top: 1px solid #243F6A;
+        padding: 0 25px;
+        white-space: inherit;
+    }
+    .THIS .health1-responsive-datagrid .health1-row-clicked td {
+        background-color: #152A4B;
+    }
+    .THIS .health1-responsive-header .health1-small-hide,
+    .THIS .health1-responsive-datagrid .health1-small-hide,
+    .THIS .health1-responsive-datagrid .health1-middle-hide {
+        display: none;
+    }
+    .THIS .health1-datagrid-cell {
+        text-transform: uppercase;
+        font-size: 80%;
+        color: #E3F1FE;
+    }
+}

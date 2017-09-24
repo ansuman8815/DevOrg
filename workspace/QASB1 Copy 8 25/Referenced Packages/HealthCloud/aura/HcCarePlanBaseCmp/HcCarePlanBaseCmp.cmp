@@ -1,0 +1,91 @@
+<!-- * Copyright © 2015 salesforce.com, inc. All rights reserved.
+   * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+   * transferred, or disclosed to others, without the prior written consent of Salesforce.
+   * @description HcCarePlanBaseCmp Component
+   * @since 198
+   -->
+<aura:component extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable" controller="HealthCloudGA.HcCarePlanController">
+    <aura:attribute name="modal" type="Object[]" />
+    <aura:attribute name="tabActionMenuMap" type="Object" />
+    <aura:attribute name="toastMessage" type="String" />
+    <aura:attribute name="patientId" type="String" />
+    <aura:attribute name="userDateFormat" type="String" default="" />
+    <aura:attribute name="userDateTimeFormat" type="String" default="" />
+    <aura:attribute name="carePlanId" type="String" />
+    <aura:attribute name="tabData" type="Object[]" description="attribute for left tab panel, serve as model" />
+    <aura:attribute name="problems" type="List"/>
+    <aura:attribute name="problemFetchDone" type="Boolean" default="false" />    
+    <aura:attribute name="activeTabId" type="String" />
+    <aura:attribute name="carePlanSubject" type="String" default=" "/>
+    <aura:attribute name="refreshProblemsTab" type="Boolean" default="false"/>
+    <!-- [ LEX ] Editing problems/goals via force:editRecord allows 
+          1. Changing parent Care Plan for Problems 
+          2. Changing parent Care Plan and Probem for Goals 
+             #
+              TODO: Changing only Care Plan for a goal from the standard UI / LEX modal 
+                    still shows the goal under the previous problem it was associated with.
+                    Check with team to define correct behavior.
+             #
+         This attribute is used to store the previous Care Plan Id for Problems 
+         and previous Problem Id for Goals -->
+    <aura:attribute name="treeItemToRefreshId" type="String" default="" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="HealthCloudGA:HcComponentStatusEvent" action="{!c.handleComponentStatusEvent}" />
+    <aura:handler event="HealthCloudGA:HcCarePlanCmpEvent" action="{!c.handleActionEvent}" />
+    <aura:handler name="HcCarePlanTabEvent" event="HealthCloudGA:HcCarePlanTabEvent" action="{!c.handleCarePlanTabEvent}" />
+    <aura:handler name="HcCareTeamEvent" event="HealthCloudGA:HcCareTeamCmpEvent" action="{!c.handleAddCareTeamMemberEvent}" />
+    <aura:handler event="HealthCloudGA:HcCarePlanDataChangedEvent" action="{!c.handleDataChangedEvent}" />
+    
+    <!-- [ LEX ] Handle events from force:createRecord / force:editRecord --> 
+    <aura:handler event="force:recordChange" action="{!c.handleLEXRecordChangedEvent}"/>
+
+    <aura:registerEvent name="HcCarePlanEvent" type="HealthCloudGA:HcCarePlanCmpEvent" />
+    <aura:registerEvent name="HcCarePlanStatusEvent" type="HealthCloudGA:HcComponentStatusEvent" />
+
+    <aura:dependency resource="HealthCloudGA:HcCarePlanHeader" />
+    <aura:dependency resource="HealthCloudGA:HcCarePlanBaseGoalsCmp" />
+    <aura:dependency resource="HealthCloudGA:HcCarePlanProblemCmp" />
+    <aura:dependency resource="HealthCloudGA:HcActionCmp" />
+    <aura:dependency resource="HealthCloudGA:HcCarePlanTabs" />
+
+    
+    <div class="hc-carePlanContainer" aura:id="carePlanContent" >
+        <div class="hc-carePlanActionMenu slds-p-right--large" >
+            <div class="{! v.activeTabId == 'problems_goals' ? '' : 'slds-hide' }">
+                <lightning:buttonGroup >
+                    <lightning:button class="slds-button slds-button--icon" label="{!$Label.healthcloudga.Menu_Item_Create_New_Problem}" onclick="{!c.createProblem}" />
+                    <lightning:buttonMenu class="slds-button--last" iconSize="small" aura:id="problemsMenu" alternativeText="More options" menuAlignment="right" >
+                        <lightning:menuItem label="{!$Label.healthcloudga.Menu_Item_Create_New_Task}" value="TASK" onactive="{!c.handleSelect}" />
+                        <lightning:menuItem label="{!$Label.healthcloudga.Menu_Item_Apply_CarePlanTemplates}" value="Apply Care Plan Templates" onactive="{!c.openCarePlanTemplates}" />
+                        <lightning:menuItem label="{!$Label.healthcloudga.Text_Expand_All}" value="ExpandAllProblemsandGoals" onactive="{!c.expandAllProblemsandGoals}" />
+                        <lightning:menuItem label="{!$Label.healthcloudga.Text_Collapse_All}" value="CollapseAllProblemsandGoals" onactive="{!c.expandAllProblemsandGoals}" />
+                    </lightning:buttonMenu>
+                    <HealthCloudGA:HcHelpTrayDropDown helpType="CarePlan" />
+                </lightning:buttonGroup>
+            </div>
+            <div class="{! v.activeTabId == 'tasks' ? '' : 'slds-hide' }">
+                <lightning:buttonGroup >
+                    <lightning:button class="slds-button slds-button--icon" label="{!$Label.healthcloudga.Menu_Item_Create_New_Task}" onclick="{!c.createTask}" />
+                    <lightning:buttonMenu class="slds-button--last" iconSize="small" aura:id="tasksMenu" alternativeText="More options" menuAlignment="right" >
+                        <lightning:menuItem label="{!$Label.healthcloudga.Menu_Item_Create_New_Problem}" value="PROBLEM" onactive="{!c.handleSelect}" />
+                    </lightning:buttonMenu>
+                    <HealthCloudGA:HcHelpTrayDropDown helpType="CarePlan" />
+                </lightning:buttonGroup>
+            </div>
+            <div class="{! v.activeTabId == 'careTeam' ? '' : 'slds-hide' }">
+                <lightning:buttonGroup >
+                    <lightning:button class="slds-button slds-button--icon" label="{!$Label.healthcloudga.Menu_Item_Open_Collaboration}" onclick="{!c.openCaseTeamTab}" />
+                    <lightning:buttonMenu class="slds-button--last" iconSize="small" aura:id="careTeamMenu" alternativeText="More options" menuAlignment="right" >
+                        <lightning:menuItem label="{!$Label.healthcloudga.Menu_Item_Add_CareTeam_Member}" value="Add Care Team Member" onactive="{!c.addCareTeamMember}" />
+                    </lightning:buttonMenu>
+                    <HealthCloudGA:HcHelpTrayDropDown helpType="CarePlan" />
+                </lightning:buttonGroup>
+            </div>
+        </div>
+        <div id='carePlanTab' aura:id="carePlanTab" />
+        <div aura:id="remove-modal">
+            {!v.modal}
+        </div>
+    </div>
+</aura:component>

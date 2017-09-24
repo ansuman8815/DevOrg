@@ -1,0 +1,25 @@
+<aura:component access="global" controller="ProfileMenuController">
+    <ltng:require styles="{! $Resource.SLDS090 }"/>
+    <aura:attribute name="options" type="String[]" default="Option 1, Option 2"/>
+    <aura:attribute name="loggedinUser" type="User"/>
+    <aura:attribute name="loggedinUserName" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+
+    <ui:menu >  
+    	<ui:menuTriggerLink aura:id="trigger" label="{!v.loggedinUserName}" class="ProfileLabel" disabled="true"/>
+        <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/43-DownArrow.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent;float:right;outline:none;" press="{!c.menuSearchClick}"/>
+        <div id="menuDiv" class="" style=" z-index: 1;position:absolute;padding:10px;background:#fff;box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16);border: 1px solid #d4d4d4;border-radius:.25rem;top:15px;right:0;display:none;">        <ul>
+          <li>
+              <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/04-Logout.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent;float:left;padding-right:10px" press="{!c.helpClick}"/>
+              <a class="anchorCss" href="#logout">Logout</a>
+          </li>
+        </ul>
+    </div>
+    </ui:menu>
+    <div class="ProfileMenu" style="">
+    	<ui:outputText value="Last Logged in: " />
+ 		<ui:outputDateTime value="{!v.loggedinUser.LastLoginDate}" format="MM/dd/yyyy, hh:mm a"/>
+    </div>
+ 
+</aura:component>

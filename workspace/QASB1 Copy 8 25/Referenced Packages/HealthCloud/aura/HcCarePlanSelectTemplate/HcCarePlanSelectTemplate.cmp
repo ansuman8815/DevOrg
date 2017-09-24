@@ -1,0 +1,32 @@
+<aura:component extends="HealthCloudGA:HcBaseComponent">
+    <aura:attribute name="templateList" type="List"  />
+    <aura:attribute name="packageNamespace" type="String"  default=" " />
+    <aura:attribute name="selectedTemplateCountLimit" type="Integer" default="5" />
+    <aura:attribute name="searchText" type="String" default="" />
+
+    <aura:attribute name="selectedTemplates" type="Map" default="{}" />
+    <aura:attribute name="selectedTemplateList" type="List" default="[]" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:method name="handleTableRefeshedEvent" />
+
+    <div>
+      <div class="slds-grid slds-wrap slds-grid--vertical-stretch">
+        <div class="slds-col slds-large-size--9-of-12 slds-m-bottom--xx-large">
+          <div class="slds-form-element slds-m-right--medium slds-m-left--medium slds-m-bottom--medium">
+            <lightning:input class="hc-careplantemplates-search" aura:id="search-input" name="search-input" label=" " type="search" onchange="{!c.onTypeInSearch}" placeholder="{!$Label.healthcloudga.Text_Type_A_Name}"/>
+          </div>
+          
+          <HealthCloudGA:HcCarePlanTemplateSelectTable aura:id="CarePlanTemplateSelectTable" id="CarePlanTemplateSelectTable" searchText="{!v.searchText}" selectTemplateAddEvent="{!c.handleTemplateAddEvent}" selectTemplateRemoveEvent="{!c.handleTemplateRemoveEvent}" tableDataUpdatedEvent="{!c.handleTableRefeshedEvent}">
+              <aura:set attribute="dataProvider">
+                  <HealthCloudGA:HcCarePlanTemplateDataProvider autoInit='false' pageSize='50' searchText="{!v.searchText}"/> 
+              </aura:set>
+          </HealthCloudGA:HcCarePlanTemplateSelectTable>
+
+        </div>
+        <div class="slds-col slds-large-size--3-of-12 hc-border-left">
+          <HealthCloudGA:HcCarePlanTemplateShoppingCart shoppingCartRemoveEvent="{!c.handleTemplateRemoveEvent}" selectedTemplateCountLimit="{!v.selectedTemplateCountLimit}" selectedTemplateList="{!v.selectedTemplateList}" aura:id="shoppingCartCmp" />
+        </div>
+      </div>
+   </div>
+</aura:component>

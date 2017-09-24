@@ -1,0 +1,27 @@
+.THIS .health1-tab-unclickable:hover,
+.THIS .health1-tab-unclickable:focus {
+    cursor: default;
+    text-decoration: none;
+    border: none;
+}
+
+.THIS .health1-filtercriteria-tab {
+    pointer-events: none;
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+.THIS .health1-filtercriteria-tab-border {
+    border-bottom: 2px solid #d8dde6;
+    color: #54698d;
+}
+
+.THIS .health1-filtercriteria-footer {
+    background-color:white;
+    float: left;
+    width: 100%;
+}
+
+.THIS#health1-filterCriteriaCmp_heightFix{
+  min-height: 400px;
+}

@@ -1,0 +1,132 @@
+<aura:component controller="ProfileMenuController" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}" />
+    <ltng:require styles="{! $Resource.SLDS090 }" />
+    <ltng:require scripts="{!join(',', 
+                           $Resource.P360JqueryResources + '/jquery-2.2.4.min.js', 
+                           $Resource.svg4everybody + '/svg4everybody-master/dist/svg4everybody.js')}" afterScriptsLoaded="{!c.myAction}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:SearchResult" action="{!c.handleApplicationEvent}" />
+    <aura:handler event="aura:doneRendering" action="{!c.doneRendering}" />
+    <aura:attribute name="search_clicked" type="Boolean" />
+    <aura:attribute name="quickLinksIcon" type="String" />
+    <aura:attribute name="viewSearchon" type="boolean" default="false" />
+    <aura:attribute name="profilename" type="String" default='' />
+    <aura:attribute name="sessionData" type="ProfileMenuController.userSessionWrapper" />
+    <aura:attribute name="isRead" type="boolean" default="true"/>
+    <aura:attribute name="encounterId" type="String" default=""/>
+
+    <div class="header" id="headerComp">
+        <div class="float-L" id="headerL">
+            <a class="Logo" onclick="{!c.LogoClick}">
+                <img src='https://p360-mountsinai--c.na35.content.force.com/servlet/servlet.ImageServer?id=01541000001eqfz&amp;oid=00D41000000fHxA&amp;lastMod=1485214711000' />
+            </a>
+            <span class="PageTitle onlyDeskText">Patient 360</span>
+            <div class="PageTitle onlyMobileText">Patient 360</div>
+        </div>
+        <div class="float-R">
+            <aura:if isTrue="{!v.profilename == $Label.c.P360CommunityBasicAccess || !v.profilename == ''}">
+                <div id="basicAccessDiv" class="ParentIconContainer" style="display:none;">
+                    <div class="IconContainers" style="height:20px;width:20%;color:#9aa6af;">
+                        <a href="" onclick="{!c.goback}">
+                            <img alt="Go Back" src="{! $Resource.P360CommunityIcons + '/back_button.svg#Layer_1'}" id="BackSpc" class="BackSpc" title="Go Back" />
+                            <div class="backLabel">
+                                <label>Go Back</label>
+                            </div>
+                            <div class="divider"></div>
+                        </a>
+                    </div>
+                    <div class="IconContainers announceSection" style="height:20px;width:25%;color:#9aa6af;">
+                        <a href='{!$Label.c.P360CommunityDocURL}' target="_blank" onclick="{!c.onClickAnnouncement}">
+                            <aura:if isTrue="{!v.isRead}">
+                                <aura:set attribute="else">
+                                    <img class="announceNote"  src="{! $Resource.P360CommunityIcons + '/announcement_icon.jpg'}" title="Unread Announcement"/>
+									 <img class="announceSty" src="{! $Resource.P360CommunityIcons + '/announcement_.png'}" title="Announcement" />
+                                </aura:set>
+                                     <img class="announceSty" src="{! $Resource.P360CommunityIcons + '/announcement_.png'}" title="Announcement" />
+
+                            </aura:if>
+                        </a>
+                    </div>
+                    <div class="IconContainers" style="height:20px;width:25%;color:#9aa6af;">
+                        <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/07-Search.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; outline:none; background-color:transparent" aura:id="searchLink" press="{!c.searchClick}" helpText="Search" />
+                        <div id="searchLinkDiv1" role="dialog" class="slds-modal slds-modal--large slds-fade-in-open" style="display:none;">
+                            <aura:if isTrue="{!v.viewSearchon}">
+                                <div class="PatientSearchBox" id="patientSearch">
+                                    <c:P360CommunityPatientSearch isHeader="true" />
+                                </div>
+                            </aura:if>
+                        </div>
+                    </div>
+                    <div class="IconContainers" style="height:20px;width:25%;color:#9aa6af;">
+                        <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/01-QuestionMark.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent" press="{!c.helpClick}" helpText="Help" />
+                    </div>
+                </div>
+                <aura:set attribute="else">
+                    <div id="reRenderDiv" class="ParentIconContainer" style="display:none;">
+                        <div class="IconContainers" style="height:20px;width:20%;color:#9aa6af;">
+                            <a href="" onclick="{!c.goback}">
+                                <img src="{! $Resource.P360CommunityIcons + '/back_button.svg#Layer_1'}" id="BackSpc" class="BackSpc" title="Go Back" />
+                                <div class="backLabel">
+                                    <label>Go Back</label>
+                                </div>
+                                <div class="divider"></div>
+                            </a>
+                        </div>
+                        <div class="IconContainers" style="height:20px;width:20%;color:#9aa6af;">
+                             <a href='{!$Label.c.P360CommunityDocURL}' target="_blank" onclick="{!c.onClickAnnouncement}">
+                                 <aura:if isTrue="{!v.isRead}">
+                                     <aura:set attribute="else">
+                                         <img class="announceNote"  src="{! $Resource.P360CommunityIcons + '/announcement_icon.jpg'}" title="Unread Announcement"/>
+                                         <img class="announceSty" src="{! $Resource.P360CommunityIcons + '/announcement_.png'}" title="Announcement" />
+                                     </aura:set>
+                                     <img class="announceSty" src="{! $Resource.P360CommunityIcons + '/announcement_.png'}" title="Announcement" />
+                                     
+                                 </aura:if>
+                            </a>
+                        </div>
+                        <div class="IconContainers" style="height:20px;width:20%;color:#9aa6af;">
+                            <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/07-Search.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; outline:none; background-color:transparent" aura:id="searchLink" press="{!c.searchClick}" helpText="Search" />
+                            <div id="searchLinkDiv" role="dialog" class="slds-modal slds-modal--large slds-fade-in-open" style="display:none;">
+                                <aura:if isTrue="{!v.viewSearchon}">
+                                    <div class="PatientSearchBox" id="patientSearch">
+                                        <c:P360CommunityPatientSearch isHeader="true" />
+                                    </div>
+                                </aura:if>
+                            </div>
+                        </div>
+                        <div class="IconContainers" style="height:20px;width:20%;color:#9aa6af;">
+                            <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/06-QuickLink.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent" aura:id="quickLink" press="{!c.quickLinkClick}" helpText="Patient Registry" />
+                            <div id="quickLinkDiv" class="" style="display:none;">
+                                
+                                <ul id="quickLinkList">
+                                    <li class="listCss">
+                                        <c:P360CommunityIcon label="Patient Registries" svgPath="{! $Resource.P360CommunityIcons + '/PatientRegisteries.svg#Layer_1'}" class="IconStyle patRegIcon" buttonStyle="border:none; background-color:transparent;float:left;padding-right:10px" press="{!c.registryClick}" />
+                                    </li>
+                                </ul>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="IconContainers" style="height:20px;width:20%;color:#9aa6af;">
+                            <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/01-QuestionMark.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none;  outline:none; background-color:transparent" press="{!c.helpClick}" helpText="Help" />
+                        </div>
+                        
+                    </div>
+                </aura:set>
+            </aura:if>
+            <div class="ProfileName">
+                <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/02-UserProfile.svg#Layer_1'}" class="IconStyle userProfile" buttonStyle="border:none;  outline:none; background-color:transparent" press="{!c.menuSearchClick}" />
+                <div id="userInfo">
+                    <div id="menuDiv" style=" z-index: 1;position:absolute;padding:10px;background:#fff;box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16);border: 1px solid #d4d4d4;border-radius:.25rem;top:15px;right:0;display:none;">
+                        <ul>
+                            <li class="listCsslogout">
+                                <c:P360CommunityIcon label="Logout" svgPath="{! $Resource.P360CommunityIcons + '/04-Logout.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; background-color:transparent;float:left;padding-right:10px" press="{!c.logOutClick}" />
+                            </li>
+                        </ul>
+                    </div>
+                    <c:P360CommunityProfileMenu />
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

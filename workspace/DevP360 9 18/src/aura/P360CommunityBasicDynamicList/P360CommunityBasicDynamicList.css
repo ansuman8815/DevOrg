@@ -1,0 +1,89 @@
+.THIS {width:98%;}
+.THIS .slds-table thead{background-color:#717F8A;color: #FFFFFF;font-size:14px;}
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>td,
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>th {
+    background-color: #E6EBEE;
+}
+
+.THIS .count{margin-top:7px;margin-left:197px;position:absolute;}
+.THIS .countVal{margin-left:20px;}
+.THIS .modalViewIcons{float:right;position: relative;z-index: 1;margin-right: -25px;}
+.THIS .modalViewIcons svg{fill:#3c91c7;}
+.THIS .slds-media__body{position:relative;}
+.THIS .slds-card__header{border: 0px;background-color: #EFF3F6;margin-bottom: 1px;height: 50px;}
+.THIS .slds-text-heading--small{font-size: 14px;color: #707f8a;}
+.THIS .slds-text-heading--small b{font-size: 21px;color:transparent;}
+.THIS .slds-table tr{height:50px;}
+.THIS .slds-table tbody td{color:#707f8a;font-size:14px;}
+.THIS .slds-text-heading--small{text-align:left;}
+.THIS .slds-card{border-radius:0;border:0;margin:0 auto 20px;}
+.THIS .dataTables_wrapper .top{margin-top:-35px;}
+.THIS .dataTables_filter{margin-right:75px;}
+.THIS .dataTables_paginate .first ,.THIS .dataTables_paginate .last{display:none;}
+.THIS .dataTables_wrapper .top{float:right;}
+.THIS .dataTables_length{float:left;}
+.THIS .dataTables_paginate {float:left;margin-top:-12px;}
+.THIS .dataTables_length label{font-size: 0;}
+.THIS .dataTables_length select,.THIS .dataTables_filter label{font-size:14px;}
+.THIS .dataTables_length label:after{content:' Per Page   |   ';font-size: 14px;}
+.THIS .dataTables_paginate .previous,.THIS .dataTables_paginate .next{font-weight: bold;font-size: 14px;}
+.THIS .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.THIS .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+    color: #333 !important;
+    border: 0px;
+    background-color: #fff;
+    background: none;
+}
+.THIS span.paginate_active {
+    min-width: 1.5em;
+    padding: 0.5em 1em;
+    max-width: 1.5em;
+    font-weight: bold;
+}
+.THIS .slds-text-heading--small b span {
+    border-left: 1px solid;
+    padding-left: 10px;
+    margin-left: 10px;
+    color: #9aa6af;
+    font-size: 12px;
+    font-weight:normal;
+}
+.THIS #encounter_table_paginate{margin-top:-9px;}
+.THIS .EncounterLabelDiv{
+    display:show;
+}
+.THIS .encSumHead{position: absolute;color: #004b7b;font-size: 21px;font-weight: bold;left: 22%;}
+.THIS .expandEncSum{position: absolute;color: #004b7b;font-size: 21px;font-weight: bold;left: 20px;}
+
+.THIS #AdvancedDirectives_table_wrapper .slds-table--bordered{border:none;}
+.THIS #AdvancedDirectives_table thead{background-color: #FFF;color: #707f8a;}
+.THIS #AdvancedDirectives_table .slds-table--bordered tbody td,
+.THIS #AdvancedDirectives_table  .slds-table--bordered tbody th{border-top:none;background-color: #FFF;}
+.THIS #AdvancedDirectives_table_wrapper  .slds-table--striped tbody tr:nth-of-type(even)>td, 
+.THIS #AdvancedDirectives_table_wrapper  .slds-table--striped tbody tr:nth-of-type(even)>th,
+.THIS #AdvancedDirectives_table_wrapper  .slds-table--striped tbody tr:nth-of-type(even)>td:hover,
+.THIS #AdvancedDirectives_table_wrapper  .slds-table--striped tbody tr:nth-of-type(even)>th:hover,
+.THIS #AdvancedDirectives_table_wrapper  .slds-table--striped tbody tr:nth-of-type(odd)>td, 
+.THIS #AdvancedDirectives_table_wrapper  .slds-table--striped tbody tr:nth-of-type(odd)>th,
+.THIS #AdvancedDirectives_table_wrapper  .slds-table--striped tbody tr:nth-of-type(odd)>td:hover,
+.THIS #AdvancedDirectives_table_wrapper  .slds-table--striped tbody tr:nth-of-type(odd)>th:hover
+{background-color: #FFF;border:none;color: #2f3537;outline:none}
+.THIS #AdvancedDirectives_table_wrapper  .slds-table--bordered tbody td,
+.THIS #AdvancedDirectives_table_wrapper  .slds-table--bordered tbody th{border:none;}
+.THIS #AdvancedDirectives_table_wrapper  .slds-table tr{height:35px;}
+.THIS #AdvancedDirectives_table_wrapper  .slds-table--striped tbody tr,
+.THIS #AdvancedDirectives_table_wrapper  .slds-table--striped tbody tr:hover td
+{border:none;outline:none;box-shadow:none;}
+.THIS table.dataTable.no-footer{border:none;}
+.THIS table.dataTable thead th,.THIS table.dataTable thead td{border:none;padding:10px;}
+.THIS .slds.ipad-only{display:none;}
+.THIS #AdvancedDirectives_table{border:none;}
+.THIS table.dataTable thead th {border-bottom: 1px solid;}
+@media only screen and (max-device-width: 767px){
+    .THIS .dataTables_empty{width:90%;}
+    .THIS .slds-max-medium-table--stacked-horizontal tr{border:none;}
+}
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+/*.THIS .slds{display:none;}
+.THIS .slds.ipad-only{display:block;}*/
+}

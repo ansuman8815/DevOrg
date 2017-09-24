@@ -1,0 +1,38 @@
+<aura:component controller="EHRSocialSummaryController">
+    <ltng:require styles="{! $Resource.SLDS090 + '/assets/styles/salesforce-lightning-design-system.css'}"/>
+    
+    <aura:attribute name="EHRSocialHistory" type="EHR_Social_History__c[]"/>
+    <aura:attribute name="patientId" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="slds-page-header">
+        <div class="slds-grid">
+            <div class="slds-grid slds-no-space">
+                <h1 class="slds-text-heading--medium slds-truncate" title="		Social Summary"><b>Social Summary</b></h1>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slds"> 
+        <table class="slds-table slds-table--bordered slds-table--striped">
+            <thead>
+                <tr>
+                    <th scope="col"><span class="slds-truncate"><b>Topic</b></span></th>
+                    <th scope="col"><span class="slds-truncate"><b>Assessment</b></span></th>
+                    <th scope="col"><span class="slds-truncate"><b>Assessment Date</b></span></th>
+                    <th scope="col"><span class="slds-truncate"><b>Source System</b></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.EHRSocialHistory}" var="EHRSocialHistory">
+                    <tr>
+                        <td>{!EHRSocialHistory.Topic__c}</td>
+                        <td>{!EHRSocialHistory.Assessment__c}</td>
+                        <td>{!EHRSocialHistory.Assessment_Date__c}</td>
+                        <td>{!EHRSocialHistory.Source_System__c}</td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+</aura:component>

@@ -1,0 +1,14 @@
+<!-- * Copyright © 2017 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description Survey and Version Table
+ * @since 210.
+-->
+<aura:component description="HcSurveyAndVersionTable" extends="HealthCloudGA:HcAbstractSimpleTable" controller="HealthCloudGA.HcSurveyController">
+    <aura:attribute name="searchText" type="String" default=""/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.searchText}" action="{!c.handleSearchChange}"/>
+
+    <aura:dependency resource="HealthCloudGA:HcSurveySendToPatientActionMenu"/>
+    <aura:set attribute="customActionComponentName" value="HealthCloudGA:HcSurveySendToPatientActionMenu"/>
+</aura:component>

@@ -1,0 +1,17 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcActionText, an output text component used for dataGrid component that enables row-level click events.
+ * @since 198
+-->
+<aura:component extends="ui:action" description="A output text used in ui:dataGrid that enables row-level click events to actionDelegate to the grid.">
+    <aura:attribute name="class" type="String" />
+    <aura:attribute name="displayType" type="String" default="text" />
+    <aura:if isTrue="{!(v.displayType == 'link')}">
+        <ui:outputURL value="" label="{!v.label}" class="{!v.class}" click="{!c.handleClick}" />
+        <aura:set attribute="else">
+            <span class="{!v.class}" click="{!c.handleClick}">{!v.label}</span>
+        </aura:set>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,50 @@
+<aura:component extends="HealthCloudGA:HcBaseComponent">
+    <aura:attribute name="header" type="Aura.Component[]" />
+    <aura:attribute name="trigger" type="Aura.Component[]" />
+    <aura:attribute name="label" type="String" />
+    <aura:attribute name="defaultLabel" type="String" />
+    <aura:attribute name="list" type="List" />
+    <aura:attribute name="selected" type="Object" />
+    <aura:attribute name="scrollable" type="Boolean" default="false" />
+    <aura:attribute name="labelClassName" type="String" default="slds-grid slds-no-space slds-align-middle" />
+    <aura:attribute name="menuClassName" type="String" default="slds-dropdown slds-dropdown--right slds-dropdown--menu" />
+
+    <aura:registerEvent name="appMenuToggleEvent" type="HealthCloudGA:HcDropDownMenuToggleEvent" />
+    <aura:handler event="HealthCloudGA:HcDropDownMenuToggleEvent" action="{!c.handleAppToggleEvent}" />
+
+    <div>
+        <div class="{! 'health1-menu-trigger ' + v.labelClassName}" onclick="{!c.onTriggerClicked}">
+            <aura:if isTrue="{!v.trigger.length == 0}">
+                <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small">
+                    <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#down" class="slds-button__icon" />
+                    <span class="slds-assistive-text">Show More</span>
+                </button>
+                <aura:set attribute="else">
+                    {!v.trigger}
+                </aura:set>
+            </aura:if>
+
+        </div>
+
+        <div aura:id="popover" class="health1-menu-dropdown slds-fall-into-ground">
+            <div aura:id="popover-solid" class="{!v.menuClassName}" onmouseout="{!c.moveoutPopover}">
+                <aura:if isTrue="{! and(v.header != null, v.header.length != 0)}">
+                    <div class="slds-dropdown__header">
+                        {!v.header}
+                    </div>
+                </aura:if>
+                <ul class="{! 'slds-dropdown__list' + (v.scrollable ? ' health1-scrollable' : '') }" role="menu" onclick="{!c.onTriggerClicked}">
+                    <aura:if isTrue="{! and(v.list != null, v.list.length != 0)}">
+                        <aura:iteration aura:id="menulist" items="{!v.list}" var="item">
+                            <HealthCloudGA:HcDropdownMenuItem item="{!item}" menuSelect="{!c.onOptionClicked}" />
+                        </aura:iteration>
+                    <aura:set attribute="else">
+                        {!v.body}
+                    </aura:set>
+                    </aura:if>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</aura:component>

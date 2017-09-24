@@ -1,0 +1,41 @@
+/* Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCarePlanTemplateContainerStyle.
+ * @since 204
+ */
+
+.THIS.hc-carePlanTemplate {
+	height: 100%;
+}
+
+/* Pinned footer */
+.THIS.hc-carePlanTemplate .hc-block--fixed .hc-block__body {
+	margin-bottom: 60px;
+}
+
+.THIS.hc-carePlanTemplate .hc-block--fixed {
+	max-height: 50rem;
+	overflow-y: auto;
+}
+
+.THIS.hc-alohaCarePlanTemplate .hc-block--fixed {
+	max-width: none;
+	overflow-y: visible;
+}
+
+.THIS.hc-carePlanTemplate .hc-block__footer {
+	position: absolute;
+	left: 0px;
+  	right: 0px;
+  	bottom: 0px;
+}
+
+.THIS.hc-alohaCarePlanTemplate .hc-block__footer {
+  	position: fixed;
+  	z-index: 999;
+}
+
+.THIS .hc-carePlanTemplateTabset .slds-tabs--default__item {
+    pointer-events: none;
+}

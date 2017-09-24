@@ -1,0 +1,18 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description svg icon component, this component will insert an svg icon from static resource to itself, 
+ *   sample usage:
+ *   <HealthCloudGA:svgIconCmp svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/standard-sprite/svg/symbols.svg#task" class="icon__svg icon-standard-task"/>
+ * @since 196
+ * 
+-->
+<aura:component >
+    <aura:attribute name="class" type="String" access="public" />
+    <aura:attribute name="style" type="String" access="public" />
+    <aura:attribute name="svgPath" type="String" access="public" />
+    <aura:attribute name="span_class" type="String" access="public"/>
+    <span aura:id="svg_content"  class="{!v.span_class}">
+    </span>
+</aura:component>

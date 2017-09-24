@@ -1,0 +1,53 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description Patient mini-card to display and link minimal amount of content in a list.
+ * @since 200
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent">
+    <aura:attribute name="contextName" type="String" default="" />
+    <aura:attribute name="contextIsPast" type="Boolean" default="false" />
+    <aura:attribute name="patient" type="Map" />
+    <aura:attribute name="defRecOpenType" type="String" />
+
+    <div class="hc-patient-minicard slds-theme--default slds-p-around--small">
+        <div class="slds-media slds-tile">
+            <div class="slds-media__figure">
+                <a href="javascript:void(0)" onclick="{!c.handleOpenPatientDetails}"><img src="{!v.patient.photoURL}" class="hc-patient-minicard-photo" /></a>
+            </div>
+            <div class="slds-media__body">
+                <p class="slds-tile__title">
+                    <h3 class="slds-text-heading--small">
+                      <a href="javascript:void(0)" onclick="{!c.handleOpenPatientDetails}">
+                        {!v.patient.firstname + ' '}<b>{!v.patient.lastname}</b>
+                      </a>
+                    </h3>
+                    <p class="hc-meta-text slds-text-title--caps slds-m-top--xx-small">
+                        {! format($Label.healthcloudga.Text_Meta_HasXTasksInContext, v.patient.numTasks) }
+                    </p>
+                </p>
+                <div class="slds-tile__detail slds-m-top--medium">
+                    <!--
+                    <h4 class="hc-minicard-subhead">
+                      <aura:if isTrue="{!v.contextIsPast}">
+                        {!$Label.HealthCloudGA.Header_Minicard_TaskMostOverdue}:
+                      <aura:set attribute="else">
+                        {!$Label.HealthCloudGA.Header_Minicard_NextTaskDue}:
+                      </aura:set>
+                      </aura:if>
+                    </h4>
+                    -->
+                    <p>
+                        <aura:if isTrue="{!v.patient.detail.length > 0}">
+                            {!v.patient.detail}
+                            <aura:set attribute="else">
+                                {!$Label.healthcloudga.Msg_Task_NoDescription}
+                            </aura:set>
+                        </aura:if>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

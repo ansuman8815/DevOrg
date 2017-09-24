@@ -1,0 +1,50 @@
+<aura:component >
+    <ltng:require styles="{! $Resource.P360CommunityIcons}"/>
+    <aura:attribute name="patientid" type="string" required="true"/> 
+    <aura:attribute name="empi" type="string"/> 
+    <aura:attribute name="svgPath" type="String"/>
+    <div>  
+        <div class="floatL palletDetail violet">
+            <div class="floatL  palletTable">
+                <c:P360CommunityDynamicPallet >
+                    <aura:set attribute="svgPath" value="{! $Resource.P360CommunityIcons + '/31-Tobacco.svg#Layer_1'}" />
+                    <aura:set attribute="patientid" value="{!v.patientid}" />
+                    <aura:set attribute="empi" value="{!v.empi}" />
+                    <aura:set attribute="whereclause" value="{!v.empi}" />
+                    <aura:set attribute="listName" value="Tobacco Assessment" />
+                    <aura:set attribute="tableName" value="TobaccoAssessment_table" />
+                    <aura:set attribute="pageName" value="Social Summary" />
+                    <aura:set attribute="isPallet" value="div" />
+                </c:P360CommunityDynamicPallet>
+            </div>
+        </div>
+        <div class="floatL palletDetail green mr0">
+            <div class="floatL  palletTable">
+                <c:P360CommunityDynamicPallet >
+                    <aura:set attribute="svgPath" value="{! $Resource.P360CommunityIcons + '/32-Alcohol.svg#Layer_1'}" />
+                    <aura:set attribute="patientid" value="{!v.patientid}" />
+                    <aura:set attribute="empi" value="{!v.empi}" />
+                    <aura:set attribute="whereclause" value="{!v.empi}" />
+                    <aura:set attribute="listName" value="Alcohol Assessment" />
+                    <aura:set attribute="tableName" value="AlcoholAssessment_table" />
+                    <aura:set attribute="pageName" value="Social Summary" />
+                    <aura:set attribute="isPallet" value="div" />
+                </c:P360CommunityDynamicPallet>
+            </div> 
+        </div>
+        
+        <div class="floatL palletDetail violet">
+            <div class="floatL  palletTable">
+                <c:P360CommunityDynamicPallet >
+                    <aura:set attribute="svgPath" value="{! $Resource.P360CommunityIcons + '/25-ProblemList.svg#Layer_1'}" />
+                    <aura:set attribute="patientid" value="{!v.patientid}" />
+                    <aura:set attribute="empi" value="{!v.empi}" />
+                    <aura:set attribute="whereclause" value="{!v.empi}" />
+                    <aura:set attribute="listName" value="Social Determinants of Health" />
+                    <aura:set attribute="tableName" value="determinant_table" />
+                    <aura:set attribute="pageName" value="Social Summary" />
+                </c:P360CommunityDynamicPallet>
+            </div>
+        </div>
+    </div>
+</aura:component>

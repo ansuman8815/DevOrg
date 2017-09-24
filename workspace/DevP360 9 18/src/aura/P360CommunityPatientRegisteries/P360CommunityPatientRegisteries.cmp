@@ -1,0 +1,18 @@
+<aura:component controller="UtilityGeneral" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="dropdownChanged" type="boolean" default="false"/>    
+    <aura:attribute name="currentPage" type="String" default="Patient registries"/>
+    <aura:attribute name="listName" type="string" default="Patient registries"/>
+    <aura:attribute name="tableName" type="string" />
+    <aura:attribute name="whereclause" type="string" />
+   <aura:attribute name="encounterId" type="String" default=""/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:PatientRegistryEvent" action="{!c.handleRegistry}"/>
+    <div class="patRegContent" id="patRegContDiv">
+        <p class="patRegTitle">{!v.listName}</p>
+        <c:P360CommunityRegistries />
+        <div class="listDetail">
+            {!v.body}
+        </div>
+    </div>
+</aura:component>

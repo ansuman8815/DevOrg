@@ -1,0 +1,232 @@
+/* timeline */
+.THIS{
+    background-color: #ffffff;
+}
+
+.THIS .health1-timeline-icon {
+    fill: #f5675b;
+}
+
+.THIS .health1_pointer_overide{
+    pointer-events: all !important;
+}
+
+.THIS .health1-timeline-icon-wrap {
+    fill: #FFFFFF;
+    stroke: #D5DBE4;
+    stroke-width: 1;
+}
+
+.THIS .health1-timeline-record-wrap {
+    fill: #FFFFFF;
+    stroke: #D5DBE4;
+    stroke-width: 1;
+}
+
+.THIS .health1-minimap-wrapper {
+    background-color: #F8FCFF;
+    padding: 20px 25px 15px 25px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.THIS .health1-timeline-record-line {
+    stroke: #D5DBE4;
+    stroke-width: 1;
+}
+
+.THIS #health1-timeline {
+    overflow-y: auto;
+    border-bottom: 1px solid #D5DBE4;
+    height: calc(100% - 120px);
+    overflow-x: hidden;
+
+}
+
+.THIS #health1-timeline-axis {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #D5DBE4;
+    height: 25px;
+}
+
+.THIS #health1-minimap {
+    background-color: #FFFFFF;
+    border: 1px solid #4B97E6;
+    border-radius: 3px;
+    height: 40px;
+}
+
+.THIS #health1-minimap svg {
+    height: 100%;
+    width:100%;
+}
+
+
+.THIS #health1-minimap-axis {
+    height: 20px;
+}
+
+.THIS #health1-minimap-axis svg {
+    overflow: visible;
+}
+
+
+/* axis labels */
+.THIS .axis {
+    fill: #808080;
+    font-family: 'Salesforce Sans';
+    font-size: 10px;
+}
+
+
+/* axis tick marks */
+.THIS .axis line {
+    stroke-width: 1.6;
+    stroke: #F0F2F4;
+    stroke-dasharray: 9, 9;
+    shape-rendering: crispEdges;
+}
+
+.THIS #health1-minimap-axis line {
+    stroke: #72A8E0;
+}
+
+.THIS #health1-minimap-axis text {
+    fill: #72A8E0;
+    height: 10px;
+    color: #92bce4;
+    font-size: 10px;
+}
+
+
+/* axis line */
+
+.THIS .axis path {
+    stroke-width: 0;
+    stroke: none;
+    shape-rendering: crispEdges;
+}
+
+
+/* brush */
+.THIS .brush .selection {
+    stroke: #61ADFC;
+    fill: #61ADFC;
+    fill-opacity: .3;
+}
+
+.THIS .health1-timeline-record {
+    /*fill: #AAFFFF;*/
+    stroke-width: 6;
+    cursor: default;
+    pointer-events: true;
+}
+
+.THIS .health1-timeline-record-label {
+    fill: #575F6B;
+    shape-rendering: crispEdges;
+    color: #626a76;
+    font-size: 13px;
+}
+
+.THIS .item {
+    cursor: default;
+    pointer-events: auto;
+}
+
+.THIS #health1-timeline-tooltip {
+    box-shadow: 3px 3px 15px #D8E4ED;
+    max-width: 220px;
+    position: absolute;
+    visibility: hidden;
+    color: #575F6B;
+    background-color: #FFFFFF;
+    border: 1px solid #ADC3D4;
+    border-radius: 3px;
+    shape-rendering: crispEdges;
+    pointer-events: none;
+}
+
+.THIS #health1-timeline-tooltip .tooltip-header {
+    padding: 8px 10px 8px 10px;
+    background-color: #F3F9FD;
+    font-size: 90%;
+    font-weight: bold;
+}
+
+.THIS #health1-timeline-tooltip .tooltip-content {
+    padding: 10px 10px 10px 10px;
+    font-size: 90%
+}
+
+.THIS #health1-timeline-tooltip .tooltip-content-sub {
+    padding: 1px 1px 20px 1px;
+    font-size: 90%
+}
+
+.THIS .multiselect-dropdown {
+    margin: 0 10px;
+}
+
+.THIS .slds-form-element + .slds-form-element {
+    margin-top: 0;
+}
+
+.THIS .slds-form--inline .slds-form-element,
+.THIS .slds-form--inline .slds-form-element__control {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+.THIS .slds-grid.slds-grid--align-spread > div.slds-col.slds-shrink > h1 {
+    height: 17px;
+    color: #172e5b;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/*Changes after feature release, KEEP and should be nail down as final*/
+.THIS{
+    padding: 25px 35px 40px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.THIS #health1-timeline-wrapper {
+    margin: 10px 0;
+    border: 1px solid #D5DBE4;
+    border-radius: 3px;
+    height: calc(100% - 63px);
+    min-height: 200px;
+    position: relative;
+}
+
+.THIS .slds-form-element {
+    margin-right: 0 !important;
+}
+.THIS .slds-form-element form{
+    display: inline-block;
+}
+
+.THIS .slds-form-element input {
+    color: #0b79de;
+    font-size: 13px;
+    pointer-events: none;
+}
+
+.THIS .slds-form-element__label{
+    font-size: 14px;
+}
+
+.THIS #timeline-control-datepicker {
+    width: 125px;
+}
+.THIS #timeline-control-days {
+    width: 50px;
+    padding: 0 .5em 0 .5em;
+    text-align: center;
+}

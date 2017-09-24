@@ -1,0 +1,28 @@
+<!-- * Copyright © 2017 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description A completed Survey's detail item component
+ * @since 210.
+-->
+<aura:component description="Provides detail item of a completed survey response and feeds into the details page">
+    
+    <aura:attribute name="dataCollection" type="Object" description="Data collection in json format comprising of key value pairs of fields and their corresponsing values to display"/>
+    
+    <div class="slds-panel__section">
+      <aura:iteration items="{!v.dataCollection}" indexVar="key" var="thisData">
+        <ul>
+          <li class="slds-form-element slds-hint-parent slds-border_bottom">
+            <span class="slds-form-element__label">{!thisData.key} </span>
+            <div class="slds-form-element__control">
+            <aura:if isTrue="{!!thisData.isURL}">
+              <span class="slds-form-element__static">{!thisData.value}</span>
+              <aura:set attribute="else">
+                <a href="{!thisData.value}" >{!thisData.hyperLinkText}</a>
+              </aura:set>
+            </aura:if>
+            </div>
+          </li>
+        </ul>
+      </aura:iteration>
+    </div>
+</aura:component>

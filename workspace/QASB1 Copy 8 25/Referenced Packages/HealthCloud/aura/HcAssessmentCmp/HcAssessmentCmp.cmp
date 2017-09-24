@@ -1,0 +1,30 @@
+<!-- * Copyright © 2017 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcAssessment Component
+ * @since 210.
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcSurveyController">
+    <aura:attribute name="patientId" type="String" default="" />
+    <aura:attribute name="isAvailableToSendTabLoaded" type="Boolean" default="false" />
+    <aura:attribute name="isSurveyEnabled" type="Boolean" />
+    <aura:dependency resource="HealthCloudGA:HcSurveysAvailableToSendCmp" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div>
+        <aura:if isTrue="{!v.isSurveyEnabled}" >
+            <div class="slds-p-top--large slds-p-left--large slds-p-right--large slds-theme--default" id='AssessmentContainer'>
+                <div class="hc-assessmentHelpTray">
+                    <HealthCloudGA:HcHelpTrayDropDown helpType="assessment" />
+                </div>
+                <lightning:tabset >
+                    <lightning:tab onactive="{!c.handleActive}" id="sentToPatient" label="{!$Label.healthcloudga.Title_Sent_To_Patient}">
+                        <HealthCloudGA:HcSurveySentToPatientCmp patientId="{!v.patientId}" />
+                    </lightning:tab>
+                    <lightning:tab onactive="{!c.handleActive}" id="availableToSend" label="{!$Label.healthcloudga.Title_Available_To_Send}">
+                    </lightning:tab>
+                </lightning:tabset>
+            </div>
+        </aura:if>
+    </div>
+</aura:component>

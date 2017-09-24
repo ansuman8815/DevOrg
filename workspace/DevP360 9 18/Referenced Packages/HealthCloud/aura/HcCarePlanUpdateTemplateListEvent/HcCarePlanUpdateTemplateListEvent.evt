@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Event to be fired when the template list gets refreshed on HcCarePlanSelectTemplate component">
+    <aura:attribute name="selectedTemplateList" type="List"/>
+</aura:event>

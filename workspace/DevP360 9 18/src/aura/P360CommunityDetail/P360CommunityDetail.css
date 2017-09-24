@@ -1,0 +1,20 @@
+.THIS {
+}
+.THIS .selectList{
+    width: 280px;
+    border: none;
+    background-color: #eef3f6;
+    top: 240px;
+    left: 243px;
+    color: #004b7b;
+    font-size: 18px;
+    z-index: 1;
+    font-weight: bold;
+    padding:0;
+}
+.THIS .dropDown .selectList {font-size: 18px;}
+.THIS .slds-modal .selectList{top:189px;left:0px;width: 170px;}
+.THIS .expandView{top:159px;left:0px;width: 170px;}
+.THIS .collapseView{top:240px;left:243px;width: 185px;}
+.THIS .selectList:focus,.THIS .selectList:active{border: none;outline:none;background-color:#eef3f6;
+    box-shadow:none;color: #004b7b;}

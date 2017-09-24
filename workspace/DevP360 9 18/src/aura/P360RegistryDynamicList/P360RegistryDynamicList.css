@@ -1,0 +1,356 @@
+.THIS {
+    width: 98%;
+}
+.THIS .slds-table thead {
+    background-color: #717F8A;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>td,
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>th {
+    background-color: #E6EBEE;
+}
+.THIS tr.even {
+    background-color: #e6ebee!important;
+}
+.THIS .anchorClass,
+.THIS .anchorClass:hover {
+    border: none;
+    padding: 0;
+    color: #3c91c7;
+    font-size: 14px;
+    background: none;
+    outline: none;
+}
+.THIS.record-count,
+.THIS.filtercountVal {
+    position: relative;
+    left: 26%;
+    bottom: 18px;
+    width: auto;
+    font-size: 14px;
+}
+.THIS.filtercountVal {
+    display: none;
+}
+.THIS .count {
+    margin-top: 7px;
+    margin-left: 197px;
+    position: absolute;
+}
+.THIS .countVal {
+    margin-left: 20px;
+}
+.THIS .modalViewIcons {
+    float: right;
+    position: relative;
+    z-index: 1;
+    margin-right: -25px;
+}
+.THIS .modalViewIcons svg {
+    fill: #3c91c7;
+}
+.THIS .disclaimer {
+    position: absolute;
+    left: 0;
+    top: 45px;
+    z-index: 1;
+    font-size: 12px;
+    color: #707f8a;
+}
+.THIS .disclaimer.distext {
+    position: absolute;
+    top: 50px;
+    z-index: 1;
+    font-size: 12px;
+    color: #707f8a;
+}
+.THIS .slds-media__body {
+    position: relative;
+}
+.THIS .slds-card__header {
+    border: 0px;
+    background-color: #EFF3F6;
+    margin-bottom: 1px;
+    height: 50px;
+}
+.THIS .slds-text-heading--small {
+    font-size: 14px;
+    color: #707f8a;
+}
+.THIS .slds-text-heading--small b {
+    font-size: 21px;
+    color: transparent;
+}
+.THIS .slds-table tr {
+    height: 50px;
+}
+.THIS .slds-table tbody td {
+    color: #707f8a;
+    font-size: 14px;
+}
+.THIS .slds-text-heading--small {
+    text-align: left;
+}
+.THIS .slds-card {
+    border-radius: 0;
+    border: 0;
+    margin: 20px auto 20px;
+}
+.THIS .dataTables_wrapper .top {
+    margin-top: -35px;
+    margin-right: -50px;
+}
+.THIS .dataTables_filter {
+    margin-right: 75px;
+}
+.THIS .dataTables_paginate .first,
+.THIS .dataTables_paginate .last {
+    display: none;
+}
+.THIS .dataTables_wrapper .top {
+    float: right;
+}
+.THIS .dataTables_length {
+    float: left;
+}
+.THIS .dataTables_paginate {
+    float: left;
+    margin-top: -12px;
+}
+.THIS .dataTables_length label {
+    font-size: 0;
+}
+.THIS .dataTables_length select,
+.THIS .dataTables_filter label {
+    font-size: 14px;
+}
+.THIS .dataTables_length label:after {
+    content: ' Per Page   |   ';
+    font-size: 14px;
+}
+.THIS .dataTables_paginate .previous,
+.THIS .dataTables_paginate .next {
+    font-weight: bold;
+    font-size: 14px;
+}
+.THIS span.paginate_active {
+    min-width: 1.5em;
+    padding: 0.5em 1em;
+    max-width: 1.5em;
+    font-weight: bold;
+}
+.THIS .slds-text-heading--small b span {
+    border-left: 1px solid;
+    padding-left: 10px;
+    margin-left: 10px;
+    color: #9aa6af;
+    font-size: 12px;
+    font-weight: normal;
+}
+.THIS table.dataTable.no-footer {
+    border: none;
+}
+.THIS table.dataTable thead th,
+.THIS table.dataTable thead td {
+    border: none;
+    padding: 10px;
+}
+.THIS .slds.ipad-only {
+    display: none;
+}
+.THIS .dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #ccc;
+}
+.THIS .bottom {
+    float: right;
+    margin-top: 15px;
+}
+@media only screen and (max-width: 1280px) {
+    .THIS .dataTables_filter {
+        margin-right: 5px;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .THIS tr.even {
+        background-color: #e6ebee !important;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .THIS .dataTables_wrapper .top {
+        margin-top: -35px;
+        margin-right: -80px;
+    }
+    .THIS .dataTables_filter {
+        margin-right: 0px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .THIS .slds-card {
+        width: 94%;
+    }
+    .THIS table.dataTable {
+        width: 100% !important;
+    }
+    .THIS .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 5px 8px;
+    }
+    .THIS .dataTables_wrapper .dataTables_paginate .ellipsis {
+        padding: 0;
+    }
+    .THIS .dataTables_filter input {
+        width: 100px;
+    }
+    .THIS #searchResult_paginate {
+        margin: -18px 5px 0 5px;
+    }
+    .THIS .dataTables_wrapper .top {
+        float: left;
+        margin-left: 3px;
+    }
+    .THIS tr.even {
+        background-color: #e6ebee !important;
+    }
+    .THIS .dataTables_length {
+        float: left;
+    }
+}
+@media only screen and (max-width: 736px) {
+    .THIS .slds-table--bordered {
+        width: 100% !important;
+    }
+    .THIS #registryResult_filter {
+        display: none;
+    }
+    .THIS .slds-table--bordered tbody td,
+    .THIS .slds-table--bordered tbody th {
+        border: none;
+    }
+    .THIS .slds-table--bordered tbody td {
+        padding: 5px;
+        width: 95% !important;
+        border: none;
+    }
+    .THIS .slds-table--bordered tbody td:before {
+        text-transform: none;
+    }
+    .THIS .slds-table--bordered tbody td:first-child:before {
+        display: none;
+    }
+    .THIS #searchResult_filter {
+        display: none;
+    }
+    .THIS #searchResult_wrapper .top {
+        margin-top: 0px;
+    }
+    .THIS .slds-card {
+        width: 96%;
+    }
+    .THIS .slds-max-medium-table--stacked-horizontal tr {
+        border: none;
+    }
+    .THIS .slds-table tr {
+        height: auto;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 5px;
+        background-color: #FFF;
+        border: none;
+    }
+    .THIS tr.even {
+        background-color: #FFF !important;
+    }
+    .THIS .slds-table tr td:first-child {
+        text-align: left;
+    }
+    .THIS .slds-table tr td {
+        font-size: 14px;
+    }
+    .THIS #searchResult_length {
+        margin-top: 8px;
+    }
+    .THIS #searchResult_paginate {
+        margin: -6px 5px 0 5px;
+    }
+    .THIS.PatientResultStart {
+        margin-top: 290px;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .THIS .slds-table--bordered {
+        width: 100% !important;
+    }
+    .THIS .slds-table--bordered tbody td,
+    .THIS .slds-table--bordered tbody th {
+        border: none;
+    }
+    .THIS .slds-table--bordered tbody td {
+        padding: 5px;
+        width: 90% !important;
+    }
+    .THIS .slds-table--bordered tbody td:before {
+        text-transform: none;
+    }
+    .THIS .slds-table--bordered tbody td:first-child:before {
+        display: none;
+    }
+    .THIS #searchResult_filter {
+        display: none;
+    }
+    .THIS #searchResult_wrapper .top {
+        margin-top: 0px;
+    }
+    .THIS .slds-card {
+        width: 96%;
+    }
+    .THIS .slds-max-medium-table--stacked-horizontal tr {
+        border: none;
+    }
+    .THIS .slds-table tr {
+        height: auto;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 5px;
+        background-color: #FFF;
+    }
+    .THIS tr.even {
+        background-color: #FFF !important;
+    }
+    .THIS .slds-table tr td:first-child {
+        text-align: left;
+    }
+    .THIS .slds-table tr td {
+        font-size: 14px;
+    }
+    .THIS #searchResult_length {
+        margin-top: 8px;
+    }
+    .THIS #searchResult_paginate {
+        margin: -6px 5px 0 5px;
+    }
+    .THIS.PatientResultStart {
+        margin-top: 290px;
+    }
+    .THIS .bottom,
+    .THIS .top {
+        margin-left: -6px;
+    }
+    .THIS .bottom {
+        float: left;
+    }
+    .THIS .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 5px 5px;
+    }
+}
+@media only screen and (max-width: 320px) {
+    .THIS .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 3px 7px;
+        margin-top: 5px;
+    }
+    .THIS.record-count {
+        font-size: 13px;
+    }
+    .THIS .dataTables_length label:after {
+        content: ' Per Page ';
+    }
+}

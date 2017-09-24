@@ -1,0 +1,15 @@
+<aura:component description="HcCandPatTable" extends="HealthCloudGA:HcAbstractSimpleTable">
+
+    <aura:method name="handleSelectionEvent" />
+
+    <aura:attribute name='viewId' type='String' default="notcon"/>
+    <aura:handler name="change" value="{!v.viewId}" action="{!c.handleViewChange}" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:dependency resource="lightning:input"/>
+
+    <aura:set attribute="noItemsText" value="" />
+    <aura:attribute name="defRecOpenType" type="String" />
+
+</aura:component>

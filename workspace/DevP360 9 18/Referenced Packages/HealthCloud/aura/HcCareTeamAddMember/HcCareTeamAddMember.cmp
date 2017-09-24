@@ -1,0 +1,89 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCareTeamAddMember Component, The modal component for adding a care team member to the care team.
+ * @since 196
+-->
+<aura:component controller='HealthCloudGA.HcCareTeamController' extends="HealthCloudGA:HcBaseComponent">
+    <aura:attribute default="" name="contentMessage" type="String" />
+    <aura:attribute name="selectedObj" type="Object" />
+    <aura:attribute name="caseId" type="String" />
+    <aura:attribute name="userSearchString" type="String" />
+    <aura:attribute name="roleList" type="Object[]" />
+    <aura:attribute default="true" name="lookupValidated" type="Boolean" />
+    <aura:attribute default="false" name="createMember" type="Boolean" />
+    <aura:attribute name="columnSize" type="Integer" default="1" />
+    <aura:attribute name="viewType" type="String" default="" />
+    <aura:attribute name="patientRole" type="String" />
+    <aura:handler action="{!c.handleComponentStatusEvent}" event="HealthCloudGA:HcComponentStatusEvent" />
+    <aura:handler action="{!c.doInit}" name="init" value="{!this}" />
+    <aura:handler action="{!c.handleSelectionChange}" name="change" value="{!v.selectedObj}" />
+    <aura:registerEvent name="HcCareTeamEvent" type="HealthCloudGA:HcCareTeamCmpEvent" />
+    <HealthCloudGA:modal aura:id="modal" count="1" finishButtonText="{!$Label.healthcloudga.Button_Label_Add_Member}" finishEvent="{!c.finishButtonClicked}" backEvent="{!c.backButtonClicked}" headerTitle="{!$Label.healthcloudga.Header_Add_Member}" isDoable="true">
+
+        <div id="health1-addmember-searchScreen">
+            <div class="slds-grid">
+                <div class="slds-col--padded slds-size--1-of-1">
+                    <div class="slds-form--stacked">
+                        <div id="health1-careteamaddmember-searchElement">
+                            <div class="{!'slds-form-element ' + (v.lookupValidated ? '' : 'slds-has-error') + ' slds-is-required'}">
+                                <label class="slds-form-element__label" for="health1-careteamsearch-input">
+                                    <!-- Custom label for 'Person' -->
+                                    {!$Label.healthcloudga.Field_Label_Care_Team_Person}
+                                </label>
+                                <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right health1-addmember-searchbox">
+                                    <a href="javascript:void(0)" id="health1-careteamaddmember-searchicon" onclick="{!c.handleSearchClick}">
+                                        <HealthCloudGA:svgIconCmp class="slds-input__icon health1-addmembersearch__icon" svgPath="/resource/HealthCloudGA__industryresources/landmark/icons/utility-sprite/svg/symbols.svg#search" />
+                                    </a>
+                                    <input class="slds-input" id="health1-careteamsearch-input" onkeypress="{!c.handleKeyPress}" placeholder="" type="text" />
+                                    <aura:if isTrue="{! !v.lookupValidated}">
+                                        <small class="slds-form-element__help health1-error-text">{!$Label.healthcloudga.Msg_Member_Search}</small>
+                                    </aura:if>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <div class="slds-hide" id="health1-careteamsearch-table">
+                                <HealthCloudGA:HcCareTeamSearchMemberTableCmp aura:id="health1-careteamaddmember-datatable" selectedObj="{!v.selectedObj}" userSearchString="{!v.userSearchString}" caseId="{!v.caseId}" />
+                                <div class="slds-grid slds-grid--vertical-align-center slds-grid--align-center slds-p-around--large">
+                                    <button class="slds-button slds-button--neutral" id="health1-careteamaddmember-quickAddMem" onclick="{!c.quickAddMember}"> {!$Label.healthcloudga.Button_Label_CreateMember} </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="health1-careteamrole-select">
+                                <!-- Custom label for 'Care Team Role' -->
+                                {!$Label.healthcloudga.Field_Label_Care_Team_Role}
+                            </label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-select_container">
+                                    <select aura:id="health1-careteamrole-select" id="health1-careteamrole-select" class="slds-select">
+                                        <aura:iteration items="{!v.roleList}" var="role">
+                                            <option value="{!role.Id}">{!role.Label}</option>
+                                        </aura:iteration>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <aura:if isTrue="{! v.globalSettings.isCommunitySetUpInOrg}">
+                            <div class="slds-form-element">
+                                <label class="slds-checkbox" for="health1-careteamaddtocommunity-input">
+                                    <ui:inputCheckbox aura:id="community-checkbox"
+                                    disabled="{! v.selectedObj == null? 'true' : (v.selectedObj.isUser || v.selectedObj.isCommunityEnabled) }"
+                                    domId="health1-careteamaddtocommunity-input" />
+                                    <span class="slds-checkbox--faux"></span>
+                                    <span class="slds-form-element__label">{!$Label.healthcloudga.Link_Add_Member_Community}</span>
+                                </label>
+                            </div>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-hide" id="health1-addmember-quickCreateMember">
+            <HealthCloudGA:HcRecordEditView aura:id="MandatorySection" columnSize="{!v.columnSize}" sObjectName="Account" fieldSetName="AccountAddMember" viewType="Edit" showValidationErrors="false" />
+        </div>
+    </HealthCloudGA:modal>
+</aura:component>

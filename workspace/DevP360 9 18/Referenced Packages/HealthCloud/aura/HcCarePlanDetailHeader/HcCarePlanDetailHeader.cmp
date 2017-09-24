@@ -1,0 +1,54 @@
+<aura:component extends="HealthCloudGA:HcBaseComponent"  controller="HealthCloudGA.HcCarePlanController">
+    <aura:attribute name="caseDetail" type="Object" default="{}" />
+    <aura:attribute name="caseMetaDataList" type="List[]" default="[]" />
+    <aura:attribute name="metaDataMap" type="Map" default="{}" access="PRIVATE" />
+    <aura:attribute name="userDateTimeFormat" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:registerEvent name="HcComponentStatusEvent" type="HealthCloudGA:HcComponentStatusEvent"/>
+    <div>
+        <table class="slds-table slds-no-row-hover hc-carePlanHeader_table">
+            <thead>
+                <tr>
+                    <td class="hc-carePlanHeader_cell CaseNumber">
+                        <span class="slds-text-title slds-truncate slds-m-bottom--xx-small"> {!v.metaDataMap.CaseNumber.label}</span>
+                    </td>
+                    <td class="hc-carePlanHeader_cell Status">
+                        <span class="slds-text-title slds-truncate slds-m-bottom--xx-small"> {!v.metaDataMap.Status.label} </span>
+                    </td>
+                    <td class="hc-carePlanHeader_cell Owner">
+                        <span class="slds-text-title slds-truncate slds-m-bottom--xx-small">{!$Label.healthcloudga.Field_Label_CarePlan_Owner}</span>
+                    </td>
+                    <td class="hc-carePlanHeader_cell LMD">
+                        <span class="slds-text-title slds-truncate slds-m-bottom--xx-small"> {!v.metaDataMap.LastModifiedDate.label}</span>
+                    </td>
+                    <td class="hc-carePlanHeader_cell CD">
+                        <span class="slds-text-title slds-truncate slds-m-bottom--xx-small"> {!v.metaDataMap.CreatedDate.label} </span>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span class="slds-text-body--regular slds-truncate"><a href="javascript:void(0);" onclick="{!c.handleCarePlanClick}">{!v.caseDetail.CaseNumber}</a></span>
+                    </td>
+                    <td>
+                        <span class="slds-text-body--regular slds-truncate">{!v.caseDetail.Status}</span>
+                    </td>
+                    <td>
+                        <span class="slds-text-body--regular slds-truncate"><a href="javascript:void(0);" onclick="{!c.handleOwnerClick}">{!v.caseDetail.Owner__Name}</a></span>
+                    </td>
+                    <td>
+                        <span class="slds-text-body--regular">
+                            <ui:outputDateTime value="{!v.caseDetail.LastModifiedDate}" format="{!v.userDateTimeFormat}" langLocale="{!$Locale.language}" />
+                        </span>
+                    </td>
+                    <td>
+                        <span class="slds-text-body--regular">
+                            <ui:outputDateTime value="{!v.caseDetail.CreatedDate}" format="{!v.userDateTimeFormat}" langLocale="{!$Locale.language}" />
+                        </span>
+                    </td>
+                </tr>                
+            </tbody>
+        </table>
+    </div>
+</aura:component>

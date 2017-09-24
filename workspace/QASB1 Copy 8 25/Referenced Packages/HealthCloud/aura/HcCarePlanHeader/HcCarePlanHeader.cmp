@@ -1,0 +1,94 @@
+<!--
+   * Copyright © 2015 salesforce.com, inc. All rights reserved.
+   * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+   * transferred, or disclosed to others, without the prior written consent of Salesforce.
+   * @description HcCarePlanHeader component card table headers.
+   * @since 196
+   -->
+<aura:component >
+    <aura:attribute name="header" type="String" default="HEADING" />
+    <aura:attribute name="showDescriptionText" type="Boolean" default="false" />
+    <aura:attribute name="descriptionText" type="String" default="" />
+    <aura:attribute name="showPercentComplete" type="Boolean" default="true" />
+    <aura:attribute name="percentComplete" type="String" default="0" />
+    <aura:attribute name="showPriority" type="Boolean" default="true" />
+    <aura:attribute name="priority" type="String" default="High" />
+    <aura:attribute name="showActionButton" type="Boolean" default="true" />
+    <aura:attribute name="editActionButtonLabel" type="String" />
+    <aura:attribute name="editActionButtonId" type="String" />
+    <aura:attribute name="createActionButtonLabel" type="String" />
+    <aura:attribute name="createActionButtonId" type="String" />
+    <aura:attribute name="actionButton" type="Aura.Component[]" />
+    <aura:attribute name="expandable" type="Boolean" default="false" />
+    <aura:attribute name="selectable" type="Boolean" default="false" />
+    <aura:attribute name="recordId" type="String" default="" />
+    <aura:attribute name="carePlanId" type="String" default="" />
+    <aura:attribute name="problemId" type="String" />
+    <aura:attribute name="goalId" type="String" />
+    <aura:attribute name="expanded" type="Boolean" default="false" />
+    <aura:attribute name="tableClass" type="String" default="" />
+    <aura:attribute name="class" type="String" default="" />
+    <aura:attribute name="withBottomBorder" type="Boolean" default="true" />
+    <aura:attribute name="expandIconTooltip" type="String" default=""/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="HealthCloudGA:HcCarePlanRefreshEvent" action="{!c.refresh}" />
+
+    <aura:registerEvent name="HcCarePlanEvent" type="HealthCloudGA:HcCarePlanCmpEvent" />
+    <aura:registerEvent name="HcCarePlanHeaderCheckBoxEvent" type="HealthCloudGA:HcCarePlanHeaderCheckBoxEvent" />
+
+    <aura:method name="carePlanHeaderCheckBoxMethod" action="{!c.carePlanHeaderCheckBoxMethod}" description="Method when problem checkbox is clicked">
+        <aura:attribute name="checked" type="Boolean" default="true" />
+    </aura:method>
+    <aura:method name="expand" action="{!c.expand}" description="Method when expand is clicked">
+    </aura:method>
+
+    <div aura:id="health1-careplancardId" class="{! 'slds-grid slds-grid--align-spread slds-p-left--large slds-p-right--medium slds-p-vertical--x-small' + (v.withBottomBorder ? ' ' : '') + (v.class ? ' ' + v.class : '') + (v.expanded ? ' hc-cp-expanded ' : ' hc-cp-collapsed ' ) }">
+      <div class="slds-grid slds-grid--vertical-align-center">
+        <aura:if isTrue="{!v.expandable}">
+          <a href="javascript:void(0)" class="hc-tree-row_expander" title="{!v.expandIconTooltip}" onclick="{!c.expand}">
+            <aura:if isTrue="{!v.expanded}">
+            <lightning:icon iconName="utility:chevrondown" size="x-small" />
+
+              <aura:set attribute="else">
+              <lightning:icon iconName="utility:chevronright" size="x-small" />
+              </aura:set>
+            </aura:if>
+          </a>
+          <aura:set attribute="else">
+            <a href="javascript:void(0)" class="hc-tree-row_expander" title="{!v.expandIconTooltip}">
+              <lightning:icon iconName="utility:dash" size="x-small" />
+            </a>
+          </aura:set>
+        </aura:if>
+
+        <aura:if isTrue="{!v.selectable}">
+          <div class="slds-form-element hc-tree-row_block">
+            <div class="slds-form-element__control">
+              <label class="slds-checkbox hc-tree-checkbox">
+                <ui:inputCheckbox aura:id="checkbox" class="slds-checkbox slds-m-right--small" value="true" click="{!c.checkBoxClicked}" />
+                <span class="slds-checkbox--faux hc-checkbox--faux"></span>
+                <span class="slds-form-element__label">{!v.header}</span>
+              </label>
+            </div>
+          </div>
+
+          <aura:set attribute="else">
+            {!v.header}
+          </aura:set>
+        </aura:if>
+      </div>
+
+      <aura:if isTrue="{! v.showPriority || v.showPercentComplete || v.showDescriptionText}">
+        <div class="slds-no-flex">
+          <span class="{! 'slds-badge slds-theme--default hc-priorityLabel' + (v.showPriority ? '' : ' slds-hide') }">{!v.priority}</span>
+
+          <span class="{! 'slds-badge slds-theme--default hc-percentLabel' + (v.showPercentComplete ? '' : ' slds-hide') }">{!format($Label.healthcloudga.Field_Label_Percent_Complete, v.percentComplete)}</span>
+
+          <span class="{! 'hc-color-text-label' + (v.showDescriptionText ? '' : ' slds-hide') }">{!v.descriptionText}</span>
+
+          <span class="slds-m-left--medium">{!v.actionButton}</span>
+        </div>
+      </aura:if>
+    </div>
+</aura:component>

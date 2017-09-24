@@ -1,0 +1,58 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    <ltng:require styles="{! $Resource.P360JqueryResources + '/jquery.dataTables.min.css'}"/>
+    <ltng:require scripts="{!join(',', $Resource.P360JqueryResources + '/jquery-2.2.4.min.js', 
+    						$Resource.P360JqueryResources + '/jQueryDataTableJs.js')}" afterScriptsLoaded="{!c.afterScriptsLoaded}"/>
+    
+    <div class="dynamicList">
+        <center style="clear:both;">
+            <article class="slds-card">
+                <div class="slds"> 
+                    <div class="TableSample" id="parTable">
+                        	<table class="slds-table display slds-table--bordered slds-table--striped slds-max-medium-table--stacked-horizontal dataTable no-footer nowrap dataTable "  id="exampleDataTable" cellspacing="0" >
+                            <thead>
+                                <tr>
+                                    
+                                    <th data-label="Patient Name">Patient Name</th>
+                                    <th data-label="Date Of Birth">Date Of Birth</th>
+                                    <th data-label="Gender">Gender</th>
+                                    <th data-label="Medicaid ID (CIN)">Medicaid ID (CIN)</th>
+                                    <th data-label="Home Phone">Home Phone</th>
+                                    <th data-label="Address">Address</th>
+                                    <th data-label="ZipCode">Zip Code</th>
+                                    <th data-label="Extend"></th>
+                                </tr>
+                            </thead>
+                            
+                        <tbody>
+                            <tr role="row" class="odd">
+                                
+                                <td data-label="Patient Name">Maria Morel</td>
+                                <td data-label="Date Of Birth" class="sorting_1">10/27/1954</td>
+                                <td data-label="Gender" >Female</td>
+                                <td data-label="Medicaid ID (CIN)">ACFE456</td>
+                                <td data-label="Home Phone">212-961-1482</td>
+                                <td data-label="Address">2121 8TH AVENUE 3BADRESS,2121 8TH AVENUE 3BADRESS NEW YORK, NY 10026</td>
+                                <td data-label="ZipCode">10026</td>
+                                <td data-label="Extend" class="details-control">+</td>
+                            </tr>
+                            <tr role="row" class="odd">
+                                
+                                <td data-label="Patient Name">Pat Doc</td>
+                                <td data-label="Date Of Birth" class="sorting_1">12/12/1955</td>
+                                <td data-label="Gender" >Female</td>
+                                <td data-label="Medicaid ID (CIN)">ACFE984</td>
+                                <td data-label="Home Phone">212-961-1482</td>
+                                <td data-label="Address">2121 8TH AVENUE 3BADRESS,2121 8TH AVENUE 3BADRESS NEW YORK, NY 10026</td>
+                                <td data-label="ZipCode">10026</td>
+                                <td data-label="Extend" class="details-control-2">+</td>
+                            </tr>
+                            
+                        </tbody>
+                        </table>
+                    </div> 
+                </div>
+            </article>
+        </center>
+    </div>
+    
+</aura:component>

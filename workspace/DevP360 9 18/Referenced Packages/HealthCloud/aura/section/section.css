@@ -1,0 +1,46 @@
+/**
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description Style for generic expandable section container component
+ * @since 200
+ */
+
+.THIS { overflow: hidden; }
+
+/* only show the appropriate icon for expand/collapse */
+
+/* hide content when collapsed */
+.THIS.hc-collapsed .section-content,
+.THIS.hc-locked header button {
+    display: none;
+}
+
+/* fix to override extended.css styles */
+.THIS > header > h2 + button { margin: 0; }
+
+.THIS.hc-collapsed h2 {
+    color: rgb(144, 162, 194);
+}
+
+.THIS h2.hc-text-heading--label {
+    color: rgb(42, 66, 108);
+    display: inline;
+    font-size: 1rem;
+    position: relative;
+}
+
+.THIS h2:after {
+    background: rgb(164, 174, 190);
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+      top: 50%;
+      left: 100%;
+    width: 9999px;
+}
+
+.THIS.hc-collapsed h2:after {
+    background: rgb(193, 207, 214);
+}

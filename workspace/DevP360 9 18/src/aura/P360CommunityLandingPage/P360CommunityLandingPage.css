@@ -1,0 +1,94 @@
+.THIS *{
+    font-family:inherit ;
+}
+.THIS .patientHeadercss{
+    font-weight: 300;
+    font-size:48pt;
+    color:#707f8a;
+}
+.THIS .p360Headercss{
+    font-weight: bold;
+    font-size:48pt;
+    color:#3c91c7;
+}
+.THIS.container{width:1048px;margin:110px auto 0;}
+.THIS.container .ContentBox{margin-bottom:20px;float:left;}
+.THIS.container h2{padding-left: 10px;font-size:48pt;color:#707f8a;margin-bottom:30px;margin-left:10px;font-family:inherit;line-height:1;font-weight:300;}
+.THIS.container h2 span{color:#3c91c7;font-weight:bold;}
+.THIS .PatientSearchBox{width:406px;padding:20px;background:#004b7b;float:left;border-radius:20px;}
+
+/**Registry**/
+.THIS .PatientRegistry{width:620px;float:left;margin-left:20px;/*background:#eff3f5;border-radius:20px;*/}
+.THIS .RegistryContent{background:#eff3f5;border-radius:20px;}
+.THIS .CommunityAnnouncements{float:left;margin-bottom:100px;}
+ .THIS .clear{display:none;}
+.THIS .uiSpinner.spinner{ position: absolute !important;right: 50%;top: 53%;z-index: 400;}
+.THIS .uiSpinner.spinner .loading .spinner-img{height:auto;max-width:100%;}
+
+
+/** Footer **/
+.THIS #footerHide{
+    height:70px !important;
+}
+@media only screen and (max-width : 1280px) {
+	.THIS.container{width: 98%;margin-left: 25px;}
+    .THIS .PatientSearchBox{width:408px;}
+    .THIS .PatientRegistry{width:62%;}
+    .THIS .CommunityAnnouncements{float:left;margin-top:-20px;}
+    .THIS .uiSpinner.spinner {right: 50%;top: 44%;}
+}
+
+@media only screen and (max-width : 1047px) {
+	.THIS.container{width:992px; margin-left: 15px;}
+    .THIS .PatientSearchBox{width:392px;}
+    .THIS .PatientRegistry{width:580px}
+    .THIS .CommunityAnnouncements{float:left;margin-top:-20px;}
+    .THIS .uiSpinner.spinner {right: 50%;top: 45%;}
+}
+@media only screen and (max-width : 991px) {
+    .THIS.container{width:800px;}
+    .THIS .PatientSearchBox{width:300px;}
+    .THIS .PatientRegistry{width:480px}
+}
+@media only screen and (max-width : 960px) {
+    .THIS.container{width:900px;margin-left: 30px;}
+    .THIS .PatientSearchBox{width:400px;}
+}
+@media only screen and (max-width : 800px) {
+    .THIS .PatientSearchBox{width:96%;}
+    .THIS.container{width:98%;margin-left: 30px;}
+    .THIS .clear{float:none;clear:both;}
+    .THIS .PatientRegistry{width:100%; margin-left: 0px;margin-top: 20px;}
+    .THIS .RegistryContent {float: left;width: 47%;margin-right: 10px;}
+    .THIS .CommunityAnnouncements {float: left;width: 48%;margin-left: 10px;}
+    .THIS .uiSpinner.spinner {right: 50%;top: 40%;}
+    .THIS .cP360CommunitySearchCollapsible.uiSpinner.spinner {right: 50%;top: 29%;}
+}
+@media only screen and (max-width : 799px) {
+	.THIS.container{width:100%;margin-left: 0px;}
+    .THIS.container .ContentBox{padding:0 30px;}
+    .THIS.container h2{padding-left:10px;font-size:48px;margin-left: 20px;}
+    .THIS .PatientSearchBox{width:100%;}
+    .THIS .PatientRegistry{width:100%;margin-top: 20px; margin-left: 0px;}
+    .THIS .RegistryContent{float: left;width: 47%; margin-right: 10px;}
+    .THIS .CommunityAnnouncements{float: left;width: 48%; margin-left:10px;}
+    .THIS .clear{float:none;clear:both;}	
+    .THIS .CommunityAnnouncements{float:left;margin-top:-26px;}
+    .THIS .dataTables_wrapper .dataTables_paginate .paginate_button.current{margin-bottom:20px;}
+    .THIS .uiSpinner.spinner {right: 46%;top: 55%;}
+    .THIS .cP360CommunitySearchCollapsible.uiSpinner.spinner {right: 50%;top: 37%;}
+}
+@media only screen and (max-width : 736px) {
+    .THIS .cP360CommunitySearchCollapsible.uiSpinner.spinner{right: 46%;top: 50%;} 
+}
+@media only screen and (width: 600px){
+    .THIS .cP360CommunitySearchCollapsible.uiSpinner.spinner {right: 50%;top: 38%;}
+}
+@media only screen and (max-width : 480px) {
+    .THIS.container{width:100%;}
+    .THIS.container .ContentBox{padding:0 10px;}
+    .THIS .RegistryContent{width: 100%;margin-right: 0px;}
+    .THIS .CommunityAnnouncements{width:100%;margin-left:0px;margin-top:20px;}
+    .THIS .uiSpinner.spinner{right: 46% !important;top: 54% !important;}
+    
+}

@@ -1,0 +1,17 @@
+<!--
+ * Copyright © 2017 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCareTeamCollaboration component,  wrapper to hold care team map and chatter components
+ * @since 210
+-->
+
+<aura:component extends="HealthCloudGA:HcBaseComponent">
+    <aura:attribute name="carePlanId" type="String" />
+    <aura:attribute name="patientId" type="String" default="" />
+    <aura:attribute name="careTeamByCaseId" type="String" default="false" />
+    <HealthCloudGA:HcCareTeamBase carePlanId="{!v.carePlanId}" patientId="{!v.patientId}" careTeamByCaseId="{!v.careTeamByCaseId}" />
+    
+    <forceChatter:publisher context="RECORD" recordId="{!v.carePlanId}"/>
+    <forceChatter:feed type="Record" subjectId="{!v.carePlanId}"/>
+</aura:component>

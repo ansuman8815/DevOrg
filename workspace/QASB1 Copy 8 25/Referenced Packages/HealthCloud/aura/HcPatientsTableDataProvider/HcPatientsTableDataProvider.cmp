@@ -1,0 +1,11 @@
+<aura:component extends="HealthCloudGA:HcAbstractListDataProvider" controller="HealthCloudGA.HcPatientListViewController">
+    
+    <aura:attribute name='selectedViewId' type='String'/>
+    <aura:attribute name='appDriver' type='String'/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <!-- REQUIRED: To invoke helper functions like getData and sortData in this 
+         extending component's context -->
+    <aura:handler name="provide" action="{!c.provider}" />
+</aura:component>

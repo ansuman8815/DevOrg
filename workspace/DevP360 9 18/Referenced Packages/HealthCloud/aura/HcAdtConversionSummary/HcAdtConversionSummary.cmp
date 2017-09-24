@@ -1,0 +1,51 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcAdtConversionSummary component, a component summarize result from ADT conversion workflow.
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcPatientCreationFlowController">
+    <aura:registerEvent name="HcAdtConvertionStatusEvent" type="HealthCloudGA:HcComponentStatusEvent" />
+    <aura:attribute name="entries" type="List" default="null" />
+    <aura:attribute name="coordinator" type="Object" default="null" />
+    <aura:attribute name="coordinatorRole" type="String" />
+    <aura:attribute name="headerColumns" type="List"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <aura:method name="submit" action="{!c.submit}" access="PUBLIC" />
+    <div>
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+            <thead>
+            <tr class="slds-text-title--caps">
+                <aura:iteration items="{!v.headerColumns}" var="col">
+                    <th id="{!col.name}" class="{!col.isSortable ? col.name + ' slds-text-title--caps slds-is-sortable' : col.name + ' slds-text-title--caps acs-noSort'}" scope="col" >
+                        <div data-id='{!col.name}' data-sortable='{!col.isSortable}' onclick="{!c.handleSort}" class='slds-th__action slds-text-link--reset'>
+                            <span class="slds-truncate" title="{#col.label}" >{#col.label}</span>
+                            <div class="{! 'acs-sortIcon__container slds-icon_container ' + (col.sortOrder != '' ? '' : 'slds-hide')}">
+                                <lightning:icon iconName="{!(col.sortOrder == 'A') ? 'utility:up' : (col.sortOrder ==   'D') ? 'utility:down' : '' }" size="xx-small" class="slds-button__icon" />
+                            </div>
+                        </div>
+                    </th>
+                </aura:iteration>
+            </tr>
+            </thead>
+            <tbody>
+            <aura:iteration items="{!v.entries}" var="entry">
+                <tr class="slds-hint-parent">
+                    <th scope="row">
+                        <div class="slds-truncate">{!entry.name}</div>
+                    </th>
+                    <td >
+                        <div class="slds-truncate">{!entry.mrn}</div>
+                    </td>
+                    <td >
+                        <div class="slds-truncate">{!v.coordinator.name}</div>
+                    </td>
+                </tr>
+            </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+</aura:component>

@@ -1,0 +1,3 @@
+<!-- @Deprecated -->
+<aura:component extends="ui:dataProvider">
+</aura:component>

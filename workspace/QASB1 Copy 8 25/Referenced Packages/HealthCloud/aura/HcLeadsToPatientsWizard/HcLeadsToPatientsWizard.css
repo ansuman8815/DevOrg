@@ -1,0 +1,6 @@
+.THIS .hc-wizardTabset .slds-tabs--default__item {
+    pointer-events: none;
+}
+.THIS .slds-tabs--default__link {
+	text-transform: uppercase;
+}

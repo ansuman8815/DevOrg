@@ -1,0 +1,100 @@
+.THIS {
+   float: left;
+   width: 100%;font-family:inherit;
+}
+.THIS .clear{clear:both;float:none;}
+.THIS .sectionTitle{font-size:24px;color:#004b7b;font-weight:bold;margin-left: -12px;padding-left: 10px;}
+.THIS .keyTitle{font-size:14px;color:#707f8a;padding: 3px 0;}
+.THIS .keyValue{font-size:14px;color:#2f3537;padding: 3px 0;}
+.THIS .secondCol{/*border-left: 1px solid #ccc;*/padding-left: 25px;}
+/*.THIS .firstCol{border-right:1px solid #ccc;}*/
+.THIS .thirdCol{padding-left: 25px;}
+/*.THIS .secondCol .slds-grid:last-child{margin-bottom:80px;} */
+.THIS .profileDiv{ box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin: 0 20px 20px 0;
+    padding: 15px;
+    background-color: #fff;display:block;}
+.THIS .slds-large-size--1-of-3{float:left;}
+.THIS .palletDetail.blue svg{fill:#00c277;}
+.THIS .palletDetail.golden svg{fill:#6591d4;}
+
+.THIS .disclaimer{
+    font-size:12px;
+    color: #707f8a;
+}
+.THIS .vDivider{border-right:1px solid #ccc;position:absolute;left:495px;}
+.THIS .palletDetail.blue{border-left: 5px solid #00c277;}
+.THIS .palletDetail.golden{border-left: 5px solid #6591d4;}
+.THIS table.PalletDetailList tbody tr,
+.THIS table.PalletDetailList tbody tr td, .THIS table.PalletDetailList tbody tr *,
+.THIS table.PalletDetailList tbody tr td * {max-width: 100px;}
+.THIS .palletDetail:last-child table.PalletDetailList tbody tr,
+.THIS .palletDetail:last-child table.PalletDetailList tbody tr td, .THIS .palletDetail:last-child table.PalletDetailList tbody tr *,
+.THIS .palletDetail:last-child table.PalletDetailList tbody tr td *{max-width: 75px;}
+.THIS .palletDetail:last-child table.PalletDetailList .linkbutton,
+.THIS .palletDetail:last-child table.PalletDetailList .linkbutton:hover{font-size:13px;text-decoration: underline;}
+
+/*@media only screen and (min-width : 768px) and (max-width : 1024px){*/
+    .THIS .ipadonlydisplay{display:block;}
+    .THIS .ipadonlydisplay .widfifper{width:50%;float:left;}
+    .THIS .ipadonlydisplay .slds-medium-size--1-of-2:first-child {width: 38%;}
+    .THIS .ipadonlydisplay .slds-medium-size--1-of-2:nth-child(2) {width: 57%;}
+    .THIS .ipadonlydisplay .secondCol{border-right:none;}
+/*}*/
+.THIS .palletDetail:last-child table.PalletDetailList tbody tr td button{overflow: hidden;
+    text-overflow: ellipsis;max-width:100%;}
+
+
+@media only screen and (max-width : 1024px) {
+	.THIS .palletDetail:last-child table.PalletDetailList .linkbutton,
+	.THIS .palletDetail:last-child table.PalletDetailList .linkbutton:hover{font-size:14px;}
+}
+@media only screen and (max-width : 768px) {
+  	.THIS .keyValue{word-break: break-all;}  
+   	.THIS .paddingL20{padding-left:20px;}
+    .THIS .secondCol{border: none;}
+	/*.THIS .firstCol{border-right:1px solid #ccc;}*/
+}
+@media only screen and (max-width : 736px) {
+    .THIS .secondCol{border-left:none !important;padding-left:12px;}
+    .THIS .firstCol{border-right:none !important;}
+    .THIS .thirdCol{padding-left:12px;}
+    .THIS .secondCol,.THIS .thirdCol{border-top:1px solid #ccc;margin-top: 5px;}
+    .THIS .paddingL20{padding-left:0px;}
+  	.THIS .ipadonlydisplay .widfifper{width:98%;border-right: none;}
+    .THIS .profileDiv{margin: 0 0px 20px 0;width: 98%;}
+    .THIS .vDivider{border:none;height:0 !important;}
+    
+}
+@media only screen and (width: 600px){
+    .THIS .palletDetail:last-child table.PalletDetailList tbody tr,
+    .THIS .palletDetail:last-child table.PalletDetailList tbody tr td, .THIS .palletDetail:last-child table.PalletDetailList tbody tr *,
+    .THIS .palletDetail:last-child table.PalletDetailList tbody tr td * {max-width: 70px;}
+    .THIS .palletDetail:last-child table.PalletDetailList .linkbutton,
+	.THIS .palletDetail:last-child table.PalletDetailList .linkbutton:hover{font-size:13px;}
+}
+@media only screen and (width: 568px){
+    .THIS .palletDetail:last-child table.PalletDetailList tbody tr,
+    .THIS .palletDetail:last-child table.PalletDetailList tbody tr td, .THIS .palletDetail:last-child table.PalletDetailList tbody tr *,
+    .THIS .palletDetail:last-child table.PalletDetailList tbody tr td *{max-width: 66px;}
+    .THIS .palletDetail:last-child table.PalletDetailList .linkbutton,
+	.THIS .palletDetail:last-child table.PalletDetailList .linkbutton:hover{font-size:13px;}
+}
+
+@media only screen and (max-width : 480px) {
+    .THIS .ipadonlydisplay .secondCol{border:none;padding-left:12px;}
+    .THIS .ipadonlydisplay .thirdCol{padding-left:12px;}
+    .THIS .ipadonlydisplay .secondCol,.THIS .ipadonlydisplay .thirdCol{border-top:1px solid #ccc;margin-top: 5px;}
+    .THIS .ipadonlydisplay{display:block;width:98%;}
+}
+@media only screen and (max-width : 384px) {
+	.THIS .palletDetail:last-child table.PalletDetailList .linkbutton,
+	.THIS .palletDetail:last-child table.PalletDetailList .linkbutton:hover{font-size:12px;}
+    .THIS .palletDetail table.PalletDetailList tbody td {font-size: 13px;}
+}
+@media only screen and (max-width : 320px) {
+    .THIS .palletDetail:last-child table.PalletDetailList tbody tr,
+	.THIS .palletDetail:last-child table.PalletDetailList tbody tr td,
+    .THIS .palletDetail:last-child table.PalletDetailList tbody tr *,
+	.THIS .palletDetail:last-child table.PalletDetailList tbody tr td *{max-width: 60px;}
+}

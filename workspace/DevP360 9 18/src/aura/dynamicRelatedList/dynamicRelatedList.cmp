@@ -1,0 +1,55 @@
+<aura:component controller="clinicalSummaryController">
+    <ltng:require styles="{! $Resource.SLDS090 + '/assets/styles/salesforce-lightning-design-system.css'}"/>
+    
+    <aura:attribute name="strQuery" type="String" description="sobject query string" required="true" default="SELECT Id , Name FROM HealthCloudGA__EhrAllergyIntolerance__c"/>
+    <aura:attribute name="lstSobject" type="SObject[]" />
+    <aura:attribute name="lstFieldApi" type="string[]" />
+    <aura:attribute name="lstFieldLabel" type="string[]" />
+    <aura:attribute name="patientId" type="String" />
+    <aura:attribute name="recordLimit" type="String" />
+    <aura:attribute name="headerLabel" type="String" />
+    <aura:attribute name="pageName" type="String" />
+    <aura:attribute name="whereQuery" type="String" />
+    <aura:attribute name="lstFielddatatype" type="string[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:ClinicalSummarySelectOptionEvent" action="{!c.handleEvent2}"/>
+    
+    
+    <br/>
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media--center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <h1 class="slds-text-heading--small" title="{!v.headerLabel}"><b>{!v.headerLabel}</b></h1>
+                </div>
+            </header>
+        </div>
+        <div class="slds-card__body"> 
+            <table class="slds-table slds-table--bordered slds-no-row-hover slds-table--cell-buffer">
+                <thead>
+                    <tr class="slds-text-title--caps">
+                        <aura:iteration var="fldlbl" items="{!v.lstFieldLabel}">
+                            <th scope="col"><span class="slds-truncate"><b>{!fldlbl}</b></span></th>
+                        </aura:iteration>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.lstSobject}" var="item">
+                        <tr class="slds-hint-parent">
+                            <aura:iteration var="fldApi" items="{!v.lstFieldApi}">
+                                <td class="slds-hyphenate" style="white-space: pre-wrap; word-wrap: break-word;">
+                                    <c:displaySobjectFields objSobject="{!item}" fieldapi="{!fldApi}"></c:displaySobjectFields>
+                                </td>
+                            </aura:iteration>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+        </div>
+        
+        <aura:if isTrue="{!v.recordLimit != '0'}">
+            <div class="slds-card__footer"><a aura:id="viewLinkId" href="#" onclick="{!c.viewAll}">View All <span class="slds-assistive-text">entity type</span></a></div>
+        </aura:if>
+       
+    </article>
+</aura:component>

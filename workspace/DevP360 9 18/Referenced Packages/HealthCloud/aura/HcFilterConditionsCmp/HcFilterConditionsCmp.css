@@ -1,0 +1,24 @@
+.THIS .health1-addrow-button {
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.THIS .health1-filterconditions-container {
+    background-color: white;
+}
+
+.THIS .slds-dropdown--length-5 {
+  max-height: calc(((0.875rem * 1.5) + 1rem) * 4);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; }
+
+.THIS .health1-filtercriteria-filterLogic {
+    width: 80%;
+}
+.THIS .helath1-filtercriteria-inlineBlock{
+  display: inline-block;
+  cursor:pointer;
+}
+.THIS .health1-condition-error-textColor{
+   color:#FF0000;
+}

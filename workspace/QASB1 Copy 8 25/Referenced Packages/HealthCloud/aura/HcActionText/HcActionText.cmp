@@ -1,0 +1,23 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcActionText, repurposed to be a link component that can be used in either lightning or aloha console
+ * @since 198
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" description="Provides a record link to be used in lightning or aloha console">
+    <aura:attribute name="label" type="String"/>
+    <aura:attribute name="objId" type="String"/>
+    <aura:attribute name="linkWithPreview" type="Boolean" default="true"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <aura:if isTrue="{!v.linkWithPreview}">
+        <force:outputLookupWithPreview label="{!v.label}" value="{!v.objId}" isProfilePicSupported="false" showRelatedLists="true" showPreview="true" />
+        <aura:set attribute="else">
+            <div class="slds-text-link--reset slds-text-link" onclick="{!c.handleClick}">
+                {!v.label}
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

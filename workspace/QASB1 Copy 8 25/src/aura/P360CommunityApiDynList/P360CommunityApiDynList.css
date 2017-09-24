@@ -1,0 +1,780 @@
+.THIS {
+    width: 98%;
+}
+.THIS.refresh {
+    margin-left: 5px;
+    width:    300px;
+   }
+.THIS.dropdown {
+    width:   10%;
+    right:   0px;
+    padding: 10px;
+    float: right;
+}
+.THIS .slds-table thead {
+    background-color: #717F8A;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>td,
+.THIS .slds-table--striped tbody tr:nth-of-type(even)>th {
+    background-color: #E6EBEE;
+}
+.THIS .disclaimer {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    z-index: 1;
+    font-size: 12px;
+    color: #707f8a;
+    text-align: left;
+    font-weight:900;
+}
+.THIS .disclaimer.distext {
+    position: absolute;
+    left: -214px;
+    top: 40px;
+    z-index: 1;
+    font-size: 12px;
+    color: #707f8a;
+    text-align: left;
+}
+.THIS .count {
+    margin-top: 7px;
+}
+.THIS .count.countSep {
+    margin-left: 277px;
+}
+.THIS .countVal {
+    margin-left: 2px;
+}
+.THIS .filtercountVal {
+    display: none;
+}
+.THIS .modalViewIcons {
+    float: right;
+    position: relative;
+    z-index: 3;
+    margin-right: -20px;
+    margin-top: -7px;
+}
+.THIS .modalViewIcons svg {
+    fill: #3c91c7;
+}
+.THIS .slds-media__body {
+    position: relative;
+}
+.THIS .slds-card__header {
+    border: 0px;
+    background-color: #EFF3F6;
+    margin-bottom: 0px;
+    height: 50px;
+    padding-left: 0;
+}
+.THIS .slds-text-heading--small {
+    font-size: 12px;
+    color: #707f8a;
+}
+.THIS .slds-text-heading--small b {
+    font-size: 21px;
+    color: transparent;
+}
+.THIS .slds-table tr {
+    height: 50px;
+}
+.THIS table.dataTable thead th {
+    padding: 10px!important;
+    background-color: #717f8a;
+    color: #ffffff;
+}
+.THIS .slds-table tbody td {
+    color: #707f8a;
+    font-size: 14px;
+    max-width: 300px;
+    word-wrap: break-word;
+    white-space: inherit;
+}
+.THIS .slds-text-heading--small {
+    text-align: left;
+    margin-top: 18px;
+}
+.THIS .slds-card {
+    border-radius: 0;
+    border: 0;
+    margin: 0 auto 20px;
+    background-color: #eef3f6;
+    padding-bottom: 20px;
+}
+.THIS .dataTables_wrapper .top {
+  /*position: absolute;
+    top: -99px;
+    right: 0;
+    z-index: 999;*/
+}
+.THIS .dataTables_filter {
+    margin-right: 40px;
+}
+.THIS .dataTables_wrapper .dataTables_filter input{
+    width:100px;
+    margin-left: 5px;
+}
+.THIS .dataTables_paginate .first,
+.THIS .dataTables_paginate .last {
+    display: none;
+}
+.THIS .dataTables_wrapper .top {
+    float: right;
+}
+.THIS .dataTables_length {
+    float: left;
+}
+.THIS .dataTables_length {
+    float: left;
+}
+.THIS .sectionTitle {
+    z-index: 9999;
+}
+.THIS .dataTables_wrapper .top .dataTables_paginate {
+    margin-top: -11px;
+}
+.THIS #table_registry_filter,
+.THIS #clinicalNotes_table_filter,
+.THIS #PerformanceMetrics_table_filter,
+.THIS #encounter_table_filter {
+    margin-right: 0;
+}
+.THIS #Registries_table_filter {
+    margin-right: 38px;
+}
+.THIS .dataTables_length label {
+    font-size: 0;
+}
+.THIS .dataTables_length select {
+    font-size: 12px;
+}
+.THIS .dataTables_filter label {
+    font-size: 13px;
+}
+.THIS .dataTables_length label:after {
+    content: ' Per Page   |   ';
+    font-size: 13px;
+}
+.THIS .dataTables_paginate .previous,
+.THIS .dataTables_paginate .next {
+    font-weight: bold;
+    font-size: 14px;
+}
+.THIS .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.THIS .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.THIS span.paginate_active {
+    padding: 5px 10px;
+}
+.THIS .top .dataTables_paginate {
+    margin-bottom: 20px;
+}
+.THIS .slds-text-heading--small b span {
+    border-left: 1px solid;
+    padding-left: 10px;
+    margin-left: 10px;
+    color: #9aa6af;
+    font-size: 12px;
+    font-weight: normal;
+}
+.THIS #encounter_table_paginate,
+.THIS #clinicalNotes_table_paginate {
+    margin-top: -12px;
+}
+.THIS .EncounterLabelDiv {
+    display: show;
+}
+.THIS #PerformanceMetrics_table_wrapper .top {
+    margin-right: 37px;
+}
+.THIS table.dataTable thead th,
+.THIS table.dataTable thead td,
+.THIS table.dataTable.no-footer {
+    border: none;
+}
+.THIS .encSumHead {
+    color: #004b7b;
+    font-size: 21px;
+    font-weight: bold;
+    left: 0;
+    overflow: hidden;
+    max-width: 217px;
+    text-align: left;
+}
+.THIS .expandEncSum {
+    position: absolute;
+    color: #004b7b;
+    font-size: 21px;
+    font-weight: bold;
+    left: 20px;
+}
+.THIS .linkbutton,
+.THIS .linkbutton:hover {
+   border: none;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 0;
+    color: #3c91c7;
+    font-size: 12px;
+    font-weight: bold;
+    background: none;
+}
+.THIS .TableSample {
+    
+}
+.THIS .bottom {
+    float: right;
+}
+.THIS .bottom .dataTables_length {
+    margin-top: 10px;
+}
+.THIS .socialDeter {
+    padding-top: 0 !important;
+}
+.THIS .mt10 {
+    margin-top: 10px;
+}
+.THIS .mt0 {
+    margin-top: -5px;
+}
+.THIS .dataTables_wrapper {
+    background-color: #eef3f6;
+    z-index: 1;
+}
+.THIS .dataTables_wrapper .dataTables_paginate .ellipsis {
+    padding: 0;
+}
+.THIS .dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 5px 10px;
+}
+.THIS .dataTables_scrollBody,
+.THIS .dataTables_scrollHeadInner,
+.THIS .dataTables_scrollHeadInner table {
+    width: 100% !important;
+}
+.THIS .dataTables_scrollBody thead {
+    visibility: hidden;
+}
+.THIS .dataTables_wrapper.no-footer .dataTables_scrollBody {
+    border: none;
+}
+.THIS table.dataTable tbody td {
+    padding: 8px 10px;
+}
+.THIS .lastFiter{
+    margin-left:15px;
+   
+}
+.THIS .dropdown.filterValues{
+    border-radius: 0;
+    border: 1px solid #ccc;
+    height: 20px;
+    padding: 0 1px;
+    width: 120px;
+    line-height: initial;
+    font-weight: normal;
+    font-size: 13px;
+   
+ 
+}
+.THIS .refresh .slds-icon_container--circle{
+	width: 23px;
+    height: 23px;
+    padding: 3px 3px 3px 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.THIS .refresh .slds-icon_container--circle svg{
+   	width: 14px;
+    height: 13px;
+}
+
+.THIS #Loadingspinner{
+position: relative;
+    top: 16px;
+}
+.THIS .uiSpinner{
+    position: relative;
+    top: -22px;
+}
+.THIS #errorpopUp{
+  top: 70px;
+    position: absolute;
+    left: 0;
+    color: red;
+    text-align: left;
+    padding:10px 0;
+    font-size: 12px;
+    z-index:2;
+}
+.THIS .filterCount{
+ /*position: relative;
+    top: 6px;
+    left: -192px;  */
+    float:right;
+    margin-top: 6px;
+    font-size: 13px;
+}
+.THIS .paratext{
+   margin-left: 15px; 
+    margin-top:5px;
+}
+.THIS .TableSample .top{
+    display:none;
+    position: relative;
+    bottom: 72px;
+}
+.THIS .spinner-img{
+position: relative;
+    left: 7%;}
+
+@media only screen and (max-width: 1024px) {
+    /*.THIS .dataTables_wrapper .top {
+        float: left;
+  padding-left: 1px;
+    margin-top: -19px;
+    }*/
+    .THIS #PerformanceMetrics_table_wrapper .top {
+        margin-top: 25px;
+    }
+    .THIS .dataTables_wrapper .dataTables_filter input {
+        border: 1px solid #717f8a;
+    }
+    .THIS .dataTables_wrapper {
+        background-color: #eef3f6;
+    }
+    .THIS .modalViewIcons {
+        margin-right: -15px;
+    }
+    .THIS .slds-card__header {
+        margin-bottom: -1px;
+    }
+    .THIS .dataTables_wrapper .dataTables_paginate .ellipsis {
+        padding: 0;
+    }
+    .THIS .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 0;
+    }
+    .THIS #Registries_table_wrapper .top {
+        display: block;
+    }
+    .THIS .encSumHead {
+        max-width: 331px;
+    }
+    .THIS .mt0 {
+        margin-top: 10px;
+    }
+    .THIS .dataTables_paginate {
+        margin-bottom: 0px;
+    }
+    .THIS .dataTables_scrollBody {
+        max-height: inherit !important;
+    }
+    .THIS .dataTables_scrollBody {
+        height: auto !important;
+    }
+    .THIS .dataTables_scrollHead {
+        width: 100% !important;
+        margin-right: 0 !important;
+    }
+    .THIS .dataTables_scrollBody thead {
+        visibility: hidden;
+    }
+ .THIS .spinner-img{
+    left: 9%;}
+       
+}
+@media only screen and (max-width: 768px) {
+    .THIS .dataTables_wrapper .top {
+        float: left;
+       padding-left: 2px;
+    margin-top: 13px;
+        position: absolute;
+    top: -31px;
+     
+     right: 0; 
+    }
+    .THIS #errorpopUp {
+        top:83px;
+    }
+    .THIS .dataTables_wrapper .dataTables_filter input {
+        border: 1px solid #717f8a;
+    }
+    .THIS .dataTables_wrapper {
+        background-color: #eef3f6;
+    }
+    .THIS .modalViewIcons {
+        margin-right: -15px;
+    }
+    .THIS .slds-card__header {
+        margin-bottom: 0px;
+    }
+    .THIS .dataTables_wrapper .dataTables_paginate .ellipsis {
+        padding: 0;
+    }
+    .THIS .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 0;
+    }
+    .THIS .slds-table {
+        background-color: transparent;
+    }
+    .THIS .slds-table tbody td {
+        max-width: none;
+        padding: 5px 0;
+    }
+    .THIS .slds-table tr {
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .THIS .slds-table--striped tbody tr:nth-of-type(even)>td,
+    .THIS .slds-table--striped tbody tr:nth-of-type(even)>th {
+        background: #fff;
+    }
+    .THIS .slds-max-medium-table--stacked-horizontal tr,
+    .THIS .slds-table tbody td {
+        border: none;
+    }
+    .THIS .slds-table tr {
+        height: auto;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 5px;
+        background: #fff;
+        padding: 0 10px;
+    }
+    .THIS table.dataTable tbody td {
+        padding: 5px 0;
+    }
+    .THIS .dataTables_scrollBody table {
+        background-color: #eef3f6;
+    }
+    .THIS table.dataTable tbody td p {
+        width: 70%;
+        float: right;
+        text-align: right;
+	}
+    .THIS .TableSample{
+        margin-top: 140px;
+    }
+ 
+ /*   .THIS  .filterCount   {
+    position: relative;
+        top: 8px;
+    left: -191px;
+}*/
+    .THIS  .filterCount{
+    margin-top: 30px;
+    margin-right: 20px;
+    }
+    .THIS .spinner-img{
+    left: 13%;}
+}
+@media only screen and (max-width: 736px) {
+    .THIS .dataTables_wrapper {
+        background-color: #eef3f6;
+    }
+    .THIS #encounterSumHead .slds-text-heading--small {
+        margin-top: 7px;
+    }
+    .THIS .slds-card__header {
+        margin-bottom: -1px;
+        padding: 0;
+    }
+    .THIS .dataTables_filter {
+        display: none;
+    }
+    .THIS .dataTables_wrapper .slds-table--bordered {
+        border: none;
+        background-color: #eef3f6;
+    }
+    .THIS .dataTables_wrapper thead {
+        background-color: #FFF;
+        color: #707f8a;
+    }
+    .THIS .dataTables_wrapper .slds-table--bordered tbody td,
+    .THIS .dataTables_wrapper .slds-table--bordered tbody th {
+        border-top: none;
+        background-color: #FFF;
+    }
+    .THIS .dataTables_wrapper .slds-table--striped tbody tr:nth-of-type(even)>td,
+    .THIS .dataTables_wrapper .slds-table--striped tbody tr:nth-of-type(even)>th,
+    .THIS .dataTables_wrapper .slds-table--striped tbody tr:nth-of-type(even)>td:hover,
+    .THIS .dataTables_wrapper .slds-table--striped tbody tr:nth-of-type(even)>th:hover,
+    .THIS .dataTables_wrapper .slds-table--striped tbody tr:nth-of-type(odd)>td,
+    .THIS .dataTables_wrapper .slds-table--striped tbody tr:nth-of-type(odd)>th,
+    .THIS .dataTables_wrapper .slds-table--striped tbody tr:nth-of-type(odd)>td:hover,
+    .THIS .dataTables_wrapper .slds-table--striped tbody tr:nth-of-type(odd)>th:hover {
+        background-color: #FFF;
+        border: none;
+        color: #2f3537;
+        outline: none;
+        margin-top: 10px;
+    }
+    .THIS .dataTables_wrapper .top .dataTables_paginate {
+        float: left;
+    }
+    .THIS .dataTables_wrapper .bottom .dataTables_paginate {
+        float: right;
+    }
+    .THIS .dataTables_wrapper .slds-table--bordered tbody td,
+    .THIS .dataTables_wrapper .slds-table--bordered tbody th {
+        border: none;
+    }
+    .THIS .dataTables_wrapper .slds-table tr {
+        height: auto;
+        padding: 10px 0;
+    }
+    .THIS .dataTables_wrapper .slds-table--striped tbody tr,
+    .THIS .dataTables_wrapper .slds-table--striped tbody tr:hover td {
+        border: none;
+        outline: none;
+    }
+    .THIS .slds-table tr {
+        height: auto;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 5px;
+    }
+    .THIS #Registries_table {
+        max-height: inherit;
+        overflow-y: inherit;
+        display: table;
+    }
+    .THIS .modalViewIcons .IconStyle {
+        display: none;
+    }
+    .THIS .modalViewIcons .IconStyle.palletView {
+        display: block;
+    }
+    .THIS .modalViewIcons {
+        margin: 30px 0 0 0;
+    }
+    .THIS .slds-text-heading--small {
+        margin-top: 18px;
+    }
+    .THIS .count.countSep {
+        margin-left: 263px;
+    }
+    .THIS .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 0;
+    }
+    .THIS .slds-table tbody td {
+        max-width: 585px;
+        padding: 0 10px;
+    }
+    .THIS .slds-max-medium-table--stacked-horizontal td:before {
+        margin: -1px 5px 0 0;
+        text-transform: capitalize;
+    }
+    .THIS .dataTables_wrapper .top {
+        margin-top: 10px;
+        float: left;
+    }
+    .THIS .dataTables_wrapper .dataTables_paginate .ellipsis {
+        padding: 5px;
+    }
+    .THIS table.dataTable tbody td {
+        padding: 0px 10px;
+    }
+    .THIS .dataTables_wrapper .dataTables_filter input {
+        border: 1px solid #ccc;
+    }
+    .THIS .bottom .dataTables_length {
+        margin-top: 17px;
+    }
+}
+@media only screen and (max-width: 732px) {
+    .THIS .slds-table tbody td {
+        max-width: 545px;
+    }
+   
+}
+@media only screen and (max-width: 667px) {
+    .THIS .slds-table tbody td {
+        max-width: 521px;
+    }
+    .THIS .dataTables_wrapper .top {
+        
+        margin-top: 1px;
+        float: left;
+    }
+    .THIS .dataTables_wrapper .dataTables_paginate .ellipsis {
+        padding: 5px;
+    }
+ 
+ 
+.THIS #errorpopUp {
+    position: relative;
+    top: 40px;
+    left: 0;
+    color: red;
+    text-align: left;
+}
+}
+@media only screen and (max-width: 640px) {
+    .THIS .slds-table tbody td {
+        max-width: 500px;
+    }
+    .THIS .dropdown.filterValues {
+        padding: 0 2px;
+        width: 109px;
+        font-size: 11px;
+        left: -120px;
+    }
+    .THIS .encSumHead {
+        font-size: 19px;
+    }
+    .THIS .slds-text-heading--small {
+        margin-top: 14px;
+    }
+    .THIS .disclaimer.distext {
+        left: -194px;
+    }
+     }
+@media only screen and (max-width: 600px) {
+    .THIS .slds-table tbody td {
+        max-width: 466px;
+    }
+    .THIS table.dataTable tbody td p {
+        width: 65%;
+	}
+}
+@media only screen and (max-width: 568px) {
+    .THIS .slds-table tbody td {
+        max-width: 437px;
+    }
+   
+}
+@media only screen and (max-width: 480px) {
+    .THIS .slds-table tbody td {
+        max-width: 371px;
+    }
+    .THIS .encSumHead {
+        max-width: 250px;
+    }
+    .THIS .mt0 {
+        margin-top: -4px;
+    }
+    .THIS #PerformanceMetrics_table_wrapper .top {
+        margin-top: 65px;
+    }
+    .THIS #DiagnosticResults_table_wrapper .top {
+        margin-top: 40px;
+    }
+    .THIS table.dataTable tbody td p {
+        width: 55%;
+	}
+    .THIS .linkbutton, .THIS .linkbutton:hover{
+        text-align:right;
+    }
+    .THIS .count:after {
+        content:"\a";
+        white-space: pre;
+	}
+    .THIS .encSumHead {
+        font-size: 17px;
+    }
+    
+    .THIS .disclaimer.distext {
+       left: -173px;
+        top:51px
+    }
+     .THIS .TableSample{
+        margin-top: 91px;
+        
+    }
+    .THIS .spinner-img {
+    left: 21%;
+}
+ 
+	
+}
+@media only screen and (max-width: 400px) {
+    .THIS .slds-table tbody td {
+        max-width: 342px;
+    }
+     
+    .THIS .TableSample{
+        margin-top: 91px;
+        
+    }
+    .THIS .spinner-img {
+    left: 21%;
+}
+ 
+}
+@media only screen and (max-width: 375px) {
+    .THIS .slds-table tbody td {
+        max-width: 333px;
+    }
+    
+    
+    .THIS .TableSample{
+        margin-top: 88px;
+        
+    }
+  .THIS .disclaimer.distext {
+    left: -173px;
+    top: 40px;
+}
+
+    .THIS #errorpopUp{
+        top: 35px;
+    }
+    .THIS .linkbutton,.THIS .linkbutton:hover{
+      margin-top: 0;  
+    }
+   .THIS .spinner-img {
+    left: 23%;
+}
+    .THIS .filterCount {
+        margin-top: 34px;
+    }
+}
+@media only screen and (max-width: 360px) {
+    .THIS .slds-table tbody td {
+        max-width: 319px;
+    }
+    .THIS .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+    .THIS span.paginate_active {
+        padding: 5px 10px;
+    }
+    .THIS .dataTables_wrapper .top {
+        padding-left: 0
+    }
+    .THIS .count.countSep {
+        margin-left: 203px;
+    }
+    .THIS .slds-text-heading--small {
+        font-size: 11px;
+    }
+    .THIS .slds-table tbody td,
+    .THIS .slds-max-medium-table--stacked-horizontal td:before {
+        font-size: 13px;
+    }
+    .THIS .encSumHead {
+        font-size: 16px;
+    }
+    .THIS .encSumHead {
+        max-width: 195px;
+    }
+    .THIS .disclaimer.distext {
+        left:-163px;
+    }
+ 
+}
+@media only screen and (max-width: 320px) {
+    .THIS .dataTables_wrapper .top{
+        padding-left:1px;
+    }
+    .THIS .slds-table tbody td {
+        max-width: 279px;
+    }
+     .THIS table.dataTable tbody td p {
+        width: 50%;
+	}
+
+    }

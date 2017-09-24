@@ -1,0 +1,17 @@
+<aura:component extends="ui:input" extensible="true" description="Represents a drop-down list with options.">
+
+    <aura:attribute name="options" type="List" />
+
+    <aura:attribute name="name" type="String" description="The name of the component."/>
+    <aura:attribute name="disabled" type="Boolean" description="Enabled/Disabled status of component."/>
+    <aura:attribute name="value" type="String" description="The value for the component."/>
+
+    <aura:registerEvent name="selectChange" type="ui:change"/>
+
+    <lightning:select name="{!v.name}" label=" " aura:id="select" value="{!v.value}" disabled="{!v.disabled}" onchange="{!c.changeHandler}">
+        <aura:iteration items="{!v.options}" var="item">
+            <option text="{!item.label}" value="{!item.value}" selected="{!item.selected}"/>
+        </aura:iteration>
+    </lightning:select>
+
+</aura:component>

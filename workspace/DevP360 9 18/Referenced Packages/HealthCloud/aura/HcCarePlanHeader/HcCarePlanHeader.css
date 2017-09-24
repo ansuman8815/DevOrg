@@ -1,0 +1,15 @@
+.THIS .hc-percentLabel,
+.THIS .hc-priorityLabel {
+    color: #65748e;
+    font-weight: 700;
+    border: 1px solid #e0e5ee;
+}
+
+.THIS.hc-cp-expanded {
+	background-color: #F7F9FC;
+    border-bottom: 1px solid #d8dde6;
+}
+
+.THIS.hc-cp-collapsed {
+	background-color: #ffffff;
+}

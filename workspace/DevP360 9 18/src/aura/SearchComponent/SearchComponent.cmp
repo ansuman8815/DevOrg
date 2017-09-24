@@ -1,0 +1,8 @@
+<aura:component >
+    <ltng:require styles="{! $Resource.Typeahead + '/jquery-1.10.2.min.js'}"/>
+    <ltng:require styles="{! $Resource.Typeahead + '/typeahead.bundle.min.js'}"/>
+    <div>
+        <input type="text" class="form-control" placeholder = "Search" onkeyup="{!c.SearchEvent}"/>
+    </div>
+    
+</aura:component>

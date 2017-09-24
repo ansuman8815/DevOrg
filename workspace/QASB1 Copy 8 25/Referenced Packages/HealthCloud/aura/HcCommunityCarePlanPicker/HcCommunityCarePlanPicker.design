@@ -1,0 +1,7 @@
+<design:component label="Care Plan Selector for Health Cloud Empower">
+  <design:attribute name="picklistDefaultOptionText" label="Placeholder Text for Picklist" description="{!$Label.HealthCloudGA.CarePlan_PicklistDefaultOptionsText_Help_Text}" />
+  <design:attribute name="showBirthDate" label="Show birthdate" description="{!$Label.HealthCloudGA.CarePlan_ShowBirthDate_Help_Text}" />
+  <design:attribute name="includeAllCarePlanOption" label="Show all care plans" description="{!$Label.HealthCloudGA.Include_All_Care_Plans_Option_in_the_list_of_care_plans_design_attribute_text}" />
+  <design:attribute name="IncludeYearOfBirth" label="Include birth year" description="{!$Label.HealthCloudGA.CarePlan_includeYearOfBirth_Help_Text}" />
+  <design:attribute name="useMonthText" label="Show birth month as text" description="{!$Label.HealthCloudGA.CarePlan_useTextMonth_Help_Text}" />
+</design:component>

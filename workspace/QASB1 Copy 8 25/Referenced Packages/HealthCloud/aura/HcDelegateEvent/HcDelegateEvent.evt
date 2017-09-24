@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="HcDelegateEvent">
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="callback" type="Object"/>
+</aura:event>

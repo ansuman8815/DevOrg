@@ -1,0 +1,26 @@
+<aura:component controller="PatientEncounterSummaryController">
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="whereClause" type="string"/>
+    <aura:attribute name="npi" type="string[]"/>
+    <aura:attribute name="role" type="string[]"/>
+    <aura:attribute name="practitioners" type="sObject[]"/>
+    
+ 
+      <div id="providerNotes" class="slds-modal slds-modal--large slds-fade-in-open detailDiv">
+        <span class="close" id="closeButton" onclick="{!c.clinkOnClose}">&times;</span>
+        <div class="headersProviders">NPI and Speciality Details</div>
+       	<div class="headersProvidersbottom"></div>
+        <div class="providerNotesSub">
+
+         <div class="specialty">
+             <aura:iteration items="{!v.practitioners}" var="practitioner">
+                 <p> <span>NPI</span> <span>{!practitioner.NPI__c}</span>	</p>
+             	 <p><span>Speciality</span> <span>{!practitioner.HealthCloudGA__SpecialtySystem__c}</span></p>
+             </aura:iteration>
+         </div>  
+         </div>
+    </div>
+    
+</aura:component>

@@ -1,0 +1,10 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="Show_Result" type="Account[]"/> 
+    <aura:attribute name="PatientResult" type="PatientSearchController.DisplayPatientRecords[]"/> 
+    <aura:attribute name="Search_Clicked" type="Boolean"/> 
+    <aura:attribute name="FName" type="string"/>
+    <aura:attribute name="LName" type="string"/>
+    <aura:attribute name="DOB" type="Date"/>
+    <aura:attribute name="Gender" type="String"/>
+    <aura:attribute name="CIN" type="String"/>
+</aura:event>

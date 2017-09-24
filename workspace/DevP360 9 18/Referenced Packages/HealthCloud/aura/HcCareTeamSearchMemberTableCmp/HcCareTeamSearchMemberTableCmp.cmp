@@ -1,0 +1,36 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCareTeamSearchMemberTableCmp component, a table component used for drawing jQuery Datatable.
+ * Used by HcCareTeamSearchMemberTableCmp to display searched internal and external users.
+ * @since 196
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable" controller="HealthCloudGA.HcCareTeamController">
+    <aura:attribute name="selectedTab" type="String" default="" />
+    <aura:attribute name="userSearchString" type="String" />
+    <aura:attribute name="selectedObj" type="Object" />
+    <aura:handler name="init" value="{!this}" action="{!c.onTabClick}" />
+    <aura:attribute name="caseId" type="String" />
+    <aura:handler name="change" value="{!v.userSearchString}" action="{!c.onTabClick}" />
+    <aura:registerEvent name="HcToggleSpinnerEvent" type="HealthCloudGA:HcToggleSpinnerEvent" />
+    <aura:handler event="HealthCloudGA:HcToggleSpinnerEvent" action="{!c.toggleSpinner}" />
+
+    <div class="slds-tabs--default" role="tablist">
+        <ul class="slds-tabs--default__nav digit--flexcenter" role="presentation">
+            <li class="slds-tabs__item slds-text-heading--label slds-active" id="health1-careteamsearch-internal--tab">
+                <a href="#" id="health1-careteamsearch-internal--tablink" role="tab" aria-controls="one-content" aria-selected="true" tabindex="0" onclick="{!c.onInternalTabClick}">{!$Label.healthcloudga.Text_Internal}</a>
+            </li>
+            <li class="slds-tabs__item slds-text-heading--label" id="health1-careteamsearch-external--tab">
+                <a href="#" id="health1-careteamsearch-external--tablink" role="tab" aria-controls="two-content" aria-selected="false" tabindex="-1" onclick="{!c.onExternalTabClick}">{!$Label.healthcloudga.Text_External}</a>
+            </li>
+        </ul>
+        <div id="health1-careteamsearch-internal--datatable" class="tabs__content slds-show text-body--regular" role="tabpanel" aria-labelledby="one">
+            <HealthCloudGA:HcCareTeamAddMemberTableCmp aura:id="health1-internal-datatable" column1Name="name" column2Name="userRoleName" output="{!v.selectedObj}" isExternalTable="false" />
+        </div>
+        <div id="health1-careteamsearch-external--datatable" class="tabs__content slds-hide text-body--regular" role="tabpanel" aria-labelledby="two">
+            <HealthCloudGA:HcCareTeamAddMemberTableCmp aura:id="health1-external-datatable" column1Name="name" column2Name="accountName" output="{!v.selectedObj}" isExternalTable="true" />
+
+        </div>
+    </div>
+</aura:component>

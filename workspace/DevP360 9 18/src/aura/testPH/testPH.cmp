@@ -1,0 +1,14 @@
+<aura:component >
+	<div data-placeholder="My Placeholder String"></div>
+    <style type="text/css" >
+        div:empty::before {
+          color: grey;
+        }
+        div[data-placeholder]:not([data-placeholder=""]):empty::before {
+          content: attr(data-placeholder);
+        }
+        div:empty::before {
+          content: 'fallback placeholder';
+        }
+    </style>
+</aura:component>

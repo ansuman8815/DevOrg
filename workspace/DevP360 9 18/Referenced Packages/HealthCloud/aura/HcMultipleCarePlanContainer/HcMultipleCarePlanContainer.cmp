@@ -1,0 +1,33 @@
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcPatientTableController">
+    <aura:attribute name="patientId" type="String" default="" />
+    <aura:attribute name="isClosedCasesLoaded" type="Boolean" default="false" />
+    <aura:attribute name="isAllCasesLoaded" type="Boolean" default="false" />
+    <aura:attribute name="isOpenCasesLoaded" type="Boolean" default="false" />
+    <aura:attribute name="activeTabId" type="String" default="openCases" />
+    
+    <div class="slds-p-top--large slds-p-left--large slds-theme--default" id='MultipleCarePlanContainer'>
+        <div class="slds-grid slds-grid--align-spread slds-m-bottom--small">
+            <h2 class="slds-text-heading--medium">{!$Label.healthcloudga.Header_All_Care_Plans}</h2>
+        </div>
+    </div>
+    <div class="hc-carePlanActionMenu slds-p-right--large">
+        <lightning:buttonGroup >
+            <lightning:button label="{!$Label.healthcloudga.Menu_Item_Create_New_CarePlan}" class="slds-button slds-button--icon" onclick="{!c.handleNewCarePlanClick}" />
+            <lightning:buttonMenu class="slds-button--last" iconSize="small" aura:id="careplanMenu" alternativeText="More options" menuAlignment="right">
+                <lightning:menuItem label="{!$Label.healthcloudga.Menu_Item_Expand_all_CarePlans}" value="ExpandCarePlans" onactive="{! c.handleMenuClick }" />
+                <lightning:menuItem label="{!$Label.healthcloudga.Menu_Item_Collapse_all_CarePlans}" value="CollapseCarePlans" onactive="{! c.handleMenuClick }" />
+            </lightning:buttonMenu>
+            <HealthCloudGA:HcHelpTrayDropDown helpType="CarePlan" />
+        </lightning:buttonGroup>        
+    </div>
+    <div class="slds-p-left--large slds-p-right--large">
+        <lightning:tabset variant='default'>
+            <lightning:tab onactive="{!c.handleActive}" id="openCases" label="{!$Label.healthcloudga.Title_Open_Cases}">
+                <HealthCloudGA:HcCarePlanPanelContainer startT='{!v.startT}' patientId='{!v.patientId}' status='' excludeStatus='Closed'/>
+            </lightning:tab>
+            <lightning:tab onactive="{!c.handleActive}" id="closedCases" label="{!$Label.healthcloudga.Title_Closed_Cases}" />
+            <lightning:tab onactive="{!c.handleActive}" id="allCases" label="{!$Label.healthcloudga.Title_All_Cases}" />
+        </lightning:tabset>
+    </div>
+    <HealthCloudGA:toast aura:id="toast-message-carePlanTabs" content="" />
+</aura:component>

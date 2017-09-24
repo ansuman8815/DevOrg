@@ -1,0 +1,108 @@
+.THIS {
+   float: left;
+   width: 100%;font-family:inherit;
+}
+
+.THIS .profileDiv{box-shadow:0 0 5px rgba(0, 0, 0, 0.3);margin: 0px 20px 20px 0;padding: 15px;background-color:#FFF;}
+/*.THIS .firstCol{float:left;width:35%;}
+.THIS .secondCol,.THIS .thirdCol{float:left;width:30%;}*/
+.THIS .clear{clear:both;float:none;}
+.THIS .sectionTitle{font-size:24px;color:#004b7b;font-weight:bold;margin-left: -7px;}
+.THIS .keyTitle{font-size:14px;color:#707f8a;padding: 3px 0;}
+.THIS .keyValue{font-size:14px;color:#2f3537;padding: 3px 0;}
+/*.THIS .firstCol span.keyTitle,.THIS .secondCol span.keyTitle,
+ * .THIS .thirdCol span.keyTitle{width: 50%;display: inline-block;}*/
+.THIS .secondCol{border-left: 1px solid #ccc;border-right:1px solid #ccc;padding-left: 25px;}
+.THIS .thirdCol{padding-left: 25px;}
+.THIS .secondCol .slds-grid:last-child{margin-bottom:20px;}
+.THIS .selectList{width:47%;font-size: 14px;
+    border: none;}
+.THIS .uiInput{padding-left: 0px !important;}
+.THIS .selectList:hover,.THIS .selectList:active, .THIS .selectList:focus{border: none;outline: none;
+    box-shadow: none;}
+.THIS select.selectList, .THIS select.selectList:hover, .THIS select.selectList:focus {
+    padding: 0 20px 0 6px !important;
+    border: 1px solid #ccc;
+}
+.THIS .tooltip svg{fill: #707f8a;
+    width: 18px;
+    height: 17px;}
+.THIS .tooltip{
+width: 19px;
+    position: absolute;
+    padding-left: 3px;
+    top: 50px;
+    left: 141px;}
+.THIS .selectTooltip div.slds-popover.slds-nubbin--left {
+    padding-left: 10px;
+    padding-top: 3px;
+    z-index: 1;
+    position: absolute;
+    width: 200px;
+    margin-left:10px;
+    display:none;
+}
+.THIS .selectTooltip:hover div.slds-popover.slds-nubbin--left {
+    display:inline-block;
+}
+.THIS .selectTooltip {
+    position: relative;
+    float: left;
+    width: 47%;
+}
+.THIS .selectTooltip select{
+    width:100%;
+}
+.THIS .addressWidth{
+    width:165px;
+}
+@media only screen and (max-width : 1024px) {
+  
+    .THIS .tooltip{display: none;}
+    .THIS .selectTooltip div.slds-popover.slds-nubbin--left {display:none !important;}
+}
+@media only screen and (max-width : 768px) {
+    .THIS #AdvancedDirectives_table{width:100% !important;}
+    .THIS .profileDiv{width:98%;margin: 0 0px 20px 0;}
+    .THIS .keyTitle,.THIS .keyValue{padding: 5px 0;word-wrap: break-word;}
+    .THIS .secondCol .slds-grid:last-child{margin-bottom:25px;}
+    .THIS .tooltip{display: none;}
+}
+@media only screen and (max-width : 736px) {
+    .THIS .secondCol{border:none;padding-left:12px;}
+    .THIS .thirdCol{padding-left:12px;}
+    .THIS .secondCol,.THIS .thirdCol{border-top:1px solid #ccc;margin-top: 5px;}
+    .THIS #AdvancedDirectives_table{width:98% !important;padding-left:0;}
+    .THIS .slds-max-medium-table--stacked-horizontal td:before{font-size:12px;}
+    .THIS #AdvancedDirectives_table_wrapper .slds-table--bordered tbody td,
+    .THIS #AdvancedDirectives_table_wrapper .slds-table--bordered tbody th{padding:5px 0;}
+    .THIS #AdvancedDirectives_table_wrapper .slds-table tr{height: auto;}
+    .THIS .secondCol .slds-grid:last-child{margin-bottom:0px;}
+}
+@media only screen and (max-width : 667px) {
+    .THIS .profileDiv{width:98%;margin: 0 0px 20px 0;}
+    .THIS .secondCol{border:none;padding-left:12px;}
+    .THIS .thirdCol{padding-left:12px;}
+    .THIS .secondCol,.THIS .thirdCol{border-top:1px solid #ccc;margin-top: 5px;}
+    .THIS #AdvancedDirectives_table{width:98% !important;padding-left:0;}
+    .THIS .slds-max-medium-table--stacked-horizontal td:before{font-size:12px;}
+    .THIS #AdvancedDirectives_table_wrapper .slds-table--bordered tbody td,
+    .THIS #AdvancedDirectives_table_wrapper .slds-table--bordered tbody th{padding:5px 0;}
+    .THIS #AdvancedDirectives_table_wrapper .slds-table tr{height: auto;}
+}
+
+
+@media only screen and (max-width : 480px) {
+    .THIS {width:99%;}
+    .THIS .profileDiv{margin:0 2px;padding-left: 20px;}
+    .THIS .secondCol{border:none;padding-left:12px;}
+    .THIS .thirdCol{padding-left:12px;}
+    .THIS .secondCol,.THIS .thirdCol{border-top:1px solid #ccc;margin-top: 5px;}
+    .THIS .advDirect{margin-bottom: 20px;padding-left: 0px;}
+    .THIS .sectionTitle.advDirectTitle{margin-top:15px;}
+    .THIS #AdvancedDirectives_table{width:98% !important;padding-left:0;}
+    .THIS .slds-max-medium-table--stacked-horizontal td:before{font-size:12px;}
+    .THIS #AdvancedDirectives_table_wrapper .slds-table--bordered tbody td,
+    .THIS #AdvancedDirectives_table_wrapper .slds-table--bordered tbody th{padding:5px 10px;}
+    .THIS #AdvancedDirectives_table_wrapper .slds-table tr{height: auto;}
+}

@@ -1,0 +1,11 @@
+<aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute access="global" name="popover" type="Aura.Component[]" required="false"/>
+    <div class="anchor">
+    	{!v.body}
+        <div class="slds-popover slds-nubbin--bottom-left" role="dialog">
+            <div class="slds-popover__body">
+                {!v.popover}
+            </div>
+        </div>
+    </div>   
+</aura:component>

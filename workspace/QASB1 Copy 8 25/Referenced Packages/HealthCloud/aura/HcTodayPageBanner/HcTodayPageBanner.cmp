@@ -1,0 +1,45 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcTodayPageBanner component, contains patient and task count information for currently logged in user.
+ * @since 200
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" controller="HealthCloudGA.HcTodayPageController">
+    <aura:attribute name="today" type="String" />
+    <aura:attribute name="dateFormatString" type="String" default="{!$Locale.dateFormat}"/>
+    <aura:attribute name="userBannerData" type="Map" />
+    <aura:attribute name="pslAccesible" type="Boolean" default="false"/>
+    <aura:handler name="change" value="{!v.pslAccesible}" action="{!c.processCounts}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div class="hc-banner-container">
+        <h1 class="slds-text-heading--large hc-text-heading--x-large"> <ui:outputDate value="{!v.today}" format="{!v.dateFormatString}" langLocale="{!$Locale.language}" /> </h1>
+        <div class="hc-banner-stats-container slds-m-vertical--large slds-grid slds-wrap slds-grid--align-space">
+            <div class="hc-banner-stats-block slds-col slds-col-rule--right slds-size--1-of-1 slds-small-size--1-of-2 slds-medium-size--1-of-4 slds-p-right--x-large slds-m-bottom--medium">
+                <h2 class="slds-text-heading--medium">{!(v.userBannerData.patientsTotal > 2000) ? '2000+' : v.userBannerData.patientsTotal}</h2>
+                <p class="slds-text-heading--label">{!$Label.healthcloudga.Header_Today_My_Patients}</p>
+            </div>
+            <div class="hc-banner-stats-block slds-col slds-col-rule--right slds-size--1-of-1 slds-small-size--1-of-2 slds-medium-size--1-of-4 slds-p-right--x-large slds-m-bottom--medium slds-p-left--medium">
+                <h2 class="slds-text-heading--medium">{!(v.userBannerData.patientsNew > 2000) ? '2000+' : v.userBannerData.patientsNew}</h2>
+                <p class="slds-text-heading--label">{!$Label.healthcloudga.Header_Today_New_Patients + ' ' + $Label.healthcloudga.Header_Today_New_Patients_Period}</p>
+            </div>
+            <div class="hc-banner-stats-block slds-col slds-size--1-of-1 slds-small-size--1-of-1 slds-medium-size--2-of-4 slds-p-left--medium">
+                <h2 class="slds-text-heading--medium">
+                {! format($Label.healthcloudga.Header_Today_TasksCompletedToday, v.userBannerData.taskProgress.completed, v.userBannerData.taskProgress.total) }
+                </h2>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size--1-of-1 slds-small-size--1-of-3">
+                        <p class="slds-text-heading--label slds-p-right--small slds-m-bottom--xx-small slds-clearfix">{!$Label.healthcloudga.Header_Today_TasksCompletedToday_What + ' ' + $Label.healthcloudga.Text_Timing_Today}</p>
+                    </div>
+                    <progress value="{!v.userBannerData.taskProgress.completed}" max="{!v.userBannerData.taskProgress.total}" class="slds-col slds-size--1-of-1 slds-small-size--2-of-3">
+                        <div class="progress-bar">
+                            <span style="{!'width: ' + v.userBannerData.taskProgress.percentCompleted + '%'}">
+                                {! format($Label.healthcloudga.Field_Label_Percent_Complete, v.userBannerData.taskProgress.percentCompleted)}</span>
+                        </div>
+                    </progress>
+                </div>
+            </div>
+        </div>
+        <HealthCloudGA:toast aura:id="toast-message" content=""/>
+    </div>
+</aura:component>

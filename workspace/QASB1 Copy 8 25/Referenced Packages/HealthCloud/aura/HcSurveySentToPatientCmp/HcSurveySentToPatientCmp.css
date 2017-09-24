@@ -1,0 +1,26 @@
+.THIS table th.ast-columnName[id^="SurveySentToPatientTable"]{
+    padding-left: 0.5rem;
+}
+
+.THIS td.hc-surveyTable_cell {
+    padding-left: 1rem;
+}
+
+.THIS .survey_header{
+	padding-left: 1rem;
+}
+
+.THIS .hc-noItemsMessage{
+    padding:0rem;
+}
+
+.THIS.hc-surveyinvitation-search{
+	margin-bottom:.75rem;
+	width:25rem;
+}
+
+/* To hide lightning:input's required label element */
+.THIS.hc-surveyinvitation-search .slds-form-element__label {
+	display: none;
+	visibility : hidden;
+}

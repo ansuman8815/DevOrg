@@ -1,0 +1,40 @@
+<!--
+ * Copyright © 2016 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @since 208
+-->
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes" access="global" controller="HealthCloudGA.HcCommunityCarePlanController" description="Let users select a care plan.">
+    <aura:attribute name="carePlans" type="Map[]" default="" access="global" description="List of care plan IDs and descriptions." />
+    <aura:attribute name="picklistDefaultOptionText" type="String" default="Select a name and care plan..." access="global" description="Text for default select option." />
+    <aura:attribute name="showBirthDate" type="Boolean" default="false" access="global" description="Show Birthdate Field on Care Plan Picker?" />
+    <aura:attribute name="carePlanError" type="String" default=""/>
+    <aura:attribute name="singleCarePlanText" type="String" default=""/>
+    
+    <!-- initialize component with list of care plans for current user -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- listen for event that indicates navigation has been clicked -->
+    <aura:handler event="forceCommunity:routeChange" action="{!c.handleRouteChangeEvent}"/>
+
+    <!-- event we will fire on route/navigation change or care plan picker change -->
+    <aura:registerEvent name="carePlanChange" type="HealthCloudGA:HcCommunityEventCarePlanSelected"/>
+
+    <!-- the picker -->
+    <div>
+        <aura:if isTrue="{!v.carePlanError != ''}">
+            <a class="li-error-textColor">{!v.carePlanError}</a>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.singleCarePlanText != ''}">
+                    <a class="slds-text-heading--small">{!v.singleCarePlanText}</a>
+                <aura:set attribute="else">
+                <lightning:select aura:id="plan" name="hc-careplans" class="{! 'slds-m-around--medium' + (v.carePlans.length > 1 ? ' hc-picker--fitToContent' : ' slds-hide') }" label=" " onchange="{!c.onSelectChange}">
+                    <option value="" disabled = "true">{! v.picklistDefaultOptionText }</option>
+                    <aura:iteration items="{! v.carePlans }" var="careplan">
+                        <option aura:id="{!careplan.caseId}" value="{!careplan.caseId}" >{!careplan.displayText}</option>
+                    </aura:iteration>
+                </lightning:select>
+                </aura:set> </aura:if>
+            </aura:set> </aura:if>
+    </div>
+</aura:component>

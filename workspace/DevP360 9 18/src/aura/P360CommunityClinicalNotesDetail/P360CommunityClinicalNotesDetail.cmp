@@ -1,0 +1,38 @@
+<aura:component controller="DynamicListController">
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}"/>
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jQueryDataTableJs.js'}"/>
+    <ltng:require styles="{! $Resource.P360JqueryResources + '/jquery.dataTables.min.css'}"/>
+    <ltng:require scripts="{! $Resource.svg4everybody + '/svg4everybody-master/dist/svg4everybody.js'}"  afterScriptsLoaded="{!c.myAction}"/>
+    
+    <aura:attribute name="patientid" type="string"/>
+    <aura:attribute name="listName" type="string"/>
+    <aura:attribute name="whereClause" type="string"/>
+    <aura:attribute name="tableName" type="string"/>
+    <aura:attribute name="clinicalNotes" type="string"/>
+    <aura:attribute name="header" type="string"/>
+    <aura:attribute name="searchText" type="string"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="aura:doneRendering" action="{!c.doneRendering}"/>
+    
+    <div id="clinicalNotes" class="slds-modal slds-modal--large slds-fade-in-open detailDiv">
+        <div class="detailNotes" id="cliniDetailNotes">
+            <span class="close" id="closeButton" onclick="{!c.clinkOnClose}">&times;</span>
+            <div id="CliFreezeSection">
+                <c:P360CommunityPatientSummary patientid="{!v.patientid}"/>
+            </div>
+            <div class="ClinicTableView" id="CliNonFreezeSection">
+                <table class="slds-table slds-table--bordered slds-table--striped slds-max-medium-table--stacked-horizontal" aura:id="searchDiv" id="{!v.tableName}" style="height:100%;">
+                </table> 
+                <div class="horizep"></div>
+                <span class="clinicHead">{!v.header}: </span>
+                <div class="findText"><c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/07-Search.svg#Layer_1'}" class="IconStyle" buttonStyle="border:none; outline:none; background-color:transparent" />                    
+                    <ui:inputText aura:id="searchText" class="searchText" placeholder="Find" value="{!v.searchText}" keyup="{!c.highlightSearch}" keydown="{!c.highlightSearch}" mouseout="{!c.highlightSearch}"  updateOn="keyup , keydown , mouseout"/>
+                </div>
+                <div id="searchdiv" class="clinicNotes">
+                    {!v.clinicalNotes}
+                </div>
+                <ui:button label="Close" class="ButtonSearch" labelClass="ButtonSearchLabel"  press="{!c.clinkOnClose}"/>
+            </div>
+        </div>
+    </div>
+</aura:component>

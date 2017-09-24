@@ -1,0 +1,28 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description Generic expandable section container component with SLDS styling.
+ * @since 200
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent">
+  <aura:attribute name="title" type="String"/>
+  <aura:attribute name="isLocked" type="Boolean" default="false" />
+  <aura:attribute name="isExpanded" type="Boolean" default="false" />
+
+  <div class="{!'section-wrapper ' + (v.isExpanded == true ? 'hc-expanded ' : 'hc-collapsed ') + (v.isLocked == true ? 'hc-locked ' : '') + 'slds-m-bottom--large'}">
+    <header class="slds-clearfix">
+      <h2 class="slds-text-heading--label slds-p-right--medium hc-text-heading--label">{!v.title}</h2>
+        
+      <lightning:buttonIcon iconName="{!(v.isExpanded == true ? 'utility:dash' : 'utility:add')}" 
+                            size="x-small" variant="border-filled" 
+                            class="slds-float--right" onclick="{!c.toggleClick}"
+                            alternativeText="{!(v.isExpanded == true ? $Label.healthcloudga.Text_Collapse : $Label.healthcloudga.Text_Expand) }" />
+      
+    </header>
+
+    <div class="section-content slds-m-vertical--medium">
+      {!v.body}
+    </div>
+  </div>
+</aura:component>

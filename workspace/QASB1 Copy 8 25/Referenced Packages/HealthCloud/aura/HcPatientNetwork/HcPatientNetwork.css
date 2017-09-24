@@ -1,0 +1,107 @@
+.THIS text {
+    font-size: 13px;
+    line-height: 1.25;
+    letter-spacing: 0.0625em;
+    fill: #0070D2;
+}
+.THIS rect {
+    fill: none;
+    pointer-events: all;
+}
+
+.THIS #health1-network-wrap{
+    border-bottom: 1px solid #E2E5ED;
+}
+
+.THIS #health1-network {
+    cursor: move;
+    cursor: grab;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+}
+
+.THIS #health1-network.with-error {
+  cursor: auto;
+}
+
+/* REMOVE ONCE SLDS IS UPDATED TO v1.0+ */
+.THIS .slds-grid--vertical-align-center {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  -ms-grid-row-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+
+.THIS #health1-network:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+.THIS #health1-network-control {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    padding: 0 20px;
+}
+
+.THIS .link {
+    fill: none;
+    stroke: #DCEBF4;
+    stroke-width: 2;
+}
+
+.THIS .links line {
+    stroke: #DCEBF4;
+}
+
+.THIS .nodes circle {
+    pointer-events: all;
+    stroke: none;
+    stroke-width: 40px;
+}
+
+.THIS .axis line {
+    fill: none;
+    stroke-width: 1;
+    stroke: #F3FBFF;
+    shape-rendering: crispEdges;
+    vector-effect: non-scaling-stroke;
+}
+
+.THIS .health1-network-node--patient image,
+.THIS .health1-network-node--external image,
+.THIS .health1-network-node--internal image {
+    cursor: pointer;
+}
+.THIS .health1-network-node--patient text {
+    fill: #566573;
+    text-transform: uppercase;
+}
+.THIS .health1-network-checkmark--circle{
+    fill: #67C077;
+    stroke: #FFFFFF;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+}
+.THIS .health1-network-checkmark--check{
+    fill: #FFFFFF;
+}
+.THIS .health1-network-patientcheckmark--check{
+    fill: #FFFFFF;
+}
+.THIS .health1-network-nodetext--name{
+    font-size: 12px;
+    font-weight: bold;
+    /*fill: #0070D2;*/
+}
+.THIS .health1-network-nodetext--role{
+    font-size: 12px;
+    /*fill: #0070D2;*/
+}
+.THIS .health1-network-node--negative{
+    opacity: 0.3;
+}

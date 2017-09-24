@@ -1,0 +1,17 @@
+<aura:component controller="UtilityGeneral" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="res" type="PatientSearchController.DisplayPatientRecords[]"/>
+    <aura:attribute name="FName" type="string"/>
+    <aura:attribute name="LName" type="string"/>
+    <aura:attribute name="DOB" type="Date"/>
+    <aura:attribute name="Gender" type="String[]"/>
+    <aura:attribute name="CIN" type="String"/>
+    <aura:attribute name="currentPage" type="String" default="Patient Search Result"/>
+    <aura:attribute name="encounterId" type="String" default=""/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}"/>
+    <div>
+    	<c:P360CommunitySearchCollapsible FName="{!v.FName}" LName="{!v.LName}" DOB="{!v.DOB}" Gender="{!v.Gender}" CIN="{!v.CIN}"/>
+    </div>
+    <div id="patientResultDiv"><c:P360CommunitySearchResult res="{!v.res}"/>
+    </div>
+</aura:component>

@@ -1,0 +1,12 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCareTeamCmp Event, a event to communicate between the different HcCareTeam Components
+ * @since 196
+-->
+<aura:event type="COMPONENT" description="Event used to communicate with HcCareTeamBaseCmp">
+	<aura:attribute name="type" type="String"/>
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="nodeObj" type="Object"/>
+</aura:event>

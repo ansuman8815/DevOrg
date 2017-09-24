@@ -1,0 +1,11 @@
+.THIS {
+	/* Table width can be set here */
+}
+
+.THIS .Subject {
+	width : 35%;
+}
+
+.THIS .Action {
+	width : 5%;
+}

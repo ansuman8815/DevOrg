@@ -1,0 +1,27 @@
+<aura:component implements="forceCommunity:layout" description="Custom Main Layout" access="global">
+  	<ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}"/>
+    <ltng:require scripts="{!join(',', 
+    						$Resource.P360JqueryResources + '/jquery-2.2.4.min.js', 
+    						$Resource.svg4everybody + '/svg4everybody-master/dist/svg4everybody.js')}"  afterScriptsLoaded="{!c.myAction}"/>
+    <aura:attribute name="column1" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="column2" type="Aura.Component[]" required="false"></aura:attribute>
+	<aura:attribute name="column3" type="Aura.Component[]" required="false"></aura:attribute>
+   <aura:handler event="aura:doneRendering" action="{!c.doneWaiting}"/>
+    <div class="container">
+        <div class="contentPanel">
+        	<div class="left" id="searchColl">
+            	{!v.column1}
+        	</div>
+        </div>
+        <div onclick="{!c.getContent}" class="contentPanel bodyContent" id="columnDiv2">
+        	<div class="left">
+            	{!v.column2}
+        	</div>
+        </div>
+        <div onclick="{!c.getContent}" class="contentPanel">
+        	<div class="left">
+            	{!v.column3}
+        	</div>
+        </div>
+    </div>
+</aura:component>

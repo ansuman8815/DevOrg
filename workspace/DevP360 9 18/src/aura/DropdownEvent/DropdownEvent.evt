@@ -1,0 +1,6 @@
+<aura:event type="APPLICATION" description="Event template" >
+    <aura:attribute name="listName" type="String" default="Medical History"/>
+    <aura:attribute name="pageName" type="String"/>
+    <aura:attribute name="tableName" type="String" default="Medical_History"/>
+    <aura:attribute name="dropdownChange" type="boolean" default="false"/>
+</aura:event>

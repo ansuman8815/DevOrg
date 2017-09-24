@@ -1,0 +1,5 @@
+/* To hide lightning:select's required label element */
+/* variant="label-hidden" shortens the select element with slds-form--inline */
+.THIS .slds-form-element__label {
+    display: none;
+}

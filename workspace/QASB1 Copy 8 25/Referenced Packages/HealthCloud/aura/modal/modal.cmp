@@ -1,0 +1,63 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description generic modal with SLDS styling.
+ * @since 198
+-->
+<aura:component >
+    <aura:attribute name="isShow" type="Boolean" default="true" />
+    <aura:attribute name="index" type="Integer" default="1" />
+    <aura:attribute name="count" type="Integer" default="1" />
+    <aura:attribute name="isDoable" type="Boolean" default="false" />
+    <aura:attribute name="finishButtonText" type="String" default="{!$Label.healthcloudga.Button_Label_Save}" />
+    <aura:attribute name="finishButtonClass" type="String" default="slds-button--brand" />
+    <aura:attribute name="headerTitle" type="String" />
+    <aura:attribute name="modalSizeClass" type="String" default="slds-modal--large" />
+    <aura:attribute name="modalToast" type="Object" />
+    <aura:attribute name="allowNavigation" type="Boolean" default="true"/>
+    <aura:attribute name="spinnerMsg" type="String" default="" />
+    <aura:attribute name="showClose" type="Boolean" default="true" />
+    <aura:attribute name="confirmationMessage" type="String" default="" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.isShow}" action="{!c.onModalToggled}" />
+    <aura:registerEvent name="cancelEvent" type="ui:actionEvent" />
+    <aura:registerEvent name="backEvent" type="ui:actionEvent" />
+    <aura:registerEvent name="nextEvent" type="ui:actionEvent" />
+    <aura:registerEvent name="finishEvent" type="ui:actionEvent" />
+    <aura:registerEvent name="filterCriteriaAppEvt" type="HealthCloudGA:HcFilterCriteriaBaseEvent"/>
+    <div>
+        <div aria-hidden="{!!v.isShow}" role="dialog" class="{!'slds-modal ' + (v.modalSizeClass) + (v.isShow ? ' slds-fade-in-open' : '')}">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <HealthCloudGA:toast aura:id="toast-message" content="{!v.modalToast}"/>
+                    <h2 class="slds-text-heading--medium">{!v.headerTitle}</h2>
+                    <aura:if isTrue="{!v.showClose}">
+                        <lightning:buttonIcon iconName="utility:close" variant="bare-inverse" size="large" class="slds-modal__close" onclick="{!c.onCancelClicked}" alternativeText="Close"/>
+                    </aura:if>
+                </div>
+                <div class="slds-modal__content slds-p-around--medium">
+                    {!v.body}
+                </div>
+                <div class="slds-modal__footer slds-modal__footer--directional">
+                  <div class="modalButtonWrap">
+                    <button class="{!'slds-button slds-button--neutral ' + (v.index > 1 ? '' : 'slds-hide')}" onclick="{!c.onBackClicked}">{!$Label.healthcloudga.Button_Label_Back}</button>
+                    <aura:if isTrue="{!v.showClose}">
+                        <button class="slds-button slds-button--neutral" onclick="{!c.onCancelClicked}">{!$Label.healthcloudga.Button_Label_Cancel}</button>
+                    </aura:if>
+                    <button class="{!'slds-button slds-button--neutral slds-button--brand ' + (v.count > v.index ? '' : 'slds-hide')}" onclick="{!c.onNextClicked}">{!$Label.healthcloudga.Button_Label_Next}</button>
+                    <button class="{!'slds-button slds-button--neutral ' + v.finishButtonClass + (v.index == v.count ? '' : ' slds-hide')}" disabled="{!!v.isDoable}" onclick="{!c.onFinishClicked}">{!v.finishButtonText}</button>
+                  </div>
+                    <div class="spinner-block slds-hide">
+                        <div class="slds-spinner--small">
+                            <img src="{!$Resource.HealthCloudGA__industryresources + '/landmark/images/spinners/slds_spinner.gif'}" alt="{!$Label.healthcloudga.Alt_Text_Please_Wait}" />
+                        </div>
+                        <span class="spinner-block__text slds-m-left--x-small slds-text-body--regular">{!v.spinnerMsg}</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="{!'slds-modal-backdrop ' + (v.isShow ? 'slds-modal-backdrop--open' : 'slds-modal-backdrop')}"></div>
+    </div>
+</aura:component>

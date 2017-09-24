@@ -1,0 +1,19 @@
+<aura:component controller="ProfileMenuController">
+    <aura:handler name="init" value="{!this}" action="{!c.isRead}" />
+    <aura:attribute name="isRead" type="boolean" default="true"/>
+    <aura:attribute name="refreshData" type="ProfileMenuController.RefreshData"/>
+
+    <h3 class="Headercss">Release Notes</h3> 
+    <p class="Paracss">As of the {!v.refreshData.dataP360Date} release, Patient 360 contains patient data originating from the Mount Sinai Epic and PRISM systems. This data is current as of  {!v.refreshData.dataRefreshDate} and will be refreshed on a periodic basis going forward. As data refreshes occur and additional data sources are brought online, they will be noted within this Release Notes section of the Patient 360 home page. Please check back frequently for the latest information as Patient 360’s data sources and functionality continue to grow
+        <span class="notification">
+            <a label="More" href='{!$Label.c.P360CommunityDocURL}' target="_blank"  onclick="{!c.onClickAnnouncement}">
+                More...
+                <aura:if isTrue="{!v.isRead}">
+                    <aura:set attribute="else">
+                        <img src="{! $Resource.P360CommunityIcons + '/announcement_icon.jpg'}" title="Unread Announcement"/>
+                    </aura:set>
+                </aura:if>
+            </a>
+        </span>  
+    </p> 
+</aura:component>

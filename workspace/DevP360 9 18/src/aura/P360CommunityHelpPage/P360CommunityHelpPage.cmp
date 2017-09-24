@@ -1,0 +1,52 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="P360CommunityHelpPageController">
+    
+    <ltng:require styles="{! $Resource.SLDS090}"/>
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}"/>
+    <ltng:require scripts="{!join(',', 
+    						$Resource.P360JqueryResources + '/jquery-2.2.4.min.js', 
+    						$Resource.JQueryUI + '/jquery-ui.min.js')}" afterScriptsLoaded="{!c.scriptsLoaded}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="currentPage" type="String" default="Help page"/>
+    <aura:attribute name="faqs" type="FAQ__c[]"/>
+    <aura:attribute name="searchText" type="string"/> 
+    <aura:attribute name="profilename" type="String" default=''/>
+    <aura:attribute name="encounterId" type="String" default=""/>
+
+	<div class="container">
+        <div class="TopContainer">
+            <div class="findText search-wrapper">
+                <p>What can we help you with ?</p>
+                <form>
+                <ui:inputText class="search-box" aura:id="searchText" placeholder="Enter Question" value="{!v.searchText}" keyup="{!c.highlightSearchv1}" updateOn="keyup"/>
+                 </form>
+            </div>
+        </div>
+        <div class="BottomContainer">
+             <div class="faqs"><p>FAQs</p>
+                 <ol>
+                <div id="accordion" class="float-R">
+                    
+                    <aura:iteration var="faq" items="{!v.faqs}">    
+                        <h3 class="" id="qsnid">
+                            {!faq.Question__c}
+                        </h3>
+                        <div>
+                          <p> <ui:outputRichText value="{!faq.Answer__c}"  class="testClass"/></p> 
+                        </div>
+                    </aura:iteration>
+                </div>
+            </ol>
+             </div>
+            <div class="contact-details">
+                <p>Contact Information</p> 
+                <div class="info brdr-none">
+                    <div class="IconContainers" style="height:20px;width:25%;color:#9aa6af;">
+                            <c:P360CommunityIcon svgPath="{! $Resource.P360CommunityIcons + '/09-Email.svg#Layer_1'}" class="IconStyle" helpText="Help"/>
+                        
+                        </div> 
+                    <p  class="email-id"><a class="mailPos" href="mailto:DSRIPITSupport@mountsinai.org">DSRIPITSupport@mountsinai.org</a></p>
+                </div>
+            </div>
+    	</div>
+    </div>
+</aura:component>

@@ -1,0 +1,34 @@
+.THIS {
+}
+.THIS .contentPanel:before,
+.THIS .contentPanel:after {
+    content: " ";
+    display: table;
+}
+.THIS .contentPanel:after {
+    clear: both;
+}
+.THIS .left {
+    float: left;
+    width: 100%;
+}
+.THIS .slds-backdrop {background-color:transparent;}
+@media only screen and (max-width : 1280px) {
+    .THIS .left{
+        width: 100%;
+    }
+}
+@media only screen and (max-width : 480px) {
+    /*.THIS .bodyContent{background-color: #eef3f6;}
+    .THIS .bodyContent:after {    
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    content: "";
+    background-color: #eef3f6;
+}*/
+}

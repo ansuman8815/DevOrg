@@ -1,0 +1,6 @@
+<aura:component controller="RegistryController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <input list="registrylists" aura:id="registrylistId"/>
+  <datalist id="registrylists">
+  </datalist>
+</aura:component>

@@ -1,0 +1,25 @@
+.THIS .health1-error-text {
+    color: #d4504c;
+}
+
+.THIS .health1-addmember-searchbox {
+    border: none;
+}
+
+.THIS .health1-addmember-searchbox > a {
+  background-color: white; /* IE10 fix to force element to have content and be rendered properly */
+  position: absolute;
+    top: 9px;
+    right: 0.75rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.THIS .health1-addmembersearch__icon {
+    /*top: 18px;*/
+    right: 0;
+}
+
+.THIS .slds-checkbox--faux:before {
+    display : none;
+}

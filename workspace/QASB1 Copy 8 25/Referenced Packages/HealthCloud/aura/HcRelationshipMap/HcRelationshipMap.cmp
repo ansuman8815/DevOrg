@@ -1,0 +1,31 @@
+<!--
+ * Copyright © 2016 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description component to visualize clients' relationships
+ * @since 210
+-->
+<aura:component description="The visual model of relationships for accounts, contacts, and individuals." extends="HealthCloudGA:abstractRelationshipMap">
+    <aura:set attribute="header" value="{!$Label.healthcloudga.Tab_Household}" />
+    <aura:set attribute="additionalWatchObjects" value="case"/>
+    <aura:handler event="HealthCloudGA:HcComponentStatusEvent" action="{!c.handleComponentStatusEvent}" />
+    <aura:handler name="change" value="{!v.rootObject}" action="{!c.handleRootChange}"/>
+
+    <aura:dependency resource="HealthCloudGA:HcCareTeamAddMember"/>
+
+	<aura:attribute name="recId" type="String" default=""/>
+
+    <aura:set attribute="dataProvider">
+        <HealthCloudGA:HcRelationshipMapDataProvider aura:id="data-provider" />
+    </aura:set>
+
+    <aura:set attribute="treeLeafComponentName" value="HealthCloudGA:HcRelationshipTreeLeaf"/>
+
+    <aura:set attribute="recordId" value="{#v.recId}"/>
+
+    <div>
+        <aura:iteration items="{!v.rootObject.children}" var="child">
+            <HealthCloudGA:HcRelationshipTreeLeaf entity="{!child}" parentEntity="{#v.rootObject}"/>
+        </aura:iteration>
+    </div>
+</aura:component>

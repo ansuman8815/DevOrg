@@ -1,0 +1,59 @@
+<aura:component controller="PatientSearchController" access="global">
+
+  <ltng:require styles="{! $Resource.P360JqueryResources + '/jquery.dataTables.min.css'}" />
+  <ltng:require styles="{! $Resource.images}" />
+  <ltng:require scripts="{!join(',', 
+    	$Resource.P360JqueryResources + '/jquery-2.2.4.min.js', 
+    	$Resource.P360JqueryResources + '/jquery-ui.min.js')}" styles="{!$Resource.P360JqueryResources + '/jquery-ui.min.css'}" afterScriptsLoaded="{!c.initDatePicker}" />
+  <ltng:require scripts="{! $Resource.P360JqueryResources + '/jQueryDataTableJs.js'}" />
+  <aura:attribute name="currentPage" type="String" default="P360 Landing Page" />
+  <aura:attribute name="FName" type="string" default="" />
+  <aura:attribute name="LName" type="string" default="" />
+  <aura:attribute name="DOB" type="Date" default="" />
+  <aura:attribute name="Gender" type="String[]" default="Male,Female,Undetermined" />
+  <aura:attribute name="CIN" type="String" default="" />
+  <aura:attribute name="errorMessage" type="String" />
+  <aura:attribute name="isHeader" type="String" default="false" />
+  <aura:attribute name="encounterId" type="String" default=""/>  
+  <aura:registerEvent name="appEvent" type="c:SearchResult" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <ui:spinner aura:id="spinner" class="hideEl" />
+
+  <div class="PatientSearch" id="patientSearchDiv" onkeyup="{!c.captureEnterCode}">
+    <span id="errorSpan" style="color:#c23934"><ui:outputText value="{!v.errorMessage}"/></span>
+    <div class="Labelcss">Patient Search</div>
+    <span class="close"  onclick="{!c.closePatSearch}">&times;</span>
+    <div class="clear"></div>
+    <div class="Labels tabletView firstName">
+      <ui:inputText aura:id="afirstName" value="{!v.FName}" maxlength="50" class="Inputs" placeholder="First Name" />
+    </div>
+
+    <div class="Labels tabletView lastName">
+      <ui:inputText aura:id="alastName" value="{!v.LName}" maxlength="50" class="Inputs" placeholder="Last Name" />
+    </div>
+
+    <div class="Labels Labels2Column datefield">
+      <input type="text" aura:id="adateofbirth" class="Inputs2Column" id="DOBId" placeholder="DOB (MM/DD/YYYY)" />
+      <lightning:buttonIcon iconName="utility:event" variant="bare" onclick="{! c.handleDatePickerClick}" alternativeText="Date-picker" />
+    </div>
+    <div class="Labels2Column genderfield mr0">
+      <ui:inputSelect aura:id="agender" class="slds-select Inputs2Column" change="{!c.onSelectChange}">
+        <ui:inputSelectOption label="Gender" />
+        <aura:iteration items="{!v.Gender}" var="Gender">
+          <ui:inputSelectOption text="{!Gender}" label="{!Gender}" />
+        </aura:iteration>
+      </ui:inputSelect>
+    </div>
+
+    <div class="Labels cinfield">
+      <div class="mt80">
+        <ui:inputText aura:id="acin" value="{!v.CIN}" maxlength="15" class="Inputs InputCIN" placeholder="Medicaid ID (CIN)" />
+      </div>
+    </div>
+
+    <div>
+      <ui:button label="Search" class="ButtonSearch" labelClass="ButtonSearchLabel" press="{!c.searchClick}" />
+      <ui:button label="Clear" class="ButtonCancel" labelClass="ButtonCancelLabel" press="{!c.clearOnClick}" />
+    </div>
+  </div>
+</aura:component>

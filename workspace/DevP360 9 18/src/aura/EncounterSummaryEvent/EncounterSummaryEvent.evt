@@ -1,0 +1,9 @@
+<aura:event type="APPLICATION" description="Event template" >
+    <aura:attribute name="patientid" type="string"/>
+    <aura:attribute name="tableName" type="string"/>
+    <aura:attribute name="listName" type="string"/>
+    <aura:attribute name="viewEncounterSummary" type="boolean" default="false"/>
+    <aura:attribute name="ESselected" type="boolean" default="false"/>
+    <aura:attribute name="viewMore" type="boolean"/>
+    <aura:attribute name="selectedId" type="String" default=""/>
+</aura:event>

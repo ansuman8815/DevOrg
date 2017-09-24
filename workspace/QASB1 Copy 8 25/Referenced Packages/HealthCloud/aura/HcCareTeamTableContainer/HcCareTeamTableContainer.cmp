@@ -1,0 +1,10 @@
+<aura:component >
+	<aura:attribute name="carePlanId" type="String" />
+	<aura:attribute name="startT" type="Integer" />
+
+	<HealthCloudGA:HcCareTeamTable id="{! 'CareTeamTable_' + v.carePlanId }">
+        <aura:set attribute="dataProvider">
+		  <HealthCloudGA:HcCareTeamTableDataProvider carePlanId="{!v.carePlanId}" pageSize="100" startT="{!v.startT}" />
+        </aura:set>
+	</HealthCloudGA:HcCareTeamTable>
+</aura:component>

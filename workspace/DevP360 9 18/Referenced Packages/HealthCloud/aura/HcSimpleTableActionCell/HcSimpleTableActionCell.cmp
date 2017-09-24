@@ -1,0 +1,19 @@
+<aura:component >
+	<aura:attribute name="itemData" type="Object" />
+	<aura:attribute name="columnsMetadata" type="List" />
+	<aura:attribute name="id" type="String" />
+	<aura:attribute name="class" type="String" default='' />
+
+	<aura:attribute name="defaultActions" type="List" />
+	<aura:attribute name="customActionComponentName" type="String" />
+
+	<aura:registerEvent name="actionEvent" type="HealthCloudGA:HcSimpleTableEvent" />
+	
+	<aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+
+	<td scope="row" role="gridcell" id='{!v.id}' class="{!v.class + ' ' + v.class + 'ActionCell'}" >
+        <div class="">
+			{!v.body}
+		</div>
+	</td>
+</aura:component>

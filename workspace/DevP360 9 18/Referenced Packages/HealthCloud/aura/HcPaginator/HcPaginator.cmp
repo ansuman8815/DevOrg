@@ -1,0 +1,58 @@
+<aura:component >
+  <aura:registerEvent name="first" type="ui:click"/>
+  <aura:registerEvent name="last" type="ui:click"/>
+  <aura:registerEvent name="previous" type="ui:click"/>
+  <aura:registerEvent name="next" type="ui:click"/>
+
+  <aura:attribute name="pageNumber" type="Integer" default="1"/>
+  <aura:attribute name="pageCount" type="Integer"/>
+  <aura:attribute name="recsPerPage" type="Integer" default="500"/>
+  <aura:attribute name="showPaginator" type="Boolean" default="false"/>
+  <aura:attribute name="jumpToPageList" type="List"/>
+  <aura:attribute name="hcInputSelectOptions" type="String[]"/>
+
+  <aura:handler name="init" value="{!this}" action="{!c.init}" />
+  <aura:handler name="change" value="{!v.pageCount}" action="{!c.init}" />
+  <aura:handler name="change" value="{!v.pageNumber}" action="{!c.handlePageChange}" />
+
+  <aura:if isTrue="{! and(v.showPaginator, (v.pageCount > 1)) }">
+
+    <div class="slds-p-horizontal--medium slds-grid slds-wrap slds-grid--align-spread slds-size--1-of-1 slds-p-top--large slds-p-bottom--small">
+
+      <div class="slds-col--padded">
+        <ui:outputText value="{! format($Label.healthcloudga.Field_Label_Current_Page, v.pageNumber, v.pageCount) }" class="HcPaginatorText"/>
+
+        <span class="HcPaginatorText HcRecsPerPage">
+          {! format($Label.healthcloudga.Field_label_Recs_per_page, v.recsPerPage) }
+        </span>
+      </div>
+
+      <aura:if isTrue="{! (v.pageCount > 1) }">
+        <div class="HcNavigator slds-col--padded">
+          <aura:if isTrue="{! and(v.pageNumber > 1, v.pageCount > 1) }">
+             <!-- ToDo : Need to replace the navigator text with icons -->
+            <ui:outputURL click="{!c.first}" label="{!$Label.healthcloudga.Link_Pagination_First}"/>&nbsp;
+            <ui:outputURL click="{!c.previous}" label="{!$Label.healthcloudga.Link_Pagination_Previous}"/>&nbsp;
+          </aura:if>
+
+          <aura:if isTrue="{! (v.pageCount > v.pageNumber) }">
+            <ui:outputURL click="{!c.next}" label="{!$Label.healthcloudga.Link_Pagination_Next}"/>&nbsp;
+            <ui:outputURL click="{!c.last}" label="{!$Label.healthcloudga.Link_Pagination_Last}"/>&nbsp;
+          </aura:if>
+        </div>
+      </aura:if>
+
+
+      <div class="slds-col--padded slds-clearfix">
+        <span class="slds-float--left HcPaginatorText HcJumpToBoxText">{!$Label.healthcloudga.Link_Pagination_Jump_To_Page}</span>
+
+        <div class="HcJumpToBoxBlock slds-float--left slds-max-small-size--1-of-3">
+          <HealthCloudGA:HcInputSelect class="HcJumpToBox" aura:id="selectedPageNumber" change="{!c.onPageSelect}" options="{!v.hcInputSelectOptions}">
+          </HealthCloudGA:HcInputSelect>
+        </div>
+      </div>
+
+    </div>
+
+  </aura:if>
+</aura:component>

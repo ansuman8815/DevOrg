@@ -1,0 +1,26 @@
+<!--
++ * Copyright © 2015 salesforce.com, inc. All rights reserved.
++ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
++ * transferred, or disclosed to others, without the prior written consent of Salesforce.
++ * @description component to handle the display of various data formats
++ * @since 196
++-->
+<aura:component >
+    <aura:attribute name="field" type="Object" />
+    <aura:attribute name="showValidationErrors" type="Boolean" />
+    <aura:attribute name="formElement" type="Aura.Component[]" />
+    <aura:attribute name="format" type="String" default=".00" />
+    <aura:attribute name="selected" type="String" default="" />
+    <aura:attribute name="viewType" type="String" default="" />
+    <aura:attribute name="sObjectName" type="String" default="" />
+    <aura:attribute name="baseSobject" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.showValidationErrors}" action="{!c.refreshValidationCheck}" />
+    <aura:dependency resource="ui:inputDateTime" />
+
+    <div class="wrap">
+        <div aura:id="formElem" class="health1-formElem">
+            {!v.formElement}
+        </div>
+    </div>
+</aura:component>

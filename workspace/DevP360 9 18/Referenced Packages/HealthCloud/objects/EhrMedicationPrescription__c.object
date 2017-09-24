@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>An order for both supply of the medication and the instructions for administration of the medicine to a patient.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Individual account which represents the patient in force.com</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Medication Prescriptions</relationshipLabel>
+        <relationshipName>MedicationPrescriptions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DateWritten__c</fullName>
+        <deprecated>false</deprecated>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Date Written</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DispenseExpectedSupplyDuration__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dispense Expected Supply Duration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DispenseMedicationCodeSystem__c</fullName>
+        <deprecated>false</deprecated>
+        <description>System for Code that identifies this medication</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>System for Code that identifies this medication</inlineHelpText>
+        <label>Dispense Medication Code System</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DispenseMedicationCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Code that identify this medication</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Code that identify this medication</inlineHelpText>
+        <label>Dispense Medication Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DispenseMedicationExpiration__c</fullName>
+        <deprecated>false</deprecated>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Dispense Medication Expiration</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DispenseMedicationIsBrand__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>True if a brand</description>
+        <externalId>false</externalId>
+        <inlineHelpText>True if a brand</inlineHelpText>
+        <label>Dispense Medication Is Brand</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DispenseMedicationKindCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>product | package code</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>product | package code</inlineHelpText>
+        <label>Dispense Medication Kind Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DispenseMedicationKindLabel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>product | package friendly name</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>product | package friendly name</inlineHelpText>
+        <label>Dispense Medication Kind Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DispenseMedicationKindSystem__c</fullName>
+        <deprecated>false</deprecated>
+        <description>product | package code system</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>product | package code system</inlineHelpText>
+        <label>Dispense Medication Kind System</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DispenseMedicationLabel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Friendly name for this medication</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Friendly name for this medication</inlineHelpText>
+        <label>Dispense Medication Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DispenseMedicationLotNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Lot number for medication batch</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Lot number for medication batch</inlineHelpText>
+        <label>Dispense Medication Lot Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DispenseMedicationName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Common / Commercial name</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Common / Commercial name</inlineHelpText>
+        <label>Dispense Medication Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DispenseMedicationProductFormCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>powder | tablets | carton + code</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>powder | tablets | carton + code</inlineHelpText>
+        <label>Dispense Medication Product Form Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DispenseMedicationProductFormLabel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>powder | tablets | carton + friendly name</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>powder | tablets | carton + friendly name</inlineHelpText>
+        <label>Dispense Medication Product Form Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DispenseMedicationProductFormSystem__c</fullName>
+        <deprecated>false</deprecated>
+        <description>powder | tablets | carton + system</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>powder | tablets | carton + system</inlineHelpText>
+        <label>Dispense Medication Product Form System</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DispenseNumberOfRepeatAllowed__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dispense Number Of Repeat Allowed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DispenseQuantityUnit__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Amount of medication to supply per dispense unit of measure</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Amount of medication to supply per dispense unit of measure</inlineHelpText>
+        <label>Dispense Quantity Unit</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DispenseQuantityValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Amount of medication to supply per dispense</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Amount of medication to supply per dispense</inlineHelpText>
+        <label>Dispense Quantity Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DispenseValidityPeriodEnd__c</fullName>
+        <deprecated>false</deprecated>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Dispense Validity Period End</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DispenseValidityPeriodStart__c</fullName>
+        <deprecated>false</deprecated>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Dispense Validity Period Start</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Encounter__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Encounter</label>
+        <referenceTo>EhrEncounter__c</referenceTo>
+        <relationshipLabel>Medication Prescriptions</relationshipLabel>
+        <relationshipName>MedicationPrescriptions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IsRestricted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>IsRestricted</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IsVisibleOnPatientCard__c</fullName>
+        <deprecated>false</deprecated>
+        <description>IF Status = Completed AND (Dispense Validity Period End + Dispense Expected Supply Duration) &gt; TODAY return true else return false</description>
+        <externalId>false</externalId>
+        <formula>IF( AND( UPPER(StatusLabel__c) = &apos;COMPLETED&apos;, (DateValue(DispenseValidityPeriodEnd__c + DispenseExpectedSupplyDuration__c) &gt; TODAY())) , true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>IsVisibleOnPatientCard</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MedicationCodeLabel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Friendly name for medication code</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Friendly name for medication code</inlineHelpText>
+        <label>Medication Code Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MedicationCodeSystem__c</fullName>
+        <deprecated>false</deprecated>
+        <description>System for Code that identifies this medication</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>System for Code that identifies this medication</inlineHelpText>
+        <label>Medication Code System</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MedicationCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Code that identify this medication</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Code that identify this medication</inlineHelpText>
+        <label>Medication Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MedicationExpiration__c</fullName>
+        <deprecated>false</deprecated>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Medication Expiration</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>MedicationIsBrand__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>True if a brand</description>
+        <externalId>false</externalId>
+        <inlineHelpText>True if a brand</inlineHelpText>
+        <label>Medication Is Brand</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MedicationKindCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>product | package code</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>product | package code</inlineHelpText>
+        <label>Medication Kind Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MedicationKindLabel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>product | package friendly name</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>product | package friendly name</inlineHelpText>
+        <label>Medication Kind Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MedicationKindSystem__c</fullName>
+        <deprecated>false</deprecated>
+        <description>product | package code system</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>product | package code system</inlineHelpText>
+        <label>Medication Kind System</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MedicationLotNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Lot number for medication batch</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Lot number for medication batch</inlineHelpText>
+        <label>Medication Lot Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MedicationName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Common / Commercial name</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Common / Commercial name</inlineHelpText>
+        <label>Medication Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MedicationProductFormCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>powder | tablets | carton + code</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>powder | tablets | carton + code</inlineHelpText>
+        <label>Medication Product Form Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MedicationProductFormLabel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>powder | tablets | carton + friendly name</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>powder | tablets | carton + friendly name</inlineHelpText>
+        <label>Medication Product Form Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MedicationProductFormSystem__c</fullName>
+        <deprecated>false</deprecated>
+        <description>powder | tablets | carton + system</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>powder | tablets | carton + system</inlineHelpText>
+        <label>Medication Product Form System</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Patient__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Patient</label>
+        <referenceTo>EhrPatient__c</referenceTo>
+        <relationshipLabel>Medication Prescriptions</relationshipLabel>
+        <relationshipName>MedicationPrescriptions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PrescriberName__c</fullName>
+        <deprecated>false</deprecated>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Prescriber Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prescriber__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Prescriber</label>
+        <referenceTo>EhrPractitioner__c</referenceTo>
+        <relationshipLabel>Medication Prescriptions</relationshipLabel>
+        <relationshipName>MedicationPrescriptions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ReasonCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Reason or indication for writing the prescription</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Reason or indication for writing the prescription</inlineHelpText>
+        <label>Reason Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ReasonCondition__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Reason Condition</label>
+        <referenceTo>EhrCondition__c</referenceTo>
+        <relationshipLabel>Medication Prescriptions</relationshipLabel>
+        <relationshipName>MedicationPrescriptions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ReasonLabel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Friendly name for Reason code or indication for writing the prescription</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Friendly name for Reason code or indication for writing the prescription</inlineHelpText>
+        <label>Reason Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ReasonSystem__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Coding System for ReasonCode  or indication for writing the prescription</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Coding System ReasonCode or indication for writing the prescription</inlineHelpText>
+        <label>Reason System</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SourceSystemId__c</fullName>
+        <deprecated>false</deprecated>
+        <encrypted>false</encrypted>
+        <externalId>true</externalId>
+        <label>Source System ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SourceSystemModified__c</fullName>
+        <deprecated>false</deprecated>
+        <description>When last updated</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Source System Modified</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>SourceSystem__c</fullName>
+        <defaultValue>&quot;Health1-&quot;+$Organization.Id</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Identifies the system that created the record and owns update rights to it.</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the system that created the record and owns update rights to it. Defaults to Health1 for manually created records.</inlineHelpText>
+        <label>Source System</label>
+        <length>64</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>StatusCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Code for: active | on-hold | completed | entered-in-error | stopped | superceded | draft</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Code for: active | on-hold | completed | entered-in-error | stopped | superceded | draft</inlineHelpText>
+        <label>Status Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>StatusLabel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Friendly name for Status</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Friendly name for Status</inlineHelpText>
+        <label>Status Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>StatusSystem__c</fullName>
+        <deprecated>false</deprecated>
+        <description>System for Status Code</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>System for Status Code</inlineHelpText>
+        <label>Status System</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubstituteRestrictReasonCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Any restrictions on medication substitution?</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Substitute Restrict Reason Code</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>SubstituteRestrictReasonLabel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Any restrictions on medication substitution, generic / formulary + friendly name</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Any restrictions on medication substitution, generic / formulary + friendly name</inlineHelpText>
+        <label>Substitute Restrict Reason Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubstituteRestrictReasonSystem__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Any restrictions on medication substitution? coding system</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Any restrictions on medication substitution? coding system</inlineHelpText>
+        <label>Substitute Restrict Reason System</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubstituteRestrictTypeCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>generic | formulary + code</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>generic | formulary + code</inlineHelpText>
+        <label>Substitute Restrict Type Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubstituteRestrictTypeLabel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>generic | formulary + code friendly name</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>generic | formulary + code friendly name</inlineHelpText>
+        <label>Substitute Restrict Type Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubstituteRestrictTypeSystem__c</fullName>
+        <deprecated>false</deprecated>
+        <description>generic | formulary + coding system</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>generic | formulary + coding system</inlineHelpText>
+        <label>Substitute Restrict Type System</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>EHR Medication Prescription</label>
+    <nameField>
+        <displayFormat>Pres-{0}</displayFormat>
+        <label>EHR Medication Prescription ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>EHR Medication Prescriptions</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>Private</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

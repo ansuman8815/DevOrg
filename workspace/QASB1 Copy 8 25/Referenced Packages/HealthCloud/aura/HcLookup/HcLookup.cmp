@@ -1,0 +1,61 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description LookUp form element with SLDS styling
+ * @since 202
+-->
+<aura:component extends="ui:input" extensible="true">
+  <aura:attribute name="sldsLabel" type="String" />
+  <aura:attribute name="list" type="Map[]" />
+  <aura:attribute name="originalList" type="Map[]" />
+  <aura:attribute name="typedText" type="String" default="" />
+  <aura:attribute name="selectedItem" default="{ 'value': '', 'label': ''}" type="Map" />
+  <aura:attribute name="placeHolder" default="Search or Select" type="String" />
+  <aura:attribute name="inputID" type="String" default="0" />
+  <aura:attribute name="hasError" type="Boolean" default="false" />
+  <aura:attribute name="disabled" type="Boolean" default="false" />
+  <aura:attribute name="deleteBtnHit" type="Boolean" default="false" />
+  
+  <aura:handler name="change" value="{!v.selectedItem}" action="{!c.typeAheadAction}"/>
+  <aura:handler name="change" value="{!v.originalList}" action="{!c.checkValueAgainstOGList}"/>
+
+  <aura:registerEvent name="onLookUpChangeEvent" type="ui:change"/>
+
+  <div class="slds-lookup" data-select="multi" data-scope="single" data-typeahead="true">
+    <div class="{! 'slds-form-element' + (v.hasError ? ' slds-has-error' : '') }">
+      <label class="slds-form-element__label" for="{! 'lookup-' + v.inputID }">{!v.sldsLabel}</label>
+      <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+          <lightning:icon iconName="utility:search" size="x-small" class="slds-input__icon slds-icon-text-default health1-searchIcon-align"/>
+        <aura:if isTrue="{!v.typedText}">
+          <span onclick="{!c.deleteText}">
+              <lightning:icon iconName="utility:close" size="x-small" class="slds-m-right--large slds-input__icon slds-icon--x-small slds-icon-text-default"/>
+          </span>
+        </aura:if>
+
+        <input id="{! 'lookup-' + v.inputID }" disabled="{!v.disabled ? 'disabled':''}" class="slds-input" placeholder="{!v.placeHolder}" value="{!v.selectedItem.label}" data-value="{!v.selectedItem.value}" onblur="{!c.toggleLookupList}" onfocus="{!c.toggleLookupList}" onkeyup="{!c.typeAheadAction}" type="text" aria-autocomplete="list" role="combobox" aria-expanded="true" aria-activedescendant="" />
+      </div>
+      <div class="{! 'slds-form-element__help' + (v.hasError ? '' : ' slds-hide') }">{!v.placeHolder} &quot;{!v.typedText}&quot; not Found</div>
+    </div>
+    <div class="slds-lookup__menu" role="listbox">
+      <div class="{! 'slds-lookup__item searchInHelper' + (v.typedText ? '' : ' slds-hide' )}">
+        <button class="slds-button">
+           <lightning:icon iconName="utility:search" size="x-small" class="slds-input__icon slds-icon-text-default"/>
+          &quot;{!v.typedText}&quot; in {!v.placeHolder}
+        </button>
+      </div>
+      <div class="slds-lookup__item">
+          <ul class="slds-lookup__list" role="presentation">
+            <aura:iteration items="{!v.list}" var="item" indexVar="index">
+              <li class="slds-lookup__item">
+                <a onmousedown="{!c.valueChange}" role="option" data-value="{! (item.value ? item.value : item) }">
+                  {! (item.label ? item.label : item) }
+                </a>
+              </li>
+            </aura:iteration>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+</aura:component>

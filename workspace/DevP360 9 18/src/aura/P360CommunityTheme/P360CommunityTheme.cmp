@@ -1,0 +1,19 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Sample Custom Theme Layout">
+    <ltng:require scripts="{! $Resource.P360JqueryResources + '/jquery-2.2.4.min.js'}"/>
+    <ltng:require scripts="{!join(',', 
+    						$Resource.P360JqueryResources + '/jquery-2.2.4.min.js', 
+    						$Resource.svg4everybody + '/svg4everybody-master/dist/svg4everybody.js')}" afterScriptsLoaded="{!c.myAction}"/>
+    
+    <aura:attribute name="search" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="profileMenu" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="navBar" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="newHeader" type="Aura.Component[]" required="false"/>
+    <style type="text/css" media="print">
+	.mainContentArea {display:none;visibility:hidden;}
+	</style>
+    <div>
+        <div class="mainContentArea">
+            {!v.body}
+        </div>
+    </div>
+</aura:component>

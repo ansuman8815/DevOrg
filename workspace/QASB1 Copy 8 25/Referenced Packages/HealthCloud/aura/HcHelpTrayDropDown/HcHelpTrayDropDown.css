@@ -1,0 +1,81 @@
+/**
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description css file HcHelpTrayDropDown.
+ * @since 200
+ */
+
+.THIS.hc-helpTray {
+	padding-left: 10px;
+}
+.THIS .slds-grid{
+    display: inline-flex;
+}
+.THIS #menuPointer{
+    transform: rotate(45deg) ;
+    -webkit-transform: rotate(45deg) ;
+    -moz-transform: rotate(45deg) ;
+    -o-transform: rotate(45deg) ;
+    -ms-transform: rotate(45deg);
+    background-color: #fff;
+    border-left: 1px solid #d8dde6;
+    border-top: 1px solid #d8dde6;
+    height: 5px;
+    padding: 5px;
+    position: absolute;
+    right: 20px;
+    top: -6px;
+    width: 5px;
+}
+.THIS .slds-dropdown{
+    margin-right: -18px;
+    margin-top: 12px;
+}
+.THIS .HealthCare-slds-truncate {
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+.THIS .HealthCare-slds-button__icon {
+    background-color: rgb(84, 105, 141);
+    vertical-align: middle;
+}
+.THIS .HealthCare-slds-button__icon .slds-icon {
+    width: 1.75rem;
+    height: 1.25rem;
+    fill: #eaeaea;
+}
+.THIS .HealthCare-slds-button__icon:hover{
+    background-color: rgb(0, 112, 210);
+}
+.THIS .Healthcare-nowrap{
+	width:30px;white-space: nowrap;
+}
+.THIS .Healthcare_helpPadding {
+	padding: 0.5rem 0.75rem;
+}
+.THIS .HealthCare-HelpTray-button-icon .slds-icon {
+	width: 1rem;
+	height: 2rem;
+	fill: #54698d;
+}
+.THIS .slds-button__icon .slds-icon {
+    width: .875rem;
+    height: .875rem;
+    fill: currentColor;
+}
+.THIS .HealthCare-minWidth{
+    min-width: 200px;
+    z-index: 9999;
+}
+.THIS .slds-dropdown{
+    overflow:visible!important;
+    margin-top:8px!important;
+    padding-bottom:4px!important;
+}
+.THIS .slds-dropdown__item{
+    margin-left:0px!important;
+}

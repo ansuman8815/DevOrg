@@ -1,0 +1,44 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcFilterCriteriaCmp component,  holds all the components related to HcFilterCriteria
+ * @since 196
+-->
+<aura:component extends="HealthCloudGA:HcBaseComponent" implements="force:appHostable" controller='HealthCloudGA.HcFilterCriteriaCmpController'>
+    <aura:attribute name="selectedTab" type="String" default="tab1" />
+    <aura:attribute name="filterId" type="String" default="" />
+    <aura:attribute name="filterString" type="String" default=""/>
+    <aura:attribute name="nextButtonLabel" type="String" default="" />
+
+    <div id="health1-filterCriteriaCmp_heightFix">
+        <div class="slds-tabs slds-tabs--default health1-tab-unclickable" role="tablist">
+        <ul class="slds-tabs--default__nav tabs__nav health1-filtercriteria-tab" role="presentation">
+            <li class="{! 'slds-tabs__item slds-text-heading--label health1-tab-unclickable' + ( (v.selectedTab == 'tab1') ? ' slds-active' : '') }" aura:id="tab-one">
+                <a href="#" id="one" class="health1-tab-unclickable" role="tab" aria-controls="one-content" aria-selected="true">{!'1. ' + $Label.healthcloudga.Field_Label_Add_Filters}</a>
+            </li>
+            <li class="{! 'slds-tabs__item slds-text-heading--label health1-tab-unclickable' + ( (v.selectedTab == 'tab2') ? ' slds-active' : '') }" aura:id="tab-two" role="presentation">
+                <a href="#" id="two" class="health1-tab-unclickable" role="tab" aria-controls="two-content" aria-selected="false">{!'2. ' + $Label.healthcloudga.Field_Label_List_View}</a>
+            </li>
+            <li class="{! 'slds-tabs__item slds-text-heading--label health1-tab-unclickable' + ( (v.selectedTab == 'tab3') ? ' slds-active' : '') }" aura:id="tab-three" role="presentation">
+                <a href="#" id="three" class="health1-tab-unclickable" role="tab" aria-controls="three-content" aria-selected="false">{!'3. ' + $Label.healthcloudga.Field_Label_Name_List}</a>
+            </li>
+        </ul>
+
+        <div id="one-content" class="{! 'slds-tabs__content ' + ( (v.selectedTab == 'tab1') ? ' slds-show' : ' slds-hide' ) }" aura:id="tab-one-content" role="tabpanel" aria-labelledby="one">
+            <HealthCloudGA:HcFilterConditionsCmp aura:id="FilterConditionSelector" filterId="{!v.filterId}" filterString="{!v.filterString}"/>
+        </div>
+
+
+        <div id="two-content" class="{! 'slds-tabs__content ' + ( (v.selectedTab == 'tab2') ? ' slds-show' : ' slds-hide' ) }" aura:id="tab-two-content" role="tabpanel" aria-labelledby="two">
+            <HealthCloudGA:HcFilterColumnSelectorCmp aura:id="FilterColumnSelector" filterId="{!v.filterId}" />
+        </div>
+
+
+        <div id="three-content" class="{! 'slds-tabs__content ' + ( (v.selectedTab == 'tab3') ? ' slds-show' : ' slds-hide' ) }" aura:id="tab-three-content" role="tabpanel" aria-labelledby="three">
+            <HealthCloudGA:HcFilterCriteriaSaveCmp aura:id="FilterSave" filterIdString="{!v.filterId}" />
+        </div>
+      </div>
+    </div>
+
+</aura:component>

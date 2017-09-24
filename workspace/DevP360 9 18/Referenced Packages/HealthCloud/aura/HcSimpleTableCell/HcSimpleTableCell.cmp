@@ -1,0 +1,32 @@
+<aura:component >
+    <aura:attribute name='id' type='String' />
+    <aura:attribute name='tableId' type='String' />
+    <aura:attribute name='class' type='String' />
+
+	<aura:attribute name="itemData" type="Object" />
+	<aura:attribute name="cellMetadata" type="Object" />
+
+	<aura:attribute name="userDateFormat" type="String" default="" />
+    <aura:attribute name="userDateTimeFormat" type="String" default="" />
+
+    <aura:attribute name="isSelectionCell" type="Boolean" default="false" />
+    <aura:attribute name="selectionType" type="String" />
+    <aura:registerEvent name="selectionEvent" type="HealthCloudGA:HcSimpleTableEvent" />
+    
+    <aura:attribute name="isLink" type="Boolean" default="false" />
+    <aura:attribute name="linkFunction" type="Object" />
+
+    <aura:registerEvent name="pointerEvent" type="HealthCloudGA:HcSimpleTableEvent" />    
+    
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+
+    <aura:dependency resource="ui:outputText" />
+    <aura:dependency resource="ui:outputDateTime" />
+    <aura:dependency resource="ui:outputPhone" />
+
+	<td scope="row" class="{! v.cellMetadata.name + (v.isSelectionCell ? ' ast-cell__selection ' : ' ') + v.class}" role="gridcell" id='{!v.id}' onclick="{!c.handleClick}">
+        <div class="{! (v.isSelectionCell ? '' : 'slds-truncate ') + (v.isLink ? 'slds-text-link--reset slds-text-link' : '') }" >   
+        	{!v.body}
+        </div>            
+    </td>   
+</aura:component>

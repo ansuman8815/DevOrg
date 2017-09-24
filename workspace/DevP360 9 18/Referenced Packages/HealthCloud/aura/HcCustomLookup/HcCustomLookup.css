@@ -1,0 +1,9 @@
+.THIS .health1-customLookUp-Input {
+    color: #051d30;   
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.THIS .health1-customLookUp-errorText{
+	color: red;
+}

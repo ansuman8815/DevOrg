@@ -1,0 +1,54 @@
+<!--
+ * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCommunityCareTeamListItem - Used to render Team Members on the community Care Team.
+ * @since 208
+-->
+
+<aura:component description="A template for each item to be displayed in the care team list">
+  <aura:attribute name="record" type="Object" description="Care team user/contact data" />
+  <aura:attribute name="showLabels" type="Boolean" default="true"/>
+  <aura:attribute name="maxNumberOfFields" type="Integer" default="5"/>
+  <aura:attribute name="renderedIndex" type="Integer" default="0"/>
+  <aura:attribute name="showMore" type="BOOLEAN" default="false"/>
+  <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+
+  <aura:if isTrue="{!!v.record.isPatient}">
+     <div class="slds-p-around--medium slds-tile slds-media">
+        <div class="slds-avatar slds-avatar--circle slds-avatar--large slds-media__figure">
+          <aura:if isTrue="{!v.record.isUser}">
+            <img class="slds-size--1-of-1" src="{!v.record.recordData.FullPhotoUrl}" />
+            <aura:set attribute="else">
+                <img class="slds-size--1-of-1" src="{!v.record.recordData.PhotoUrl}" />
+            </aura:set>
+          </aura:if>
+        </div>
+        <div class="slds-media__body">
+            <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                <div>
+                    <h2 class="slds-truncate HcTitleStyle">{!v.record.recordData.Name}</h2>
+                      <aura:if isTrue="{! !empty(v.record.role)}">
+	                    <div class="slds-tile__detail slds-text-body--small">
+                          <aura:if isTrue="{!v.showLabels}">
+	                      	<ui:outputText class="slds-m-right_small" value="{!$Label.healthcloudga.MsgRole +':'}" />
+                          </aura:if>
+	                      <ui:outputText value="{!v.record.role}"/>
+	                    </div>
+                      </aura:if>
+                    <div class="slds-tile__detail slds-text-body--small">
+                      <ul class="slds-list--vertical slds-has-dividers">
+                          <aura:iteration items="{!v.record.isUser ? v.record.userFields : v.record.contactFields}" var="field">
+                            <HealthCloudGA:HcCommunityOutputField record="{!v.record}" field="{!field}" showLabels="{!v.showLabels}" maxNumberOfFields="{!v.maxNumberOfFields}" fieldIndex="{!v.renderedIndex}"/>
+                          </aura:iteration>
+                      </ul>
+                      <aura:if isTrue="{!v.showMore}">
+                        <a href="javascript:void(0);" onclick="{!c.showMore}"><lightning:icon iconName="utility:threedots" size="xx-small" class="slds-m-right--small" /></a>
+                      </aura:if>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </aura:if>
+</aura:component>

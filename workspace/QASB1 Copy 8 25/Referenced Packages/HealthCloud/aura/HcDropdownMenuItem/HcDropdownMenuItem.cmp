@@ -1,0 +1,12 @@
+<aura:component >
+	<aura:attribute name="item" type="Object" />
+	<aura:attribute name="isSelected" type="Boolean" default="false"/>
+	<aura:attribute name="optionClassName" type="String" default="slds-dropdown__item" />
+	<aura:registerevent name="menuSelect" type="ui:menuSelect" description="The event that is fired when the menu item is selected."/>
+
+    <li class="{!v.optionClassName + (v.isSelected ? ' slds-is-selected' : '')}" role="menuitem option" tabindex="0" onclick="{!c.onOptionClicked}">
+        <a href="javascript:void(0);" tabindex="-1">
+		    <span>{!v.item.Name}</span>
+        </a>
+    </li>
+</aura:component>

@@ -1,0 +1,50 @@
+.THIS .HcPaginatorText {
+    color: #5f749a;
+    padding-right: 20px;
+    font-size: 12px;
+}
+
+.THIS .HcJumpToBoxText {
+    /*padding: 8px 15px 10px 0;*/
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 400px) {
+    .THIS .HcNavigator {
+        display: none;
+    }
+    .THIS .HcJumpToBoxText {
+      color: #fff;
+    }
+
+    .THIS > div + div {
+      margin-top: 1em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+  /* make sure things stack at smaller viewport widths */
+  .THIS.slds-grid {
+    display: block;
+  }
+
+  .THIS > div + div {
+    margin-top: 1em;
+  }
+}
+
+.THIS .HcJumpToBoxBlock {
+  margin-top: -0.5em;
+}
+
+.THIS .HcJumpToBox {
+  min-width: 50px;
+}
+
+.THIS .HcButtonIconMore{
+  padding-top: 0px;
+  padding-right: 0.5rem;
+  padding-bottom: 0px;
+  padding-left: 0.5rem;
+  vertical-align: middle;
+}

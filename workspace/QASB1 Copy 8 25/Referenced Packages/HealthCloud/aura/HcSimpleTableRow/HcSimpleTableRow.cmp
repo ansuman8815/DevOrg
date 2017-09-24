@@ -1,0 +1,20 @@
+<aura:component >
+	<aura:attribute name='id' type='String' />
+	<aura:attribute name='tableId' type='String' />
+	<aura:attribute name='item' type='Object' />
+    <aura:attribute name="headerColumns"  type="List" description="Components used as the header elements of the table" />
+    <aura:attribute name="cells" type="Aura.Component[]" description="Cells" />
+
+    <aura:attribute name="userDateFormat" type="String" />
+    <aura:attribute name="userDateTimeFormat" type="String" />
+
+    <aura:registerEvent name="tableErrorEvent" type="HealthCloudGA:HcSimpleTableEvent" />
+    <aura:attribute name='class' type='String' default='' />
+    <aura:attribute name='cellClass' type='String' default='' />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <tr id='{!v.id}' class="{!'slds-hint-parent ' + v.class}">
+    	{!v.cells}
+    </tr>  
+</aura:component>

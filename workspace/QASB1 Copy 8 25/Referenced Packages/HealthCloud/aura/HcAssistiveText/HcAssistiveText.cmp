@@ -1,0 +1,8 @@
+<aura:component >
+	<aura:attribute type="String" name="text" default="" />		 
+ 	<aura:if isTrue="{! !empty(v.text)}">		
+         <span title="{!v.text}">
+             <lightning:icon iconName="utility:info" size="x-small"/>		
+         </span>		
+    </aura:if>
+</aura:component>

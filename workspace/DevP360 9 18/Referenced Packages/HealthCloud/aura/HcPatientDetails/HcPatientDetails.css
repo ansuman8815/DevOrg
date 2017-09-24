@@ -1,0 +1,18 @@
+.THIS {
+    color: #384a58;
+    height:100%;
+}
+
+.THIS .HcCaption{
+    color: #5f749a;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.THIS .cDetail{
+    color: #4b5c7b;
+    font-size: 14px;
+    font-weight: 400;
+}

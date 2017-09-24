@@ -1,0 +1,7 @@
+<aura:component >
+	<aura:attribute name="recordTypes" type="List"/>
+    <aura:attribute name="selectedRecordType" type="Object"/>
+    <lightning:tab id="selectRecordTypeTab" label="{!$Label.healthcloudga.Header_L2P_Wizard_Select_Rec_Type}">
+        <HealthCloudGA:HcLeadCarePlanRecTypePicker aura:id='selectRecordType' recordTypes="{!v.recordTypes}" selectedRecordType="{!v.selectedRecordType}" />
+    </lightning:tab>
+</aura:component>

@@ -1,0 +1,30 @@
+.THIS .slds-checkbox--faux:before {
+    display: none;
+}
+.THIS .hcMultiDropDownItem {
+    font-size: 14px;
+	font-weight: 400;
+    color: #495f81;
+}
+.THIS .hcMultiDropDownCategory{
+    color: #436078;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.THIS .selectALLEventstrigger{
+	font-size: 14px;
+}
+
+/* override to correct common.css */
+.THIS .slds-dropdown__item {
+  margin-left: 0;
+}
+
+.THIS .hcClickThrough {
+    pointer-events: none;
+}
+
+.THIS ul.slds-has-divider:last-child{
+    display: none;
+}

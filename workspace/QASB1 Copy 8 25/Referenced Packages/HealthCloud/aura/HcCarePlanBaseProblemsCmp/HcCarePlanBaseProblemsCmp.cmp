@@ -1,0 +1,30 @@
+<!-- * Copyright © 2015 salesforce.com, inc. All rights reserved.
+ * @copyright This document contains proprietary and confidential information and shall not be reproduced,
+ * transferred, or disclosed to others, without the prior written consent of Salesforce.
+ * @description HcCarePlanBaseProblemsCmp
+ * @since 206
+-->
+<aura:component controller="HealthCloudGA.HcCarePlanController">
+    <aura:attribute name="problems" type="List" default="[]"/>
+    <aura:attribute name="problemFetchDone" type="Boolean" default="false"/>
+    
+    <aura:attribute name="carePlanId" type="String" />
+    <aura:attribute name="patientId" type="String" />
+    <aura:attribute name="baseIndentLevel" type="Integer" default="1" />
+    
+    <div id='problems' class="hc-tree slds-m-top--medium">
+        <ul>
+            <aura:iteration items="{!v.problems}" var="problem">
+                <li class='hc-carePlanProblem'> <!-- required for proper updating/re-rendering -->
+                    <div aria-level="{# v.baseIndentLevel }">
+                        <HealthCloudGA:HcCarePlanProblemCmp carePlanId="{!v.carePlanId}" problem="{!problem}" baseIndentLevel="{# v.baseIndentLevel }" showSpinner="{!v.showSpinner}"/>
+                    </div>
+                </li>
+            </aura:iteration>
+        </ul>
+    </div>
+    <aura:if isTrue="{! and(v.problemFetchDone, v.problems.length lt 1)}">
+        <ui:outputText class="hc-noItemsMessage slds-align--absolute-center" value="{!$Label.healthcloudga.Text_No_Problems}"/>
+    </aura:if>
+    
+</aura:component>

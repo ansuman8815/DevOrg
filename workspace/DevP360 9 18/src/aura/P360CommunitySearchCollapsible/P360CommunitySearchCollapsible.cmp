@@ -1,0 +1,52 @@
+<aura:component controller="PatientSearchController">
+    <ltng:require scripts="{!join(',', 
+    	$Resource.P360JqueryResources + '/jquery-2.2.4.min.js', 
+    	$Resource.P360JqueryResources + '/jquery-ui.min.js')}" styles="{!$Resource.P360JqueryResources + '/jquery-ui.min.css'}" 
+    	afterScriptsLoaded="{!c.initDatePicker}" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="FName" type="string" default=""/>
+    <aura:attribute name="LName" type="string" default=""/>
+    <aura:attribute name="DOB" type="Date" default=""/>
+    <aura:attribute name="Gender" type="String"/>
+    <aura:attribute name="GenderOptions" type="String[]" default="Male,Female,Undetermined"/>
+    <aura:attribute name="CIN" type="String" default=""/>
+   
+    <aura:attribute name="isHeader" type="String" default="false"/>
+    <aura:attribute name="collpaseText" type="String" default="Expand [ + ]"/>
+    <ui:spinner aura:id="spinner" class="hideEl"/>
+    <div class="Clear"/>
+    
+    <div class="PatientSearchCollapse" id="ExpandMenu" aura:id="PatientSearchCollapse"  onkeyup="{!c.captureEnterCode}">
+        <div class="CollapseHeader">Patient search
+            <span class="TogggleText" onclick="{!c.ToggleCollapse}">{!v.collpaseText} </span>
+        </div>
+        <div class="showcollapse hide " id="collapseMenu" aura:id="containerCollapsable">
+            <div class="FirstRow">
+                <div class="Labels2Column FirstName">
+                    <ui:inputText aura:id="afirstName" value="{!v.FName}" maxlength="50" class="Inputs" placeholder="First Name"  />
+                </div>
+                <div class="Labels2Column LastName">
+                    <ui:inputText aura:id="alastName" value="{!v.LName}" maxlength="50" class="Inputs" placeholder="Last Name" />
+                </div> 
+                <div class="Labels2Column">
+                    <ui:inputSelect aura:id="agender" class="slds-select Inputs2Column" change="{!c.onSelectChange}">
+                        <ui:inputSelectOption label="Gender"/>
+                        <aura:iteration items="{!v.GenderOptions}" var="GenderVal">
+                            <ui:inputSelectOption text="{!GenderVal}" label="{!GenderVal}"/>
+                        </aura:iteration>
+                    </ui:inputSelect>
+                </div>
+                <div class="Labels2Column" style="position:relative;">
+                    <input type="text" aura:id="adateofbirth" class="Inputs2Column" id="DOBId" placeholder="DOB (MM/DD/YYYY)" value="{!v.DOB}" />
+    				<lightning:buttonIcon iconName="utility:event" variant="bare" onclick="{! c.handleDatePickerClick}" alternativeText="Date-picker" />                
+				</div>
+            </div>
+            <div class="SecondRow" style="clear:both;">
+                <ui:inputText aura:id="acin" value="{!v.CIN}" maxlength="15" class="Inputs InputCIN" placeholder="Medicaid ID (CIN)" />        
+                <ui:button label="Search" class="ButtonSearch" labelClass="ButtonSearchLabel"  press="{!c.searchClick}"/>
+                <ui:button label="Clear" class="ButtonCancel" labelClass="ButtonCancelLabel" press="{!c.clearOnClick}"/>
+            </div>
+        </div> 
+    </div>
+</aura:component>

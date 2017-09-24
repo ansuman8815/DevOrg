@@ -1,0 +1,7 @@
+<aura:component controller="PatientSummaryController">
+    <aura:attribute name="result" type="String"/>
+    <aura:attribute name="dob" type="String"/>
+    <aura:attribute name="patientid" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <span>{!v.result}&nbsp;({!v.dob})</span> 
+</aura:component>
